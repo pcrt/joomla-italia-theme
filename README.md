@@ -105,12 +105,6 @@ Vuoi segnalare un bug o fare una richiesta?
 Prima di tutto assicurati che sia un problema relativo al tema Joomla e non a plugin che hai installato nel tuo sito o impostazioni del CMS, se lo ritieni necessario, apri la issue in questo repository.
 
 ### **Documentazione**
-In questo momento stiamo lavorando per fornirti la documentazione del tema. Presto rilasceremo in questo file tutte le istruzioni necessarie per la configurazione di Joomla Italia Theme.
-
-## Configurazione del template
-Il template Joomla Italia Theme ha al suo interno diverse impostazioni accessibili direttamente dal pannello di amministrazione di Joomla. Da qui è possibile gestire gli elementi presenti nella top bar, nell'header il carosello in home page, il footer. Per poter accedere a queste impostazioni sarà necessario dal pannello di controllo Sistema > Stili template > Joomla-Italia-Theme.
-
-
 [**Vai alla Documentazione**](doc/doc.md)
 ---
 
