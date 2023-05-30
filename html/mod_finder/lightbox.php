@@ -1,0 +1,121 @@
+<?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  mod_finder
+ * @author  	web-eau.net
+ * @copyright   (C) 2011 Open Source Matters, Inc. <https://www.joomla.org>
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+defined('_JEXEC') or die;
+
+use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\Router\Route;
+use Joomla\Module\Finder\Site\Helper\FinderHelper;
+
+
+$lang = $app->getLanguage();
+$lang->load('com_finder', JPATH_SITE);
+
+echo '<div class="it-search-wrapper mod-finder_nolightbox">';
+
+
+$input = '<input type="text" data-element="search-modal-input" name="q" id="mod-finder-searchword' . $module->id . '" class="p-3 shadow-4 js-finder-search-query form-control" value="' . htmlspecialchars($app->input->get('q', '', 'string'), ENT_COMPAT, 'UTF-8') . '"'
+	. ' placeholder="Cerca informazioni, servizi, notizie o documenti" aria-label="Search" />';
+
+$showLabel  = $params->get('show_label', 1);
+$labelClass = (!$showLabel ? 'visually-hidden ' : '') . 'finder';
+$label      = '<label for="mod-finder-searchword' . $module->id . '" class="text-center pt-4 d-sm-block ' . $labelClass . '">' . $params->get('alt_label', Text::_('JSEARCH_FILTER_SUBMIT')) . '</label>';
+
+$output = '';
+
+if ($params->get('show_button', 0))
+{
+
+	$output .= '<div class="mod-finder__search input-group ">';
+	$output .= $input;
+	$output .= '<div class="search_button">
+                    <button class="btn btn-nobg p-0" data-element="search-submit" type="submit" aria-label="'. Text::_('JSEARCH_FILTER_SUBMIT').'">
+                        <svg class="icon">
+                            <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+                        </svg>
+                    </button>
+                </div>';
+	$output .= '</div>';
+}
+else
+{
+	$output .= $label;
+	$output .= $input;
+}
+
+Text::script('MOD_FINDER_SEARCH_VALUE', true);
+
+/** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
+$wa = $app->getDocument()->getWebAssetManager();
+$wa->getRegistry()->addExtensionRegistryFile('com_finder');
+
+/*
+ * This segment of code sets up the autocompleter.
+ */
+if ($params->get('show_autosuggest', 1))
+{
+	$wa->usePreset('awesomplete');
+	$app->getDocument()->addScriptOptions('finder-search', array('url' => Route::_('index.php?option=com_finder&task=suggestions.suggest&format=json&tmpl=component')));
+}
+
+$wa->useScript('com_finder.finder');
+
+?>
+
+<span class="d-none d-md-block fw-semibold">Cerca</span>
+<button class="search-link rounded-icon" aria-label="Cerca nel sito" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchmodal" data-element="search-modal-button">
+	<svg class="icon icon-sm">
+		<use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+	</svg>
+</button>
+</div>
+
+
+
+
+<!--- modale -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="searchmodal" aria-labelledby="searchmodalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="container">
+				<div class="modal-header">
+					<p class="modal-title no_toc" id="searchmodal"><?php echo $label?></p>
+					<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
+						<svg class="icon">
+							<use href="/templates/joomla-italia-theme/svg/sprites.svg#it-close"></use>
+						</svg>
+					</button>
+				</div>
+				<div class="modal-body p-0">
+					<form class="mx-auto form-control-lg mod-finder js-finder-searchform form-search w-100" action="<?php echo Route::_($route); ?>" method="get" role="search">
+
+					<?php echo $output; ?>
+
+					<?php $show_advanced = $params->get('show_advanced', 0); ?>
+					<?php if ($show_advanced == 2) : ?>
+						<br>
+						<a href="<?php echo Route::_($route); ?>" class="mod-finder__advanced-link"><?php echo Text::_('COM_FINDER_ADVANCED_SEARCH'); ?></a>
+					<?php elseif ($show_advanced == 1) : ?>
+						<div class="mod-finder__advanced js-finder-advanced">
+							<?php echo HTMLHelper::_('filter.select', $query, $params); ?>
+						</div>
+					<?php endif; ?>
+					<?php echo FinderHelper::getGetFields($route, (int) $params->get('set_itemid', 0)); ?>
+					</form>
+				</div>
+				<div class="mt-4">	  
+					<?php echo JHtml::_('content.prepare', '{loadposition menucerca}'); ?>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
+</div>

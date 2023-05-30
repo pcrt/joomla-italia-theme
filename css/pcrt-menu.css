@@ -1,0 +1,199 @@
+@media (min-width: 992px){
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link, .navbar .navbar-collapsable .navbar-nav li a.list-item {
+        font-size: .85em;
+    }
+
+    .navbar .dropdown-menu.show {
+        top: calc(100% - 6px);
+        min-width: 320px;
+        border-radius: 4px!important;
+    }
+
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link{
+        padding: 13px 18px;
+        font-weight: 600;
+        font-size: 1.03rem;
+    }
+
+    .navbar .navbar-collapsable .navbar-nav li:first-child a.nav-link{
+        padding-left: 0;
+    }
+    .navbar .dropdown-menu .link-list-wrapper ul li a span, .navbar .dropdown-menu .link-list-wrapper ul li a i {
+        color: #17324D;
+    }
+    .navbar .navbar-collapsable .menu-wrapper .nav-item.megamenu .dropdown-menu .col-12 .link-list-wrapper ul.link-list li a,
+    .navbar .navbar-collapsable .menu-wrapper .nav-item.megamenu .dropdown-menu .col-12 .link-list-wrapper ul.link-list li ul.link-list li.nav-item.deeper a,
+    .navbar .navbar-collapsable .menu-wrapper .nav-item .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a {
+        border-bottom: 1px solid #ddd;
+        padding: 1em 0;
+        font-weight: 600;
+    }
+
+    .navbar .navbar-collapsable .navbar-nav li a.list-item {
+        padding: 12px 24px;
+        line-height: 100%;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a{
+        padding: 12px 24px;
+        padding-top: calc(12px - .5rem);
+        line-height: 100%;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item:first-child .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span{
+        color: #d1344c;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item:nth-child(2) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span{
+        color: #b21dd0;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item:nth-child(3) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span{
+        color: #0e865c;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item:nth-child(4) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span{
+        color: #0d00ff;
+    }
+
+    .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .it-brand-tagline{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:991px){
+    .link-list-wrapper ul li a, .navbar .dropdown-menu .link-list-wrapper li .link-list-wrapper{
+        padding: 6px 0;
+        
+    }
+
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link, 
+    .link-list-wrapper ul li a, 
+    .navbar .dropdown-menu .link-list-wrapper li .link-list-wrapper{
+        font-size: 1.2rem;
+    }
+
+    .navbar .dropdown-menu .link-list-wrapper li .link-list-wrapper, .navbar .dropdown-menu .link-list-wrapper{
+        margin-bottom: 0;
+    }
+
+    .navbar .dropdown-menu .link-list-wrapper ul li a span{
+        color: #455b71;   
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper .nav-item .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a{
+        font-weight: 600;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .dropdown-item{
+        font-weight: 300;
+    }
+
+    .navbar .menu-wrapper li.nav-item {
+        border-bottom: 1px solid #e5e5e5;
+        margin: 0 24px;
+    }
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar .dropdown-menu .link-list-wrapper ul li, .navbar .dropdown-menu .link-list-wrapper ul li ul li{
+        border-bottom: 1px solid #e5e5e5;
+    }
+    .navbar .dropdown-menu .link-list-wrapper ul li:last-child, .navbar .dropdown-menu .link-list-wrapper ul li ul li:last-child{
+        border:0;
+    }
+
+    .navbar .navbar-collapsable .menu-wrapper{
+        max-width: 480px;
+    }
+
+    .navbar .close-div .close-menu{
+        background: unset;
+        box-shadow: unset;
+    }
+
+    .navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg{
+        right: 0;
+        position: absolute;
+    }
+
+    .navbar .dropdown-menu .link-list-wrapper{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .navbar .menu-wrapper li.nav-item li, .navbar .menu-wrapper li.nav-item li li {
+        margin: 0;
+    }
+}
+
+@media(min-width:550px){
+    .navbar .close-div {
+        left: 500px;
+        right: auto;
+    }
+}
+.navbar .navbar-collapsable .navbar-nav li.nav-item .link-list-wrapper ul.link-list li.nav-item, 
+.navbar .navbar-collapsable .navbar-nav li.nav-item ul li.nav-item ul li.nav-item,
+.navbar .navbar-collapsable .navbar-nav li.nav-item .link-list-wrapper ul.link-list li.nav-item .nav-link,
+.navbar .navbar-collapsable .navbar-nav li.nav-item ul li.nav-item ul li.nav-item ul.link-list li.nav-item .nav-link{
+    display: block;
+}
+
+.custom-navbar-toggler svg {
+    fill: #455b71!important;
+}
+
+.navbar .navbar-collapsable .navbar-nav li.nav-item a.nav-link{
+    color: #455b71;
+}
+
+.navbar .navbar-collapsable .navbar-nav li a.nav-link.dropdown-toggle svg {
+    fill: #455b71;
+    margin-top: 3px;
+}
+
+.navbar .navbar-collapsable .navbar-nav li:first-child a.nav-link,
+.navbar .navbar-collapsable .navbar-nav li:first-child > li.nav-item.deeper a{
+    color: #d1344c;
+}
+
+.navbar .navbar-collapsable .navbar-nav li:first-child a.nav-link.dropdown-toggle svg {
+    fill: #d1344c;
+}
+
+.navbar .navbar-collapsable .navbar-nav li.nav-item:nth-child(2) a.nav-link{
+    color: #b21dd0;
+}
+
+.navbar .navbar-collapsable .navbar-nav li:nth-child(2) a.nav-link.dropdown-toggle svg {
+    fill: #b21dd0;
+}
+
+.navbar .navbar-collapsable .navbar-nav li.nav-item:nth-child(3) a.nav-link{
+    color: #0e865c;
+}
+
+.navbar .navbar-collapsable .navbar-nav li:nth-child(3) a.nav-link.dropdown-toggle svg {
+    fill: #0e865c;
+}
+
+.navbar .navbar-collapsable .navbar-nav li.nav-item:nth-child(4) a.nav-link{
+    color: #0d00ff;
+}
+
+.navbar .navbar-collapsable .navbar-nav li:nth-child(4) a.nav-link.dropdown-toggle svg {
+    fill: #0d00ff;
+}
+
+.navbar .navbar-collapsable .navbar-nav.navbar-secondary li:first-child a.nav-link, 
+.navbar .navbar-collapsable .navbar-nav.navbar-secondary li a.nav-link{
+    color: #455b71!important;
+}
+
+.navbar .navbar-collapsable .navbar-nav.navbar-secondary li a.nav-link.dropdown-toggle svg {
+    fill: #455b71;
+}

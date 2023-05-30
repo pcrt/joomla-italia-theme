@@ -1,0 +1,21 @@
+/.ddev
+/configuration.php
+./administrator/cache
+./administrator/log
+/administrator/logs/*
+/administrator/cache/*
+
+# Preserve folder
+!/administrator/logs/.gitkeep
+!/administrator/cache/.gitkeep
+node_modules
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
