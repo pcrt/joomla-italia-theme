@@ -9,7 +9,7 @@ Nel tema vengono integrate le componenti di [**Bootstrap Italia**](https://itali
 
 Joomla Italia Theme è sviluppato per [**Joomla 4**](https://www.joomla.org/) (CMS open-source), su framework [**Bootstrap 5**](https://getbootstrap.com/). 
 
-Joomla Italia Theme propone una **soluzione open-source e gratuita**, ideale per istituti scolastici che hanno scelto di utilizzare Joomla per il proprio sito intenet.
+Joomla Italia Theme propone una **soluzione open-source e gratuita**, ideale per istituti scolastici che hanno scelto di utilizzare Joomla per il proprio sito internet.
 
 ## **Indice**
 
@@ -49,6 +49,7 @@ Scopri i canali della community dove confrontarti sulle risorse del modello:
 ➔	**Chi gestisce il sito?**
 
 L’uso del tema non impatta le modalità con cui viene abitualmente gestito il sito scolastico e rimane una responsabilità degli istituti. Molti istituti fanno affidamento su fornitori esterni per hosting e manutenzione. Se vuoi puoi contattare lo sviluppatore del tema Protocolli Creativi, che può offire consulenza a pagamento per la configurazione e la manutenzione del sito.
+
 ➔	**Perché esiste un tema anche per Joomla?**
 
 Joomla è il secondo CMS più usato dalle scuole. Se il tuo istituto utilizza Joomla questo Joomla Italia Theme è il template giusto.
