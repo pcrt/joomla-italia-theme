@@ -135,8 +135,9 @@ $items2 = $db2->loadObjectList();
 ?>
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-servizi card-bg card-icon rounded h-100" <?php echo $dtelm; ?>>
-        <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->catid, $items2[0]->language)); ?>/<?php echo $items2[0]->alias; ?>" title="<?php echo $items2[0]->title; ?>">
-            <div class="card-body">
+        <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->slug, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
+            
+        <div class="card-body">
                 <svg class="icon">
                     <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#<?php echo $icostruttura; ?>"></use>
                 </svg>
