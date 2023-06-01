@@ -15,6 +15,7 @@ Per ogni articolo:
 - Immagini nella tab Immagini e link
 - Nella tab “Servizi” inserire il testo nei custom field
 
-
+# Nota
+Per l'articolo Licenza dei contenuti è necessario cliccare sulla Tab "Opzioni" e su layout selezionare "note-legali". 
 
 
