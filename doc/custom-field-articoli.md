@@ -8,8 +8,8 @@ La prima operazione da fare è suddividere i custom field per gruppi, in base al
 
 ### Gruppo campi Luoghi
 
-Creare un nuovo gruppo di campi denominato “Luoghi”. 
-Quindi andare in Contenuto -> Gruppi di campi -> Nuovo -> compilare il campo titolo “Luoghi”. 
+Creare un nuovo gruppo di campi di tipo “Articolo” denominato “Luoghi”.
+Quindi andare in Contenuto -> Gruppi di campi -> Filtrare la voce in alto a sinistra in Articolo -> Nuovo -> compilare il campo titolo “Luoghi”. 
 
 ### Descrizione
 
