@@ -234,7 +234,7 @@ Voce di menu: Le circolari
 
 Tipo di voce di menu: Alias voce di menu 
 
-Voce di menu: I luoghi della scuola
+Voce di menu: Organizzazione
 
 ![menu-cerca-contatti](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/menu-cerca-contatti.png)
 
