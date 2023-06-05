@@ -38,33 +38,6 @@ Nella tab Opzioni impostare:
 - Layout: generale 
 - Mostra se di sola lettura: eredita
 
-### Dove si trova
-
-Creare un nuovo campo e chiamarlo esattamente così. 
-
-All’interno della tab Generale impostare i seguenti parametri: 
-
-- Tipo: Sottocampo ( subform ) 
-- Nome: dove-si-trova 
-- Etichetta: Dove si trova 
-- Obbligatorio: No 
-- Ripetibile: No 
-- Campi: Nome Sede (text) Indirizzo (text) Orari (editor) Gps (text) Email (text) PEC (text) Telefono (text) 
-- Stato: pubblicato 
-- Gruppo di campi: luoghi 
-- Categoria: I luoghi
-
-![custom-field-dove-si-trova](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/custom-field-dove-si-trova.png)
-
-Nella tab Opzioni impostare: 
-
-- Modificabile in: entrambi 
-- Layout: predefinito 
-- Mostra etichetta: mostra 
-- Visualizza il campo: dopo il contenuto del display 
-- Layout: h4-titolosubform 
-- Mostra se di sola lettura: eredita
-
 ### Servizi presenti
 
 Creare un nuovo campo e chiamarlo esattamente così. 
@@ -180,6 +153,33 @@ Nella tab Opzioni impostare:
 - Mostra etichetta: mostra 
 - Visualizza il campo: dopo il contenuto del display 
 - Layout: numeri 
+- Mostra se di sola lettura: eredita
+
+### Dove si trova
+
+Creare un nuovo campo e chiamarlo esattamente così. 
+
+All’interno della tab Generale impostare i seguenti parametri: 
+
+- Tipo: Sottocampo ( subform ) 
+- Nome: dove-si-trova 
+- Etichetta: Dove si trova 
+- Obbligatorio: No 
+- Ripetibile: No 
+- Campi: Nome Sede (text) Indirizzo (text) Orari (editor) Gps (text) Email (text) PEC (text) Telefono (text) 
+- Stato: pubblicato 
+- Gruppo di campi: luoghi 
+- Categoria: I luoghi
+
+![custom-field-dove-si-trova](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/custom-field-dove-si-trova.png)
+
+Nella tab Opzioni impostare: 
+
+- Modificabile in: entrambi 
+- Layout: predefinito 
+- Mostra etichetta: mostra 
+- Visualizza il campo: dopo il contenuto del display 
+- Layout: h4-titolosubform 
 - Mostra se di sola lettura: eredita
 
 ### Dettagli edificio
