@@ -38,7 +38,7 @@ Nella tab Opzioni impostare:
 
 ### Mese Anno Evento
 
-Creare un nuovo campo di tipo “Categoria” e chiamarlo “Messaggio”. 
+Creare un nuovo campo di tipo “Categoria” e chiamarlo “Mese Anno Evento”. 
 
 All’interno della tab Generale impostare i seguenti parametri: 
 
@@ -145,8 +145,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 - Tipo: Sottocampo ( subform ) 
 - Nome: evento-storia 
 - Etichetta: Storia della Scuola 
-- Obbligatorio: No 
-- Usa in sottomodulo: Sì 
+- Obbligatorio: No
 - Campi: Mese Anno Evento (text) Titolo Evento (text) Descrizione Evento (text) Anno Evento (text) 
 - Stato: Pubblicato 
 - Gruppi di campi: Scuola 

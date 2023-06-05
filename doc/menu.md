@@ -81,7 +81,7 @@ Creare una voce di menu denominata “Famiglie e studenti” di tipo “Categori
 (Voce principale - - panoramica) <br>
 Creare una voce di menu denominata “Personale scolastico” di tipo “Categoria blog”. Su “Tipo di voce di menu” seleziona “Categoria blog”. Su “Scegli una categoria” seleziona “Personale scolastico”. Nella tab opzioni -> scegli un layout -> servizio.
 
-##### 1.6.4. Percorso di studi
+##### 1.6.4. Percorso di studio
 (Voce principale - - panoramica) <br>
 Creare una voce di menu denominata “Percorsi di studio” di tipo “Categoria blog”. Su “Tipo di voce di menu” seleziona “Categoria blog”. Su “Scegli una categoria” seleziona “Percorso di studi”. Nella tab opzioni -> scegli un layout -> servizio.
 
@@ -109,7 +109,7 @@ Creare una voce di menu denominata “Le circolari” di tipo Blog per le catego
 
 ##### 1.7.4. Calendario eventi
 (Voce principale - - panoramica) <br>
-Creare una voce di menu denominata “Le circolari” di tipo Blog per le categorie della sezione Novità. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Novità. Su “Scegli una categoria” seleziona “Circolari”. Nella tab opzioni -> scegli un layout -> circolari
+Creare una voce di menu denominata “Gli eventi” di tipo Blog per le categorie della sezione Novità. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Novità. Su “Scegli una categoria” seleziona “Eventi”. Nella tab opzioni -> scegli un layout -> eventi
 
 #### 1.8. Didattica
 Creare una nuova voce di menu denominata “didattica” di tipo “Pagina Didattica”. Su “Tipo di voce di menu” seleziona “Pagina didattica”. Su “Scegli una categoria” seleziona “Didattica”.
@@ -118,7 +118,7 @@ Nella tab categoria -> titolo categoria -> Nascondi
 ##### 1.8.1. Panoramica
 (Voce principale - didattica) <br> Creare una voce di menu denominata “Panoramica” di tipo alias voce di menu. Su “Tipo di voce di menu” seleziona Alias voce di menu. Su voce di menu selezionare “didattica”.
 
-##### 1.8.2. Offerta formatica
+##### 1.8.2. Offerta formativa
 (Voce principale - - didattica) <br> Creare una voce di menu denominata “Offerta formativa” di tipo Blog per le categorie della sezione Didattica. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Didattica. Su “Scegli una categoria” seleziona “Offerta formativa”. Nella tab categoria -> titolo categoria -> Nascondi
 
 ##### 1.8.3. Le schede didattiche
@@ -234,7 +234,7 @@ Voce di menu: Le circolari
 
 Tipo di voce di menu: Alias voce di menu 
 
-Voce di menu: I luoghi della scuola
+Voce di menu: Organizzazione
 
 ![menu-cerca-contatti](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/menu-cerca-contatti.png)
 
