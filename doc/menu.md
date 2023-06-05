@@ -109,7 +109,7 @@ Creare una voce di menu denominata “Le circolari” di tipo Blog per le catego
 
 ##### 1.7.4. Calendario eventi
 (Voce principale - - panoramica) <br>
-Creare una voce di menu denominata “Le circolari” di tipo Blog per le categorie della sezione Novità. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Novità. Su “Scegli una categoria” seleziona “Circolari”. Nella tab opzioni -> scegli un layout -> circolari
+Creare una voce di menu denominata “Gli eventi” di tipo Blog per le categorie della sezione Novità. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Novità. Su “Scegli una categoria” seleziona “Eventi”. Nella tab opzioni -> scegli un layout -> eventi
 
 #### 1.8. Didattica
 Creare una nuova voce di menu denominata “didattica” di tipo “Pagina Didattica”. Su “Tipo di voce di menu” seleziona “Pagina didattica”. Su “Scegli una categoria” seleziona “Didattica”.
