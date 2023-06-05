@@ -221,8 +221,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 - Obbligatorio: No 
 - Usa solo in sottomodulo: Sì 
 - Stato: Pubblicato 
-- Gruppi di campi: Luoghi 
-- Categoria: I luoghi
+- Gruppi di campi: Luoghi
 
 ![custom-field-immagine](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/custom-field-immagine.png)
 
