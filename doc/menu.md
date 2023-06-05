@@ -118,7 +118,7 @@ Nella tab categoria -> titolo categoria -> Nascondi
 ##### 1.8.1. Panoramica
 (Voce principale - didattica) <br> Creare una voce di menu denominata “Panoramica” di tipo alias voce di menu. Su “Tipo di voce di menu” seleziona Alias voce di menu. Su voce di menu selezionare “didattica”.
 
-##### 1.8.2. Offerta formatica
+##### 1.8.2. Offerta formativa
 (Voce principale - - didattica) <br> Creare una voce di menu denominata “Offerta formativa” di tipo Blog per le categorie della sezione Didattica. Su “Tipo di voce di menu” seleziona Blog per le categorie della sezione Didattica. Su “Scegli una categoria” seleziona “Offerta formativa”. Nella tab categoria -> titolo categoria -> Nascondi
 
 ##### 1.8.3. Le schede didattiche
