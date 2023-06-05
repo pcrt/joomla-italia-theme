@@ -81,7 +81,7 @@ Creare una voce di menu denominata “Famiglie e studenti” di tipo “Categori
 (Voce principale - - panoramica) <br>
 Creare una voce di menu denominata “Personale scolastico” di tipo “Categoria blog”. Su “Tipo di voce di menu” seleziona “Categoria blog”. Su “Scegli una categoria” seleziona “Personale scolastico”. Nella tab opzioni -> scegli un layout -> servizio.
 
-##### 1.6.4. Percorso di studi
+##### 1.6.4. Percorso di studio
 (Voce principale - - panoramica) <br>
 Creare una voce di menu denominata “Percorsi di studio” di tipo “Categoria blog”. Su “Tipo di voce di menu” seleziona “Categoria blog”. Su “Scegli una categoria” seleziona “Percorso di studi”. Nella tab opzioni -> scegli un layout -> servizio.
 
