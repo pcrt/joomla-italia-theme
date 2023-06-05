@@ -38,7 +38,7 @@ Nella tab Opzioni impostare:
 
 ### Mese Anno Evento
 
-Creare un nuovo campo di tipo “Categoria” e chiamarlo “Messaggio”. 
+Creare un nuovo campo di tipo “Categoria” e chiamarlo “Mese Anno Evento”. 
 
 All’interno della tab Generale impostare i seguenti parametri: 
 
