@@ -45,12 +45,7 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
 <div class="border-row">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-3 pe-0 pt-0 pt-lg-2 order-2 order-lg-1 mb-3">
-                <aside class="aside-main aside-sticky">
-                    <?php echo JHtml::_('content.prepare', '{loadposition psl}'); ?>
-                </aside>
-            </div>
-            <div class="col-12 col-lg-9 border-aside ps-lg-5 pt-0 pt-lg-5 order-1 order-lg-2">
+            <div class="col-12 mt-5">
                 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
                     
                     <?php 

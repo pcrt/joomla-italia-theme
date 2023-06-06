@@ -205,7 +205,8 @@
 .navbar .navbar-collapsable .navbar-nav.menualternativo li.nav-item:nth-child(4) a.nav-link,
 .navbar .navbar-collapsable .navbar-nav.menualternativo .menu-wrapper .nav-item:nth-child(2) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span,
 .navbar .navbar-collapsable .navbar-nav.menualternativo .menu-wrapper .nav-item:nth-child(3) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span,
-.navbar .navbar-collapsable .navbar-nav.menualternativo .menu-wrapper .nav-item:nth-child(4) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span{
+.navbar .navbar-collapsable .navbar-nav.menualternativo .menu-wrapper .nav-item:nth-child(4) .dropdown-menu .link-list-wrapper ul.link-list li.nav-item.deeper > a span,
+.navbar .navbar-collapsable .navbar-nav.menualternativo li.nav-item a.nav-link{
     color: #455b71!important;
     font-size: .9rem;
 }
