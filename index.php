@@ -81,7 +81,7 @@
           <div class="col-12">
             <div class="it-header-center-content-wrapper">
               <div class="it-brand-wrapper">
-                <a href="/">
+                <a href="<?php echo $this->baseurl; ?>/">
                   <?php if ($this->params->get('showLogo')) : ?>
                     <img src="<?php echo htmlspecialchars($this->params->get('imageLogo')); ?>" title="<?php echo htmlspecialchars($this->params->get('logoTitle')); ?>" class="icon">
                     <div class="it-brand-text">
