@@ -542,6 +542,11 @@ article{
     color: #17324d;
 }
 
+.hero-title{
+    position: relative;
+    z-index: 3;
+}
+
 
 @media(min-width:992px) and (max-width:1199px){
     .pagina-servizio section.section{
@@ -1810,3 +1815,4 @@ text-decoration: none;
     font-size: 1rem;
     margin: 0 0 0 0;
 }
+
