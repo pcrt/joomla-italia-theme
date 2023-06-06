@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "jomla-italia-theme",
+  "version": "1.0.0",
+  "description": "This file contains details of the assets used by joomla-italia-theme, a modified version of the default cassiopeia template.",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+
+    {
+      "name": "template.joomla-italia-theme.css",
+      "description": "The default css style to use.",
+      "type": "style",
+      "uri": "editor-frontend.css",
+      "dependencies": [
+        "fontawesome"
+      ]
+    }
+  ]
+}

@@ -13,7 +13,27 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
 
+$item_active='';
 $attributes = [];
+
+
+// C.SC.1.1
+if (
+		($item->title == "Famiglie e studenti") ||
+		($item->title == "Personale scolastico") ||
+		($item->title == "Percorsi di studio")
+)
+{
+	$attributes['data-element'] = 'service-type';
+} 
+elseif(
+    ($item->title == "Panoramica")
+)
+{
+    $attributes['data-element'] = 'overview';
+}
+
+
 
 if ($item->anchor_title) {
     $attributes['title'] = $item->anchor_title;
@@ -23,8 +43,16 @@ if ($item->anchor_rel) {
     $attributes['rel'] = $item->anchor_rel;
 }
 
-$linktype = $item->title;
+if ($item->id == $active_id) {
+    $attributes['aria-current'] = 'location';
 
+    if ($item->current) {
+        $attributes['aria-current'] = 'page';
+        $item_active = 'active';
+    }
+}
+
+$linktype = $item->title;
 
 if ($item->deeper && $item->level == 1){
     $attributes['class'] = 'nav-link dropdown-toggle '.$item_active . ' ' .$item->anchor_css;
@@ -38,15 +66,6 @@ if ($item->deeper && $item->level == 1){
     $attributes['class'] = 'nav-link '.$item_active;
 }
 
-if(
-    ($item->title == "Panoramica")
-)
-{
-    $attributes['data-element'] = 'overview';
-}
- 
-
-
 if ($item->menu_icon) {
     // The link is an icon
     if ($itemParams->get('menu_text', 1)) {
@@ -57,7 +76,7 @@ if ($item->menu_icon) {
         $linktype = '<span class="p-2 ' . $item->menu_icon . '" aria-hidden="true"></span><span class="visually-hidden">' . $item->title . '</span>';
     }
 } elseif ($item->menu_image) {
-    // The link is an image, maybe with an own class
+    // The link is an image, maybe with its own class
     $image_attributes = [];
 
     if ($item->menu_image_css) {
@@ -73,17 +92,11 @@ if ($item->menu_icon) {
 
 if ($item->browserNav == 1) {
     $attributes['target'] = '_blank';
-    $attributes['rel'] = 'noopener noreferrer';
-
-    if ($item->anchor_rel == 'nofollow') {
-        $attributes['rel'] .= ' nofollow';
-    }
 } elseif ($item->browserNav == 2) {
-    $options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,' . $params->get('window_open');
+    $options = 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes';
 
     $attributes['onclick'] = "window.open(this.href, 'targetWindow', '" . $options . "'); return false;";
 }
-
 
 if ($item->deeper && $item->level == 1){
     echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), '<span>' . $linktype . '</span>

@@ -19,9 +19,12 @@
 		<folder>plugins</folder>
 		<folder>svg</folder>
 		<filename>index.php</filename>
+		<filename>joomla.asset.json</filename>
 		<filename>templateDetails.xml</filename>
 	</files>
-
+	<media destination="templates/site/joomla-italia-theme" folder="media">
+		<folder>css</folder>
+	</media>
 	<positions>
 		<position>logo</position>
 		<position>menuprincipale</position>

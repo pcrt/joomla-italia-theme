@@ -17,6 +17,7 @@
 	  <link href="/media/system/images/favicon.ico" rel="alternate icon" type="image/vnd.microsoft.icon">
 	  <link href="/media/system/images/joomla-favicon-pinned.svg" rel="mask-icon" color="#000">
     <jdoc:include type="head" />
+
   </head>
   <?php
   $app = JFactory::getApplication();
@@ -27,6 +28,13 @@
   $query = $router->parse($istance); 
   $isHomePage = ($app->getMenu()->getActive()->home);
   $credits = '<a href="https://www.protocollicreativi.it" target="_blank" rel="nofollow" title="Protocolli Creativi is a Joomla Provider">Made with love Joomla Italia Theme by Protocolli Creativi</a>';
+
+  $wa  = $this->getWebAssetManager();
+  $wa->useStyle('template.joomla-italia-theme.css');
+
+  // Get this template's path
+  $templatePath = 'templates/' . $this->template;
+
 
 ?>
 <body class="<?php echo $pageclass ? htmlspecialchars($pageclass) : ''; ?>">
@@ -81,7 +89,7 @@
           <div class="col-12">
             <div class="it-header-center-content-wrapper">
               <div class="it-brand-wrapper">
-                <a href="/">
+                <a href="<?php echo $this->baseurl; ?>/">
                   <?php if ($this->params->get('showLogo')) : ?>
                     <img src="<?php echo htmlspecialchars($this->params->get('imageLogo')); ?>" title="<?php echo htmlspecialchars($this->params->get('logoTitle')); ?>" class="icon">
                     <div class="it-brand-text">
