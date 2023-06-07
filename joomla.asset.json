@@ -14,6 +14,11 @@
       "dependencies": [
         "fontawesome"
       ]
+    },
+    {
+      "name": "fontawesome",
+      "type": "style",
+      "uri": "system/joomla-fontawesome.min.css"
     }
   ]
 }
