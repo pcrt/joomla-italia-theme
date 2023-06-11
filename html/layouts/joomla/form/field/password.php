@@ -12,6 +12,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 
 extract($displayData);
 
@@ -147,8 +148,8 @@ if ($rules) {
             <?php echo implode(' ', $attributes); ?>>
         <?php if (!$lock) : ?>
         <span class="password-icon" aria-hidden="true">
-            <svg class="password-icon-visible icon icon-sm"><use href="<?php echo $this->baseurl ?>/templates/joomla-italia-theme/svg/sprites.svg#it-password-visible"></use></svg>
-            <svg class="password-icon-invisible icon icon-sm d-none"><use href="<?php echo $this->baseurl ?>/templates/joomla-italia-theme/svg/sprites.svg#it-password-invisible"></use></svg>
+            <svg class="password-icon-visible icon icon-sm"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-password-visible"></use></svg>
+            <svg class="password-icon-invisible icon icon-sm d-none"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-password-invisible"></use></svg>
         </span>
         <span class="visually-hidden"><?php echo Text::_('JSHOWPASSWORD'); ?></span>
         <?php else : ?>
