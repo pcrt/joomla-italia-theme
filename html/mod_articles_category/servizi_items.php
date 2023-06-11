@@ -59,5 +59,5 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 <?php endforeach; ?>
 
 <div class="col-12 text-center">
-    <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="btn btn-outline-purplelight mt-4" title="Vedi tutti"><strong>Scopri di più</stonrg></a>
+    <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="btn btn-outline-purplelight mt-4" title="Vedi tutti"><strong>Scopri di più</strong></a>
 </div>

@@ -36,7 +36,14 @@
 		<position>bottonecerca</position>
 		<position>hero</position>
 		<position>breadcrumbs</position>
+		<position>above</position>
+		<position>above1</position>
+		<position>above2</position>
+		<position>above3</position>
 		<position>below</position>
+		<position>below1</position>
+		<position>below2</position>
+		<position>below3</position>
 		<position>user</position>
 		<position>menucerca</position>
 		<position>menublog</position>

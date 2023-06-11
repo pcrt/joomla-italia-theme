@@ -234,7 +234,85 @@ $wa->usePreset('template.joomla-italia-theme')
       </div>
     </div>
   <?php endif;?>
+  <?php 
+  $colCount = 0;
+  foreach(array('above1','above2','above3') as $position) {
+      if ($this->countModules($position)) {
+          $colCount += 1;
+      }
+  }
+  switch($colCount)
+  {
+     case 1:
+        $colabove="col-12";
+        break;
+     case 2:
+        $colabove="col-12 col-lg-6";
+        break;
+     case 3:
+        $colabove="col-12 col-lg-4";
+        break;
+     default:
+        break;
+  }
+  ?>
+  <?php if ($this->countModules('above1') || $this->countModules('above3') || $this->countModules('above2')): ?>
+  <div class="container">
+    <div class="row">
+      <?php if ($this->countModules('above1')): ?>
+        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above1" style="above" /></div>
+        <?php endif;?>
+        <?php if ($this->countModules('above2')): ?>
+        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above2" style="above" /></div>
+        <?php endif;?>
+        <?php if ($this->countModules('above3')): ?>
+        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above3" style="above" /></div>
+        <?php endif;?>
+      </div>
+  </div>
+  <?php endif;?>
+  <jdoc:include type="modules" name="above" style="above" />
   <jdoc:include type="component" />
+  <?php 
+  $colCountbelow = 0;
+  foreach(array('below1','below2','below3') as $positionbelow) {
+      if ($this->countModules($positionbelow)) {
+          $colCountbelow += 1;
+      }
+  }
+
+
+  switch($colCountbelow )
+  {
+     case 1:
+        $colbelow="col-12";
+        break;
+     case 2:
+        $colbelow="col-12 col-lg-6";
+        break;
+     case 3:
+        $colbelow="col-12 col-lg-4";
+        break;
+     default:
+        break;
+  }
+
+  ?>
+  <?php if ($this->countModules('below1') || $this->countModules('below3') || $this->countModules('below2')): ?>
+  <div class="container">
+    <div class="row">
+      <?php if ($this->countModules('below1')): ?>
+        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below1" style="above" /></div>
+        <?php endif;?>
+        <?php if ($this->countModules('below2')): ?>
+        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below2" style="above" /></div>
+        <?php endif;?>
+        <?php if ($this->countModules('below3')): ?>
+        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below3" style="above" /></div>
+        <?php endif;?>
+      </div>
+  </div>
+  <?php endif;?>
   <jdoc:include type="modules" name="below" style="below" />
   <jdoc:include type="modules" name="user" style="user" />
 </main>
@@ -290,6 +368,13 @@ $wa->usePreset('template.joomla-italia-theme')
     <?php endif ?>
     </div>
   </div>
+  <?php if ($this->countModules('copy')): ?>
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-12"><jdoc:include type="modules" name="copy" style="none" /></div>
+    </div>
+  </div>
+  <?php endif;?>
   <div class="container py-4">
     <div class="row">
       <div class="col-lg-10 offset-lg-1 text-right footer-credits">

@@ -26,8 +26,8 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 <?php foreach ($items as $item) : ?>
     
-    <div class="col-12 col-lg-4 pb-3 mb-3">
-        <div class="card card-bg card-icon rounded h-100">
+
+        <div class="card card-bg card-icon rounded h-100 mb-3">
             <div class="card-body">        
                 <div class="card-icon-content d-flex align-items-center">
                     <div class="card-news-img me-3">
@@ -57,8 +57,8 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
                 </div>
             </div>
         </div>
-    </div>
+
 <?php endforeach; ?>
-<div class="col-12 text-center">
+<div class="text-center">
     <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="view-all" title="Vedi tutti"><strong>Vedi tutti</strong></a>
 </div>
