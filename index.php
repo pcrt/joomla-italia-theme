@@ -146,11 +146,11 @@ $wa->usePreset('template.joomla-italia-theme')
                         <?php foreach ($fieldValues as $value): ?>
 	                        <li>
 														<a href="<?= $value->touchsuburl ?>" aria-label="<?= $value->touchsubname ?>" target="_blank">
-															<svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#'.$value->touchsubicon.'">
+															<svg class="icon"><use href="<?= '/templates/joomla-italia-theme/svg/sprites.svg#'.$value->touchsubicon ?>">
 															</use>
 															</svg>
 														</a>
-													</li>';
+													</li>
                         <?php endforeach; ?>
                         </ul>
                   </div>
