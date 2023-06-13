@@ -40,11 +40,11 @@ $arraypadri =[];
 <ul <?php echo $id; ?> class="navbar-nav <?php echo $class_sfx; ?>" data-element="menu">
 
 <?php foreach ($list as $i => $item) {
-    if (array_key_exists($item->parent_id, $arrayfigli)== false){
+    if (array_key_exists($item->parent_id, $arrayfigli)== false) {
         $arrayfigli[$item->parent_id] = 0;
     }
     $arrayfigli[$item->parent_id] += 1;
-} 
+}
 
 
 $parent_id = null;
@@ -68,7 +68,7 @@ foreach ($list as $i => &$item) {
     } elseif ($item->type === 'alias') {
         $aliasToId = $itemParams->get('aliasoptions');
 
-        if (count($path) > 0 && $aliasToId == $path[count($path) - 1]) {
+        if (!empty($path) && $aliasToId == $path[count($path) - 1]) {
             $class .= ' active';
         } elseif (in_array($aliasToId, $path)) {
             $class .= ' alias-parent-active';
@@ -87,169 +87,149 @@ foreach ($list as $i => &$item) {
         $class .= ' parent';
     }
 
-if( ($item->level == 1 && $item->anchor_css !== 'megamenu') || $item->level > 1 && $megamenu == false) {
-    $parent_id = $item->id;
-    $megamenu = false;
+    if(($item->level == 1 && $item->anchor_css !== 'megamenu') || $item->level > 1 && $megamenu == false) {
+        $parent_id = $item->id;
+        $megamenu = false;
 
-    echo '<li class="' . $class . '">';
+        echo '<li class="' . $class . '">';
 
-    switch ($item->type) :
-        case 'separator':
-        case 'component':
-        case 'heading':
-        case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-            break;
+        switch ($item->type) :
+            case 'separator':
+            case 'component':
+            case 'heading':
+            case 'url':
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
+                break;
 
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_url');
-            break;
-    endswitch;
-
-    // The next item is deeper.
-    if ($item->deeper && $item->level == 1) {
-        
-
-    //Validazione app scuole aggiungo data element alla lista in base alla voce di menu di appartenenza
-        
-        switch ($item->title) :
-            case 'Scuola':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="school-submenu">';
-            break;
-            case 'Servizi':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="services-submenu">';
-            break;
-            case 'Didattica':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="teaching-submenu">';
-            break;
-            case 'Novità':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="news-submenu">';
-            break;
-        default: 
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="custom-submenu">';
+            default:
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_url');
+                break;
         endswitch;
-        
-        
-        
-    
-    } elseif ($item->deeper && $item->level >= 2) {
-        echo '<div><div class="link-list-wrapper"><ul class="link-list">';
-    } elseif ($item->shallower) {
-        // The next item is shallower.
-        echo '</li>';
-        echo str_repeat('</ul></div></div></li>', $item->level_diff);
-    } else {
-        // The next item is on the same level.
-        echo '</li>';
+
+        // The next item is deeper.
+        if ($item->deeper && $item->level == 1) {
+            //Validazione app scuole aggiungo data element alla lista in base alla voce di menu di appartenenza
+
+            switch ($item->title) :
+                case 'Scuola':
+                    echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="school-submenu">';
+                    break;
+                case 'Servizi':
+                    echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="services-submenu">';
+                    break;
+                case 'Didattica':
+                    echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="teaching-submenu">';
+                    break;
+                case 'Novità':
+                    echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="news-submenu">';
+                    break;
+                default:
+                    echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown0"><div class="link-list-wrapper"><ul class="link-list" data-element="custom-submenu">';
+            endswitch;
+        } elseif ($item->deeper && $item->level >= 2) {
+            echo '<div><div class="link-list-wrapper"><ul class="link-list">';
+        } elseif ($item->shallower) {
+            // The next item is shallower.
+            echo '</li>';
+            echo str_repeat('</ul></div></div></li>', $item->level_diff);
+        } else {
+            // The next item is on the same level.
+            echo '</li>';
+        }
     }
 
-}
-    
-    
-if ($item->level == 1 && $item->anchor_css == 'megamenu') {
-        
+
+    if ($item->level == 1 && $item->anchor_css == 'megamenu') {
         $parent_id = $item->id;
         $megamenu = true;
 
         echo '<li class="nav-item ' . $class . ' level' . $item->level . ' ' . $item->anchor_css . '">';
 
         switch ($item->type) :
-        case 'separator':
-        case 'component':
-        case 'heading':
-        case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-            break;
+            case 'separator':
+            case 'component':
+            case 'heading':
+            case 'url':
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
+                break;
 
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_url');
-            break;
+            default:
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_url');
+                break;
         endswitch;
-        
-        echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavMegamenu0"><div class="row">';
-    
-}
 
-if ($oldparent_id != $parent_id)
-    {
+        echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavMegamenu0"><div class="row">';
+    }
+
+    if ($oldparent_id != $parent_id) {
         $countduecol=0;
         $countereee=0;
     }
 
 
-if ($item->level == 2 && $megamenu == true){
+    if ($item->level == 2 && $megamenu == true) {
+        $allchild = $arrayfigli[$parent_id];
+        $figliqui = $arrayfigli[$parent_id] / 3;
+        $intero =  intval($figliqui);
+        $restoitem = $arrayfigli[$parent_id] % 3;
 
-    
-    $allchild = $arrayfigli[$parent_id];
-    $figliqui = $arrayfigli[$parent_id] / 3;
-    $intero =  intval($figliqui);
-    $restoitem = $arrayfigli[$parent_id] % 3;
-   
-  
-   
-    if ($allchild <=8){
-        
 
-        if($countduecol == 0) { 
-            echo '<div class="col-12 col-lg-4 '.$countduecol.' pe-lg-5"><div class="link-list-wrapper"><ul class="link-list">';
-        } elseif ($countduecol == 4){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        }
-        
-        ++$countduecol;
 
-    } else {
-        if( $countereee == 0 ) { 
-            echo '<div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        } else if(($restoitem == 0 && $countereee == $intero) || ($restoitem == 1 && $countereee == $intero + 1) || ($restoitem == 2 && $countereee == $intero + 1)){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-                
-        }  else if (($restoitem == 0 && $countereee == $intero * 2) || ($restoitem == 1 && $countereee == ($intero * 2+ 1) + $restoitem) || ($restoitem == 2 && $countereee == $intero * 2 + $restoitem)){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        } 
-    }
-            
-    echo '<li class="nav-item ' . $class . ' level' . $item->level . ' ' . $item->anchor_css . '">';
+        if ($allchild <=8) {
+            if($countduecol == 0) {
+                echo '<div class="col-12 col-lg-4 '.$countduecol.' pe-lg-5"><div class="link-list-wrapper"><ul class="link-list">';
+            } elseif ($countduecol == 4) {
+                echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
+            }
 
-    switch ($item->type) :
-        case 'separator':
-        case 'component':
-        case 'heading':
-        case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-            break;
-
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_url');
-            break;
-    endswitch;
-
-    echo '</li>';
-
-    if ($allchild <=8){
-
-        if ($countduecol == $allchild){
-        echo '</ul></div></div>'; 
+            ++$countduecol;
+        } else {
+            if($countereee == 0) {
+                echo '<div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
+            } elseif(($restoitem == 0 && $countereee == $intero) || ($restoitem == 1 && $countereee == $intero + 1) || ($restoitem == 2 && $countereee == $intero + 1)) {
+                echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
+            } elseif (($restoitem == 0 && $countereee == $intero * 2) || ($restoitem == 1 && $countereee == ($intero * 2+ 1) + $restoitem) || ($restoitem == 2 && $countereee == $intero * 2 + $restoitem)) {
+                echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
+            }
         }
 
-    } elseif( $countereee +1 == $arrayfigli[$parent_id] ) {
-        echo '</ul></div></div>'; 
+        echo '<li class="nav-item ' . $class . ' level' . $item->level . ' ' . $item->anchor_css . '">';
+
+        switch ($item->type) :
+            case 'separator':
+            case 'component':
+            case 'heading':
+            case 'url':
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
+                break;
+
+            default:
+                require_once ModuleHelper::getLayoutPath('mod_menu', 'default_url');
+                break;
+        endswitch;
+
+        echo '</li>';
+
+        if ($allchild <=8) {
+            if ($countduecol == $allchild) {
+                echo '</ul></div></div>';
+            }
+        } elseif($countereee +1 == $arrayfigli[$parent_id]) {
+            echo '</ul></div></div>';
+        }
+
+        ++$countereee;
     }
 
-    ++$countereee;
+    if ($item->parent_id !== $parent_id && $megamenu == true && $item->id !== $parent_id) {
+        echo '</div></div>';
+    }
 
-}
+    if ($item->parent_id !== $parent_id && $item->id !== $parent_id) {
+        $parent_id = $item->id;
+        $megamenu = false;
+    }
 
-if ($item->parent_id !== $parent_id && $megamenu == true && $item->id !== $parent_id) {
-    echo '</div></div>'; 
-}
-
-if ($item->parent_id !== $parent_id && $item->id !== $parent_id){
-    $parent_id = $item->id;
-    $megamenu = false;
-}
-
-$oldparent_id = $parent_id;
-
+    $oldparent_id = $parent_id;
 }
 ?></ul>

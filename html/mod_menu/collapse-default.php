@@ -21,6 +21,6 @@ HTMLHelper::_('bootstrap.collapse');
         <span class="icon-menu" aria-hidden="true"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbar<?php echo $module->id; ?>">
-        <?php require __DIR__ . '/default.php'; ?>
+        <?php require_once __DIR__ . '/default.php'; ?>
     </div>
 </nav>
