@@ -52,7 +52,7 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                     <a href="<?php echo Route::_(RouteHelper::getItemRoute($item->content_item_id, $item->core_alias, $item->core_catid, $item->core_language, $item->type_alias, $item->router)); ?>">
                                     <?php if($images->image_intro ==''): ?>
                                         <figure>
-                                            <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid"/>
+                                            <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/>
                                         </figure>
                                     <?php else:?>
                                         <?php echo HTMLHelper::_('image', $images->image_intro, $images->image_intro_alt); ?>

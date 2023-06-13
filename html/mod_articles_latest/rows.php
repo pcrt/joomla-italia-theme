@@ -8,7 +8,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
- use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Uri\Uri;
@@ -35,7 +35,7 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
             if ($module->showtitle) {
                 echo '<div class="col-12"><h3 class="sbuttitle">'.$module->title.'</h3></div>';
             }
-        ?>
+?>
             <?php foreach ($list as $item) : ?>
                 <div class="col-12 py-4">
                     <div class="scheda-item modulorows" itemscope itemtype="https://schema.org/Article">
@@ -43,7 +43,7 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             <div class="col p-0">
                                 <div class="row m-0 align-items-center cardbandi">
                                     <div class="col-auto d-none d-lg-flex ps-4">
-                                        <img src="<?= $baseImagePath ?>megafono.svg">
+                                        <img src="<?= $baseImagePath ?>megafono.svg" alt="immagine-megafono">
                                     </div>
                                     <div class="col py-4 px-3">
                                         <div class="categoria-ico my-2">
@@ -76,12 +76,12 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
             <?php endforeach; ?>
         </div>
         <?php
-            foreach ($list as $item) :
-                if($countcat == 0){
-                    echo '<div class="text-center py-4"><a href="index.php/'.$item->category_route.'" class="btn btn-outline-primary text-uppercase">Vedi elenco completo dei bandi</a></div>';
-                }
-            ++$countcat;
-            endforeach;
-        ?>
+    foreach ($list as $item) :
+        if($countcat == 0) {
+            echo '<div class="text-center py-4"><a href="index.php/'.$item->category_route.'" class="btn btn-outline-primary text-uppercase">Vedi elenco completo dei bandi</a></div>';
+        }
+        ++$countcat;
+    endforeach;
+?>
     </div>
 </div>

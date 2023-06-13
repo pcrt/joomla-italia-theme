@@ -42,11 +42,13 @@ $baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/ima
     <article class="card card-bg card-article card-article-purplelight">
         <div class="card-body">
             <div class="card-article-img d-none d-lg-block">
-                <?php if($introimg->image_intro ==''){ ?>
-                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid"/></a></figure>
-                <?php } else{
-                        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
-                    }
+                <?php if ($introimg->image_intro =='') {
+    ?>
+                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/></a></figure>
+                <?php
+} else {
+        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
+    }
                 ?>
             </div>
             <div class="card-article-content">
@@ -58,7 +60,7 @@ $baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/ima
 
 
                 <?php if ($info == 0 && $params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
-                    <?php //echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags); ?>
+                    <?php //echo LayoutHelper::render('joomla.content.tags', $this->item->tags->itemTags);?>
                 <?php endif; ?>
 
                 <p><?php echo JHTML::_('string.truncate', $this->item->introtext, 200, false, false) ; ?></p>
