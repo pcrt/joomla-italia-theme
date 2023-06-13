@@ -30,20 +30,19 @@ $currentDate   = Factory::getDate()->format('Y-m-d H:i:s');
 $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED || $this->item->publish_up > $currentDate)
     || ($this->item->publish_down < $currentDate && $this->item->publish_down !== null);
 
-
-
 $introimg = json_decode($this->item->images);
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
-    <article class="card card-bg card-article card-article-redbrown">    
+    <article class="card card-bg card-article card-article-redbrown">
         <div class="card-body">
             <div class="card-article-img d-none d-lg-block">
                 <?php if($introimg->image_intro ==''){ ?>
-                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="/templates/joomla-italia-theme/img/imgsegnaposto.jpg" class="img-fluid"/></a></figure>
-                <?php } else{ 
-                        echo LayoutHelper::render('joomla.content.intro_image', $this->item); 
+                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid"/></a></figure>
+                <?php } else{
+                        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
                     }
                 ?>
             </div>
@@ -88,4 +87,3 @@ $introimg = json_decode($this->item->images);
             </div>
         </div>
     </article>
-

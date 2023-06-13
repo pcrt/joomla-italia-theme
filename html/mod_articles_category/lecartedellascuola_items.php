@@ -15,7 +15,9 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\CMS\Uri\Uri;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 //print_r($items[0]->parent_title);
 //echo $items[0]->parent_id;
@@ -28,9 +30,9 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
     <div>
         <div class="redbrown card card-large card-bg card-icon card-icon-main rounded my-3">
             <a href="<?php echo $item->link; ?>" title="<?php echo $item->title; ?>">
-                <div class="card-body card-body-min-height">            
+                <div class="card-body card-body-min-height">
                     <svg class="icon icon-xs d-inline-block">
-                        <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-file-pdf"></use>
+                        <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-file-pdf"></use>
                     </svg>
                     <div class="card-icon-content">
                     <h3><?php echo $item->title; ?></h3>

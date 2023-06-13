@@ -15,6 +15,8 @@ $isHomePage = ($menu->home);
 $credits = '<a href="https://www.protocollicreativi.it" target="_blank" rel="nofollow" title="Protocolli Creativi is a Joomla Provider">Made with love Joomla Italia Theme by Protocolli Creativi</a>';
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
+$baseImagePath= Uri::root(false) . "media/templates/site/" . $this->template . "/images/";
+
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1, minimum-scale=1');
 $this->setMetaData('theme-color', '#ffffff');
 
@@ -23,22 +25,20 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1)
 $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
-$wa->registerAndUseStyle('template.css.editor', 'media/templates/site/joomla-italia-theme/css/editor.css');
-
 $wa->usePreset('template.joomla-italia-theme')
-	 ->useStyle('css.fontawesome')
-	 ->useStyle('css.fonts')
-	 ->useStyle('template.css.pcrt-main')
-	 ->useStyle('template.css.pcrt-menu')
-	 ->useStyle('template.css.pcrt-jit')
-	 ->useStyle('css.table')
-	 ->useStyle('carousel')
-	 ->useStyle('carousel.theme')
-	 ->useScript('template.js.jquery362')
-	 ->useScript('template.js.carousel')
-	 ->useScript('template.js.jti')
-	 ->addInlineScript(
-		 "
+     ->useStyle('css.fontawesome')
+     ->useStyle('css.fonts')
+     ->useStyle('template.css.pcrt-main')
+     ->useStyle('template.css.pcrt-menu')
+     ->useStyle('template.css.pcrt-jit')
+     ->useStyle('css.table')
+     ->useStyle('carousel')
+     ->useStyle('carousel.theme')
+     ->useScript('template.js.jquery362')
+     ->useScript('template.js.carousel')
+     ->useScript('template.js.jti')
+     ->addInlineScript(
+         "
 		 window.addEventListener('load', function(event) {
 			 $('#slideheader').owlCarousel({
 	         loop:true,
@@ -63,19 +63,22 @@ $wa->usePreset('template.joomla-italia-theme')
 	       $(this).attr('aria-label', index + 1);
 	     });
 	     });
-   });",[],[],["template.js.jquery362"]
-	 );
+   });",
+         [],
+         [],
+         ["template.js.jquery362"]
+     );
 
 ?>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= $this->language; ?>" lang="<?= $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
 	<jdoc:include type="metas" />
 	<jdoc:include type="styles" />
 	<jdoc:include type="scripts" />
 </head>
-<body class="<?php echo $pageclass ? htmlspecialchars($pageclass) : ''; ?>">
+<body class="<?= $pageclass ? htmlspecialchars($pageclass) : ''; ?>">
 <header
   class="it-header-wrapper it-header-sticky"
   data-bs-toggle="sticky"
@@ -95,14 +98,14 @@ $wa->usePreset('template.joomla-italia-theme')
               <jdoc:include type="modules" name="lingua" style="none" />
               <?php if ($this->params->get('showBtnTopbar')) : ?>
                     	<?php
-                       	$fieldValues = $this->params->get('showBtnTopbarFields');
-                        if (!empty($fieldValues)) :
-                        	foreach ($fieldValues as $value):
-											?>
+                           $fieldValues = $this->params->get('showBtnTopbarFields');
+                  if (!empty($fieldValues)) :
+                      foreach ($fieldValues as $value):
+                          ?>
 			                     <a class="btn btn-icon btn-full" href="<?= $value->topbarbuttonlink ?>" title="<?=$value->topbarbuttontitle?>" aria-label="<?=$value->topbarbuttontitle?>">
 				                     <span class="rounded-icon">
 			                       		<svg class="icon icon-primary">
-			                          		<use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#<?=$value->topbarbuttonicon?>"></use>
+			                          		<use xlink:href="<?=$baseImagePath?>sprites.svg#<?=$value->topbarbuttonicon?>"></use>
 			                          </svg>
 			                       </span>
 			                       <span class="d-none d-lg-block"><?=$value->topbarbuttontitle?></span>
@@ -146,7 +149,7 @@ $wa->usePreset('template.joomla-italia-theme')
                         <?php foreach ($fieldValues as $value): ?>
 	                        <li>
 														<a href="<?= $value->touchsuburl ?>" aria-label="<?= $value->touchsubname ?>" target="_blank">
-															<svg class="icon"><use href="<?= '/templates/joomla-italia-theme/svg/sprites.svg#'.$value->touchsubicon ?>">
+															<svg class="icon"><use href="<?=$baseImagePath?>sprites.svg#<?=$value->touchsubicon?>">
 															</use>
 															</svg>
 														</a>
@@ -177,7 +180,7 @@ $wa->usePreset('template.joomla-italia-theme')
                 data-bs-toggle="navbarcollapsible"
               >
                 <svg class="icon">
-                  <use href="<?= $this->baseurl ?>/templates/<?= $this->template ?>/svg/sprites.svg#it-burger"></use>
+                  <use href="<?=$baseImagePath?>sprites.svg#it-burger"></use>
                 </svg>
               </button>
               <div class="navbar-collapsable" id="nav4" style="display: none">
@@ -186,7 +189,7 @@ $wa->usePreset('template.joomla-italia-theme')
                   <button class="btn close-menu" type="button">
                     <span class="visually-hidden">Nascondi la navigazione</span>
                     <svg class="icon">
-                      <use href="<?= $this->baseurl ?>/templates/<?= $this->template ?>/svg/sprites.svg#it-close-big"></use>
+                      <use href="<?=$baseImagePath?>sprites.svg#it-close-big"></use>
                     </svg>
                   </button>
                 </div>
@@ -205,7 +208,7 @@ $wa->usePreset('template.joomla-italia-theme')
   <?php if ($this->params->get('showBanner') && $isHomePage) : ?>
     <section class="section bg-redbrown section-hero-left owl-carousel owl-theme slideheader p-0" id="slideheader">
     <?php
-        	$fieldValuesbanner = $this->params->get('showBannerfields');?>
+            $fieldValuesbanner = $this->params->get('showBannerfields');?>
           <?php foreach ($fieldValuesbanner as $value): ?>
             <div class="item-banner">
               <div class="decoration-01"></div>
@@ -234,85 +237,7 @@ $wa->usePreset('template.joomla-italia-theme')
       </div>
     </div>
   <?php endif;?>
-  <?php 
-  $colCount = 0;
-  foreach(array('above1','above2','above3') as $position) {
-      if ($this->countModules($position)) {
-          $colCount += 1;
-      }
-  }
-  switch($colCount)
-  {
-     case 1:
-        $colabove="col-12";
-        break;
-     case 2:
-        $colabove="col-12 col-lg-6";
-        break;
-     case 3:
-        $colabove="col-12 col-lg-4";
-        break;
-     default:
-        break;
-  }
-  ?>
-  <?php if ($this->countModules('above1') || $this->countModules('above3') || $this->countModules('above2')): ?>
-  <div class="container">
-    <div class="row">
-      <?php if ($this->countModules('above1')): ?>
-        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above1" style="above" /></div>
-        <?php endif;?>
-        <?php if ($this->countModules('above2')): ?>
-        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above2" style="above" /></div>
-        <?php endif;?>
-        <?php if ($this->countModules('above3')): ?>
-        <div class="<?= $colabove?>"><jdoc:include type="modules" name="above3" style="above" /></div>
-        <?php endif;?>
-      </div>
-  </div>
-  <?php endif;?>
-  <jdoc:include type="modules" name="above" style="above" />
   <jdoc:include type="component" />
-  <?php 
-  $colCountbelow = 0;
-  foreach(array('below1','below2','below3') as $positionbelow) {
-      if ($this->countModules($positionbelow)) {
-          $colCountbelow += 1;
-      }
-  }
-
-
-  switch($colCountbelow )
-  {
-     case 1:
-        $colbelow="col-12";
-        break;
-     case 2:
-        $colbelow="col-12 col-lg-6";
-        break;
-     case 3:
-        $colbelow="col-12 col-lg-4";
-        break;
-     default:
-        break;
-  }
-
-  ?>
-  <?php if ($this->countModules('below1') || $this->countModules('below3') || $this->countModules('below2')): ?>
-  <div class="container">
-    <div class="row">
-      <?php if ($this->countModules('below1')): ?>
-        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below1" style="above" /></div>
-        <?php endif;?>
-        <?php if ($this->countModules('below2')): ?>
-        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below2" style="above" /></div>
-        <?php endif;?>
-        <?php if ($this->countModules('below3')): ?>
-        <div class="<?= $colbelow?>"><jdoc:include type="modules" name="below3" style="above" /></div>
-        <?php endif;?>
-      </div>
-  </div>
-  <?php endif;?>
   <jdoc:include type="modules" name="below" style="below" />
   <jdoc:include type="modules" name="user" style="user" />
 </main>
@@ -368,13 +293,6 @@ $wa->usePreset('template.joomla-italia-theme')
     <?php endif ?>
     </div>
   </div>
-  <?php if ($this->countModules('copy')): ?>
-  <div class="container py-4">
-    <div class="row">
-      <div class="col-12"><jdoc:include type="modules" name="copy" style="none" /></div>
-    </div>
-  </div>
-  <?php endif;?>
   <div class="container py-4">
     <div class="row">
       <div class="col-lg-10 offset-lg-1 text-right footer-credits">

@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 
 if (!array_key_exists('field', $displayData)) {
     return;
@@ -29,13 +30,15 @@ if ($value == '') {
     return;
 }
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 ?>
 
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-documento card-bg card-icon rounded h-100">
             <div class="card-body">
                 <svg class="icon">
-                    <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-file-pdf"></use>
+                    <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-file-pdf"></use>
                 </svg>
                 <div class="card-icon-content">
                     <strong><?php echo $value; ?></strong>
@@ -43,6 +46,3 @@ if ($value == '') {
             </div>
     </div>
 </div>
-
-
-

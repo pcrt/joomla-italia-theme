@@ -19,6 +19,8 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 $value = $field->value;
 $label = $field->label;
 $labelico = $field->label;
@@ -41,7 +43,7 @@ switch ($label) :
         $dtelm = '';
         $icostruttura = 'it-pa';
     break;
-default: 
+default:
         $dtelm = '';
         $icostruttura = 'it-flag';
 endswitch;
@@ -76,7 +78,7 @@ foreach ($items as $item) {
         $array[]=$item->text;
         $texts[] = $item->text;
     }
-    
+
     //echo $item->value;
 
 
@@ -112,7 +114,7 @@ foreach ($items as $item) {
 
         foreach ($items3 as $item3) {
             echo $item3->value;
-        }   
+        }
     }
 */
 
@@ -136,10 +138,10 @@ $items2 = $db2->loadObjectList();
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-servizi card-bg card-icon rounded h-100" <?php echo $dtelm; ?>>
         <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->slug, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
-            
+
         <div class="card-body">
                 <svg class="icon">
-                    <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#<?php echo $icostruttura; ?>"></use>
+                    <use xlink:href="<?= $baseImagePath ?>sprites.svg#<?php echo $icostruttura; ?>"></use>
                 </svg>
                 <div class="card-icon-content">
                     <p>

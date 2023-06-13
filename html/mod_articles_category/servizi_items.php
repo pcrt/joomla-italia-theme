@@ -15,7 +15,9 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\CMS\Uri\Uri;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 //print_r($items[0]->parent_title);
 //echo $items[0]->parent_id;
@@ -25,13 +27,13 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 ?>
 
 <?php foreach ($items as $item) : ?>
-    
+
 <div class="col-12 col-lg-4 px-4 py-2">
     <div class="scheda-item">
     <?php if ($item->displayCategoryTitle) : ?>
-        <div class="categoria-ico">            
+        <div class="categoria-ico">
             <svg class="icon icon-xs d-inline-block">
-                <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-calendar"></use>
+                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-calendar"></use>
             </svg>
             <?php echo $item->displayCategoryTitle; ?>
 

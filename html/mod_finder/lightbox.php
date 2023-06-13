@@ -13,7 +13,9 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Module\Finder\Site\Helper\FinderHelper;
+use Joomla\CMS\Uri\Uri;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 $lang = $app->getLanguage();
 $lang->load('com_finder', JPATH_SITE);
@@ -38,7 +40,7 @@ if ($params->get('show_button', 0))
 	$output .= '<div class="search_button">
                     <button class="btn btn-nobg p-0" data-element="search-submit" type="submit" aria-label="'. Text::_('JSEARCH_FILTER_SUBMIT').'">
                         <svg class="icon">
-                            <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+                            <use href="' . $baseImagePath . 'sprites.svg#it-search"></use>
                         </svg>
                     </button>
                 </div>';
@@ -72,7 +74,7 @@ $wa->useScript('com_finder.finder');
 <span class="d-none d-md-block fw-semibold">Cerca</span>
 <button class="search-link rounded-icon" aria-label="Cerca nel sito" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchmodal" data-element="search-modal-button">
 	<svg class="icon icon-sm">
-		<use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+		<use href="<?= $baseImagePath ?>sprites.svg#it-search"></use>
 	</svg>
 </button>
 </div>
@@ -90,7 +92,7 @@ $wa->useScript('com_finder.finder');
 					<p class="modal-title no_toc" id="searchmodal"><?php echo $label?></p>
 					<button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
 						<svg class="icon">
-							<use href="/templates/joomla-italia-theme/svg/sprites.svg#it-close"></use>
+							<use href="<?= $baseImagePath ?>sprites.svg#it-close"></use>
 						</svg>
 					</button>
 				</div>
@@ -111,7 +113,7 @@ $wa->useScript('com_finder.finder');
 					<?php echo FinderHelper::getGetFields($route, (int) $params->get('set_itemid', 0)); ?>
 					</form>
 				</div>
-				<div class="mt-4">	  
+				<div class="mt-4">
 					<?php echo JHtml::_('content.prepare', '{loadposition menucerca}'); ?>
 				</div>
 				<div class="modal-footer"></div>

@@ -68,6 +68,8 @@ if ($meter) {
     }
 }
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 $wa->useScript('field.passwordview');
 
 Text::script('JFIELD_PASSWORD_INDICATE_INCOMPLETE');
@@ -148,14 +150,14 @@ if ($rules) {
             <?php echo implode(' ', $attributes); ?>>
         <?php if (!$lock) : ?>
         <span class="password-icon" aria-hidden="true">
-            <svg class="password-icon-visible icon icon-sm"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-password-visible"></use></svg>
-            <svg class="password-icon-invisible icon icon-sm d-none"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-password-invisible"></use></svg>
+            <svg class="password-icon-visible icon icon-sm"><use href="<?= $baseImagePath ?>sprites.svg#it-password-visible"></use></svg>
+            <svg class="password-icon-invisible icon icon-sm d-none"><use href="<?= $baseImagePath ?>sprites.svg#it-password-invisible"></use></svg>
         </span>
         <span class="visually-hidden"><?php echo Text::_('JSHOWPASSWORD'); ?></span>
         <?php else : ?>
             <button type="button" id="<?php echo $id; ?>_lock" class="btn btn-info input-password-modify locked">
                 <?php echo Text::_('JMODIFY'); ?>
-            </button>        
+            </button>
         <?php endif; ?>
         <!--aria-labelledby="infoPassword"-->
 

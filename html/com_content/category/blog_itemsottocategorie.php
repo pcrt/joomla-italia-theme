@@ -36,7 +36,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 $introimg = json_decode($this->item->images);
 
 
-
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 
 ?>
@@ -45,13 +45,13 @@ $introimg = json_decode($this->item->images);
 <div class="card card-servizi card-bg card-icon rounded h-100">
     <?php if ($isUnpublished) : ?>
         <div class="system-unpublished">
-    <?php endif; ?>        
+    <?php endif; ?>
 
 
      <a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" data-element="service-link">
-        <div class="card-body">            
+        <div class="card-body">
             <svg class="icon">
-                <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-flag"></use>
+                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-flag"></use>
             </svg>
             <div class="card-icon-content">
                 <?php echo LayoutHelper::render('joomla.content.blog_style_j4a_sottocategoria_item_title', $this->item); ?>
