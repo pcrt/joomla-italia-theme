@@ -50,7 +50,7 @@ $countcat =0;
         <?php endforeach; ?>
         <?php else : ?>
             <?php $items = $list; ?>
-            <?php require ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
+            <?php require_once ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
         <?php endif; ?>
     
 </div>

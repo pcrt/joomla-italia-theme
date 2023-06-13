@@ -34,8 +34,8 @@ echo $title;
                 </h1>
             </div>
         <?php endif; ?>
-        <iframe <?= $this->wrapper->load ?>
-            title="<?=$title?>"
+        <iframe title="<?=$title?>"
+            <?= $this->wrapper->load ?>
             id="blockrandom"
             name="iframe"
             src="<?= $this->escape($this->wrapper->url) ?>"
