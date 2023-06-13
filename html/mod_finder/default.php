@@ -13,7 +13,9 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Module\Finder\Site\Helper\FinderHelper;
+use Joomla\CMS\Uri\Uri;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 $lang = $app->getLanguage();
 $lang->load('com_finder', JPATH_SITE);
@@ -38,7 +40,7 @@ if ($params->get('show_button', 0))
 	$output .= '<div class="input-group-append">
                     <button class="btn" type="submit" aria-label="'. Text::_('JSEARCH_FILTER_SUBMIT').'">
                         <svg class="icon icon-sm">
-                            <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+                            <use href="' . $baseImagePath . 'sprites.svg#it-search"></use>
                         </svg>
                     </button>
                 </div>';
@@ -85,7 +87,7 @@ $wa->useScript('com_finder.finder');
 </form>
 <a class="pe-0 pe-md-5 d-lg-none d-block search-link rounded-icon" aria-label="Cerca nel sito" href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#searchmodal">
 	<svg class="icon">
-		<use href="/templates/joomla-italia-theme/svg/sprites.svg#it-search"></use>
+		<use href="<?= $baseImagePath ?>sprites.svg#it-search"></use>
 	</svg>
 </a>
 </div>
@@ -103,7 +105,7 @@ $wa->useScript('com_finder.finder');
         <h2 class="modal-title h5 no_toc" id="searchmodal"><?php echo $label?></h2>
         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
           <svg class="icon">
-              <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-close"></use>
+              <use href="<?= $baseImagePath ?>sprites.svg#it-close"></use>
           </svg>
         </button>
       </div>

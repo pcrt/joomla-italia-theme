@@ -12,6 +12,9 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Filter\OutputFilter;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Uri\Uri;
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 $item_active='';
 $attributes = [];
@@ -25,7 +28,7 @@ if (
 )
 {
 	$attributes['data-element'] = 'service-type';
-} 
+}
 elseif(
     ($item->title == "Panoramica")
 )
@@ -59,7 +62,7 @@ if ($item->deeper && $item->level == 1){
     $attributes['data-bs-toggle'] = 'dropdown';
     $attributes['aria-expanded'] = 'false';
     $attributes['id'] ='mainNavDropdown';
-} elseif ($item->level >= 2){ 
+} elseif ($item->level >= 2){
     $attributes['class'] =  'dropdown-item list-item '.$item_active;
 
 } else {
@@ -101,7 +104,7 @@ if ($item->browserNav == 1) {
 if ($item->deeper && $item->level == 1){
     echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), '<span>' . $linktype . '</span>
     <svg class="icon icon-xs">
-        <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-expand"></use>
+        <use href="' . $baseImagePath . 'sprites.svg#it-expand"></use>
     </svg>
 ', $attributes);
 }elseif ($item->level >= 2){

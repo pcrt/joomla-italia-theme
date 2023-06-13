@@ -14,6 +14,9 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\CMS\Uri\Uri;
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 $input  = $app->getInput();
 $option = $input->getCmd('option');
@@ -27,7 +30,7 @@ $id     = $input->getInt('id');
             <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($item->id, $item->language)); ?>">
             <div class="card-body">
                 <svg class="icon">
-                    <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-files"></use>
+                    <use href="<?= $baseImagePath ?>sprites.svg#it-files"></use>
                 </svg>
                 <div class="card-icon-content">
                     <p><strong><?php echo $item->title; ?></strong></p>

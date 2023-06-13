@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 use Joomla\CMS\Uri\Uri;
+
 $url = Uri::root();
 
 $app = Factory::getApplication();
@@ -38,16 +39,18 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category); 
-                //echo $this->category->parent_id;
+//echo json_encode($this->category);
+//echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
-$imgdesc = $this->category->getParams()->get('image')
+$imgdesc = $this->category->getParams()->get('image');
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
 
-    
+
 <section class="section bg-white py-5 position-relative d-flex align-items-center overflow-hidden section-hero">
     <div class="container">
         <div class="row align-items-center">
@@ -59,7 +62,7 @@ $imgdesc = $this->category->getParams()->get('image')
                     <?php if ($this->params->get('show_page_heading')) : ?>
                         <small><?php echo $this->escape($this->params->get('page_heading')); ?> </small>
                     <?php endif; ?>
-                
+
                     <?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
                         <h1>
                             <?php if ($this->params->get('show_description') && $this->category->description) : ?>
@@ -71,13 +74,13 @@ $imgdesc = $this->category->getParams()->get('image')
             </div>
         </div>
         <?php if ($imgdesc !=''): ?>
-        <div class="title-img" <?php echo LayoutHelper::render('joomla.html.bgimage',['src' => $this->category->getParams()->get('image'),]); ?>></div>
+        <div class="title-img" <?php echo LayoutHelper::render('joomla.html.bgimage', ['src' => $this->category->getParams()->get('image'),]); ?>></div>
         <?php else: ?>
-        <div class="title-img" style="background-image: url('/templates/joomla-italia-theme/img/imgsegnaposto.jpg')"></div>
+        <div class="title-img" style="background-image: url('<?= $baseImagePath ?>imgsegnaposto.jpg')"></div>
         <?php endif; ?>
     </div>
 </section>
 
 <?php echo $afterDisplayTitle; ?>
-<?php echo $beforeDisplayContent; ?> 
+<?php echo $beforeDisplayContent; ?>
 <?php echo $afterDisplayContent; ?>

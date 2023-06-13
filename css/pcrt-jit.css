@@ -38,7 +38,7 @@ article{
 @media(max-width:991px){
     .blog-featured{
         margin:30px 0 0 0;
-    }   
+    }
 
     .com-content-article__body{
         padding-bottom: 60px;
@@ -831,7 +831,7 @@ article{
     fill: #fff;
 }
 
-/* ONE COLUMN BLOG 
+/* ONE COLUMN BLOG
 
 .blogj4a-onecol .blog-item{
     border-radius: 12px;
@@ -914,7 +914,7 @@ article{
     color: #06c;
     font-weight: 600;
     position: relative;
-    display: flex; 
+    display: flex;
     padding-bottom: 0;
     font-size: .8rem;
 }
@@ -930,7 +930,7 @@ article{
 }
 */
 
-/* MENU BLOG 
+/* MENU BLOG
 .menublog h3{
     font-size: .85rem;
     color: #747474;
@@ -1043,7 +1043,7 @@ button.search-link{
 
 .mod-textimgageleft{
  /*min-height: 480px;*/
- margin: 60px 0;   
+ margin: 60px 0;
 }
 
 .mod-textimgageleft h3, .mod-textimgageleft h4{
@@ -1052,7 +1052,7 @@ button.search-link{
 
 @media(max-width:991px){
 .mod-textimgageleft{
-    margin: 30px 0 30px 0;   
+    margin: 30px 0 30px 0;
    }
 }
 .mod-textimgageleft .primopiano-foto{
@@ -1098,8 +1098,8 @@ button.search-link{
     border-top: 1px solid #00000039;
 }
 
-.responsive-tabs-content .accordion-header .accordion-button:active, 
-.responsive-tabs-content .accordion-header .accordion-button:hover, 
+.responsive-tabs-content .accordion-header .accordion-button:active,
+.responsive-tabs-content .accordion-header .accordion-button:hover,
 .responsive-tabs-content .accordion-header .accordion-button:focus{
     border-top: 1px solid #00000039!important;
 }
@@ -1135,7 +1135,7 @@ button.search-link{
         z-index: 1;
         padding-left: 440px;
         padding-top: 50px;
-        
+
     }
 
     .responsive-tabs-aside .r-tabs-nav {
@@ -1209,7 +1209,7 @@ button.search-link{
 
     .bg-bluelectric .responsive-tabs-aside .r-tabs-nav .nav-link.active{
         background-color: #0D00FF;
-    }    
+    }
 
 }
 
@@ -1229,7 +1229,7 @@ button.search-link{
         background-color: unset;
         border-bottom: 1px solid #00000038;
         border-right: 0;
-    }    
+    }
 
     .section.section-tabs-bg .responsive-tabs .r-tabs-nav {
         background-color: unset;
@@ -1241,8 +1241,8 @@ button.search-link{
 
     .responsive-tabs.responsive-tabs-aside .tab-content>.active {
         display: none;
-    }    
-    
+    }
+
     .responsive-tabs.responsive-tabs-aside .tab-pane.show{
         display: block;
     }
@@ -1304,7 +1304,7 @@ button.search-link{
     margin-top: 0!important;
 }
 
-/* siti tematici 
+/* siti tematici
 .cardblu{
     height: 55px;
     border-radius: 5px;
@@ -1355,11 +1355,11 @@ a.cardblu:hover{
     margin: 0;
     height: 10px;
   }
-  
+
   #slideheader .owl-nav .owl-prev span, #slideheader .owl-nav .owl-next span{
   display: none;
   }
-  
+
   #slideheader .owl-prev:after {
     position: absolute;
     content: "";
@@ -1372,17 +1372,17 @@ a.cardblu:hover{
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
     width: 40px;
-    height: 40px;  
+    height: 40px;
     left: 50px;
     position: absolute;
     top: 0;
   }
-  
+
   #slideheader .owl-nav [class*=owl-] {
     background: transparent!important;
     padding: 0!important;
   }
-  
+
   #slideheader .owl-prev:after, #slideheader .owl-next:after {
     -webkit-transform: translate(-50%,-50%) rotate(45deg);
     -moz-transform: translate(-50%,-50%) rotate(45deg);
@@ -1390,8 +1390,8 @@ a.cardblu:hover{
     -ms-transform: translate(-50%,-50%) rotate(45deg);
     transform: translate(-50%,-50%) rotate(45deg);
   }
-  
-  
+
+
   #slideheader .owl-next:after {
     position: absolute;
     content: "";
@@ -1403,13 +1403,13 @@ a.cardblu:hover{
     -moz-box-shadow: inset -4px 4px 3px -3px rgba(0, 0, 0, 0.5);
     -webkit-transition: all .3s ease 0s;
     transition: all .3s ease 0s;
-    width: 40px;  
+    width: 40px;
     right: 10px;
     position: absolute;
     top: 0;
     height: 40px;
   }
-  
+
   #slideheader .owl-dots {
     position: absolute;
     bottom: 10%;
@@ -1418,16 +1418,16 @@ a.cardblu:hover{
     margin: 0;
     height: 10px;
   }
-  
-  #slideheader .owl-dots .owl-dot span, 
+
+  #slideheader .owl-dots .owl-dot span,
   #iniziativecarosello .owl-dots .owl-dot span {
     width: 20px;
     height: 20px;
   }
-  
-  #slideheader .owl-dots .owl-dot.active span, 
+
+  #slideheader .owl-dots .owl-dot.active span,
   #slideheader .owl-dots .owl-dot:hover span,
-  #iniziativecarosello .owl-dots .owl-dot.active span, 
+  #iniziativecarosello .owl-dots .owl-dot.active span,
   #iniziativecarosello .owl-dots .owl-dot:hover span {
     background: #0a66cc;
   }
@@ -1438,33 +1438,33 @@ a.cardblu:hover{
     position: relative;
     background-position:center center ;
   }
-  
+
   .wrap-slide{
-    width: 100%;  
+    width: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
+
   .caption-slide{
     color: white;
     background: rgba(0,102,204,0.6);
     padding: 30px;
     max-width: 30%;
   }
-  
+
   .caption-slide a{
     color:#fff;
     text-decoration: none;
   }
-  
+
   .title-slider{
     font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 5px;
   }
-  
+
   .text-slider{
     font-size: 1.1rem;
     margin-bottom: 0;
@@ -1474,21 +1474,21 @@ a.cardblu:hover{
     #slideheader .owl-dots {
       bottom: 40px;
     }
-  
-    #slideheader .owl-dots .owl-dot.active span, 
-    #slideheader .owl-dots .owl-dot:hover span, 
-    #iniziativecarosello .owl-dots .owl-dot.active span, 
+
+    #slideheader .owl-dots .owl-dot.active span,
+    #slideheader .owl-dots .owl-dot:hover span,
+    #iniziativecarosello .owl-dots .owl-dot.active span,
     #iniziativecarosello .owl-dots .owl-dot:hover span{
       background: #000;
     }
-  
-    #slideheader .owl-dots .owl-dot span, 
+
+    #slideheader .owl-dots .owl-dot span,
     #iniziativecarosello .owl-dots .owl-dot span{
       width: 15px;
       height: 15px;
     }
-  
-    .owl-carousel .owl-nav button.owl-next, 
+
+    .owl-carousel .owl-nav button.owl-next,
     .owl-carousel .owl-nav button.owl-prev, .owl-carousel button.owl-dot {
       margin-left: 5px;
       margin-right: 5px;
@@ -1497,7 +1497,7 @@ a.cardblu:hover{
     .image-container {
         height: 20em;
     }
-    
+
     .caption-slide{
         width: 100%;
         max-width: 100%;
@@ -1648,7 +1648,7 @@ a.cardblu:hover{
     display: block;
     width: 168px;
     height: 168px;
-    content: url(../img/virgolette-apri.svg);
+    content: url(../images/virgolette-apri.svg);
 }
 
 .big-quote h2, .big-quote .h2 {
@@ -1669,7 +1669,7 @@ a.cardblu:hover{
     display: block;
     width: 168px;
     height: 168px;
-    content: url(../img/virgolette-chiudi.svg);
+    content: url(../images/virgolette-chiudi.svg);
 }
 
 .rowstrutture{
@@ -1752,7 +1752,7 @@ text-decoration: none;
 }
 
 .redbrown.card.card-large.card-icon svg.icon {
-    fill: #D1344C;    
+    fill: #D1344C;
 }
 
 .card.card-large.card-icon svg.icon {
@@ -1815,4 +1815,3 @@ text-decoration: none;
     font-size: 1rem;
     margin: 0 0 0 0;
 }
-

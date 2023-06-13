@@ -14,6 +14,8 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_languages', 'mod_languages/template.css');
@@ -33,7 +35,7 @@ $wa->registerAndUseStyle('mod_languages', 'mod_languages/template.css');
                     <?php endif; ?>
                     <?php echo $params->get('full_name', 1) ? $language->title_native : strtoupper($language->sef); ?>
                     <svg class="icon d-none d-lg-block">
-                        <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-expand"></use>
+                        <use href="<?= $baseImagePath ?>sprites.svg#it-expand"></use>
                     </svg>
                 </a>
             <?php endif; ?>

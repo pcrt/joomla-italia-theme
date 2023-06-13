@@ -47,10 +47,12 @@ $urlcompleto = Uri::getInstance();
 
 $config = JFactory::getConfig();
 
-$nomesito = $config->get( 'sitename' );
+$nomesito = $config->get('sitename');
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
-<?php if($fullimg->image_fulltext !=''): ?>
+<?php if ($fullimg->image_fulltext !=''): ?>
 <section class="section bg-white py-5 position-relative d-block d-lg-flex align-items-center overflow-hidden section-hero">
         <div class="title-img" style="background-image: url('<?php echo $fullimg->image_fulltext; ?>');"></div>
         <div class="container">
@@ -80,7 +82,7 @@ $nomesito = $config->get( 'sitename' );
                         <div class="actions-wrapper actions-main">
                             <a class="toggle-actions" href="#" title="Vedi azioni" data-bs-toggle="modal" data-bs-target="#modalaction">
                                 <svg class="icon icon-xs">
-                                    <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-more-items"></use>
+                                    <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-more-items"></use>
                                 </svg>
                                 <span>Stampa / Condividi</span>
                             </a>
@@ -88,10 +90,10 @@ $nomesito = $config->get( 'sitename' );
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            
+
                                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
                                             <svg class="icon">
-                                                <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-close"></use>
+                                                <use href="<?= $baseImagePath ?>sprites.svg#it-close"></use>
                                             </svg>
                                             </button>
                                         </div>
@@ -100,38 +102,38 @@ $nomesito = $config->get( 'sitename' );
                                                 <ul class="link-list ps-0 ms-0">
                                                     <li>
                                                         <a href="javascript:window.print();" class="list-item left-icon" title="Stampa il contenuto" data-focus-mouse="false">
-                                                            <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-print"></use></svg>
+                                                            <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-print"></use></svg>
                                                             <span>Stampa</span>
                                                         </a>
                                                     </li>
                                                     <li>
                                                         <a href="mailto:?subject=<?php echo $this->escape($this->item->title); ?>&amp;body=<?php echo $urlcompleto ?>" class="list-item left-icon" title="Invia il contenuto">
-                                                            <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-mail"></use></svg>
+                                                            <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-mail"></use></svg>
                                                             <span>Invia</span>
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="list-item collapsed link-toggle" title="Condividi" href="#social-share" data-bs-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button" id="share-control"> 
-                                                            <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-share"></use></svg>
+                                                        <a class="list-item collapsed link-toggle" title="Condividi" href="#social-share" data-bs-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button" id="share-control">
+                                                            <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-share"></use></svg>
                                                             <span>Condividi</span>
-                                                            <svg class="icon icon-right"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-expand"></use></svg>
+                                                            <svg class="icon icon-right"><use href="<?= $baseImagePath ?>sprites.svg#it-expand"></use></svg>
                                                         </a>
                                                         <ul class="ps-0 link-sublist collapse" id="social-share" role="region" aria-labelledby="share-control">
                                                             <li>
                                                                 <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlcompleto ?>" title="Condividi su: Facebook" target="_blank">
-                                                                    <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-facebook"></use></svg>
+                                                                    <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-facebook"></use></svg>
                                                                     <span>Facebook</span>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a class="list-item" href="http://twitter.com/share?text=<?php echo $this->escape($this->item->title); ?>&amp;url=<?php echo $urlcompleto ?>" title="Condividi su: Twitter" target="_blank">
-                                                                    <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-twitter"></use></svg>
+                                                                    <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-twitter"></use></svg>
                                                                     <span>Twitter</span>
                                                                 </a>
                                                             </li>
                                                             <li>
                                                                 <a class="list-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $urlcompleto ?>&amp;title=<?php echo $this->escape($this->item->title); ?>&amp;source=<?php echo $nomesito?>" title="Condividi su: Linkedin" target="_blank">
-                                                                <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-linkedin"></use></svg>
+                                                                <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-linkedin"></use></svg>
                                                                     <span>Linkedin</span>
                                                                 </a>
                                                             </li>
@@ -155,7 +157,7 @@ $nomesito = $config->get( 'sitename' );
                                     <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
                                 </div>
                             </div>
-                        <?php endif; ?>      
+                        <?php endif; ?>
                     </aside>
                 </div>
                 <div class="col-12 col-lg-9 border-aside ps-lg-5 pt-0 py-lg-5">
@@ -163,10 +165,10 @@ $nomesito = $config->get( 'sitename' );
 
 
 
-                        
 
-                        <?php 
-                        
+
+                        <?php
+
                         if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative) {
                             echo $this->item->pagination;
                         }
@@ -180,7 +182,7 @@ $nomesito = $config->get( 'sitename' );
                             <?php echo LayoutHelper::render('joomla.content.icons', ['params' => $params, 'item' => $this->item]); ?>
                         <?php endif; ?>
 
-                        <?php // Content is generated by content plugin event "onContentAfterTitle" ?>
+                        <?php // Content is generated by content plugin event "onContentAfterTitle"?>
                         <?php echo $this->item->event->afterDisplayTitle; ?>
 
                         <?php if ($useDefList && ($info == 0 || $info == 2)) : ?>
@@ -188,14 +190,14 @@ $nomesito = $config->get( 'sitename' );
                         <?php endif; ?>
 
 
-                        <?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
+                        <?php // Content is generated by content plugin event "onContentBeforeDisplay"?>
                         <?php echo $this->item->event->beforeDisplayContent; ?>
                         <?php echo $this->item->text ?>
                         <?php if ((int) $params->get('urls_position', 0) === 0) : ?>
                             <?php echo $this->loadTemplate('links'); ?>
                         <?php endif; ?>
                         <?php if ($params->get('access-view')) : ?>
-                        
+
                             <?php
                             if (!empty($this->item->pagination) && !$this->item->paginationposition && !$this->item->paginationrelative) :
                                 echo $this->item->pagination;
@@ -221,11 +223,11 @@ $nomesito = $config->get( 'sitename' );
                             <?php if ((int) $params->get('urls_position', 0) === 1) : ?>
                                 <?php echo $this->loadTemplate('links'); ?>
                             <?php endif; ?>
-                            <?php // Optional teaser intro text for guests ?>
+                            <?php // Optional teaser intro text for guests?>
                         <?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
                             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
                             <?php echo HTMLHelper::_('content.prepare', $this->item->introtext); ?>
-                            <?php // Optional link to let them register to see the whole article. ?>
+                            <?php // Optional link to let them register to see the whole article.?>
                             <?php if ($params->get('show_readmore') && $this->item->fulltext != null) : ?>
                                 <?php $menu = Factory::getApplication()->getMenu(); ?>
                                 <?php $active = $menu->getActive(); ?>
@@ -240,7 +242,7 @@ $nomesito = $config->get( 'sitename' );
                             echo $this->item->pagination;
                             ?>
                         <?php endif; ?>
-                        <?php // Content is generated by content plugin event "onContentAfterDisplay" ?>
+                        <?php // Content is generated by content plugin event "onContentAfterDisplay"?>
                         <?php echo $this->item->event->afterDisplayContent; ?>
 
                     </article>
