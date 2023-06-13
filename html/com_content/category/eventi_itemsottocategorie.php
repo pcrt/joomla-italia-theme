@@ -49,15 +49,17 @@ $baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/ima
         <div class="card-body">
             <div class="card-icon-content d-flex align-items-center">
             <div class="card-news-img me-3">
-                <?php if($introimg->image_intro ==''){ ?>
+                <?php if ($introimg->image_intro =='') {
+    ?>
                 <figure>
                     <a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
-                    <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid"/>
+                    <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/>
                     </a>
                 </figure>
-                <?php } else{
-                        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
-                    }
+                <?php
+} else {
+        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
+    }
                 ?>
             </div>
             <a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">

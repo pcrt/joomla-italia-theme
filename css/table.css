@@ -12,8 +12,7 @@ table {
     width: 100%;
     margin-bottom: 16px;
     color: var(--bs-table-color);
-    vertical-align: top;
-    border-color: var(--bs-table-border-color);    
+    border-color: var(--bs-table-border-color);
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-size: .7rem;

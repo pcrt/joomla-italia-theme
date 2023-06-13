@@ -21,28 +21,30 @@ $this->document->getWebAssetManager()
         <?php if ($this->params->get('show_page_heading')) : ?>
             <div class="page-header">
                 <h1>
-                    <?php if ($this->escape($this->params->get('page_heading'))) : ?>
-                        <?php echo $this->escape($this->params->get('page_heading')); ?>
-                    <?php else : ?>
-                        <?php echo $this->escape($this->params->get('page_title')); ?>
-                    <?php endif; ?>
+
+                    <?php
+                        $title = "";
+            if ($this->escape($this->params->get('page_heading'))) {
+                $title = $this->escape($this->params->get('page_heading'));
+            } else {
+                $title = $this->escape($this->params->get('page_title'));
+            }
+echo $title;
+?>
                 </h1>
             </div>
         <?php endif; ?>
-        <iframe <?php echo $this->wrapper->load; ?>
+        <iframe <?= $this->wrapper->load ?>
+            title="<?=$title?>"
             id="blockrandom"
             name="iframe"
-            src="<?php echo $this->escape($this->wrapper->url); ?>"
-            width="<?php echo $this->escape($this->params->get('width')); ?>"
-            height="<?php echo $this->escape($this->params->get('height')); ?>"
-            loading="<?php echo $this->params->get('lazyloading', 'lazy'); ?>"
-            <?php if ($this->escape($this->params->get('page_heading'))) : ?>
-                title="<?php echo $this->escape($this->params->get('page_heading')); ?>"
-            <?php else : ?>
-                title="<?php echo $this->escape($this->params->get('page_title')); ?>"
-            <?php endif; ?>
-            class="com-wrapper__iframe wrapper <?php echo $this->pageclass_sfx; ?>">
-            <?php echo Text::_('COM_WRAPPER_NO_IFRAMES'); ?>
+            src="<?= $this->escape($this->wrapper->url) ?>"
+            width="<?= $this->escape($this->params->get('width')) ?>"
+            height="<?= $this->escape($this->params->get('height')) ?>"
+            loading="<?= $this->params->get('lazyloading', 'lazy') ?>"
+            class="com-wrapper__iframe wrapper <?= $this->pageclass_sfx ?>"
+        >
+            <?= Text::_('COM_WRAPPER_NO_IFRAMES'); ?>
         </iframe>
     </div>
 </div>

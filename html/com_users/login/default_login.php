@@ -55,6 +55,7 @@ $usersConfig = ComponentHelper::getParams('com_users');
         <form action="<?php echo Route::_('index.php?option=com_users&task=user.login'); ?>" method="post" class="com-users-login__form form-validate form-horizontal well" id="com-users-login__form">
 
             <fieldset>
+                <legend></legend>
                 <?php echo $this->form->renderFieldset('credentials', ['class' => 'com-users-login__input']); ?>
 
 
@@ -93,7 +94,7 @@ $usersConfig = ComponentHelper::getParams('com_users');
                 <?php endforeach; ?>
                 <div class="row">
                     <div class="col text-right mb-3 text-login-reset">
-                        <a class="com-users-login__reset" href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>" title="Vai alla pagina del reset password">Password<?php //echo Text::_('COM_USERS_LOGIN_RESET'); ?></a> o <a class="com-users-login__remind" href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>" title="Vai alla pagina recupero nome utente">Utente<?php //echo Text::_('COM_USERS_LOGIN_REMIND'); ?></a> dimenticati?<?php if ($usersConfig->get('allowUserRegistration')) : ?> Oppure <a class="com-users-login__register" href="<?php echo Route::_('index.php?option=com_users&view=registration'); ?>" title="Vai alla pagina di registrazione">Registrati<?php //echo Text::_('COM_USERS_LOGIN_REGISTER'); ?></a>
+                        <a class="com-users-login__reset" href="<?php echo Route::_('index.php?option=com_users&view=reset'); ?>" title="Vai alla pagina del reset password">Password<?php //echo Text::_('COM_USERS_LOGIN_RESET');?></a> o <a class="com-users-login__remind" href="<?php echo Route::_('index.php?option=com_users&view=remind'); ?>" title="Vai alla pagina recupero nome utente">Utente<?php //echo Text::_('COM_USERS_LOGIN_REMIND');?></a> dimenticati?<?php if ($usersConfig->get('allowUserRegistration')) : ?> Oppure <a class="com-users-login__register" href="<?php echo Route::_('index.php?option=com_users&view=registration'); ?>" title="Vai alla pagina di registrazione">Registrati<?php //echo Text::_('COM_USERS_LOGIN_REGISTER');?></a>
             <?php endif; ?>
                     </div>
                 </div>

@@ -60,21 +60,22 @@ $alt    = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $name);
     <?php echo $required ? 'required' : ''; ?>
     <?php echo $autofocus ? 'autofocus' : ''; ?>
     <?php echo $dataAttribute; ?>>
+    <legend></legend>
 
     <?php if (!empty($options)) : ?>
         <?php foreach ($options as $i => $option) : ?>
             <?php
                 // Initialize some option attributes.
                 $checked     = ((string) $option->value === $value) ? 'checked="checked"' : '';
-                $optionClass = !empty($option->class) ? 'class="' . $option->class . '"' : '';
-                $disabled    = !empty($option->disable) || ($disabled && !$checked) ? 'disabled' : '';
+            $optionClass = !empty($option->class) ? 'class="' . $option->class . '"' : '';
+            $disabled    = !empty($option->disable) || ($disabled && !$checked) ? 'disabled' : '';
 
-                // Initialize some JavaScript option attributes.
-                $onclick    = !empty($option->onclick) ? 'onclick="' . $option->onclick . '"' : '';
-                $onchange   = !empty($option->onchange) ? 'onchange="' . $option->onchange . '"' : '';
-                $oid        = $id . $i;
-                $ovalue     = htmlspecialchars($option->value, ENT_COMPAT, 'UTF-8');
-                $attributes = array_filter([$checked, $optionClass, $disabled, $onchange, $onclick]);
+            // Initialize some JavaScript option attributes.
+            $onclick    = !empty($option->onclick) ? 'onclick="' . $option->onclick . '"' : '';
+            $onchange   = !empty($option->onchange) ? 'onchange="' . $option->onchange . '"' : '';
+            $oid        = $id . $i;
+            $ovalue     = htmlspecialchars($option->value, ENT_COMPAT, 'UTF-8');
+            $attributes = array_filter([$checked, $optionClass, $disabled, $onchange, $onclick]);
             ?>
             <?php if ($required) : ?>
                 <?php $attributes[] = 'required'; ?>

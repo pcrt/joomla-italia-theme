@@ -93,7 +93,7 @@ if (!empty($groupByFieldset)) {
                     <tr>
                         <?php echo $table_head; ?>
                         <?php if (!empty($buttons)) : ?>
-                        <td style="width:8%;">
+                        <th style="width:8%;">
                             <?php if (!empty($buttons['add'])) : ?>
                                 <div class="btn-group">
                                     <button type="button" class="group-add btn btn-sm btn-success" aria-label="<?php echo Text::_('JGLOBAL_FIELD_ADD'); ?>">
@@ -101,7 +101,7 @@ if (!empty($groupByFieldset)) {
                                     </button>
                                 </div>
                             <?php endif; ?>
-                        </td>
+                        </th>
                         <?php endif; ?>
                     </tr>
                 </thead>
@@ -110,7 +110,7 @@ if (!empty($groupByFieldset)) {
                 foreach ($forms as $k => $form) :
                     echo $this->sublayout($sublayout, ['form' => $form, 'basegroup' => $fieldname, 'group' => $fieldname . $k, 'buttons' => $buttons]);
                 endforeach;
-                ?>
+?>
                 </tbody>
             </table>
         </div>

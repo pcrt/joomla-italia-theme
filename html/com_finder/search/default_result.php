@@ -81,12 +81,12 @@ if ($this->params->get('show_url', 1)) {
     <p class="result__title">
         <?php if ($this->result->route) : ?>
             <?php echo HTMLHelper::link(
-                Route::_($this->result->route),
-                '<span class="result__title-text">' . $icon . $this->result->title . '</span>' . $show_url,
-                [
+    Route::_($this->result->route),
+    '<span class="result__title-text">' . $icon . $this->result->title . '</span>' . $show_url,
+    [
                             'class' => 'result__title-link'
                     ]
-            ); ?>
+); ?>
         <?php else : ?>
             <?php echo $this->result->title; ?>
         <?php endif; ?>

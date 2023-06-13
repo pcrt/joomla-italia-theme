@@ -296,7 +296,6 @@ article{
 }
 
 .card.card-icon .card-icon-content p {
-    font-size: 1rem;
     margin: 0 0 0 0;
     font-family: "Titillium Web", Geneva, Tahoma, sans-serif;
     font-size: .88rem;
@@ -1374,7 +1373,6 @@ a.cardblu:hover{
     width: 40px;
     height: 40px;
     left: 50px;
-    position: absolute;
     top: 0;
   }
 
@@ -1405,7 +1403,6 @@ a.cardblu:hover{
     transition: all .3s ease 0s;
     width: 40px;
     right: 10px;
-    position: absolute;
     top: 0;
     height: 40px;
   }
