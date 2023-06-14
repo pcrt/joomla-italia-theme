@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 use Joomla\CMS\Uri\Uri;
+
 $url = Uri::root();
 
 $app = Factory::getApplication();
@@ -105,51 +106,57 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             <div class="row">
                                 <?php $kategoriereset = 0; ?>
                                 <?php if (!empty($this->intro_items)) : ?>
-                                    <?php if ($kategorie->title == "Notizie") {?>
+                                    <?php if ($kategorie->title == "Notizie") {
+    ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellonotizie">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
+                                                <?php foreach ($this->intro_items as $key => $item) :
                                                         if ($item->catid !== $kategorie->id) {
                                                             continue;
                                                         }
-                                                        $this->item = & $item;
-                                                        echo $this->loadTemplate('itemsottocategorie');
-                                                    endforeach; ?>
+    $this->item = $item;
+    echo $this->loadTemplate('itemsottocategorie');
+    endforeach; ?>
                                             </div>
                                         </div>
-                                    <?php } elseif ($kategorie->title == "Circolari") { ?>
+                                    <?php
+} elseif ($kategorie->title == "Circolari") {
+        ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellocircolari">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
+                                                <?php foreach ($this->intro_items as $key => $item) :
                                                         if ($item->catid !== $kategorie->id) {
                                                             continue;
                                                         } ?>
 
                                                             <?php
-                                                            $this->item = & $item;
-                                                            echo $this->loadTemplate('itemsottocategorienoimg'); ?>
+                                                            $this->item = $item;
+        echo $this->loadTemplate('itemsottocategorienoimg'); ?>
 
                                                     <?php
                                                     endforeach; ?>
                                             </div>
                                         </div>
-                                    <?php } elseif ($kategorie->title == "Eventi") { ?>
+                                    <?php
+    } elseif ($kategorie->title == "Eventi") {
+        ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="caroselloeventi">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
+                                                <?php foreach ($this->intro_items as $key => $item) :
                                                         if ($item->catid !== $kategorie->id) {
                                                             continue;
                                                         } ?>
 
                                                             <?php
-                                                            $this->item = & $item;
-                                                            echo $this->loadTemplate('itemsottocategorienoimg'); ?>
+                                                            $this->item = $item;
+        echo $this->loadTemplate('itemsottocategorienoimg'); ?>
 
                                                     <?php
                                                     endforeach; ?>
                                             </div>
                                         </div>
-                                    <?php } ?>
+                                    <?php
+    } ?>
                                 <?php endif; ?>
 
                             </div>
@@ -211,8 +218,8 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             </aside>
                         </div>
                         <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
-                                <?php foreach ($this->intro_items as $key => &$item) :
-                                    $this->item = & $item;
+                                <?php foreach ($this->intro_items as $key => $item) :
+                                    $this->item = $item;
                                     echo $this->loadTemplate('item');
                                 endforeach; ?>
                             </div>

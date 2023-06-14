@@ -13,8 +13,8 @@ defined('_JEXEC') or die;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 $document = JFactory::getDocument();
-$document->addScript( 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js');
-$document->addStyleSheet( 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+$document->addScript('https://unpkg.com/leaflet@1.9.4/dist/leaflet.js');
+$document->addStyleSheet('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
 
 
 if (!$context || empty($field->subform_rows)) {
@@ -63,27 +63,27 @@ foreach ($field->subform_rows as $subform_row) {
     }
 
     $resultdefault .= implode('', $row_output);
-    
+
     $result .= sprintf('<div class="calendar-date %s">%s</div>', ($subformResultClass ? (' ' . $subformResultClass) : ''), implode('', $row_output));
 }
 
 
-// determino le coordinate GPS (l'etichetta custim field deve chiamarsi GPS)
+// determino le coordinate GPS (l'etichetta custom field deve chiamarsi GPS)
 foreach ($subform_row as $subfield) {
-    if ($subfield->title == 'Gps' || $subfield->title == 'GPS' || $subfield->title == 'gps'){
-         $gps = $subfield->value; 
-    }    
-    if ($subfield->title == 'Nome Sede' || $subfield->title == 'Nome Sede' || $subfield->title == 'NOME SEDE'){
-        $nomeluogo = $subfield->value; 
-   }
-} 
+    if (strtolower($subfield->title) == 'gps') {
+        $gps = $subfield->value;
+    }
+    if (strtolower($subfield->title) == 'nome sede') {
+        $nomeluogo = $subfield->value;
+    }
+}
 
 
 
 ?>
 
 <?php if (trim($result) != '') : ?>
-    <?php if($label == 'Calendario tempi e scadenze' || $label == 'Date e Orari' ):?>
+    <?php if($label == 'Calendario tempi e scadenze' || $label == 'Date e Orari'):?>
         <div class="calendar-vertical mb-5" data-element="service-calendar-list">
                 <?php echo $result; ?>
         </div>

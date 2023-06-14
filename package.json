@@ -1,0 +1,11 @@
+{
+  "name": "joomla-italia-theme",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fr00ller/joomla-italia-theme.git",
+  "author": "pcrt <info@protocollicreativi.it>",
+  "license": "GPL",
+  "dependencies": {
+    "prettier": "^2.8.8"
+  }
+}

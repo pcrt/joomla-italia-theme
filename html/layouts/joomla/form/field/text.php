@@ -129,9 +129,9 @@ $addonAfterHtml  = '<span class="input-group-text">' . Text::_($addonAfter) . '<
 <?php if ($options) : ?>
     <datalist id="<?php echo $id; ?>_datalist">
         <?php foreach ($options as $option) : ?>
-            <?php if (!$option->value) : ?>
-                <?php continue; ?>
-            <?php endif; ?>
+            <?php if (!$option->value) {
+                continue;
+            } ?>
             <option value="<?php echo $option->value; ?>"><?php echo $option->text; ?></option>
         <?php endforeach; ?>
     </datalist>

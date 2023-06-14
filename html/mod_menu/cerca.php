@@ -69,12 +69,12 @@ if ($tagId = $params->get('tag_id', '')) {
         case 'component':
         case 'heading':
         case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'cerca_' . $item->type);
-            break;
+            require_once ModuleHelper::getLayoutPath('mod_menu', 'cerca_' . $item->type);
+    break;
 
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'cerca_url');
-            break;
+    default:
+            require_once ModuleHelper::getLayoutPath('mod_menu', 'cerca_url');
+    break;
     endswitch;
 
     // The next item is deeper.

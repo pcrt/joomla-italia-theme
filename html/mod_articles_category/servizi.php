@@ -52,6 +52,6 @@ $countcat =0;
     <div class="container slided-top pb-5">
         <div class="row">
                 <?php $items = $list; ?>
-                <?php require ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
+                <?php require_once ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
         </div>
     </div>

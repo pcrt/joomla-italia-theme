@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 use Joomla\CMS\Uri\Uri;
+
 $url = Uri::root();
 
 $app = Factory::getApplication();
@@ -108,8 +109,8 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <?php if (!empty($this->intro_items)) : ?>
                                     <?php foreach ($this->intro_items as $key => &$item) : ?>
                                         <?php if ($item->catid !== $kategorie->id) {
-                                                continue;
-                                        } ?>
+    continue;
+} ?>
                                         <div class="col-md-4 col-12 mb-4">
                                                 <?php
                                                 $this->item = & $item;
@@ -177,8 +178,8 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             </aside>
                         </div>
                         <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
-                                <?php foreach ($this->intro_items as $key => &$item) :
-                                    $this->item = & $item;
+                                <?php foreach ($this->intro_items as $key => $item) :
+                                    $this->item = $item;
                                     echo $this->loadTemplate('item');
                                 endforeach; ?>
                             </div>
