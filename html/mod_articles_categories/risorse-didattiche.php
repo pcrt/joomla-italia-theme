@@ -25,7 +25,7 @@ if (!$list) {
                 <h2 class="text-large mb-4 pr-4"><?php echo $module->title; ?></h2>
             </div>
             <div class="col-xl-9 col-lg-8">
-                <?php require ModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items'); ?>
+                <?php require_once ModuleHelper::getLayoutPath('mod_articles_categories', $params->get('layout', 'default') . '_items'); ?>
             </div>
     </div>
 </section>

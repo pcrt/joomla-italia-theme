@@ -43,10 +43,11 @@ use Joomla\CMS\Uri\Uri;
         <?php $multilang = Factory::getApplication()->getLanguageFilter() ? '_MULTILANG' : ''; ?>
         <p><?php echo Text::sprintf('COM_FINDER_SEARCH_NO_RESULTS_BODY' . $multilang, $this->escape($this->query->input)); ?></p>
     </div>
-    <?php // Exit this template.?>
-    <?php return; ?>
-<?php endif; ?>
-<?php // Activate the highlighter if enabled.?>
+    
+<?php else: ?>
+
+
+    <?php // Activate the highlighter if enabled.?>
 <?php if (!empty($this->query->highlight) && $this->params->get('highlight_terms', 1)) : ?>
     <?php
         $this->document->getWebAssetManager()->useScript('highlight');
@@ -87,3 +88,7 @@ use Joomla\CMS\Uri\Uri;
         </div>
     <?php endif; ?>
 </div>
+
+
+<?php endif; ?>
+

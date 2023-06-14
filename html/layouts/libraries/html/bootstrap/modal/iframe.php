@@ -39,7 +39,6 @@ $iframeAttributes = [
 
 if (isset($params['title'])) {
     $iframeAttributes['name'] = addslashes($params['title']);
-    $iframeAttributes['title'] = addslashes($params['title']);
 }
 
 if (isset($params['height'])) {
@@ -50,4 +49,4 @@ if (isset($params['width'])) {
     $iframeAttributes['width'] = $params['width'];
 }
 ?>
-<iframe <?php echo ArrayHelper::toString($iframeAttributes); ?>></iframe>
+<iframe <?php echo ArrayHelper::toString($iframeAttributes); ?> title="<?= addslashes($params['title']) ?>"></iframe>
