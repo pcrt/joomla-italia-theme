@@ -38,5 +38,4 @@ jobs:
         with:
           commit_message: Apply php-cs-fixer changes
           branch: ${{ github.head_ref }}
-          file_pattern: '**/*.php'
           create_branch: true
