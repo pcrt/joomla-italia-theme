@@ -22,7 +22,7 @@ jobs:
           # Checkout the fork/head-repository and push changes to the fork.
           # If you skip this, the base repository will be checked out and changes
           # will be committed to the base repository!
-          # repository: ${{ github.event.pull_request.head.repo.full_name }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
           # Checkout the branch made in the fork. Will automatically push changes
           # back to this branch.
@@ -37,6 +37,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply php-cs-fixer changes
-          branch: ${{ github.head_ref }}
           file_pattern: '*.php'
           create_branch: true
