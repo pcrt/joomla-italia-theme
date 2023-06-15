@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "main"
-  pull_request:
     
 
 jobs:
@@ -26,7 +25,6 @@ jobs:
           # Checkout the branch made in the fork. Will automatically push changes
           # back to this branch.
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.PAT }}
 
       - name: Install
         run: composer install
@@ -37,6 +35,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply php-cs-fixer changes
-          commit_user_name: pcrt
-          commit_user_email: info@protocollicreativi.it
           
