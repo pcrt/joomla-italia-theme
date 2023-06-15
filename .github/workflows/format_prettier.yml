@@ -43,7 +43,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply prettier changes
-          branch: ${{ github.head_ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
           file_pattern: '*.css, *.js'
           
