@@ -39,8 +39,6 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category);
-                //echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
@@ -107,13 +105,13 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             <div class="row">
                                 <?php $kategoriereset = 0; ?>
                                 <?php if (!empty($this->intro_items)) : ?>
-                                    <?php foreach ($this->intro_items as $key => &$item) : ?>
+                                    <?php foreach ($this->intro_items as $key => $item) : ?>
                                         <?php if ($item->catid !== $kategorie->id) {
     continue;
 } ?>
                                         <div class="col-md-4 col-12 mb-4">
                                                 <?php
-                                                $this->item = & $item;
+                                                $this->item = $item;
                                                 echo $this->loadTemplate('itemsottocategorie');
                                                 ?>
                                         </div>

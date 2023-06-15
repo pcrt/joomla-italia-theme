@@ -42,7 +42,7 @@ $countcat =0;
             <?php endif; ?>
             <div class="col-md-10">
                 <?php $items = $list; ?>
-                <?php require ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
+                <?php require_once ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
             </div>
         </div>
     </div>

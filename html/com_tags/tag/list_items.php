@@ -57,6 +57,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
             </div>
         <?php else : ?>
             <table class="com-tags-tag-list__category category table table-striped table-bordered table-hover">
+                <caption></caption>
                 <?php if ($this->params->get('show_headings')) : ?>
                     <thead>
                         <tr>
