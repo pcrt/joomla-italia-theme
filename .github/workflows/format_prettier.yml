@@ -27,7 +27,7 @@ jobs:
           # Checkout the branch made in the fork. Will automatically push changes
           # back to this branch.
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.AUTH_TOKEN }}
+          token: ${{ secrets.PAT }}
 
       - name: Install
         run: yarn install
