@@ -33,10 +33,10 @@ jobs:
           CI: true
 
       - name: Run prettier CSS
-        run: yarn run prettier --write 'css/*.{css}'
+        run: yarn run prettier --write '*.{css}'
 
       - name: Run prettier JS
-        run: yarn run prettier --write 'js/*.{js}'
+        run: yarn run prettier --write '*.{js}'
 
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
