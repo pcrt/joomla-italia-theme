@@ -1291,7 +1291,7 @@ Nella tab Opzioni impostare:
 - Layout: h4-titolosubform 
 - Mostra se di sola lettura: eredita
 
-### Date e orari
+### Date e Orari
 
 Creare un nuovo campo e chiamarlo esattamente così. 
 
@@ -1299,7 +1299,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 - Tipo: Sottocampo ( subform ) 
 - Nome: date-e-orari 
-- Etichetta: Date e orari 
+- Etichetta: Date e Orari 
 - Obbligatorio: No 
 - Ripetibile: Sì 
 - Campi: Riga Data Tempi e scadenze (calendar) Riga Descrizione data tempi e scadenze (textarea) - Stato: Pubblicato 
