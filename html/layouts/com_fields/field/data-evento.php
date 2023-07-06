@@ -42,7 +42,7 @@ $year  = date('Y',$time);
 
 
 <div class="date">
+    <span class="year"><?php echo $year;?></span>
     <span class="day"><?php echo $day;?></span>
     <span class="month"><?php echo $month;?></span>
-    <span class="year"><?php echo $year;?></span>
 </div>
