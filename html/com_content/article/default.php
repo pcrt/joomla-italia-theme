@@ -41,7 +41,8 @@ $pubblicazione = $this->item->publish_up;
 $pubblicazione = Factory::getDate()->format('d.m.Y');
 
 $revisione = $this->item->modified;
-$revisione = Factory::getDate()->format('d.m.Y');;
+$revisione = Factory::getDate()->format('d.m.Y');
+;
 
 $urlcompleto = Uri::getInstance();
 
@@ -172,10 +173,10 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                         if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative) {
                             echo $this->item->pagination;
                         }
-                        ?>
+?>
 
                         <?php $useDefList = $params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
-                        || $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam; ?>
+|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam; ?>
 
 
                         <?php if ($canEdit) : ?>
@@ -199,9 +200,9 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                         <?php if ($params->get('access-view')) : ?>
 
                             <?php
-                            if (!empty($this->item->pagination) && !$this->item->paginationposition && !$this->item->paginationrelative) :
-                                echo $this->item->pagination;
-                            endif;
+    if (!empty($this->item->pagination) && !$this->item->paginationposition && !$this->item->paginationrelative) :
+        echo $this->item->pagination;
+    endif;
                             ?>
                             <?php if (isset($this->item->toc)) :
                                 echo $this->item->toc;

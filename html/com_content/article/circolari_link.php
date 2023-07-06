@@ -23,9 +23,9 @@ if ($urls && (!empty($urls->urla) || !empty($urls->urlb) || !empty($urls->urlc))
     <ul class="com-content-article__links content-list">
         <?php
             $urlarray = [
-            [$urls->urla, $urls->urlatext, $urls->targeta, 'a'],
-            [$urls->urlb, $urls->urlbtext, $urls->targetb, 'b'],
-            [$urls->urlc, $urls->urlctext, $urls->targetc, 'c']
+                [$urls->urla, $urls->urlatext, $urls->targeta, 'a'],
+                [$urls->urlb, $urls->urlbtext, $urls->targetb, 'b'],
+                [$urls->urlc, $urls->urlctext, $urls->targetc, 'c']
             ];
     foreach ($urlarray as $url) :
         $link = $url[0];

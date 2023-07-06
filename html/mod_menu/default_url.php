@@ -1,11 +1,8 @@
 <?php
-
 /**
- * @package     Joomla.Site
- * @subpackage  mod_menu
- *
- * @copyright   (C) 2009 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *   Protocolli Creativi - Realease Team
+ *   @copyright Copyright(c) 2016-2023 Protocolli Creativi s.r.l
+ *   @version 1.2.1
  */
 
 defined('_JEXEC') or die;
@@ -29,22 +26,20 @@ if ($item->anchor_rel) {
 $linktype = $item->title;
 
 
-if ($item->deeper && $item->level == 1){
+if ($item->deeper && $item->level == 1) {
     $attributes['class'] = 'nav-link dropdown-toggle '.$item_active . ' ' .$item->anchor_css;
     $attributes['data-bs-toggle'] = 'dropdown';
     $attributes['aria-expanded'] = 'false';
     $attributes['id'] ='mainNavDropdown';
-} elseif ($item->level >= 2){
+} elseif ($item->level >= 2) {
     $attributes['class'] =  'dropdown-item list-item '.$item_active;
-
 } else {
     $attributes['class'] = 'nav-link '.$item_active;
 }
 
-if(
+if (
     ($item->title == "Panoramica")
-)
-{
+) {
     $attributes['data-element'] = 'overview';
 }
 
@@ -88,13 +83,13 @@ if ($item->browserNav == 1) {
 }
 
 
-if ($item->deeper && $item->level == 1){
+if ($item->deeper && $item->level == 1) {
     echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), '<span>' . $linktype . '</span>
     <svg class="icon icon-xs">
         <use href="' . $baseImagePath . 'sprites.svg#it-expand"></use>
     </svg>
 ', $attributes);
-}elseif ($item->level >= 2){
+} elseif ($item->level >= 2) {
     echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), '<span>' . $linktype . '</span>', $attributes);
 } else {
     echo HTMLHelper::_('link', OutputFilter::ampReplace(htmlspecialchars($item->flink, ENT_COMPAT, 'UTF-8', false)), $linktype, $attributes);

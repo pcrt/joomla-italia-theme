@@ -24,7 +24,7 @@ echo '<div class="it-search-wrapper mod-finder_nolightbox">';
 
 
 $input = '<input type="text" name="q" id="mod-finder-searchword' . $module->id . '" class="p-3 shadow-4 js-finder-search-query form-control" value="' . htmlspecialchars($app->input->get('q', '', 'string'), ENT_COMPAT, 'UTF-8') . '"'
-	. ' placeholder="Cerca nel sito..." aria-label="Search" />';
+    . ' placeholder="Cerca nel sito..." aria-label="Search" />';
 
 $showLabel  = $params->get('show_label', 1);
 $labelClass = (!$showLabel ? 'visually-hidden ' : '') . 'finder';
@@ -32,24 +32,21 @@ $label      = '<label for="mod-finder-searchword' . $module->id . '" class="text
 
 $output = '';
 
-if ($params->get('show_button', 0))
-{
-	$output .= $label;
-	$output .= '<div class="mod-finder__search input-group ">';
-	$output .= $input;
-	$output .= '<div class="input-group-append">
+if ($params->get('show_button', 0)) {
+    $output .= $label;
+    $output .= '<div class="mod-finder__search input-group ">';
+    $output .= $input;
+    $output .= '<div class="input-group-append">
                     <button class="btn" type="submit" aria-label="'. Text::_('JSEARCH_FILTER_SUBMIT').'">
                         <svg class="icon icon-sm">
                             <use href="' . $baseImagePath . 'sprites.svg#it-search"></use>
                         </svg>
                     </button>
                 </div>';
-	$output .= '</div>';
-}
-else
-{
-	$output .= $label;
-	$output .= $input;
+    $output .= '</div>';
+} else {
+    $output .= $label;
+    $output .= $input;
 }
 
 Text::script('MOD_FINDER_SEARCH_VALUE', true);
@@ -61,10 +58,9 @@ $wa->getRegistry()->addExtensionRegistryFile('com_finder');
 /*
  * This segment of code sets up the autocompleter.
  */
-if ($params->get('show_autosuggest', 1))
-{
-	$wa->usePreset('awesomplete');
-	$app->getDocument()->addScriptOptions('finder-search', array('url' => Route::_('index.php?option=com_finder&task=suggestions.suggest&format=json&tmpl=component')));
+if ($params->get('show_autosuggest', 1)) {
+    $wa->usePreset('awesomplete');
+    $app->getDocument()->addScriptOptions('finder-search', array('url' => Route::_('index.php?option=com_finder&task=suggestions.suggest&format=json&tmpl=component')));
 }
 
 $wa->useScript('com_finder.finder');

@@ -17,7 +17,6 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 use Joomla\CMS\Uri\Uri;
 
-
 //print_r($items[0]->parent_title);
 //echo $items[0]->parent_id;
 //echo $items[0]->parent_language;

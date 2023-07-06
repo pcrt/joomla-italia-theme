@@ -39,25 +39,25 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                 <ul>
                 <?php
                     $z1 = 0;
-                    foreach ($list as $groupName => $items) :
-                    $idgroupName = str_replace(' ', '', $groupName);
-                ?>
+foreach ($list as $groupName => $items) :
+    $idgroupName = str_replace(' ', '', $groupName);
+    ?>
                     <li><a href="#t-<?php echo $idgroupName ;?>" class="nav-link <?php if ($z1 == 0): ?>active<?php endif; ?>" id="t-<?php echo $idgroupName ;?>-tab" data-bs-toggle="tab" role="tab" aria-controls="t-<?php echo $idgroupName ;?>" aria-selected="false"><?php echo Text::_($groupName); ?></a></li>
                 <?php
-                    $z1++;
-                    endforeach;
-                ?>
+        $z1++;
+endforeach;
+?>
                 </ul>
             </div>
             <div class="accordion-large accordion-wrapper responsive-tabs-wrapper">
                 <div class="pb-3 pb-lg-0">
                     <div class="tab-content" id="nav-vertical-tabContent">
                         <?php
-                            $z2 = 0;
-                            foreach ($list as $groupName => $items) :
-                            $id2groupName = str_replace(' ', '', $groupName);
+            $z2 = 0;
+foreach ($list as $groupName => $items) :
+    $id2groupName = str_replace(' ', '', $groupName);
 
-                        ?>
+    ?>
                             <button class="btn bttabacc d-lg-none d-block" type="button" data-bs-toggle="collapse" data-bs-target="#t-<?php echo $id2groupName ;?>" aria-expanded="false" aria-controls="<?php echo $id2groupName ;?>">
                                 <?php echo Text::_($groupName); ?>
                                 <svg class="icon icon-tab">
@@ -78,10 +78,10 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                         <div id="collapse<?php echo $item->id; ?>" class="accordion-collapse collapse accordion-content" data-bs-parent="accordion<?php echo $item->parent_id; ?>" role="region" aria-labelledby="heading1l">
                                             <p><?php echo $item->displayIntrotext; ?></p>
                                             <?php
-                                                $attributes = ['class' => 'btn ' . $item->active];
-                                                $link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
-                                                $title = 'Per saperne di più'
-                                            ?>
+                            $attributes = ['class' => 'btn ' . $item->active];
+                                        $link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
+                                        $title = 'Per saperne di più'
+                                        ?>
                                             <p><?php echo HTMLHelper::_('link', $link, $title, $attributes); ?></p>
                                         </div>
                                     </div>
@@ -91,14 +91,14 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
 
 
 
-                                        <?php //echo $item->title; ?>
-                                        <p><?php //echo $item->displayIntrotext; ?></p>
+                                        <?php //echo $item->title;?>
+                                        <p><?php //echo $item->displayIntrotext;?></p>
                                         <?php
                                             //$attributes = ['class' => 'btn ' . $item->active];
                                             //$link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
                                             //$title = 'Per saperne di più'
                                         ?>
-                                        <p><?php //echo HTMLHelper::_('link', $link, $title, $attributes); ?></p>
+                                        <p><?php //echo HTMLHelper::_('link', $link, $title, $attributes);?></p>
 
 
 
@@ -111,8 +111,8 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
 
                         <?php
                             $z2++;
-                            endforeach;
-                        ?>
+endforeach;
+?>
                     </div>
                 </div>
             </div>

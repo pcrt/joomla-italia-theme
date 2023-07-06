@@ -40,29 +40,29 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
         </div>
     <?php else :
 
-                foreach ($this->items as $m => $item_tag) :
+        foreach ($this->items as $m => $item_tag) :
 
-                    $db2 = Factory::getContainer()->get('DatabaseDriver');
-                    $query2 = $db2->getQuery(true);
-                    $query2->select($db2->quoteName(array('tagmap.content_item_id', 'tagmap.tag_id', 'tags.title')))
-                    ->from($db2->quoteName('#__contentitem_tag_map', "tagmap"))
-                    ->leftJoin($db2->quoteName("#__content", "content") . ' ON ' . $db2->quoteName("tagmap.content_item_id") . " = " . $db2->quoteName("content.id"))
-                    ->leftJoin($db2->quoteName("#__tags", "tags") . ' ON ' . $db2->quoteName("tags.id") . " = " . $db2->quoteName("tagmap.tag_id"))
-                    ->where($db2->quoteName('content.id') . ' = '. $item_tag->id);
-                    $db2->setQuery($query2);
-                    $items2 = $db2->loadObjectList();
-                    $items3[$items2[0]->content_item_id]= $items2[0];
+            $db2 = Factory::getContainer()->get('DatabaseDriver');
+            $query2 = $db2->getQuery(true);
+            $query2->select($db2->quoteName(array('tagmap.content_item_id', 'tagmap.tag_id', 'tags.title')))
+            ->from($db2->quoteName('#__contentitem_tag_map', "tagmap"))
+            ->leftJoin($db2->quoteName("#__content", "content") . ' ON ' . $db2->quoteName("tagmap.content_item_id") . " = " . $db2->quoteName("content.id"))
+            ->leftJoin($db2->quoteName("#__tags", "tags") . ' ON ' . $db2->quoteName("tags.id") . " = " . $db2->quoteName("tagmap.tag_id"))
+            ->where($db2->quoteName('content.id') . ' = '. $item_tag->id);
+            $db2->setQuery($query2);
+            $items2 = $db2->loadObjectList();
+            $items3[$items2[0]->content_item_id]= $items2[0];
 
-                endforeach;
+        endforeach;
 
-                    $tagOLD = '';
-                    $arrray = [];
+        $tagOLD = '';
+        $arrray = [];
 
-                foreach($this->items as $articolo):
-                    $arr_art[$items3[$articolo->id]->tag_id][] = $articolo;
-                endforeach;
+        foreach($this->items as $articolo):
+            $arr_art[$items3[$articolo->id]->tag_id][] = $articolo;
+        endforeach;
 
-    ?>
+        ?>
         <div class="responsive-tabs responsive-tabs-aside r-tabs">
             <div class="tabs-img">
                 <img class="img-fluid" src="<?= $baseImagePath ?>img-didattica.png" title="I cicli" alt="La didattica">
@@ -70,32 +70,32 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
             <div class="r-tabs-nav nav nav-tabs nav-tabs-vertical" id="nav-vertical-tab" role="tablist" aria-orientation="vertical">
                 <ul class="m-0 p-0">
                     <?php
-                        $z1 = 0;
-                        foreach($items3 as $tag):
-                        if($tagOLD == $tag->tag_id){
-                            $tagOLD = $tag->tag_id;
-                                break;
-                            }
-                    ?>
+                            $z1 = 0;
+        foreach($items3 as $tag):
+            if($tagOLD == $tag->tag_id) {
+                $tagOLD = $tag->tag_id;
+                break;
+            }
+            ?>
                     <li>
                         <a href="#nav-vertical-<?php echo $tag->tag_id; ?>" class="nav-link <?php if ($z1 == 0): ?>active<?php endif; ?>" id="nav-vertical-<?php echo $tag->tag_id; ?>-tab" data-bs-toggle="tab" role="tab" aria-controls="nav-vertical-<?php echo $tag->tag_id; ?>" aria-selected="false"><?php echo $tag->title; ?></a>
                     </li>
                 <?php
-                    $tagOLD = $tag->tag_id;
-                    $z1++;
-                    endforeach;?>
+            $tagOLD = $tag->tag_id;
+            $z1++;
+        endforeach;?>
                 </ul>
             </div>
             <div class="accordion-large accordion-wrapper responsive-tabs-wrapper">
                 <div class="pb-3 pb-lg-0">
                 <div class="tab-content" id="nav-vertical-tabContent">
                     <?php
-                        $z2 = 0;
-                        foreach($items3 as $tag):
-                        /*if($tagOLD == $tag->tag_id){
-                                continue;
-                            } */
-                    ?>
+            $z2 = 0;
+foreach($items3 as $tag):
+    /*if($tagOLD == $tag->tag_id){
+            continue;
+        } */
+    ?>
                     <!--<h2><?php echo $tag->title; ?></h2>-->
 
 
@@ -125,15 +125,15 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                             </p>
                                         </div>
                                     </div>
-                                    <?php //$tagOLD = $tag->tag_id ?>
+                                    <?php //$tagOLD = $tag->tag_id?>
                                 <?php endforeach; ?>
                             </div>
                         </div>
                     </div>
                     <?php
-                    $z2++;
-                    endforeach;
-                    ?>
+    $z2++;
+endforeach;
+?>
                 </div>
             </div>
         </div>

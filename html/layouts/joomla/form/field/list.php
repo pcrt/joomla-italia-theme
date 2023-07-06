@@ -1,11 +1,8 @@
 <?php
-
 /**
- * @package     Joomla.Site
- * @subpackage  Layout
- *
- * @copyright   (C) 2018 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *   Protocolli Creativi - Realease Team
+ *   @copyright Copyright(c) 2016-2023 Protocolli Creativi s.r.l
+ *   @version 1.2.1
  */
 
 defined('_JEXEC') or die;
@@ -79,8 +76,7 @@ if ($readonly) {
     } else {
         $html[] = '<input type="hidden" name="' . $name . '" value="' . htmlspecialchars($value, ENT_COMPAT, 'UTF-8') . '">';
     }
-} else // Create a regular list passing the arguments in an array.
-{
+} else { // Create a regular list passing the arguments in an array.
     $listoptions = [];
     $listoptions['option.key'] = 'value';
     $listoptions['option.text'] = 'text';

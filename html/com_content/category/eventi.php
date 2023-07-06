@@ -39,8 +39,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category);
-                //echo $this->category->parent_id;
+//echo json_encode($this->category);
+//echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
@@ -107,56 +107,56 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <?php $kategoriereset = 0; ?>
                                 <?php if (!empty($this->intro_items)) : ?>
                                     <?php if ($kategorie->title == "Notizie") {
-    ?>
+                                        ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellonotizie">
                                                 <?php foreach ($this->intro_items as $key => $item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        }
-    $this->item = $item;
-    echo $this->loadTemplate('itemsottocategorie');
-    endforeach; ?>
+                                                    if ($item->catid !== $kategorie->id) {
+                                                        continue;
+                                                    }
+                                                    $this->item = $item;
+                                                    echo $this->loadTemplate('itemsottocategorie');
+                                                endforeach; ?>
                                             </div>
                                         </div>
                                     <?php
-} elseif ($kategorie->title == "Circolari") {
-        ?>
+                                    } elseif ($kategorie->title == "Circolari") {
+                                        ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellocircolari">
                                                 <?php foreach ($this->intro_items as $key => $item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        } ?>
+                                                    if ($item->catid !== $kategorie->id) {
+                                                        continue;
+                                                    } ?>
 
                                                             <?php
-                                                            $this->item = $item;
-        echo $this->loadTemplate('itemsottocategorienoimg'); ?>
+                                                        $this->item = $item;
+                                                    echo $this->loadTemplate('itemsottocategorienoimg'); ?>
 
                                                     <?php
-                                                    endforeach; ?>
+                                                endforeach; ?>
                                             </div>
                                         </div>
                                     <?php
-    } elseif ($kategorie->title == "Eventi") {
-        ?>
+                                    } elseif ($kategorie->title == "Eventi") {
+                                        ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="caroselloeventi">
                                                 <?php foreach ($this->intro_items as $key => $item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        } ?>
+                                                    if ($item->catid !== $kategorie->id) {
+                                                        continue;
+                                                    } ?>
 
                                                             <?php
-                                                            $this->item = $item;
-        echo $this->loadTemplate('itemsottocategorienoimg'); ?>
+                                                        $this->item = $item;
+                                                    echo $this->loadTemplate('itemsottocategorienoimg'); ?>
 
                                                     <?php
-                                                    endforeach; ?>
+                                                endforeach; ?>
                                             </div>
                                         </div>
                                     <?php
-    } ?>
+                                    } ?>
                                 <?php endif; ?>
 
                             </div>
@@ -193,17 +193,17 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 </div>
                                 <h2 class="h6 text-uppercase"><strong>Tipologia</strong></h2>
                                 <?php
-                                    // Mostro le categorie che hanno la stessa categoria parent
-                                    $db = Factory::getContainer()->get('DatabaseDriver');
-                                    $query = $db->getQuery(true);
+                                                                    // Mostro le categorie che hanno la stessa categoria parent
+                                                                    $db = Factory::getContainer()->get('DatabaseDriver');
+            $query = $db->getQuery(true);
 
-                                    $query->select($db->quoteName(array('title', 'id','language')))
-                                        ->from($db->quoteName('#__categories'))
-                                        ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
-                                        ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
-                                    $db->setQuery($query);
-                                    $rows = $db->loadObjectList();
-                                ?>
+            $query->select($db->quoteName(array('title', 'id','language')))
+                ->from($db->quoteName('#__categories'))
+                ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
+                ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
+            $db->setQuery($query);
+            $rows = $db->loadObjectList();
+            ?>
 
                                 <ul class="">
                                     <?php foreach ($rows as $row) : ?>

@@ -81,11 +81,11 @@ if (isset($params['url'])) {
                 // Body
                 echo LayoutHelper::render('libraries.html.bootstrap.modal.body', $displayData);
 
-                // Footer
-            if (isset($params['footer'])) {
-                echo LayoutHelper::render('libraries.html.bootstrap.modal.footer', $displayData);
-            }
-            ?>
+// Footer
+if (isset($params['footer'])) {
+    echo LayoutHelper::render('libraries.html.bootstrap.modal.footer', $displayData);
+}
+?>
         </div>
     </div>
 </div>

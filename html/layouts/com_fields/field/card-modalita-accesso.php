@@ -36,8 +36,8 @@ if ($value == '') {
 switch ($label) :
     case 'Modalità di accesso':
         $idelm = 'id="art-par-05"';
-    break;
-default: 
+        break;
+    default:
         $idelm = 'id="art-par-'.$fieldid.'"';
 endswitch;
 

@@ -114,7 +114,7 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
             </table>
         <?php endif; ?>
 
-        <?php // Add pagination links ?>
+        <?php // Add pagination links?>
         <?php if (($this->params->def('show_pagination', 2) == 1 || ($this->params->get('show_pagination') == 2)) && ($this->pagination->pagesTotal > 1)) : ?>
             <div class="com-tags-tag-list__pagination w-100">
                 <?php if ($this->params->def('show_pagination_results', 1)) : ?>

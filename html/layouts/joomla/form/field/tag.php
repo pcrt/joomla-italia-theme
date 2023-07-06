@@ -106,8 +106,7 @@ if ($readonly) {
     } else {
         $html[] = '<input type="hidden" name="' . $name . '" value="' . htmlspecialchars($value, ENT_COMPAT, 'UTF-8') . '">';
     }
-} else // Create a regular list.
-{
+} else { // Create a regular list.
     $html[] = HTMLHelper::_('select.genericlist', $options, $name, trim($attr), 'value', 'text', $value, $id);
 }
 

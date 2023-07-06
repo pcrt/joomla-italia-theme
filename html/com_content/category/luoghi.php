@@ -39,8 +39,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category);
-                //echo $this->category->parent_id;
+//echo json_encode($this->category);
+//echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
@@ -109,13 +109,13 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <?php if (!empty($this->intro_items)) : ?>
                                     <?php foreach ($this->intro_items as $key => &$item) : ?>
                                         <?php if ($item->catid !== $kategorie->id) {
-    continue;
-} ?>
+                                            continue;
+                                        } ?>
                                         <div class="col-md-4 col-12 mb-4">
                                                 <?php
-                                                $this->item = & $item;
-                                                echo $this->loadTemplate('itemsottocategorie');
-                                                ?>
+                                                                                        $this->item = & $item;
+                                        echo $this->loadTemplate('itemsottocategorie');
+                                        ?>
                                         </div>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
@@ -155,15 +155,15 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <?php
                                     // Mostro le categorie che hanno la stessa categoria parent
                                     $db = Factory::getContainer()->get('DatabaseDriver');
-                                    $query = $db->getQuery(true);
+            $query = $db->getQuery(true);
 
-                                    $query->select($db->quoteName(array('title', 'id','language')))
-                                        ->from($db->quoteName('#__categories'))
-                                        ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
-                                        ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
-                                    $db->setQuery($query);
-                                    $rows = $db->loadObjectList();
-                                ?>
+            $query->select($db->quoteName(array('title', 'id','language')))
+                ->from($db->quoteName('#__categories'))
+                ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
+                ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
+            $db->setQuery($query);
+            $rows = $db->loadObjectList();
+            ?>
 
                                 <ul class="">
                                     <?php foreach ($rows as $row) : ?>

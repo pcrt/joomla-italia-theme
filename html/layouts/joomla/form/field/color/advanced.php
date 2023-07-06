@@ -79,18 +79,18 @@ $wa->usePreset('minicolors')
 ?>
 <input type="text" name="<?php echo $name; ?>" id="<?php echo $id; ?>" value="<?php echo $this->escape($color); ?>"<?php
     echo $hint,
-        $class,
-        $position,
-        $control,
-        $readonly,
-        $disabled,
-        $required,
-        $onchange,
-        $autocomplete,
-        $autofocus,
-        $format,
-        $keywords,
-        $direction,
-        $validate,
-        $dataAttribute;
+$class,
+$position,
+$control,
+$readonly,
+$disabled,
+$required,
+$onchange,
+$autocomplete,
+$autofocus,
+$format,
+$keywords,
+$direction,
+$validate,
+$dataAttribute;
 ?>/>

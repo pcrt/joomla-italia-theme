@@ -29,13 +29,13 @@ $countcat=0;
     if ($module->showtitle) {
         echo '<div class="headerbelow px-2"><div class=""><h3>'.$module->title.'</h3></div>';
         foreach ($list as $item) :
-            if($countcat == 0){
+            if($countcat == 0) {
                 echo '<div><a href="index.php/'.$item->category_route.'">Vedi tutti</a><svg class="icon icon-xs d-inline-block"><use xlink:href="' . $baseImagePath . 'sprites.svg#it-arrow-right"></use></svg></div></div>';
             }
-        ++$countcat;
+            ++$countcat;
         endforeach;
     }
-    ?>
+?>
     <div class="row">
         <?php foreach ($list as $item) : ?>
             <div class="col-12 col-lg-4 px-4 py-4">

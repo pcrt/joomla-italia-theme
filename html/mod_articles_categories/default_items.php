@@ -22,8 +22,8 @@ $id     = $input->getInt('id');
 
 foreach ($list as $item) : ?>
     <li<?php if ($id == $item->id && in_array($view, ['category', 'categories']) && $option == 'com_content') {
-    echo ' class="active"';
-} ?>> <?php $levelup = $item->level - $startLevel - 1; ?>
+        echo ' class="active"';
+    } ?>> <?php $levelup = $item->level - $startLevel - 1; ?>
         <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($item->id, $item->language)); ?>">
         <?php echo $item->title; ?>
             <?php if ($params->get('numitems')) : ?>
@@ -35,11 +35,11 @@ foreach ($list as $item) : ?>
             <?php echo HTMLHelper::_('content.prepare', $item->description, $item->getParams(), 'mod_articles_categories.content'); ?>
         <?php endif; ?>
         <?php
-        if (
-            $params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
-            || ($params->get('maxlevel') >= ($item->level - $startLevel)))
-            && count($item->getChildren())
-        ) : ?>
+            if (
+                $params->get('show_children', 0) && (($params->get('maxlevel', 0) == 0)
+                || ($params->get('maxlevel') >= ($item->level - $startLevel)))
+                && count($item->getChildren())
+            ) : ?>
             <?php echo '<ul>'; ?>
             <?php $temp = $list; ?>
             <?php $list = $item->getChildren(); ?>

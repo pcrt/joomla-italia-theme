@@ -53,8 +53,8 @@ use Joomla\CMS\Uri\Uri;
         $this->document->addScriptOptions(
             'highlight',
             [[
-                    'class'      => 'js-highlight',
-                    'highLight'  => $this->query->highlight,
+                'class'      => 'js-highlight',
+                'highLight'  => $this->query->highlight,
             ]]
         );
         ?>

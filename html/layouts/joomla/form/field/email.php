@@ -1,11 +1,8 @@
 <?php
-
 /**
- * @package     Joomla.Site
- * @subpackage  Layout
- *
- * @copyright   (C) 2016 Open Source Matters, Inc. <https://www.joomla.org>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *   Protocolli Creativi - Realease Team
+ *   @copyright Copyright(c) 2016-2023 Protocolli Creativi s.r.l
+ *   @version 1.2.1
  */
 
 defined('_JEXEC') or die;

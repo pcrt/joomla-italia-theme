@@ -320,12 +320,12 @@ $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
         </table>
     <?php endif; ?>
 
-    <?php // Code to add a link to submit an article. ?>
+    <?php // Code to add a link to submit an article.?>
     <?php if ($this->category->getParams()->get('access-create')) : ?>
         <?php echo HTMLHelper::_('contenticon.create', $this->category, $this->category->params); ?>
     <?php endif; ?>
 
-    <?php // Add pagination links ?>
+    <?php // Add pagination links?>
     <?php if (!empty($this->items)) : ?>
         <?php if (($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->pagesTotal > 1)) : ?>
             <div class="com-content-category__navigation w-100">

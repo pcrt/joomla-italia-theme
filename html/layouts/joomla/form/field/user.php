@@ -108,7 +108,7 @@ if (!$readonly) {
         ->useScript('webcomponent.field-user');
 }
 ?>
-<?php // Create a dummy text field with the user name. ?>
+<?php // Create a dummy text field with the user name.?>
 <joomla-field-user class="field-user-wrapper"
         url="<?php echo (string) $uri; ?>"
         modal=".modal"
@@ -126,7 +126,7 @@ if (!$readonly) {
             </button>
         <?php endif; ?>
     </div>
-    <?php // Create the real field, hidden, that stored the user id. ?>
+    <?php // Create the real field, hidden, that stored the user id.?>
     <?php if (!$readonly) : ?>
         <input type="hidden" id="<?php echo $id; ?>_id" name="<?php echo $name; ?>" value="<?php echo $this->escape($value); ?>"
             class="field-user-input <?php echo $class ? (string) $class : ''?>"

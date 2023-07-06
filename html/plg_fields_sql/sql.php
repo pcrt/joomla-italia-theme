@@ -34,16 +34,16 @@ switch ($label) :
     case 'Struttura responsabile del servizio':
         $dtelm = 'data-element="structures"';
         $icostruttura = 'it-pa';
-    break;
+        break;
     case 'Progetti correlati':
         $dtelm = '';
         $icostruttura = 'it-files';
-    break;
+        break;
     case 'Il Luogo è sede di':
         $dtelm = '';
         $icostruttura = 'it-pa';
-    break;
-default:
+        break;
+    default:
         $dtelm = '';
         $icostruttura = 'it-flag';
 endswitch;
@@ -119,22 +119,22 @@ foreach ($items as $item) {
 */
 
 
-// SELECT id as 'value', title as 'text' FROM #__content WHERE catid=39
+    // SELECT id as 'value', title as 'text' FROM #__content WHERE catid=39
 
 
-$db2 = Factory::getContainer()->get('DatabaseDriver');
-$query2 = $db2->getQuery(true);
-$query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.alias', 'content.language', 'categories.parent_id', 'categories.level')))
-->from($db2->quoteName('#__content', "content"))
-->leftJoin($db2->quoteName("#__categories", "categories") . ' ON ' . $db2->quoteName("content.catid") . " = " . $db2->quoteName("categories.id"))
-->where($db2->quoteName('content.id') . ' = '. $item->value);
-$db2->setQuery($query2);
-$items2 = $db2->loadObjectList();
+    $db2 = Factory::getContainer()->get('DatabaseDriver');
+    $query2 = $db2->getQuery(true);
+    $query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.alias', 'content.language', 'categories.parent_id', 'categories.level')))
+    ->from($db2->quoteName('#__content', "content"))
+    ->leftJoin($db2->quoteName("#__categories", "categories") . ' ON ' . $db2->quoteName("content.catid") . " = " . $db2->quoteName("categories.id"))
+    ->where($db2->quoteName('content.id') . ' = '. $item->value);
+    $db2->setQuery($query2);
+    $items2 = $db2->loadObjectList();
 
 
 
 
-?>
+    ?>
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-servizi card-bg card-icon rounded h-100" <?php echo $dtelm; ?>>
         <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->slug, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
@@ -159,4 +159,4 @@ $items2 = $db2->loadObjectList();
 
 <?php } ?>
 </div>
-<?php //echo htmlentities(implode(', ', $texts)); ?>
+<?php //echo htmlentities(implode(', ', $texts));?>

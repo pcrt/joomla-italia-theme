@@ -41,13 +41,13 @@ $baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/ima
         <div class="card-body">
             <div class="card-article-img d-none d-lg-block">
                 <?php if ($introimg->image_intro =='') {
-    ?>
+                    ?>
                 <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?=$baseImagePath?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/></a></figure>
                 <?php
-} else {
-        echo LayoutHelper::render('joomla.content.intro_image', $this->item);
-    }
-                ?>
+                } else {
+                    echo LayoutHelper::render('joomla.content.intro_image', $this->item);
+                }
+?>
             </div>
             <div class="card-article-content">
                 <?php echo LayoutHelper::render('joomla.content.blog_style_j4a_item_title_servizio', $this->item); ?>
