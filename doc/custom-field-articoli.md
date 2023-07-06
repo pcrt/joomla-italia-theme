@@ -182,6 +182,31 @@ Nella tab Opzioni impostare:
 - Layout: h4-titolosubform 
 - Mostra se di sola lettura: eredita
 
+Layout di tipo Card per il campo gruppi Luoghi.
+
+### DModalità di accesso
+Creare un nuovo campo e chiamarlo "Modalità di accesso"
+
+All’interno della tab Generale impostare i seguenti parametri:
+
+- Tipo: Editor (editor)
+- Nome: modalita-di-accesso
+- Etichetta: Modalità di accesso
+- Obbligatorio: Sì
+- Mostra pulsanti: Nascondi tutti i pulsanti
+- Filtro: Usa impostazioni Plugin
+- Stato: Pubblicato
+- Gruppo di campi: Luoghi
+- Categoria: I luoghi
+
+Nella tab Opzioni impostare:
+
+- Modificabile in: entrambi
+- Mostra etichetta: mostra
+- Visualizza il campo: dopo il contenuto del display
+- Layout: card-modalita-accesso
+- Mostra se di sola lettura: eredita
+
 ### Dettagli edificio
 
 Creare un nuovo campo e chiamarlo esattamente così. 
