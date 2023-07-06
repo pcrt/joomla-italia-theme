@@ -251,7 +251,7 @@ Da contenuto -> Articoli -> Nuovo
 Per superare la validazione è **obbligatorio** creare due articoli:
 
 - Informativa privacy
-- Licenza dei contenuti
+- Licenza dei contenuti -> Impostare nel Tab opzioni il Layout di tipo note-legali
 
 Da Menu -> Gestione -> Nuovo
 
