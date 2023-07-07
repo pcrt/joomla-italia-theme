@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension type="template" client="site">
+<extension type="template" client="site" method="upgrade">
 	<name>joomla-italia-theme</name>
 	<creationDate>07/04/23</creationDate>
 	<author>Eddy Prosperi</author>
@@ -7,21 +7,23 @@
 	<authorUrl>info@protocollicreativi.it</authorUrl>
 	<copyright>Copyright (C) 2023 Protocolli Creativi.</copyright>
 	<license>Protocolli Creativi</license>
-	<version>1.0</version>
+	<version>1.2.1</version>
 	<description>Template Joomla basato su Design Italia</description>
+	<inheritable>1</inheritable>
 	<files>
-		<folder>css</folder>
-		<folder>fonts</folder>
 		<folder>html</folder>
-		<folder>img</folder>
-		<folder>js</folder>
 		<folder>language</folder>
-		<folder>plugins</folder>
-		<folder>svg</folder>
 		<filename>index.php</filename>
+		<filename>component.php</filename>
+		<filename>joomla.asset.json</filename>
 		<filename>templateDetails.xml</filename>
 	</files>
-
+	<media destination="templates/site/joomla-italia-theme" folder="media">
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>fonts</folder>
+		<folder>images</folder>
+	</media>
 	<positions>
 		<position>logo</position>
 		<position>menuprincipale</position>
@@ -31,7 +33,14 @@
 		<position>bottonecerca</position>
 		<position>hero</position>
 		<position>breadcrumbs</position>
+		<position>above</position>
+		<position>above1</position>
+		<position>above2</position>
+		<position>above3</position>
 		<position>below</position>
+		<position>below1</position>
+		<position>below2</position>
+		<position>below3</position>
 		<position>user</position>
 		<position>menucerca</position>
 		<position>menublog</position>
@@ -128,7 +137,7 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				
+
 				<field
 					name="imageLogo"
 					type="media"
@@ -289,7 +298,7 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
-				
+
 				<field
 					name="imageLogoFooter"
 					type="media"
@@ -372,6 +381,57 @@
 					filter="string"
 					showon="showCopyright:1"
 				/>
+			</fieldset>
+
+<fieldset name="csscustom" label="TPL_PCRT_CSS" description="TPL_PCRT_CSS_DESCRIPTION_FIELDSET">
+
+					<field
+						name="cssName"
+						type="text"
+						default=""
+						label="TPL_PCRT_CSS_TITLE_LABEL"
+						description="TPL_PCRT_CSS_DESCRIPTION_LABEL"
+						filter="string"
+						showon="showLogo:1"
+					/>
+					<field
+						name="jsName"
+						type="text"
+						default=""
+						label="TPL_PCRT_JS_TITLE_LABEL"
+						description="TPL_PCRT_JS_DESCRIPTION_LABEL"
+						filter="string"
+						showon="showLogo:1"
+					/>
+
+
+
+					<field
+						name="custom_code_head"
+						type="textarea"
+						label="TPL_PCRT_HEAD_DESCRIPTION_LABEL"
+						description="TPL_PCRT_HEAD_DESCRIPTION_DESCRIPTION"
+						rows="10"
+						cols="50"
+						filter="string"
+						default=""
+					/>
+				
+
+				
+					<field
+						name="custom_code_body"
+						type="textarea"
+						label="TPL_PCRT_BODY_DESCRIPTION_LABEL"
+						description="TPL_PCRT_BODY_DESCRIPTION_DESCRIPTION"
+						rows="10"
+						cols="50"
+						filter="string"
+						default=""
+					/>
+				
+
+
 			</fieldset>
 		</fields>
 	</config>
