@@ -52,7 +52,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24 and content.state=1
 
 Andando a sostituire il numero 24 riportato nell’esempio con l’id della categoria “Servizi” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuto -> Categorie e nella lista di tutte le categorie presenti individuare “Servizi”. Sulla destra è presente l’ID quindi il numero da sostituire al posto del 24.
 
@@ -86,7 +86,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 19
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 19 and content.state=1
 
 Andando a sostituire il numero 19 riportato nell’esempio con l’id della categoria “Organizzazione” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuto -> Categorie e nella lista di tutte le categorie presenti individuare “Organizzazione”. Sulla destra è presente l’ID quindi il numero da sostituire al posto del 19.
 
@@ -358,7 +358,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24 and content.state=1
 
 Andando a sostituire il numero 24 riportato nell’esempio con l’id della categoria “Servizi” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuto -> Categorie e nella lista di tutte le categorie presenti individuare “Organizzazione”. Sulla destra è presente l’ID quindi il numero da sostituire al posto del 24.
 
@@ -424,7 +424,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24 and content.state=1
 
 Andando a sostituire il numero 24 riportato nell’esempio con l’id della categoria “Servizi” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuto -> Categorie e nella lista di tutte le categorie presenti individuare “Organizzazione”. Sulla destra è presente l’ID quindi il numero da sostituire al posto del 24.
 
@@ -862,7 +862,7 @@ Per poter selezionare nell’articolo del servizio uno o più servizi correlati 
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24 
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 24 and content.state=1
 
 Andando a sostituire il numero 24 riportato nell’esempio con l’id della categoria degli articoli “Servizi” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuto -> Categorie e nella lista di tutte le categorie presenti individuare “servizi”. Sulla destra è presente l’ID quindi il numero da sostituire al posto del 24.
 
@@ -1098,7 +1098,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 
 Nel campo **“Query”** inserire la seguente stringa di testo 
 
-SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 35 
+SELECT content.id as 'value', content.title as 'text' FROM #__content content INNER JOIN #__categories categorie ON content.catid = categorie.id   WHERE categorie.parent_id = 35 and content.state=1
 
 Andando a sostituire il numero 35 riportato nell’esempio con l’id della categoria degli articoli “I progetti delle classi” creata precedentemente. Per visualizzare l’id è sufficiente andare in Contenuti -> Categorie e nella lista di tutte le categorie presenti individuare “I progetti delle classi” sulla destra è presente l’ID quindi il numero da sostituire al posto del 35 sopra.
 
