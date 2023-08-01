@@ -618,7 +618,7 @@ a.bg-bluelectric:focus,a.bg-bluelectric:hover,button.bg-bluelectric:focus,button
 }
 
 .modal.fade.show{
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.80);
 }
 
 .modal.modal-actions .modal-dialog {
