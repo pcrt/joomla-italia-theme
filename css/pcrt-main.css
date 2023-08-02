@@ -1,6 +1,6 @@
 /* GENERALE */
 
-html{
+html{   
     scroll-padding-top: 70px;
 }
 
@@ -240,7 +240,7 @@ ul.menucerca li{
 
 .section-hero-left .item-banner::before {
     content: "";
-    background-image: url(../images/bgplus.svg);
+    background-image: url(../img/bgplus.svg);
     position: absolute;
     z-index: -1;
     top: 0;
@@ -265,7 +265,7 @@ ul.menucerca li{
 
 .section-hero-left .decoration-01::before {
     content: "";
-    background-image: url(../images/circle.svg);
+    background-image: url(../img/circle.svg);
     width: 312px;
     height: 311px;
     display: block;
@@ -284,7 +284,7 @@ ul.menucerca li{
 
 .section-hero-left .decoration-02::before {
     content: "";
-    background-image: url(../images/scienza.svg);
+    background-image: url(../img/scienza.svg);
     width: 102px;
     height: 114px;
     display: block;
@@ -321,7 +321,7 @@ ul.menucerca li{
     color: #fff;
     position: relative;
     padding-top: 60px;
-
+    
 }
 .footersito img{
     max-width: 100%;
@@ -391,7 +391,7 @@ ul.menucerca li{
 .footersito h3, .footersito h4, .footersito h5, .footersito h6, .footersito .moduletable p{
     padding-bottom: 0px;
     margin-right: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 10px;    
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
@@ -527,7 +527,7 @@ a.bg-redbrown:focus,a.bg-redbrown:hover,button.bg-redbrown:focus,button.bg-redbr
 
 .card.purplelight {
     background-color: #fbeaff;
-    box-shadow: none;
+    box-shadow: none;    
     font-size: .85rem;
 }
 
@@ -618,7 +618,7 @@ a.bg-bluelectric:focus,a.bg-bluelectric:hover,button.bg-bluelectric:focus,button
 }
 
 .modal.fade.show{
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 0.80);
 }
 
 .modal.modal-actions .modal-dialog {
@@ -652,7 +652,7 @@ a.bg-bluelectric:focus,a.bg-bluelectric:hover,button.bg-bluelectric:focus,button
     line-height: 2.4;
 }
 
-@media print{
+@media print{    
     .no-print, .no-print * {
         display: none !important;
     }
@@ -1265,7 +1265,7 @@ a.view-all{
 
 /* LOGIN */
 
-.control-group.com-users-login__input,
+.control-group.com-users-login__input, 
 .com-users-reset .control-group,
 .com-users-reset-confirm .control-group,
 .com-users-reset-complete .control-group,
@@ -1284,8 +1284,8 @@ a.view-all{
     padding-bottom: 25px;
 }
 
-.control-group.com-users-login__input .control-label,
-.com-users-login__remember .form-check [type=checkbox]+label,
+.control-group.com-users-login__input .control-label, 
+.com-users-login__remember .form-check [type=checkbox]+label, 
 .com-users-login__remember .form-check [type=radio]+label,
 .com-users-reset .control-group .control-label,
 .com-users-reset-confirm .control-group .control-label,
@@ -1298,7 +1298,7 @@ a.view-all{
     font-weight: 600;
 }
 
-.text-login-reset,
+.text-login-reset, 
 .com-users-reset-complete .password-group{
     font-size: .777rem;
 }
@@ -1319,9 +1319,9 @@ a.view-all{
     color: #d1344c;
 }
 
-.com-users-login,
-.com-users-reset,
-.com-users-reset-confirm,
+.com-users-login, 
+.com-users-reset, 
+.com-users-reset-confirm, 
 .com-users-reset-complete,
 .com-users-remind,
 .com-users-registration,
@@ -1346,14 +1346,14 @@ a.view-all{
 }
 
 .btn.btn-secondary.input-password-toggle .icon-eye-slash{
-    background: url(../images/icon-eye-barrato.svg) no-repeat;
+    background: url(../svg/icon-eye-barrato.svg) no-repeat;
 }
 
 .btn.btn-secondary.input-password-toggle .icon-eye{
-    background: url(../images/icon-eye.svg) no-repeat;
+    background: url(../svg/icon-eye.svg) no-repeat;
 }
 
-.com-users-reset fieldset legend,
+.com-users-reset fieldset legend, 
 .com-users-reset-confirm fieldset legend,
 .com-users-reset-complete fieldset legend,
 .com-users-remind fieldset legend,
