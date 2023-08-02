@@ -37,11 +37,11 @@ if ($fieldParams->get('show_url', 0)) {
 switch ($label) :
     case 'Accesso online':
         $dtelmbtn = 'data-element="service-online-access"';
-    break;
+        break;
     case 'Prenota appuntamento':
         $dtelmbtn = 'data-element="service-booking-access"';
-    break;
-default: 
+        break;
+    default:
         $dtelmbtn = '';
 endswitch;
 

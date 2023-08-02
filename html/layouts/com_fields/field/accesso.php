@@ -34,20 +34,20 @@ if ($value == '') {
 }
 
 // Aggiungo il data element
-    switch ($label) :
-        case 'Come si accede al servizio':
-            $dtelm = 'data-element="service-generic-access"';
+switch ($label) :
+    case 'Come si accede al servizio':
+        $dtelm = 'data-element="service-generic-access"';
         break;
-    default: 
-            $dtelm = '';
-    endswitch;
+    default:
+        $dtelm = '';
+endswitch;
 
 // Aggiungo ID per il menu indice
 switch ($label) :
     case 'Come si accede al servizio':
         $idelm = 'id="art-par-02"';
-    break;
-default: 
+        break;
+    default:
         $idelm = 'id="art-par-'.$fieldid.'"';
 endswitch;
 

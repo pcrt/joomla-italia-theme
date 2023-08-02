@@ -29,7 +29,7 @@ $this->document->getWebAssetManager()
         <div id="search-form" class="com-finder__form">
             <?php echo $this->loadTemplate('form'); ?>
         </div>
-        <?php // Load the search results layout if we are performing a search. ?>
+        <?php // Load the search results layout if we are performing a search.?>
         <?php if ($this->query->search === true) : ?>
             <div id="search-results" class="com-finder__results">
                 <?php echo $this->loadTemplate('results'); ?>

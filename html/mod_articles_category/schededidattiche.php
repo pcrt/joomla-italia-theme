@@ -23,13 +23,6 @@ if (!$list) {
 $countcat =0;
 ?>
 
-<?php 
-
-//print_r($list);
-
-//echo $list[0]->parent_title;
-
-    ?>
 <div class="bg-bluelectricdark py-5">
     <div class="container mod-schededidattiche">
     <?php if ((bool) $module->showtitle) : ?>
@@ -37,7 +30,7 @@ $countcat =0;
 <?php endif; ?>
         <div class="row">
                 <?php $items = $list; ?>
-                <?php require ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
+                <?php require_once ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_items'); ?>
         </div>
     </div>
 </div>

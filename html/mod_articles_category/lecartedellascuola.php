@@ -23,13 +23,13 @@ if (!$list) {
 $countcat =0;
 ?>
 
-<?php 
+<?php
 
 //print_r($list);
 
 //echo $list[0]->parent_title;
 
-    ?>
+?>
 <div class="bg-white py-5 sectioncartescuola">
     <div class="container mod-schededidattiche">
 

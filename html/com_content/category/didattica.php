@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 use Joomla\CMS\Uri\Uri;
+
 $url = Uri::root();
 
 $app = Factory::getApplication();
@@ -38,9 +39,11 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category); 
-                //echo $this->category->parent_id;
+//echo json_encode($this->category);
+//echo $this->category->parent_id;
 $catactive =  $this->category->title;
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
@@ -55,9 +58,9 @@ $catactive =  $this->category->title;
             <div class="row">
                 <div class="col-md-5">
                     <div class="hero-title text-left">
-                        
+
                             <h1><?php echo $this->category->title; ?></h1>
-                        
+
                         <?php if ($this->params->get('show_page_heading')) : ?>
                             <h1><?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
                         <?php endif; ?>
@@ -96,13 +99,13 @@ $catactive =  $this->category->title;
         <?php endif; ?>
         <?php if ($this->children[$this->category->id]) : ?>
             <div class="wrapperblog">
-                
+
                     <section class="bg-white border-top border-bottom d-block d-lg-none">
                         <div class="container d-flex justify-content-between align-items-center py-3">
                             <h3 class="h6 text-uppercase mb-0 label-filter"><strong>Filtri</strong></h3>
                             <a class="toggle-filtri" href="#" aria-label="filtri" id="filtri-tipologia" title="Filtra per tipologia">
                             <svg class="icon icon-sm">
-                                <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-funnel"></use>
+                                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-funnel"></use>
                             </svg>
                             </a>
                         </div>
@@ -112,10 +115,10 @@ $catactive =  $this->category->title;
                         <div class="row">
                             <div class="tipologia-menu col-lg-3 bg-white bg-white-left">
                                 <aside class="aside-list aside-sticky">
-                                    <div class="d-flex d-lg-none mb-3 align-items-center">                                    
+                                    <div class="d-flex d-lg-none mb-3 align-items-center">
                                         <a class="toggle-filtri pe-2" href="#" aria-label="chiudi filtri" id="back-filtri-tipologia" title="Chiudi i filtri per tipologia">
                                             <svg class="icon">
-                                                <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-arrow-left"></use>
+                                                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-arrow-left"></use>
                                             </svg>
                                         </a>
                                         <p class="h6 mb-0 label-filter lh100"><strong>Filtri</strong></p>
@@ -129,26 +132,26 @@ $catactive =  $this->category->title;
                                                     <label class="mb-0" for="check-<?php echo $kategorie->title; ?>"><?php echo $kategorie->title; ?></label>
                                                 </li>
                                             </div>
-                                        <?php endforeach ?>        
+                                        <?php endforeach ?>
                                     </ul>
                                 </aside>
                             </div>
                             <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
                                 <?php foreach ($this->children[$this->category->id] as $kategorie) : ?>
-                                    <?php if (!empty($this->intro_items)) : ?>                  
-                                        <?php foreach ($this->intro_items as $key => &$item) : 
-                                                if ($item->catid !== $kategorie->id) { 
-                                                    continue;
-                                                } 
-                                                $this->item = & $item;
-                                                echo $this->loadTemplate('item'); 
-                                            endforeach; ?>                                                     
+                                    <?php if (!empty($this->intro_items)) : ?>
+                                        <?php foreach ($this->intro_items as $key => $item) :
+                                            if ($item->catid !== $kategorie->id) {
+                                                continue;
+                                            }
+                                            $this->item = $item;
+                                            echo $this->loadTemplate('item');
+                                        endforeach; ?>
                                     <?php endif; ?>
                                 <?php endforeach ?>
                             </div>
                         </div>
                     </section>
-                
+
             </div>
         <?php elseif (!empty($this->intro_items)) : ?>
             <section class="bg-white border-top border-bottom d-block d-lg-none">
@@ -156,7 +159,7 @@ $catactive =  $this->category->title;
                     <h3 class="h6 text-uppercase mb-0 label-filter"><strong>Filtri</strong></h3>
                     <a class="toggle-filtri" href="#" aria-label="filtri" id="filtri-tipologia" title="Filtra per tipologia">
                     <svg class="icon icon-sm">
-                        <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-funnel"></use>
+                        <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-funnel"></use>
                     </svg>
                     </a>
                 </div>
@@ -166,27 +169,27 @@ $catactive =  $this->category->title;
                     <div class="row">
                         <div class="tipologia-menu col-lg-3 bg-white bg-white-left">
                             <aside class="aside-list aside-sticky">
-                                <div class="d-flex d-lg-none mb-3 align-items-center">                                    
+                                <div class="d-flex d-lg-none mb-3 align-items-center">
                                     <a class="toggle-filtri pe-2" href="#" aria-label="chiudi filtri" id="back-filtri-tipologia" title="Chiudi i filtri per tipologia">
                                         <svg class="icon">
-                                            <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-arrow-left"></use>
+                                            <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-arrow-left"></use>
                                         </svg>
                                     </a>
                                     <p class="h6 mb-0 label-filter lh100"><strong>Filtri</strong></p>
                                 </div>
                                 <h2 class="h6 text-uppercase"><strong>Tipologia</strong></h2>
-                                <?php 
+                                <?php
                                     // Mostro le categorie che hanno la stessa categoria parent
                                     $db = Factory::getContainer()->get('DatabaseDriver');
-                                    $query = $db->getQuery(true);
+            $query = $db->getQuery(true);
 
-                                    $query->select($db->quoteName(array('title', 'id','language')))
-                                        ->from($db->quoteName('#__categories'))
-                                        ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
-                                        ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
-                                    $db->setQuery($query);
-                                    $rows = $db->loadObjectList();
-                                ?>
+            $query->select($db->quoteName(array('title', 'id','language')))
+                ->from($db->quoteName('#__categories'))
+                ->where($db->quoteName('parent_id') . ' = '. $this->category->parent_id)
+                ->where($db->quoteName('extension') . ' = ' . $db->quote('com_content'));
+            $db->setQuery($query);
+            $rows = $db->loadObjectList();
+            ?>
 
                                 <ul class="">
                                     <?php foreach ($rows as $row) : ?>
@@ -201,7 +204,7 @@ $catactive =  $this->category->title;
                             </aside>
                         </div>
                         <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
-                                <?php foreach ($this->intro_items as $key => &$item) : 
+                                <?php foreach ($this->intro_items as $key => &$item) :
                                     $this->item = & $item;
                                     echo $this->loadTemplate('item');
                                 endforeach; ?>

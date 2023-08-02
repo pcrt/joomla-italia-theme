@@ -33,19 +33,21 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 
 
 $introimg = json_decode($this->item->images);
-
+$baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
-    <article class="card card-bg card-article card-article-bluelectric">    
+    <article class="card card-bg card-article card-article-bluelectric">
         <div class="card-body">
             <div class="card-article-img d-none d-lg-block">
-                <?php if($introimg->image_intro ==''){ ?>
-                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="/templates/joomla-italia-theme/img/imgsegnaposto.jpg" class="img-fluid"/></a></figure>
-                <?php } else{ 
-                        echo LayoutHelper::render('joomla.content.intro_image', $this->item); 
-                    }
-                ?>
+                <?php if ($introimg->image_intro =='') {
+                    ?>
+                <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/></a></figure>
+                <?php
+                } else {
+                    echo LayoutHelper::render('joomla.content.intro_image', $this->item);
+                }
+?>
             </div>
             <div class="card-article-content">
                 <?php echo LayoutHelper::render('joomla.content.blog_style_j4a_item_title_servizio', $this->item); ?>
@@ -86,4 +88,3 @@ $introimg = json_decode($this->item->images);
             </div>
         </div>
     </article>
-

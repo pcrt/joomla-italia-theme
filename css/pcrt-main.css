@@ -1,6 +1,6 @@
 /* GENERALE */
 
-html{   
+html{
     scroll-padding-top: 70px;
 }
 
@@ -240,7 +240,7 @@ ul.menucerca li{
 
 .section-hero-left .item-banner::before {
     content: "";
-    background-image: url(../img/bgplus.svg);
+    background-image: url(../images/bgplus.svg);
     position: absolute;
     z-index: -1;
     top: 0;
@@ -265,7 +265,7 @@ ul.menucerca li{
 
 .section-hero-left .decoration-01::before {
     content: "";
-    background-image: url(../img/circle.svg);
+    background-image: url(../images/circle.svg);
     width: 312px;
     height: 311px;
     display: block;
@@ -284,7 +284,7 @@ ul.menucerca li{
 
 .section-hero-left .decoration-02::before {
     content: "";
-    background-image: url(../img/scienza.svg);
+    background-image: url(../images/scienza.svg);
     width: 102px;
     height: 114px;
     display: block;
@@ -321,7 +321,7 @@ ul.menucerca li{
     color: #fff;
     position: relative;
     padding-top: 60px;
-    
+
 }
 .footersito img{
     max-width: 100%;
@@ -391,7 +391,7 @@ ul.menucerca li{
 .footersito h3, .footersito h4, .footersito h5, .footersito h6, .footersito .moduletable p{
     padding-bottom: 0px;
     margin-right: 50px;
-    margin-bottom: 10px;    
+    margin-bottom: 10px;
     font-size: 1rem;
     font-weight: 600;
     line-height: 1.5;
@@ -527,7 +527,7 @@ a.bg-redbrown:focus,a.bg-redbrown:hover,button.bg-redbrown:focus,button.bg-redbr
 
 .card.purplelight {
     background-color: #fbeaff;
-    box-shadow: none;    
+    box-shadow: none;
     font-size: .85rem;
 }
 
@@ -652,7 +652,7 @@ a.bg-bluelectric:focus,a.bg-bluelectric:hover,button.bg-bluelectric:focus,button
     line-height: 2.4;
 }
 
-@media print{    
+@media print{
     .no-print, .no-print * {
         display: none !important;
     }
@@ -1261,4 +1261,163 @@ a.view-all{
     .section-hero {
         padding: 0!important;
     }
+}
+
+/* LOGIN */
+
+.control-group.com-users-login__input,
+.com-users-reset .control-group,
+.com-users-reset-confirm .control-group,
+.com-users-reset-complete .control-group,
+.com-users-remind .control-group,
+.com-users-registration .control-group,
+.com-users-profile__edit .control-group{
+    position: relative;
+}
+
+.control-group.com-users-login__input .controls,
+.com-users-reset-confirm .control-group,
+.com-users-reset-complete .control-group,
+.com-users-remind .control-group,
+.com-users-registration .control-group,
+.com-users-profile__edit .control-group{
+    padding-bottom: 25px;
+}
+
+.control-group.com-users-login__input .control-label,
+.com-users-login__remember .form-check [type=checkbox]+label,
+.com-users-login__remember .form-check [type=radio]+label,
+.com-users-reset .control-group .control-label,
+.com-users-reset-confirm .control-group .control-label,
+.com-users-reset-complete .control-group .control-label,
+.com-users-remind .control-group .control-label,
+.com-users-registration .control-group .control-label,
+.com-users-profile__edit .control-group .control-label{
+    font-size: .777rem;
+    padding-bottom: 5px;
+    font-weight: 600;
+}
+
+.text-login-reset,
+.com-users-reset-complete .password-group{
+    font-size: .777rem;
+}
+
+.text-login-reset a{
+    font-weight: 600;
+}
+
+.com-users-login__remember .form-check [type=checkbox]+label, .com-users-login__remember .form-check [type=radio]+label{
+    font-weight: 300;
+}
+
+.form-control-feedback{
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    font-weight:300;
+    color: #d1344c;
+}
+
+.com-users-login,
+.com-users-reset,
+.com-users-reset-confirm,
+.com-users-reset-complete,
+.com-users-remind,
+.com-users-registration,
+.com-users-registration-complete,
+.com-users-profile,
+.com-users-profile__edit {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.btn.btn-secondary.input-password-toggle{
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    border-bottom: 1px solid #000;
+}
+
+.btn.btn-secondary.input-password-toggle .icon-eye, .btn.btn-secondary.input-password-toggle .icon-eye-slash{
+    width: 16px;
+    height: 14px;
+    display: block;
+}
+
+.btn.btn-secondary.input-password-toggle .icon-eye-slash{
+    background: url(../images/icon-eye-barrato.svg) no-repeat;
+}
+
+.btn.btn-secondary.input-password-toggle .icon-eye{
+    background: url(../images/icon-eye.svg) no-repeat;
+}
+
+.com-users-reset fieldset legend,
+.com-users-reset-confirm fieldset legend,
+.com-users-reset-complete fieldset legend,
+.com-users-remind fieldset legend,
+.com-users-registration fieldset legend{
+    text-overflow: unset;
+    white-space: unset;
+    line-height: 1.2rem;
+    font-weight: 500;
+    padding: 0 0 0.75rem 0;
+}
+
+.com-users-profile fieldset legend,
+.com-users-profile__edit fieldset legend{
+    font-size: 1.4rem;
+    padding: 0;
+    border-bottom: 1px solid #e7eaed;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.com-users-reset .form-control-feedback {
+    bottom: -30px;
+}
+
+@media (min-width: 576px){
+    .com-users-reset-complete small, .small {
+        font-size: .777rem;
+    }
+}
+
+.controls select {
+    border: none;
+    border-bottom: 1px solid #5b6f82;
+    border-radius: 0;
+    padding: 0.375rem 0.5rem;
+    outline: 0;
+    height: 2.5rem;
+    width: 100%;
+    box-shadow: none;
+    transition: .2s ease-out;
+    font-weight: 700;
+    color: #1a1a1a;
+    background-color: #fff;
+}
+
+.com-users-methods-list-method.card::after{
+    margin-top: 0;
+    margin-left: 0;
+}
+
+.com-content-category__table th{
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem .8rem!important;
+}
+
+.com-content-category__table th a{
+    color:#06c;
+}
+
+.com-content-category__table thead th a{
+    color: #455b71;
+}
+
+.com-content-category.category-list{
+    padding: 0 18px;
 }

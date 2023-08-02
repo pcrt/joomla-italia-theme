@@ -31,9 +31,9 @@ if ($value == '') {
 
 
 $time  = strtotime($value);
-$day   = date('d',$time);
-$month = date('M',$time);
-$year  = date('Y',$time);
+$day   = date('d', $time);
+$month = date('M', $time);
+$year  = date('Y', $time);
 
 
 ?>

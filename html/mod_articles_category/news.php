@@ -38,16 +38,16 @@ $countcat =0;
                         <h2><?php echo Text::_($groupName); ?></h2>
                     </div>
                     <?php require ModuleHelper::getLayoutPath('mod_articles_category', $params->get('layout', 'default') . '_gruppi');
-                    //print_r($list[$groupName][2]->category_route);
-                    //print_r($list);
-                    $m=0;
-                    foreach ($list[$groupName] as $link_group):
-                        if($m == 0): ?>
+                //print_r($list[$groupName][2]->category_route);
+                //print_r($list);
+                $m=0;
+                foreach ($list[$groupName] as $link_group):
+                    if($m == 0): ?>
                         <a href="<?php echo $link_group->category_route; ?>" title="Vai alla pagina <?php echo Text::_($groupName); ?>" class="view-all d-block py-3"><strong>Vedi tutti</strong></a>
-                    <?php 
-                        endif;
-                        $m++;
-                    endforeach;?>
+                    <?php
+                    endif;
+                    $m++;
+                endforeach;?>
                 </div>
             <?php endforeach; ?>   
         <?php else : ?>

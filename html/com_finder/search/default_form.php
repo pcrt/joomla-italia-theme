@@ -41,7 +41,7 @@ if ($this->params->get('show_autosuggest', 1)) {
                 </div>
                     <?php if ($this->params->get('show_advanced', 1)) : ?>
                         <?php HTMLHelper::_('bootstrap.collapse'); ?>
-                        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedSearch" aria-expanded="<?php echo ($this->params->get('expand_advanced', 0) ? 'true' : 'false'); ?>">
+                        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedSearch" aria-expanded="<?php echo($this->params->get('expand_advanced', 0) ? 'true' : 'false'); ?>">
                             <span class="icon-search-plus" aria-hidden="true"></span>
                             <?php echo Text::_('COM_FINDER_ADVANCED_SEARCH_TOGGLE'); ?></button>
                     <?php endif; ?>
@@ -51,7 +51,7 @@ if ($this->params->get('show_autosuggest', 1)) {
     <?php if ($this->params->get('show_advanced', 1)) : ?>
         <fieldset id="advancedSearch" class="com-finder__advanced js-finder-advanced collapse<?php if ($this->params->get('expand_advanced', 0)) {
             echo ' show';
-                                                                                             } ?>">
+        } ?>">
             <legend class="com-finder__search-advanced visually-hidden">
                 <?php echo Text::_('COM_FINDER_SEARCH_ADVANCED_LEGEND'); ?>
             </legend>

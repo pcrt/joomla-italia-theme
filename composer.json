@@ -1,0 +1,16 @@
+{
+    "name": "pcrt/jomla-italia-theme",
+    "type": "library",
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "9999999-dev"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "pcrt",
+            "email": "info@protocollicreativi.it"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

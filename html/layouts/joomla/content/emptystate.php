@@ -56,7 +56,7 @@ $btnadd     = $displayData['btnadd'] ?? Text::_($textPrefix . '_EMPTYSTATE_BUTTO
     <?php
         // Allow appending any modals (Eg: Bulk Import on com_redirect).
         echo $append;
-    ?>
+?>
 
     <input type="hidden" name="task" value="">
     <input type="hidden" name="boxchecked" value="0">

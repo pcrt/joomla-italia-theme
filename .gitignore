@@ -8,7 +8,7 @@
 # Preserve folder
 !/administrator/logs/.gitkeep
 !/administrator/cache/.gitkeep
-node_modules
+/node_modules/
 
 # OS generated files #
 ######################
@@ -19,3 +19,5 @@ node_modules
 .Trashes
 ehthumbs.db
 Thumbs.db
+.vscode
+/vendor/
