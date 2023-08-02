@@ -51,7 +51,7 @@ $htag        = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                             </<?php echo $htag; ?>>
                         <?php endif; ?>
                     </div>
-                    <?php // We only show a tag description if there is a single tag. ?>
+                    <?php // We only show a tag description if there is a single tag.?>
                     <?php if (count($this->item) === 1 && ($this->params->get('tag_list_show_tag_image', 1) || $this->params->get('tag_list_show_tag_description', 1))) : ?>
                         <div class="com-tags-tag__description category-desc">
                             <?php $images = json_decode($this->item[0]->images); ?>
@@ -64,7 +64,7 @@ $htag        = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                         </div>
                     <?php endif; ?>
 
-                    <?php // If there are multiple tags and a description or image has been supplied use that. ?>
+                    <?php // If there are multiple tags and a description or image has been supplied use that.?>
                     <?php if ($this->params->get('tag_list_show_tag_description', 1) || $this->params->get('show_description_image', 1)) : ?>
                         <?php if ($this->params->get('show_description_image', 1) == 1 && $this->params->get('tag_list_image')) : ?>
                             <?php echo HTMLHelper::_('image', $this->params->get('tag_list_image'), empty($this->params->get('tag_list_image_alt')) && empty($this->params->get('tag_list_image_alt_empty')) ? false : $this->params->get('tag_list_image_alt')); ?>

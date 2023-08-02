@@ -19,6 +19,8 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Content\Administrator\Extension\ContentComponent;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 $value = $field->value;
 $label = $field->label;
 $labelico = $field->label;
@@ -32,16 +34,16 @@ switch ($label) :
     case 'Struttura responsabile del servizio':
         $dtelm = 'data-element="structures"';
         $icostruttura = 'it-pa';
-    break;
+        break;
     case 'Progetti correlati':
         $dtelm = '';
         $icostruttura = 'it-files';
-    break;
+        break;
     case 'Il Luogo è sede di':
         $dtelm = '';
         $icostruttura = 'it-pa';
-    break;
-default: 
+        break;
+    default:
         $dtelm = '';
         $icostruttura = 'it-flag';
 endswitch;
@@ -76,7 +78,7 @@ foreach ($items as $item) {
         $array[]=$item->text;
         $texts[] = $item->text;
     }
-    
+
     //echo $item->value;
 
 
@@ -112,34 +114,34 @@ foreach ($items as $item) {
 
         foreach ($items3 as $item3) {
             echo $item3->value;
-        }   
+        }
     }
 */
 
 
-// SELECT id as 'value', title as 'text' FROM #__content WHERE catid=39
+    // SELECT id as 'value', title as 'text' FROM #__content WHERE catid=39
 
 
-$db2 = Factory::getContainer()->get('DatabaseDriver');
-$query2 = $db2->getQuery(true);
-$query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.alias', 'content.language', 'categories.parent_id', 'categories.level')))
-->from($db2->quoteName('#__content', "content"))
-->leftJoin($db2->quoteName("#__categories", "categories") . ' ON ' . $db2->quoteName("content.catid") . " = " . $db2->quoteName("categories.id"))
-->where($db2->quoteName('content.id') . ' = '. $item->value);
-$db2->setQuery($query2);
-$items2 = $db2->loadObjectList();
+    $db2 = Factory::getContainer()->get('DatabaseDriver');
+    $query2 = $db2->getQuery(true);
+    $query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.alias', 'content.language', 'categories.parent_id', 'categories.level')))
+    ->from($db2->quoteName('#__content', "content"))
+    ->leftJoin($db2->quoteName("#__categories", "categories") . ' ON ' . $db2->quoteName("content.catid") . " = " . $db2->quoteName("categories.id"))
+    ->where($db2->quoteName('content.id') . ' = '. $item->value);
+    $db2->setQuery($query2);
+    $items2 = $db2->loadObjectList();
 
 
 
 
-?>
+    ?>
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-servizi card-bg card-icon rounded h-100" <?php echo $dtelm; ?>>
         <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->slug, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
-            
+
         <div class="card-body">
                 <svg class="icon">
-                    <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#<?php echo $icostruttura; ?>"></use>
+                    <use xlink:href="<?= $baseImagePath ?>sprites.svg#<?php echo $icostruttura; ?>"></use>
                 </svg>
                 <div class="card-icon-content">
                     <p>
@@ -157,4 +159,4 @@ $items2 = $db2->loadObjectList();
 
 <?php } ?>
 </div>
-<?php //echo htmlentities(implode(', ', $texts)); ?>
+<?php //echo htmlentities(implode(', ', $texts));?>

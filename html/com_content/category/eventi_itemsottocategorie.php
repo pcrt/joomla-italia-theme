@@ -36,7 +36,7 @@ $isUnpublished = ($this->item->state == ContentComponent::CONDITION_UNPUBLISHED 
 $introimg = json_decode($this->item->images);
 
 
-
+$baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 
 ?>
@@ -45,21 +45,23 @@ $introimg = json_decode($this->item->images);
 <div class="card card-servizi card-bg card-icon rounded h-100 m-3">
     <?php if ($isUnpublished) : ?>
         <div class="system-unpublished">
-    <?php endif; ?>        
-        <div class="card-body">        
+    <?php endif; ?>
+        <div class="card-body">
             <div class="card-icon-content d-flex align-items-center">
             <div class="card-news-img me-3">
-                <?php if($introimg->image_intro ==''){ ?>
+                <?php if ($introimg->image_intro =='') {
+                    ?>
                 <figure>
                     <a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
-                    <img src="/templates/joomla-italia-theme/img/imgsegnaposto.jpg" class="img-fluid"/>
+                    <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/>
                     </a>
                 </figure>
-                <?php } else{ 
-                        echo LayoutHelper::render('joomla.content.intro_image', $this->item); 
-                    }
-                ?>
-            </div>    
+                <?php
+                } else {
+                    echo LayoutHelper::render('joomla.content.intro_image', $this->item);
+                }
+?>
+            </div>
             <a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>">
                 <?php echo LayoutHelper::render('joomla.content.blog_style_j4a_sottocategoria_item_title', $this->item); ?>
 
@@ -90,5 +92,5 @@ $introimg = json_decode($this->item->images);
                 </a>
             </div>
         </div>
-    
+
 </div>

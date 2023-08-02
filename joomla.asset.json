@@ -1,0 +1,143 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "jomla-italia-theme",
+  "version": "1.2.2",
+  "description": "This file contains details of the assets used by joomla-italia-theme, a modified version of the default cassiopeia template.",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "css.fontawesome",
+      "type": "style",
+      "uri": "system/joomla-fontawesome.min.css"
+    },
+    {
+      "name": "css.fonts",
+      "description": "The default css style to fonts.",
+      "type": "style",
+      "uri": "fonts.css"
+    },
+    {
+      "name": "template.css.bootstrap-italia",
+      "type": "style",
+      "uri": "bootstrap-italia.min.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts"
+      ]
+    },
+    {
+      "name": "template.css.pcrt-main",
+      "type": "style",
+      "uri": "pcrt-main.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts"
+      ]
+    },
+    {
+      "name": "template.css.pcrt-menu",
+      "type": "style",
+      "uri": "pcrt-menu.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts"
+      ]
+    },
+    {
+      "name": "template.css.pcrt-jit",
+      "type": "style",
+      "uri": "pcrt-jit.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts"
+      ]
+    },
+    {
+      "name": "css.table",
+      "type": "style",
+      "uri": "table.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts"
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "style",
+      "uri": "owl.carousel.min.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts",
+        "template.css.bootstrap-italia",
+        "template.css.pcrt-main",
+        "template.css.pcrt-menu",
+        "template.css.pcrt-jit",
+        "css.table"
+
+      ]
+    },
+    {
+      "name": "carousel.theme",
+      "type": "style",
+      "uri": "owl.theme.default.min.css",
+      "dependencies": [
+        "css.fontawesome",
+        "css.fonts",
+        "template.css.bootstrap-italia",
+        "template.css.pcrt-main",
+        "template.css.pcrt-menu",
+        "template.css.pcrt-jit",
+        "css.table"
+      ]
+    },
+    {
+      "name": "template.js.bootstrap-italia",
+      "type": "script",
+      "uri": "bootstrap-italia.bundle.min.js",
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.js.jquery362",
+      "type": "script",
+      "uri": "jquery-3.6.2.min.js",
+      "attributes" : {
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.js.carousel",
+      "type": "script",
+      "uri": "owl.carousel.min.js",
+      "attributes" : {
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.js.jti",
+      "type": "script",
+      "uri": "jti.js",
+      "attributes" : {
+        "defer": true
+      },
+      "dependencies": [
+        "core"
+      ]
+    },
+    {
+      "name": "template.joomla-italia-theme",
+      "type": "preset",
+      "dependencies": [
+        "template.css.bootstrap-italia#style",
+        "template.js.bootstrap-italia#script"
+      ]
+    }
+  ]
+}

@@ -19,6 +19,7 @@ use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 use Joomla\CMS\Uri\Uri;
+
 $url = Uri::root();
 
 $app = Factory::getApplication();
@@ -38,8 +39,8 @@ $afterDisplayContent = trim(implode("\n", $results));
 
 $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 
-                //echo json_encode($this->category); 
-                //echo $this->category->parent_id;
+//echo json_encode($this->category);
+//echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
 $imgdesc = $this->category->getParams()->get('image')

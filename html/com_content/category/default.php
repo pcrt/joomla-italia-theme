@@ -13,11 +13,13 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Layout\LayoutHelper;
 
 ?>
-<div class="com-content-category category-list">
+<div class="container">
+    <div class="com-content-category category-list">
 
-<?php
-$this->subtemplatename = 'articles';
+    <?php
+    $this->subtemplatename = 'articles';
 echo LayoutHelper::render('joomla.content.category_default', $this);
 ?>
+    </div>
 
 </div>

@@ -41,13 +41,16 @@ $pubblicazione = $this->item->publish_up;
 $pubblicazione = Factory::getDate()->format('d.m.Y');
 
 $revisione = $this->item->modified;
-$revisione = Factory::getDate()->format('d.m.Y');;
+$revisione = Factory::getDate()->format('d.m.Y');
+;
 
 $urlcompleto = Uri::getInstance();
 
 $config = JFactory::getConfig();
 
-$nomesito = $config->get( 'sitename' );
+$nomesito = $config->get('sitename');
+
+$baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
@@ -58,12 +61,12 @@ $nomesito = $config->get( 'sitename' );
             <div class="row align-items-center">
                 <div class="col-auto d-none d-sm-block">
                     <div class="section-thumb-article mx-3">
-                        <?php if($fullimg->image_fulltext ==''){ ?>
-                        <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="/templates/joomla-italia-theme/img/imgsegnaposto.jpg" class="img-fluid"/></a></figure>
-                        <?php } else{ 
-                                echo LayoutHelper::render('joomla.content.full_image', $this->item); 
-                            }
-                        ?>
+                        <?php if($fullimg->image_fulltext =='') { ?>
+                        <figure><a href="<?php echo Route::_(RouteHelper::getArticleRoute($this->item->slug, $this->item->catid, $this->item->language)); ?>" itemprop="url" title="service-link"><img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/></a></figure>
+                        <?php } else {
+                            echo LayoutHelper::render('joomla.content.full_image', $this->item);
+                        }
+?>
                     </div>
                 </div>
                 <div class="ps-0 ps-lg-3 col col-lg-6 col-xl-7">
@@ -76,7 +79,7 @@ $nomesito = $config->get( 'sitename' );
                     <div class="actions-wrapper actions-main">
                         <a class="toggle-actions" href="#" title="Vedi azioni" data-bs-toggle="modal" data-bs-target="#modalaction">
                             <svg class="icon icon-xs">
-                                <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-more-items"></use>
+                                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-more-items"></use>
                             </svg>
                             <span>Stampa / Condividi</span>
                         </a>
@@ -84,10 +87,10 @@ $nomesito = $config->get( 'sitename' );
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        
+
                                         <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
                                         <svg class="icon">
-                                            <use href="/templates/joomla-italia-theme/svg/sprites.svg#it-close"></use>
+                                            <use href="<?= $baseImagePath ?>sprites.svg#it-close"></use>
                                         </svg>
                                         </button>
                                     </div>
@@ -96,38 +99,38 @@ $nomesito = $config->get( 'sitename' );
                                             <ul class="link-list ps-0 ms-0">
                                                 <li>
                                                     <a href="javascript:window.print();" class="list-item left-icon" title="Stampa il contenuto" data-focus-mouse="false">
-                                                        <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-print"></use></svg>
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-print"></use></svg>
                                                         <span>Stampa</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="mailto:?subject=<?php echo $this->escape($this->item->title); ?>&amp;body=<?php echo $urlcompleto ?>" class="list-item left-icon" title="Invia il contenuto">
-                                                        <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-mail"></use></svg>
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-mail"></use></svg>
                                                         <span>Invia</span>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a class="list-item collapsed link-toggle" title="Condividi" href="#social-share" data-bs-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button" id="share-control"> 
-                                                        <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-share"></use></svg>
+                                                    <a class="list-item collapsed link-toggle" title="Condividi" href="#social-share" data-bs-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button" id="share-control">
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-share"></use></svg>
                                                         <span>Condividi</span>
-                                                        <svg class="icon icon-right"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-expand"></use></svg>
+                                                        <svg class="icon icon-right"><use href="<?= $baseImagePath ?>sprites.svg#it-expand"></use></svg>
                                                     </a>
                                                     <ul class="ps-0 link-sublist collapse" id="social-share" role="region" aria-labelledby="share-control">
                                                         <li>
                                                             <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlcompleto ?>" title="Condividi su: Facebook" target="_blank">
-                                                                <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-facebook"></use></svg>
+                                                                <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-facebook"></use></svg>
                                                                 <span>Facebook</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a class="list-item" href="http://twitter.com/share?text=<?php echo $this->escape($this->item->title); ?>&amp;url=<?php echo $urlcompleto ?>" title="Condividi su: Twitter" target="_blank">
-                                                                <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-twitter"></use></svg>
+                                                                <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-twitter"></use></svg>
                                                                 <span>Twitter</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a class="list-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $urlcompleto ?>&amp;title=<?php echo $this->escape($this->item->title); ?>&amp;source=<?php echo $nomesito?>" title="Condividi su: Linkedin" target="_blank">
-                                                            <svg class="icon"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-linkedin"></use></svg>
+                                                            <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-linkedin"></use></svg>
                                                                 <span>Linkedin</span>
                                                             </a>
                                                         </li>
@@ -142,7 +145,7 @@ $nomesito = $config->get( 'sitename' );
                                 </div>
                             </div>
                         </div>
-                    </div>          
+                    </div>
                     <?php if ($params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : ?>
                         <div class="argomenti-servizio mt-4">
                             <h2 class="h6">Argomenti</h2>
@@ -152,7 +155,7 @@ $nomesito = $config->get( 'sitename' );
                             </div>
                         </div>
                     <?php endif; ?>
-                    </div>                                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,26 +168,26 @@ $nomesito = $config->get( 'sitename' );
                         <div class="aside-title" id="page-index">
                             <a class="toggle-link-list" data-bs-toggle="collapse" href="#lista-paragrafi" role="button" aria-expanded="false" aria-controls="lista-paragrafi" aria-label="apri / chiudi indice della pagina">
                                 <span>Indice della pagina</span>
-                                <svg class="icon icon-toggle"><use href="/templates/joomla-italia-theme/svg/sprites.svg#it-expand"></use></svg>
+                                <svg class="icon icon-toggle"><use href="<?= $baseImagePath ?>sprites.svg#it-expand"></use></svg>
                             </a>
                         </div>
-                        <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="page-index">           
+                        <div id="lista-paragrafi" class="link-list-wrapper collapse show" role="region" aria-labelledby="page-index">
                             <ul class="link-list" data-element="page-index">
-                            <?php 
-                                JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
-                                JModelLegacy::addIncludePath(JPATH_SITE. '/components/com_content/models', 'ContentModel');
+                            <?php
+        JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
+JModelLegacy::addIncludePath(JPATH_SITE. '/components/com_content/models', 'ContentModel');
 
-                                $id = JFactory::getApplication()->input->get('id');
+$id = JFactory::getApplication()->input->get('id');
 
-                                $model = JModelLegacy::getInstance('Article', 'ContentModel', array('ignore_request'=>true));
-                                $appParams = JFactory::getApplication()->getParams();
-                                $model->setState('params', $appParams);
-                                $item = $model->getItem($id);
-                                $jcFields = FieldsHelper::getFields('com_content.article', $item, true);
+$model = JModelLegacy::getInstance('Article', 'ContentModel', array('ignore_request'=>true));
+$appParams = JFactory::getApplication()->getParams();
+$model->setState('params', $appParams);
+$item = $model->getItem($id);
+$jcFields = FieldsHelper::getFields('com_content.article', $item, true);
 
-                            ?>
+?>
                             <?php foreach($jcFields as $jcField) { ?>
-                                <?php if ($jcField->value !=''){ ?>
+                                <?php if ($jcField->value !='') { ?>
                                     <li><a href="#art-par-<?php echo $jcField->id; ?>" aria-label="Vai al paragrafo <?php echo $jcField->title; ?>"  data-focus-mouse="false"><?php echo $jcField->title; ?></a></li>
                                 <?php } ?>
                              <?php } ?>
@@ -194,37 +197,37 @@ $nomesito = $config->get( 'sitename' );
                 </div>
                 <div class="col-12 col-lg-9 border-aside ps-lg-5 pt-0 py-lg-5">
                     <article class="article-wrapper redbrown <?php echo $this->pageclass_sfx; ?>" >
-                        <?php 
-                        
+                        <?php
+
                         if (!empty($this->item->pagination) && !$this->item->paginationposition && $this->item->paginationrelative) {
                             echo $this->item->pagination;
                         }
-                        ?>
+?>
 
                         <?php $useDefList = $params->get('show_modify_date') || $params->get('show_publish_date') || $params->get('show_create_date')
-                        || $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam; ?>
+|| $params->get('show_hits') || $params->get('show_category') || $params->get('show_parent_category') || $params->get('show_author') || $assocParam; ?>
 
 
                         <?php if ($canEdit) : ?>
                             <?php echo LayoutHelper::render('joomla.content.icons', ['params' => $params, 'item' => $this->item]); ?>
                         <?php endif; ?>
 
-                        <?php // Content is generated by content plugin event "onContentAfterTitle" ?>
+                        <?php // Content is generated by content plugin event "onContentAfterTitle"?>
                         <?php echo $this->item->event->afterDisplayTitle; ?>
 
 
-                        <?php // Content is generated by content plugin event "onContentBeforeDisplay" ?>
+                        <?php // Content is generated by content plugin event "onContentBeforeDisplay"?>
                         <?php echo $this->item->event->beforeDisplayContent; ?>
 
                         <?php if ((int) $params->get('urls_position', 0) === 0) : ?>
                             <?php echo $this->loadTemplate('links'); ?>
                         <?php endif; ?>
                         <?php if ($params->get('access-view')) : ?>
-                        
+
                             <?php
-                            if (!empty($this->item->pagination) && !$this->item->paginationposition && !$this->item->paginationrelative) :
-                                echo $this->item->pagination;
-                            endif;
+    if (!empty($this->item->pagination) && !$this->item->paginationposition && !$this->item->paginationrelative) :
+        echo $this->item->pagination;
+    endif;
                             ?>
                             <?php if (isset($this->item->toc)) :
                                 echo $this->item->toc;
@@ -246,11 +249,11 @@ $nomesito = $config->get( 'sitename' );
                             <?php if ((int) $params->get('urls_position', 0) === 1) : ?>
                                 <?php echo $this->loadTemplate('links'); ?>
                             <?php endif; ?>
-                            <?php // Optional teaser intro text for guests ?>
+                            <?php // Optional teaser intro text for guests?>
                         <?php elseif ($params->get('show_noauth') == true && $user->get('guest')) : ?>
                             <?php echo LayoutHelper::render('joomla.content.intro_image', $this->item); ?>
                             <?php echo HTMLHelper::_('content.prepare', $this->item->introtext); ?>
-                            <?php // Optional link to let them register to see the whole article. ?>
+                            <?php // Optional link to let them register to see the whole article.?>
                             <?php if ($params->get('show_readmore') && $this->item->fulltext != null) : ?>
                                 <?php $menu = Factory::getApplication()->getMenu(); ?>
                                 <?php $active = $menu->getActive(); ?>
@@ -265,7 +268,7 @@ $nomesito = $config->get( 'sitename' );
                             echo $this->item->pagination;
                             ?>
                         <?php endif; ?>
-                        <?php // Content is generated by content plugin event "onContentAfterDisplay" ?>
+                        <?php // Content is generated by content plugin event "onContentAfterDisplay"?>
                         <?php echo $this->item->event->afterDisplayContent; ?>
                         <div class="meta-articolo" data-element="metadata"><small><strong>Pubblicato:</strong> <?php echo $pubblicazione ?> - <strong>Revisione:</strong> <?php echo $revisione ?></small></div>
                     </article>

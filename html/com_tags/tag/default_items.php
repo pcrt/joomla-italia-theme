@@ -29,6 +29,9 @@ $user = Factory::getUser();
 $canEdit      = $user->authorise('core.edit', 'com_tags');
 $canCreate    = $user->authorise('core.create', 'com_tags');
 $canEditState = $user->authorise('core.edit.state', 'com_tags');
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
+
 ?>
 
 <section class="bg-gray-light">
@@ -42,14 +45,14 @@ $canEditState = $user->authorise('core.edit.state', 'com_tags');
                     </div>
                 <?php else : ?>
                     <?php foreach ($this->items as $i => $item) : ?>
-                        <article class="card card-bg card-article card-article-redbrown">    
+                        <article class="card card-bg card-article card-article-redbrown">
                             <div class="card-body">
                                 <div class="card-article-img d-none d-lg-block">
                                     <?php $images  = json_decode($item->core_images); ?>
                                     <a href="<?php echo Route::_(RouteHelper::getItemRoute($item->content_item_id, $item->core_alias, $item->core_catid, $item->core_language, $item->type_alias, $item->router)); ?>">
                                     <?php if($images->image_intro ==''): ?>
                                         <figure>
-                                            <img src="/templates/joomla-italia-theme/img/imgsegnaposto.jpg" class="img-fluid"/>
+                                            <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="immagine-segnaposto"/>
                                         </figure>
                                     <?php else:?>
                                         <?php echo HTMLHelper::_('image', $images->image_intro, $images->image_intro_alt); ?>
@@ -57,7 +60,7 @@ $canEditState = $user->authorise('core.edit.state', 'com_tags');
                                     </a>
                                 </div>
                                 <div class="card-article-content">
-                                    <h2 class="h3"> 
+                                    <h2 class="h3">
                                         <a href="<?php echo Route::_($item->link); ?>" aria-label="<?php echo $this->escape($item->core_title); ?>">
                                             <?php echo $this->escape($item->core_title); ?>
                                         </a>

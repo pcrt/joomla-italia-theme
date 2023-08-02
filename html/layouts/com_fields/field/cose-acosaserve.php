@@ -39,20 +39,20 @@ if ($value == '') {
     switch ($label) :
         case 'Cos\'è':
             $dtelm = 'data-element="service-what-is"';
-        break;
+            break;
         case 'A cosa serve':
             $dtelm = 'data-element="used-for"';
-        break;
+            break;
         case 'Cosa serve':
             $dtelm = 'data-element="service-needed"';
-        break;
+            break;
         case 'Tempi e scadenze':
             $dtelm = 'data-element="service-calendar-text"';
-        break;
+            break;
         case 'Ulteriori informazioni':
             $dtelm = 'data-element="service-more-info"';
-        break;
-    default: 
+            break;
+        default:
             $dtelm = '';
     endswitch;
 
@@ -60,17 +60,17 @@ if ($value == '') {
 switch ($label) :
     case 'Cos\'è':
         $idelm = 'id="art-par-01"';
-    break;
+        break;
     case 'Cosa serve':
         $idelm = 'id="art-par-03"';
-    break;
+        break;
     case 'Tempi e scadenze':
         $idelm = 'id="art-par-04"';
-    break;
+        break;
     case 'Ulteriori informazioni':
         $idelm = 'id="art-par-06"';
-    break;
-default: 
+        break;
+    default:
         $idelm = 'id="art-par-'.$fieldid.'"';
 endswitch;
 
