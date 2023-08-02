@@ -7,15 +7,15 @@ use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
 
-$app = Factory::getApplication();
+$app   = Factory::getApplication();
 $input = $app->getInput();
-$wa = $this->getWebAssetManager();
-$menu = $app->getMenu()->getActive();
+$wa    = $this->getWebAssetManager();
+$menu  = $app->getMenu()->getActive();
 $isHomePage = ($menu->home);
 $credits = '<a href="https://www.protocollicreativi.it" target="_blank" rel="nofollow" title="Protocolli Creativi is a Joomla Provider">Made with love Joomla Italia Theme by Protocolli Creativi</a>';
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
-$baseImagePath = Uri::root(false).'media/templates/site/'.$this->template.'/images/';
+$baseImagePath= Uri::root(false) . "media/templates/site/" . $this->template . "/images/";
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1, minimum-scale=1');
 $this->setMetaData('theme-color', '#ffffff');
@@ -66,18 +66,33 @@ $wa->usePreset('template.joomla-italia-theme')
    });",
          [],
          [],
-         ['template.js.jquery362']
+         ["template.js.jquery362"]
      );
 
 ?>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?= $this->language; ?>" lang="<?= $this->language; ?>" dir="<?php echo $this->direction; ?>">
+    
 <head>
 	<jdoc:include type="metas" />
 	<jdoc:include type="styles" />
+	
+	<?php if ($this->params->get('cssName')) : ?>
+		<link href="<?= htmlspecialchars($this->baseurl . '/templates/' . $this->template . '/css/' . $this->params->get('cssName')); ?>" rel="stylesheet" />
+	<?php endif; ?>
+
+	<?php if ($this->params->get('jsName')) : ?>
+		<script src="<?= htmlspecialchars($this->baseurl . '/templates/' . $this->template . '/js/' . $this->params->get('jsName')); ?>"></script>
+	<?php endif; ?>
+	
 	<jdoc:include type="scripts" />
+	
+	<?php if ($this->params->get('custom_code_head')) : ?>
+		<?= $this->params->get('custom_code_head'); ?>
+	<?php endif; ?>
 </head>
+
 <body class="<?= $pageclass ? htmlspecialchars($pageclass) : ''; ?>">
 <header
   class="it-header-wrapper it-header-sticky"
@@ -99,7 +114,7 @@ $wa->usePreset('template.joomla-italia-theme')
               <?php if ($this->params->get('showBtnTopbar')) : ?>
                     	<?php
                            $fieldValues = $this->params->get('showBtnTopbarFields');
-                  if (! empty($fieldValues)) :
+                  if (!empty($fieldValues)) :
                       foreach ($fieldValues as $value):
                           ?>
 			                     <a class="btn btn-icon btn-full" href="<?= $value->topbarbuttonlink ?>" title="<?=$value->topbarbuttontitle?>" aria-label="<?=$value->topbarbuttontitle?>">
@@ -129,7 +144,7 @@ $wa->usePreset('template.joomla-italia-theme')
               <div class="it-brand-wrapper">
                 <a href="<?php echo $this->baseurl; ?>/">
                   <?php if ($this->params->get('showLogo')) : ?>
-                    <img src="<?= htmlspecialchars($this->params->get('imageLogo')); ?>" title="<?= htmlspecialchars($this->params->get('logoTitle')); ?>" class="icon" alt="logo">
+                    <img src="<?= htmlspecialchars($this->params->get('imageLogo')); ?>" title="<?= htmlspecialchars($this->params->get('logoTitle')); ?>" class="icon">
                     <div class="it-brand-text">
                       <div class="it-brand-tagline"><?= htmlspecialchars($this->params->get('logoTopTitle')); ?></div>
                       <div class="it-brand-title"><?= htmlspecialchars($this->params->get('logoTitle')); ?></div>
@@ -208,7 +223,7 @@ $wa->usePreset('template.joomla-italia-theme')
   <?php if ($this->params->get('showBanner') && $isHomePage) : ?>
     <section class="section bg-redbrown section-hero-left owl-carousel owl-theme slideheader p-0" id="slideheader">
     <?php
-            $fieldValuesbanner = $this->params->get('showBannerfields'); ?>
+            $fieldValuesbanner = $this->params->get('showBannerfields');?>
           <?php foreach ($fieldValuesbanner as $value): ?>
             <div class="item-banner">
               <div class="decoration-01"></div>
@@ -227,7 +242,7 @@ $wa->usePreset('template.joomla-italia-theme')
             </div>
           <?php endforeach; ?>
     </section>
-  <?php endif; ?>
+  <?php endif;?>
 <jdoc:include type="modules" name="hero" style="none" />
 <main>
   <?php if ($this->countModules('breadcrumbs')): ?>
@@ -236,7 +251,7 @@ $wa->usePreset('template.joomla-italia-theme')
         <jdoc:include type="modules" name="breadcrumbs" style="none" />
       </div>
     </div>
-  <?php endif; ?>
+  <?php endif;?>
   <jdoc:include type="component" />
   <jdoc:include type="modules" name="below" style="below" />
   <jdoc:include type="modules" name="user" style="user" />
@@ -248,11 +263,11 @@ $wa->usePreset('template.joomla-italia-theme')
       <div class="col-12 logos-wrapper">
         <?php if ($this->params->get('showLogoEuropa'))  : ?>
           <img class="ue-logo" src="<?= htmlspecialchars($this->params->get('imageLogoEuropaFooter')); ?>" alt="<?= htmlspecialchars($this->params->get('logoFooterEuropaDescrizione')); ?>">
-        <?php endif; ?>
+        <?php endif;?>
         <?php if ($this->params->get('showLoghiFooter'))  : ?>
         <div class="logo-footer">
           <a href="" aria-label="Vai alla homepage" title="Vai alla homepage" class="" data-focus-mouse="false">
-            <img src="<?= htmlspecialchars($this->params->get('imageLogoFooter')); ?>" title="<?= htmlspecialchars($this->params->get('logoFooterTitle')); ?>" alt="logo">
+            <img src="<?= htmlspecialchars($this->params->get('imageLogoFooter')); ?>" title="<?= htmlspecialchars($this->params->get('logoFooterTitle')); ?>">
           </a>
           <p class="h1">
             <a href="">
@@ -264,10 +279,10 @@ $wa->usePreset('template.joomla-italia-theme')
             </a>
           </p>
         </div>
-        <?php endif; ?>
+        <?php endif;?>
       </div>
     </div>
-    <?php endif; ?>
+    <?php endif;?>
     <div class="row">
       <div class="col-6 col-lg-3 pb-3 pb-lg-0">
         <jdoc:include type="modules" name="footer1" style="footer" />
@@ -302,6 +317,8 @@ $wa->usePreset('template.joomla-italia-theme')
   </div>
 </footer>
 
-
+<?php if ($this->params->get('custom_code_body')) : ?>
+		<?= $this->params->get('custom_code_body'); ?>
+	<?php endif; ?>
 </body>
 </html>
