@@ -137,7 +137,53 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
+				<field
+					name="imageLogo"
+					type="media"
+					label="TPL_PCRT_IMAGE_LABEL"
+					directory="images"
+					default=""
+					showon="showLogo:1"
+					>
+				</field>
+				<field
+					name="logoTopTitle"
+					type="text"
+					default=""
+					label="TPL_PCRT_LOGO_SOPRA_TITLE"
+					filter="string"
+					showon="showLogo:1"
+				/>
+				<field
+					name="logoTitle"
+					type="text"
+					default=""
+					label="TPL_PCRT_LOGO_TITLE_LABEL"
+					filter="string"
+					showon="showLogo:1"
+				/>
+				<field
+					name="logoSubtitle"
+					type="text"
+					default=""
+					label="TPL_PCRT_LOGO_SUBTITLE_LABEL"
+					filter="string"
+					showon="showLogo:1"
+				/>
+			</fieldset>
 
+						<fieldset name="logo" label="TPL_PCRT_LOGO" description="TPL_PCRT_DESCRIPTION_LOGO_FIELDSET">
+				<field
+					name="showLogo"
+					type="radio"
+					label="TPL_PCRT_LOGO_LABEL"
+					layout="joomla.form.field.radio.switcher"
+					default="0"
+					filter="integer"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
 				<field
 					name="imageLogo"
 					type="media"
@@ -378,13 +424,11 @@
 					type="editor"
 					default=""
 					label="Dati Copyright"
-					filter="string"
+					filter="raw"
 					showon="showCopyright:1"
 				/>
 			</fieldset>
-
-<fieldset name="csscustom" label="TPL_PCRT_CSS" description="TPL_PCRT_CSS_DESCRIPTION_FIELDSET">
-
+			<fieldset name="csscustom" label="TPL_PCRT_CSS" description="TPL_PCRT_CSS_DESCRIPTION_FIELDSET">
 					<field
 						name="cssName"
 						type="text"
@@ -403,9 +447,6 @@
 						filter="string"
 						showon="showLogo:1"
 					/>
-
-
-
 					<field
 						name="custom_code_head"
 						type="textarea"
@@ -413,12 +454,9 @@
 						description="TPL_PCRT_HEAD_DESCRIPTION_DESCRIPTION"
 						rows="10"
 						cols="50"
-						filter="string"
+						filter="raw"
 						default=""
-					/>
-				
-
-				
+					/>				
 					<field
 						name="custom_code_body"
 						type="textarea"
@@ -426,12 +464,9 @@
 						description="TPL_PCRT_BODY_DESCRIPTION_DESCRIPTION"
 						rows="10"
 						cols="50"
-						filter="string"
+						filter="raw"
 						default=""
 					/>
-				
-
-
 			</fieldset>
 		</fields>
 	</config>

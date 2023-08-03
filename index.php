@@ -304,7 +304,7 @@ $wa->usePreset('template.joomla-italia-theme')
   <div class="copyright mt-3 py-4 mt-lg-5">
     <div class="container text-center">
     <?php if ($this->params->get('showCopyright')) : ?>
-        <p><?= htmlspecialchars($this->params->get('descCopyright')); ?></p>
+        <p><?= $this->params->get('descCopyright'); ?></p>
     <?php endif ?>
     </div>
   </div>
