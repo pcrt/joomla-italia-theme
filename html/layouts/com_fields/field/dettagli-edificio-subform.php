@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
+use Joomla\CMS\Uri\Uri;
 
 if (!array_key_exists('field', $displayData)) {
     return;
@@ -32,7 +33,7 @@ if ($value == '') {
     return;
 }
 
-
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 <?php if ($showLabel == 1) : ?>
@@ -43,7 +44,7 @@ if ($value == '') {
         <div class="big-data-rounded-icon">
             <div class="big-data-rounded-icon-wrapper">
                 <svg>
-                    <use xlink:href="/templates/joomla-italia-theme/svg/sprites.svg#it-map-marker"></use>
+                    <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-map-marker"></use>
                 </svg>
             </div>
             <div class="big-data-rounded-icon-content">

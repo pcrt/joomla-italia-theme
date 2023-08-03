@@ -1,0 +1,171 @@
+joomla-alert {
+    display: none;
+}
+
+.editor-xtd-buttons .btn {
+    margin-bottom: 5px;
+}
+
+.subhead {
+    background: #fff;
+    -webkit-box-shadow: -3px -2px 22px #ddd;
+    box-shadow: -3px -2px 22px #ddd;
+    color: #495057;
+    left: 0;
+    min-height: 43px;
+    padding: .25rem;
+    position: sticky;
+    right: 0;
+    top: 0;
+    width: auto;
+    z-index: 1000;
+}
+
+.subhead .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.subhead.noshadow {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.subhead .btn-group,.subhead joomla-toolbar-button {
+    -webkit-margin-start: .75rem;
+    margin-inline-start:.75rem;
+}
+
+.subhead .btn-group:first-child,.subhead joomla-toolbar-button:first-child {
+    -webkit-margin-start: 0;
+    margin-inline-start:0;
+}
+
+.subhead joomla-toolbar-button .btn>span,.subhead joomla-toolbar-button .dropdown-item>span {
+    -webkit-margin-end: .5rem;
+    margin-inline-end:.5rem;text-align: center;
+    width: 1.25em;
+}
+
+.subhead .btn {
+    --subhead-btn-accent: #495057;
+    background: #fff;
+    border-color: #adb5bd;
+    color: #495057;
+    font-size: 1rem;
+    line-height: 2.45rem;
+    margin: 5px 0;
+    padding: 0 1rem;
+}
+
+.subhead .btn>span {
+    color: var(--subhead-btn-accent);
+    display: inline-block;
+}
+
+.subhead .btn:not([disabled]):active,.subhead .btn:not([disabled]):focus,.subhead .btn:not([disabled]):hover {
+    background-color: var(--subhead-btn-accent);
+    border-color: var(--subhead-btn-accent);
+    color: hsla(0,0%,100%,.9);
+}
+
+.subhead .btn:not([disabled]):active>span,.subhead .btn:not([disabled]):focus>span,.subhead .btn:not([disabled]):hover>span {
+    color: hsla(0,0%,100%,.9);
+}
+
+.subhead .btn.btn-success {
+    --subhead-btn-accent: var(--success);
+}
+
+.subhead .btn.btn-danger {
+    --subhead-btn-accent: var(--danger);
+}
+
+.subhead .btn.btn-primary {
+    --subhead-btn-accent: #2a69b8
+}
+
+.subhead .btn.btn-secondary {
+    --subhead-btn-accent: #001b4c
+}
+
+.subhead .btn.btn-action,.subhead .btn.btn-info {
+    --subhead-btn-accent: #132f53
+}
+
+.subhead .btn.btn-action {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.subhead .btn.btn-action:after {
+    border: 0;
+    content: "\f078";
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    width: 2.375rem
+}
+
+.subhead .btn.dropdown-toggle[disabled],.subhead .btn[disabled] {
+    --subhead-btn-accent: #132f53;
+    background: rgba(223,227,231,.8);
+    opacity: .5
+}
+
+.subhead .btn.dropdown-toggle[disabled]:active,.subhead .btn.dropdown-toggle[disabled]:focus,.subhead .btn.dropdown-toggle[disabled]:hover,.subhead .btn[disabled]:active,.subhead .btn[disabled]:focus,.subhead .btn[disabled]:hover {
+    cursor: not-allowed
+}
+
+.subhead .dropdown-toggle.btn {
+    -webkit-padding-end: 0;
+    padding-inline-end:0}
+
+.subhead .btn-group:not(:last-child)>.dropdown-toggle-split {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    -webkit-margin-start: -.25rem;
+    border-radius: 0 .25rem .25rem 0;
+    margin-inline-start:-.25rem;order: 1
+}
+
+.subhead .btn-group joomla-toolbar-button,.subhead .dropdown-menu joomla-toolbar-button {
+    -webkit-margin-start: 0;
+    margin-inline-start:0}
+
+@media (max-width: 767.98px) {
+    joomla-tab[view=accordion] .col-md-3,joomla-tab[view=accordion] .col-md-9 {
+        padding:.5rem 1rem!important
+    }
+
+    #myTab {
+        margin-bottom: 1.5rem;
+        margin-top: 1rem
+    }
+
+    joomla-tab[view=accordion] ul li {
+        width: 100%
+    }
+
+    .subhead .btn,.subhead .btn-group,.subhead joomla-toolbar-button {
+        margin-left: 0;
+        text-align: left;
+        width: 100%
+    }
+
+    .subhead .btn-toolbar>.btn-group,.subhead .btn-toolbar>joomla-toolbar-button {
+        margin-left: 0
+    }
+
+    .subhead .btn.btn-action:after {
+        -webkit-margin-start: auto;
+        margin-inline-start:auto;text-align: center
+    }
+
+    .subhead .dropdown-toggle-split {
+        width: auto
+    }
+}

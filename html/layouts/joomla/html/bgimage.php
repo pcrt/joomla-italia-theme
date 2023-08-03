@@ -28,7 +28,7 @@ $displayData['src'] = $this->escape($img->url);
 ?>
 
 
-<?php 
+<?php
     
     echo 'style="background-image: url(\''.$img->url.'\');"'
 

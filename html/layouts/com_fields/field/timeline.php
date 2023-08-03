@@ -47,16 +47,16 @@ if ($value == '') {
             <?php endif; ?>
             <div class="splide__track ps-lg-3 pe-lg-3">
                 <ul class="splide__list it-carousel-all">
-                <?php foreach($field->subform_rows as $row){ ?>
+                <?php foreach($field->subform_rows as $row) { ?>
                     <li class="splide__slide">
                         <div class="it-single-slide-wrapper">
                             <div class="card-wrapper card-space" style="background:unset!important;">
                                 <div class="card card-serif card-bg" style="background:unset!important;">
                                     <div class="card-body">
 
-                                        <?php 
+                                        <?php
                                             $i=0;
-                                            foreach((array)$row as $subrow): ?>
+                    foreach((array) $row as $subrow): ?>
                                                 <?php if($i == 0): ?>
                                                     <div class="h5"><?php echo $subrow->value; ?></div>
                                                 <?php elseif($i == 1): ?>
@@ -66,9 +66,9 @@ if ($value == '') {
                                                 <?php endif; ?>
                                                     
                                         <?php
-                                            $i++;
-                                                endforeach;
-                                        ?>
+                    $i++;
+                    endforeach;
+                    ?>
 
   
                                     </div>

@@ -431,7 +431,7 @@ Nella tab Assegnazione menu:
 
 Nella tab Avanzate:
 
-- Layout: menusecondario
+- Layout: menualternativo
 
 ![modulo-menu-secondario-avanzate](https://jit.protocollicreativi.it/templates/joomla-italia-theme/doc/img/modulo-menu-secondario-avanzate.png)
 

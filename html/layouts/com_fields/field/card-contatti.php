@@ -36,8 +36,8 @@ if ($value == '') {
 switch ($label) :
     case 'Contatti':
         $idelm = 'id="art-par-05"';
-    break;
-default: 
+        break;
+    default:
         $idelm = 'id="art-par-'.$fieldid.'"';
 endswitch;
 
