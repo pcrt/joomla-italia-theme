@@ -217,6 +217,7 @@ All’interno della tab Generale impostare i seguenti parametri:
 - Nome: dettagli-edificio 
 - Etichetta: Dettagli edificio 
 - Obbligatorio: No 
+- Usa solo in sottomodulo: No 
 - Campi: Anno di costruzione (text) Numero di piani (text) 
 - Stato: Pubblicato 
 - Gruppi di campi: Luoghi 
