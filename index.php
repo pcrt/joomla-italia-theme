@@ -41,7 +41,7 @@ $wa->usePreset('template.joomla-italia-theme')
          "
 		 window.addEventListener('load', function(event) {
 			 $('#slideheader').owlCarousel({
-	         loop:true,
+	         loop:false,
 	         margin:0,
 	         nav:true,
 	         items:1,
