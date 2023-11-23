@@ -66,6 +66,6 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
         </div>
     </div>
 <?php endforeach; ?>
-<div class="col-12 text-center">
-    <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="view-all" title="Vedi tutti"><strong>Vedi tutti</strong></a>
-</div>
+<!--<div class="col-12 text-center">
+    <a href="<?php //echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="view-all" title="Vedi tutti"><strong>Vedi tutti</stonrg></a>
+</div>-->
