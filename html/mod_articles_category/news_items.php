@@ -15,29 +15,57 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\CMS\Uri\Uri;
+
+
+//print_r($items[0]->parent_title);
+//echo $items[0]->parent_id;
+//echo $items[0]->parent_language;
+//echo $items[0]->parent_title;
+
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
+
 <?php foreach ($items as $item) : ?>
-    <div class="card card-bg card-icon card-icon-main rounded mt-3">
-        <div class="scheda-item">
-        <?php 
-            $attributes = ['class' => 'mod-news-title ' . $item->active];
-            $link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
-            $title = htmlspecialchars($item->title, ENT_COMPAT, 'UTF-8', false); 
-         ?>
-        <h3 class="h6"><?php echo HTMLHelper::_('link', $link, $title, $attributes); ?></h3>
-        
-        <?php if ($params->get('show_introtext')) : ?>
-            <p><?php echo $item->displayIntrotext; ?></p>
-        <?php endif; ?>
-
-        <!-- Mostra la data di pubblicazione -->
-        <div class="publication-date mt-2">
-            <small>
-                <strong>Pubblicato:</strong> <?php echo JHtml::_('date', $item->publish_up, 'd F Y'); ?>
-            </small>
-        </div>
-
+    <div class="col-12 col-lg-4 pb-3 mb-3">
+        <div class="card card-bg card-icon rounded h-100">
+            <div class="card-body">
+                <div class="card-icon-content d-flex align-items-center">
+                    <div class="card-news-img me-3">
+                        <figure class="figure">
+                            <a href="<?php echo $item->link; ?>" itemprop="url" title="<?php echo $item->title; ?>">
+                                <?php if (empty(json_decode($item->images)->image_intro)) : ?>
+                                    <img src="<?= $baseImagePath ?>imgsegnaposto.jpg" class="img-fluid" alt="<?php echo $item->title; ?>">
+                                <?php else : ?>
+                                    <img src="<?php echo json_decode($item->images)->image_intro; ?>" class="img-fluid" alt="<?php echo $item->title; ?>" />
+                                <?php endif; ?>
+                            </a>
+                        </figure>
+                    </div>
+                    <div class="article-details">
+                        <a href="<?php echo $item->link; ?>" class="" data-focus-mouse="false">
+                            <div class="blogitem-header">
+                                <p class="mb-2 lh100">
+                                    <strong><?php echo $item->title; ?></strong>
+                                </p>
+                            </div>
+                            <?php if ($params->get('show_introtext')) : ?>
+                                <small><?php echo $item->displayIntrotext; ?></small>
+                            <?php endif; ?>
+                        </a>
+                        <!-- Mostra la data di pubblicazione -->
+                        <div class="publication-date mt-2">
+                            <small>
+                                <strong>Pubblicato:</strong> <?php echo JHtml::_('date', $item->publish_up, 'd F Y'); ?>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 <?php endforeach; ?>
+<div class="col-12 text-center">
+    <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="view-all" title="Vedi tutti"><strong>Vedi tutti</strong></a>
+</div>
