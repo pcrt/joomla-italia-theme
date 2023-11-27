@@ -66,7 +66,7 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                     <?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
                         <h1>
                             <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                                <?php echo strip_tags($this->category->description); ?>
+                                <?php echo JHtml::_('content.prepare', $this->category->description); ?>
                             <?php endif; ?>
                         </h1>
                     <?php endif; ?>

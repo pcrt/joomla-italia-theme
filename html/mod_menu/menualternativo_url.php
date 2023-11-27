@@ -14,6 +14,7 @@ use Joomla\CMS\Uri\Uri;
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 $attributes = [];
+$item_active = '';
 
 if ($item->anchor_title) {
     $attributes['title'] = $item->anchor_title;

@@ -20,15 +20,25 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
 <?php foreach ($items as $item) : ?>
     <div class="card card-bg card-icon card-icon-main rounded mt-3">
         <div class="scheda-item">
-        <?php
-            $attributes = ['class' => 'mod-news-title ' . $item->active];
-    $link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
-    $title = htmlspecialchars($item->title, ENT_COMPAT, 'UTF-8', false);
-    ?>
-        <h3 class="h6"><?php echo HTMLHelper::_('link', $link, $title, $attributes); ?></h3>
-        <?php if ($params->get('show_introtext')) : ?>
-            <p><?php echo $item->displayIntrotext; ?></p>
-        <?php endif; ?>
+        <?php 
+            $link = htmlspecialchars($item->link, ENT_COMPAT, 'UTF-8', false);
+            $title = htmlspecialchars($item->title, ENT_COMPAT, 'UTF-8', false); 
+         ?>
+        <a href="<?php echo $link; ?>" class="mod-news-title <?php echo $item->active; ?>">
+            <h3 class="h6"><?php echo $title; ?></h3>
+        
+            <?php if ($params->get('show_introtext')) : ?>
+                <small><?php echo $item->displayIntrotext; ?></small>
+            <?php endif; ?>
+        </a>
+
+        <!-- Mostra la data di pubblicazione -->
+        <div class="publication-date mt-2">
+            <small>
+                <strong>Pubblicato:</strong> <?php echo JHtml::_('date', $item->publish_up, 'd F Y'); ?>
+            </small>
+        </div>
+
         </div>
     </div>
 <?php endforeach; ?>
