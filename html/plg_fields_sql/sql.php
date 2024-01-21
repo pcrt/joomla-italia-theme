@@ -124,20 +124,16 @@ foreach ($items as $item) {
 
     $db2 = Factory::getContainer()->get('DatabaseDriver');
     $query2 = $db2->getQuery(true);
-    $query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.alias', 'content.language', 'categories.parent_id', 'categories.level')))
+    $query2->select($db2->quoteName(array('content.title', 'content.introtext', 'content.fulltext', 'content.catid', 'content.id', 'content.language', 'categories.parent_id', 'categories.level')))
     ->from($db2->quoteName('#__content', "content"))
     ->leftJoin($db2->quoteName("#__categories", "categories") . ' ON ' . $db2->quoteName("content.catid") . " = " . $db2->quoteName("categories.id"))
     ->where($db2->quoteName('content.id') . ' = '. $item->value);
     $db2->setQuery($query2);
     $items2 = $db2->loadObjectList();
-
-
-
-
     ?>
 <div class="col-12 col-lg-6 mb-4">
     <div class="card card-servizi card-bg card-icon rounded h-100" <?php echo $dtelm; ?>>
-        <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->slug, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
+        <a href="<?php echo Route::_(RouteHelper::getArticleRoute($items2[0]->id, $items2[0]->catid, $items2[0]->language)); ?>" title="<?php echo $items2[0]->title; ?>">
 
         <div class="card-body">
                 <svg class="icon">
@@ -152,11 +148,8 @@ foreach ($items as $item) {
             </div>
         </a>
     </div>
-</div>
-
-
-
-
+</div> 
 <?php } ?>
 </div>
+
 <?php //echo htmlentities(implode(', ', $texts));?>
