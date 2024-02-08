@@ -38,7 +38,7 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
             <div class="r-tabs-nav nav nav-tabs nav-tabs-vertical" id="nav-vertical-tab" role="tablist" aria-orientation="vertical">
                 <ul>
                     <div class="title-small mb-5">
-                        <div class="h5">Presentazione della scuola</div>
+                        <div class="h5 text-center">Presentazione della scuola</div>
                 </div>
                 <?php
                     $z1 = 0;
