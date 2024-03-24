@@ -163,11 +163,13 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                         <ul class="link-list" data-element="page-index">
                             <?php
                             JLoader::register('FieldsHelper', JPATH_ADMINISTRATOR . '/components/com_fields/helpers/fields.php');
+
                             JModelLegacy::addIncludePath(JPATH_SITE. '/components/com_content/models', 'ContentModel');
 
                             $id = JFactory::getApplication()->input->get('id');
 
                             $model = JModelLegacy::getInstance('Article', 'ContentModel', array('ignore_request'=>true));
+
                             $appParams = JFactory::getApplication()->getParams();
                             $model->setState('params', $appParams);
                             $item = $model->getItem($id);
@@ -250,7 +252,10 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                         <strong>Revisione:</strong> <?php echo JHtml::_('date', $this->item->modified, 'd F Y'); ?>
                     </small></p>
                     <p class="meta-articolo pt-3" data-element="metadata">
-                        Tutti i contenuti presenti su questo sito web, salvo diversa specifica, si intendono rilasciati con licenza <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.it">Creative Commons Attribution 4.0</a>. I testi degli atti ufficiali sono, invece, in pubblico dominio (<a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/deed.it">Creative Commons Zero</a>).
+                        Tutti i contenuti presenti su questo sito web, salvo diversa specifica, si intendono rilasciati con licenza 
+                        <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.it">Creative Commons Attribution 4.0</a>. 
+                        I testi degli atti ufficiali sono, invece, in pubblico dominio 
+                        (<a class="reference external" href="https://creativecommons.org/publicdomain/zero/1.0/deed.it">Creative Commons Zero</a>).
                     </p>
                 </div>
             </div>
