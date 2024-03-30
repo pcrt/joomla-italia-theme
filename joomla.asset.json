@@ -91,6 +91,20 @@
       ]
     },
     {
+      "name": "template.css.user",
+      "description": "Personalizzazione CSS utente",
+      "type": "style",
+      "uri": "user.css",
+      "weight": 1000,
+      "dependencies": [
+        "template.css.bootstrap-italia",
+        "template.css.pcrt-main",
+        "template.css.pcrt-menu",
+        "template.css.pcrt-jit",
+        "css.table"
+      ]
+    },
+    {
       "name": "template.js.bootstrap-italia",
       "type": "script",
       "uri": "bootstrap-italia.bundle.min.js",
