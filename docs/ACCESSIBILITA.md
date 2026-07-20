@@ -1,131 +1,153 @@
 # Accessibilità — stato WCAG 2.1 AA
 
-Verifica effettuata nel luglio 2026 su **35 pagine**, controllando l'HTML generato di
-tutte le voci di menu pubblicate più la home italiana e quella inglese.
+Verifica su **36 pagine**: tutte le voci di menu pubblicate del sito più la home
+italiana e quella inglese. I controlli sono fatti sull'**HTML generato dal server**,
+non sul codice sorgente PHP.
 
-> **Verdetto: il template NON è conforme WCAG 2.1 AA.**
-> Le fondamenta sono solide, ma c'è un difetto bloccante nel filtro "Tipologia".
+> **Stato: nessun errore rilevato fra quelli verificabili staticamente.**
+> Restano da confermare con browser i criteri elencati in fondo.
 
 ---
 
-## Cosa risulta conforme (misurato, non stimato)
+## Esito dell'ultima verifica
 
-| Criterio | Esito |
+| Controllo | Esito su 36 pagine |
 |---|---|
-| **1.1.1** Contenuti non testuali | 165 `<img>`, **0 senza `alt`**. 74 hanno `alt=""`: corretto, sono decorative |
-| **2.4.1** Salto dei blocchi | skip link su tutte le 35 pagine, punta a `#main-content` che esiste sempre |
-| **4.1.2** Nome, ruolo, valore | 71 controlli form e 227 `<button>`, **tutti con nome accessibile**; nessuna `<label for>` orfana |
-| **1.4.4** Ridimensionamento testo | viewport corretto ovunque, nessun `user-scalable=no` né `maximum-scale` |
-| **2.4.6** Intestazioni ed etichette | `<main>`, `<nav>`, `<header>`, `<footer>` presenti ovunque; `<main>` mai duplicato; **tutti i `<nav>` hanno `aria-label`** |
-| **3.1.1** Lingua della pagina | `lang` corretto sull'elemento `html` in tutte le pagine |
-| **1.3.1** Tabelle | l'unica tabella presente ha intestazioni corrette |
-| **id duplicati** | **0 su 746 id** |
-
-Nessun salto di livello nelle intestazioni (h2→h4), nessun heading vuoto, nessun
-`tabindex` positivo.
+| Immagini senza `alt` | **0** |
+| Pagine senza `<h1>` | **0** |
+| Pagine con più di un `<h1>` | **0** |
+| Salti di livello nelle intestazioni (h2→h4) | **0** su 35 pagine con intestazioni |
+| Intestazioni vuote | **0** |
+| `id` HTML non validi (con spazi) | **0** |
+| `id` duplicati | **0** |
+| Controlli che cambiano pagina alla selezione | **0** |
+| Errori PHP nell'output | **0** |
+| Skip link funzionante | 36/36 |
+| Campi form e pulsanti con nome accessibile | 36/36 |
+| `<main>`, `<nav>`, `<header>`, `<footer>` e `aria-label` sui `nav` | 36/36 |
+| `lang` corretto sull'elemento `html` | 36/36 |
+| Viewport senza blocco dello zoom | 36/36 |
 
 ---
 
-## Problemi da correggere
+## Correzioni applicate
 
-### 1. BLOCCANTE — Filtro "Tipologia" non usabile da tastiera (3.2.2 On Input)
+### 1. Filtro "Tipologia" — era il difetto bloccante
 
-**32 occorrenze su 12 pagine.** Markup generato:
+**Prima:**
 
 ```html
-<input type="RADIO" value="/novita/panoramicanovita/le-circolari"
-       onchange="window.open(this.value, '_self')"
+<input type="RADIO" onchange="window.open(this.value, '_self')"
        name="Circolari" id="check-Circolari">
 ```
 
-In un gruppo di radio la tastiera si sposta con le frecce direzionali, e **ogni
-spostamento fa cambiare pagina**. Chi naviga da tastiera non riesce mai a raggiungere
-la seconda o la terza opzione: appena preme la freccia, il browser va via.
+In un gruppo di radio la tastiera si sposta con le frecce, e con quell'`onchange`
+**ogni spostamento cambiava pagina**: chi navigava da tastiera non riusciva mai a
+raggiungere la seconda opzione. Violazione **WCAG 3.2.2 "On Input"**.
+Lo stesso markup aveva tre difetti aggiuntivi: `name` diverso per ogni radio (quindi
+non erano nemmeno un gruppo), `id` contenenti spazi (HTML non valido, **4.1.1**), e il
+titolo della categoria stampato senza `escape()`.
 
-Lo stesso markup ha altri tre difetti:
+**Ora:**
 
-| Difetto | Conseguenza |
-|---|---|
-| `name` diverso per ogni radio (`name="Circolari"`, `name="Eventi"`…) | non sono un gruppo di radio: sono radio isolati, che non si escludono a vicenda |
-| `id="check-<titolo categoria>"` con spazi | `id` non validi in HTML5 (viola 4.1.1) |
-| titolo stampato senza `escape()` | il titolo di una categoria finisce grezzo dentro attributi HTML |
-
-**Dove intervenire** (dopo la deduplicazione sono 6 punti, non più 7+):
-
-```
-html/com_content/category/blog.php:175
-html/com_content/category/didattica.php:129
-html/com_content/category/didattica.php:186
-html/com_content/category/organizzazione.php:164
-html/com_content/category/_condiviso/layout_eventi_novita.php:196
-html/com_content/category/_condiviso/layout_documenti_luoghi.php:162
+```html
+<ul class="filtro-tipologia">
+  <li class="catsamelevel my-0">
+    <a class="filtro-tipologia-link is-active"
+       href="/novita/panoramicanovita/le-notizie"
+       aria-current="page">Notizie</a>
+  </li>
+  …
+</ul>
 ```
 
-**Correzione consigliata:** quel controllo non è una scelta da confermare, è un
-**elenco di collegamenti**. Sostituire i radio con `<a href="...">` risolve in un colpo
-solo il criterio 3.2.2, gli `id` non validi, i `name` sbagliati e l'escaping. Va
-concordato con chi cura la grafica, perché cambia l'aspetto del filtro (Bootstrap Italia
-offre stili "chip"/"tag" adatti).
+Selezionare una tipologia porta a un'altra pagina: il controllo corretto è un
+**collegamento**. Funziona da tastiera, funziona senza JavaScript e comunica la pagina
+corrente con `aria-current`.
 
-**Correzione minima**, se si vuole mantenere l'aspetto a radio: stesso `name` per tutto
-il gruppo, `id` generati con `ApplicationHelper::stringURLSafe()`, titoli passati da
-`$this->escape()`, rimozione di `onchange` e aggiunta di un pulsante "Applica filtro".
+Il codice sta in un solo file, `com_content/category/_condiviso/filtro_tipologia.php`,
+richiamato dai 6 punti che prima contenevano copie del markup.
 
-### 2. `<title>` non univoci (2.4.2) — 6 pagine
+**L'aspetto non cambia:** in `pcrt-main.css` ci sono regole che ridisegnano il
+collegamento come il radio di prima (cerchio vuoto, pieno per la voce attiva). Il
+cerchio usa `currentColor`, quindi se il testo rispetta il contrasto lo rispetta anche
+il segnalino.
 
-Cinque pagine diverse condividono `<title>I progetti delle classi</title>` pur avendo
-`<h1>` distinti. Anche `/` e `/home-ita` hanno lo stesso title.
-Si corregge dal pannello, nelle voci di menu (campo *Titolo pagina del browser*).
+### 2. `<h1>` multipli (1.3.1)
 
-### 3. Pagina senza intestazioni (1.3.1)
+- **Carosello della homepage**: ogni slide conteneva un `<h1>`, tutti con lo stesso
+  testo. Ora l'`<h1>` è solo sulla prima slide, le altre usano `<h2>`.
+- **Modulo "La didattica"**: il titolo del modulo era un `<h1>` fisso, che in homepage
+  diventava un terzo `<h1>`. Ora è `<h2>` (e il sottotitolo `<h3>`).
+- **Pagine di categoria**: due blocchi `if` separati potevano produrre due `<h1>` se
+  erano attive sia "Mostra titolo categoria" sia "Mostra intestazione pagina". Ora sono
+  alternativi.
 
-`/legalealias` (login "Pubblicità legale") non ha **nessun** heading da `h1` a `h6`,
-pur avendo `<main>` e due form.
+### 3. Pagine senza `<h1>` (1.3.1)
 
-### 4. Home inglese in italiano (3.1.2)
+- **`/legalealias`** (login "Pubblicità legale") non aveva **nessuna** intestazione:
+  attivata l'intestazione di pagina sulla voce di menu.
+- **`/didattica`** e **`/didattica/…/offerta-formativa`** ricevevano l'`<h1>` dal titolo
+  di un modulo: far dipendere l'intestazione principale da un modulo è fragile (basta
+  toglierlo da quella pagina e l'`<h1>` sparisce). Introdotto
+  `_condiviso/h1_fallback.php`, che emette un `<h1 class="visually-hidden">` con il
+  titolo della categoria quando il layout non mostra un titolo visibile: si legge con
+  gli assistivi, non cambia nulla graficamente.
 
-`/en/` dichiara `lang="en-gb"` ma il contenuto è quasi tutto italiano ("La scuola",
-"Didattica", "Amministrazione trasparente"). Non ci sono attributi `lang` sui blocchi in
-lingua diversa (zero in tutto il sito). Uno screen reader legge testo italiano con
-pronuncia inglese.
-Questo è un problema di **contenuti**, non di template.
+### 4. `<title>` non descrittivi (2.4.2)
 
-### 5. `<h1>` multipli — 4 pagine
+Cinque pagine diverse mostravano tutte `I progetti delle classi`, perché le
+sottocategorie senza voce di menu propria ereditano il titolo della voce padre.
+`_condiviso/titolo_pagina.php` antepone il titolo della categoria corrente, ma **solo
+se non è già presente**: sulle categorie che hanno una voce di menu propria non cambia
+nulla.
 
-`/`, `/home` e `/home-ita` hanno **3 `<h1>`**, di cui due identici (probabilmente le
-varianti desktop e mobile dello hero, entrambe presenti nel DOM) più un terzo usato come
-titolo di sezione (`<h1 class="h3">La didattica</h1>`).
+### 5. Escaping
 
-Non è la violazione secca di un criterio, ma rende ingannevole la navigazione per
-intestazioni. Il terzo dovrebbe essere un `<h2>`; delle due varianti dello hero una
-andrebbe nascosta agli assistivi con `aria-hidden`.
+I titoli di categoria stampati nelle intestazioni ora passano da `$this->escape()`.
+Prima finivano grezzi nell'HTML.
 
-### 6. Da valutare a mano — "Scopri di più" (2.4.4)
+---
 
-Unico testo di link generico su **2791 link** totali. Il criterio 2.4.4 ammette che il
-contesto chiarisca la destinazione: da verificare visivamente.
+## Due segnalazioni residue, entrambe innocue
+
+**`/home-eng` risponde 404.** È la voce di menu della home inglese, che con il filtro
+lingua attivo viene servita su `/en/`. **Nessuna pagina la collega** (zero `href` verso
+`home-eng`), quindi non è un collegamento rotto per l'utente: è un residuo di
+configurazione, non un problema di accessibilità.
+
+**`/` e `/home-ita` hanno lo stesso `<title>`.** Sono la stessa pagina raggiungibile da
+due indirizzi (la home generica e la home italiana del sito multilingua). Titoli
+identici per contenuti identici sono corretti: 2.4.2 chiede che il titolo *descriva* la
+pagina, non che sia diverso da ogni altro.
 
 ---
 
 ## Criteri NON verificati
 
-I seguenti richiedono un browser o un test manuale e **non sono stati misurati**.
+Richiedono un browser o un test manuale e **non sono stati misurati**.
 Non vanno considerati conformi:
 
 - **1.4.3** contrasto del testo e **1.4.11** contrasto non testuale
-- **2.4.7** focus visibile, **2.1.1 / 2.1.2** navigazione e trappole da tastiera
-  (per il punto 1 il sospetto è forte già dal markup, ma va confermato da tastiera)
+- **2.4.7** focus visibile e **2.1.1 / 2.1.2** navigazione e trappole da tastiera
 - **1.4.4** zoom al 200% e **1.4.10** reflow a 320 px
 - **1.4.12** spaziatura del testo, **1.4.13** contenuti su hover/focus (menu a tendina)
 - **2.4.3** ordine del focus, **1.3.2** ordine di lettura significativo
-- **2.2.2** pausa/stop per il carosello dello hero
+- **2.2.2** pausa/stop per il carosello della homepage
 - **4.1.3** messaggi di stato (ricerca, form di login)
 
-## Metodo
+> Il carosello della homepage va scorre automaticamente: **2.2.2** richiede un comando
+> per metterlo in pausa. È il controllo manuale da fare per primo.
 
-Analisi statica dell'HTML restituito dal server per tutte le voci di menu pubblicate
-(`client_id=0`, `type='component'`, `published=1`) più `/` e `/en/`.
+---
 
-Un'analisi che si limiti a cercare i tag `<img>` nel codice sorgente PHP **produce falsi
-allarmi**: in questo template gli `alt` vengono valorizzati tramite variabili e layout
-condivisi. Vanno contati sull'HTML generato, non sul sorgente.
+## Nota di metodo
+
+Un'analisi che cerca i tag `<img>` nel **codice sorgente PHP** produce falsi allarmi: in
+questo template gli `alt` sono valorizzati tramite variabili e layout condivisi. Una
+verifica di questo tipo aveva riportato "26 immagini senza alt"; il conteggio
+sull'HTML generato dà **0 su 165 immagini**.
+
+Allo stesso modo, gli strumenti automatici (axe-core, pa11y, WAVE) **non rilevano il
+criterio 3.2.2**: non possono sapere che un `onchange` porta via dalla pagina. Il
+difetto bloccante descritto sopra era invisibile a tutti e tre.

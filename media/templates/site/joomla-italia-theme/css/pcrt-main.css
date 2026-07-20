@@ -1476,3 +1476,65 @@ a.view-all{
     position: relative;
     z-index: 1100;
 }
+
+
+/* Accessibilita — filtro "Tipologia" delle pagine di categoria.
+   Erano <input type="radio"> con onchange che cambiava pagina: con le frecce
+   della tastiera ogni spostamento navigava via, rendendo irraggiungibili le
+   opzioni successive (WCAG 2.1 - 3.2.2 "On Input"). Ora sono collegamenti.
+   Queste regole ridisegnano il collegamento come il radio di prima, cosi'
+   l'aspetto resta invariato. Il cerchio usa currentColor: se il testo rispetta
+   il contrasto, lo rispetta anche il segnalino. */
+.filtro-tipologia {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.filtro-tipologia .catsamelevel {
+    margin: 0;
+}
+
+.filtro-tipologia-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.25rem 0 0.25rem 2rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.filtro-tipologia-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.filtro-tipologia-link.is-active::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+.filtro-tipologia-link:hover,
+.filtro-tipologia-link:focus {
+    text-decoration: underline;
+}
+
+/* Focus sempre visibile da tastiera (WCAG 2.4.7) */
+.filtro-tipologia-link:focus-visible {
+    outline: 3px solid currentColor;
+    outline-offset: 2px;
+}

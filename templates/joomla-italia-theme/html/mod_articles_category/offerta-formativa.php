@@ -27,10 +27,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
     <div class="container">
         <div class="title-large pt-5">
             <?php if ((bool) $module->showtitle) : ?>
-                <h1 class="h3"><?php echo $module->title; ?></h1>
-                <h2 class="h4 text-white label-didattica">la nostra offerta formativa</h2>
+                <?php // Era h1: in homepage faceva un terzo h1 dopo quello dello hero (WCAG 1.3.1). ?>
+                <h2 class="h3"><?php echo $module->title; ?></h2>
+                <h3 class="h4 text-white label-didattica">la nostra offerta formativa</h3>
             <?php else : ?>
-                <h1 class="h4 text-white label-didattica">la nostra offerta formativa</h1>
+                <h2 class="h4 text-white label-didattica">la nostra offerta formativa</h2>
             <?php endif; ?>
         </div>
         <div class="responsive-tabs responsive-tabs-aside r-tabs">

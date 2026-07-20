@@ -43,6 +43,9 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
 //echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
+// Titolo del browser univoco anche sulle sottocategorie (WCAG 2.4.2)
+require __DIR__ . '/_condiviso/titolo_pagina.php';
+
 $imgdesc = $this->category->getParams()->get('image');
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";

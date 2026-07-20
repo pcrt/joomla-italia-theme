@@ -253,7 +253,8 @@ try {
     <section class="section bg-redbrown section-hero-left owl-carousel owl-theme slideheader p-0" id="slideheader">
     <?php
             $fieldValuesbanner = $this->params->get('showBannerfields');?>
-          <?php foreach ($fieldValuesbanner as $value): ?>
+          <?php $bannerIndice = 0; ?>
+          <?php foreach ($fieldValuesbanner as $value): $bannerIndice++; ?>
             <div class="item-banner">
               <div class="decoration-01"></div>
               <div class="decoration-02"></div>
@@ -261,7 +262,10 @@ try {
                 <div class="row align-items-center h-100">
                   <div class="col-12 col-lg-6">
                     <div class="text-white font-weight-normal h4"><?= $value->bannerTopTitle; ?></div>
-                    <h1 class="text-white"><span class="d-line d-xl-block"><?= $value->bannerTitle; ?></span></h1>
+                    <?php // Solo la prima slide porta l'h1 della pagina: piu h1 identici
+                         // rendono ingannevole la navigazione per intestazioni (WCAG 1.3.1). ?>
+                    <?php $bannerTag = ($bannerIndice === 1) ? 'h1' : 'h2'; ?>
+                    <<?= $bannerTag ?> class="text-white"><span class="d-line d-xl-block"><?= $value->bannerTitle; ?></span></<?= $bannerTag ?>>
                     <h2 class="text-white font-weight-normal h3"><?= $value->bannerDescription; ?></h2>
                     <a href="<?= $value->bannerUrlButton; ?>" class="btn btn-sm btn-outline-white mt-4"><?= $value->bannerButton; ?></a>
                   </div>

@@ -56,18 +56,20 @@ In breve:
 Il template è costruito con l'accessibilità come requisito: skip link, landmark ARIA,
 etichette dei form, `alt` sulle immagini, viewport senza blocco dello zoom.
 
-**Su 35 pagine misurate**, questi criteri risultano conformi al 100%:
-1.1.1 (immagini), 2.4.1 (skip link), 4.1.2 (form e pulsanti), 1.4.4 (zoom),
-2.4.6 (landmark), unicità degli `id`, `lang` sull'elemento `html`.
+**Su 36 pagine misurate** non risulta nessun errore fra quelli verificabili
+sull'HTML generato: 0 immagini senza `alt` (su 165), 0 pagine senza `<h1>`, 0 pagine con
+più `<h1>`, 0 salti di livello nelle intestazioni, 0 `id` non validi o duplicati,
+0 controlli che cambiano pagina alla selezione. Skip link, landmark, etichette dei form
+e viewport corretti su tutte.
 
-**Non è però conforme WCAG 2.1 AA**: c'è un difetto bloccante nel filtro "Tipologia"
-delle pagine di categoria. I dettagli e le correzioni necessarie sono in
-**[docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md)**. Leggerlo prima di usare il template
-su un sito soggetto agli obblighi AgID.
+**Restano da verificare con un browser** i criteri che l'analisi statica non può
+misurare — contrasto, focus visibile, zoom, reflow e in particolare **2.2.2** (il
+carosello della homepage scorre da solo e serve un comando di pausa).
+Il quadro completo è in **[docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md)**: leggerlo
+prima di usare il template su un sito soggetto agli obblighi AgID.
 
 ## Problemi noti
 
-- **Filtro "Tipologia" non usabile da tastiera** (WCAG 3.2.2) — vedi docs/ACCESSIBILITA.md
 - **Le mappe si caricano da `unpkg.com`**, un CDN esterno, benché le copie locali di
   Leaflet siano presenti nel repository. Rilevante per la privacy su siti PA:
   vedi docs/MANUTENZIONE.md

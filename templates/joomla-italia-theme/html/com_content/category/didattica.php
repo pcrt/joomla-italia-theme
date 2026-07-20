@@ -42,11 +42,18 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 //echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
+// Titolo del browser univoco anche sulle sottocategorie (WCAG 2.4.2)
+require __DIR__ . '/_condiviso/titolo_pagina.php';
+
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 
 <div class="blog-didattica" itemscope itemtype="https://schema.org/Blog">
+    <?php // Se il titolo visibile e' disattivato la pagina resterebbe senza h1 (WCAG 1.3.1) ?>
+    <?php if (!$this->params->get('show_category_title', 1)) : ?>
+        <?php require __DIR__ . '/_condiviso/h1_fallback.php'; ?>
+    <?php endif; ?>
     <?php if ($this->params->get('show_category_title', 1)) : ?>
     <section class="section bg-bluelectric bg-bluelectricgradient py-5 position-relative d-flex align-items-center overflow-hidden">
         <div class="green-square-forms">
@@ -58,10 +65,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                 <div class="col-md-5">
                     <div class="hero-title text-left">
 
-                            <h1><?php echo $this->category->title; ?></h1>
-
+                        <?php // Un solo h1: con "Mostra intestazione pagina" attiva ne uscivano DUE (WCAG 1.3.1). ?>
                         <?php if ($this->params->get('show_page_heading')) : ?>
-                            <h1><?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
+                            <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
+                        <?php else : ?>
+                            <h1><?php echo $this->escape($this->category->title); ?></h1>
                         <?php endif; ?>
                         <?php echo $afterDisplayTitle; ?>
                         <?php if ($this->params->get('show_cat_tags', 1) && !empty($this->category->tags->itemTags)) : ?>
@@ -123,14 +131,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                         <p class="h6 mb-0 label-filter lh100"><strong>Filtri</strong></p>
                                     </div>
                                     <h2 class="h6 text-uppercase"><strong>Tipologia</strong></h2>
-                                    <ul class="">
-                                        <?php foreach ($this->children[$this->category->id] as $kategorie) : ?>
-                                            <li class="catsamelevel form-check my-0">
-                                                    <input type="RADIO" value="<?php echo Route::_(RouteHelper::getCategoryRoute($kategorie->id, $kategorie->language)); ?>" onchange="window.open(this.value, '_self')" name="<?php echo $kategorie->title; ?>" id="check-<?php echo $kategorie->title; ?>" <?php echo ($catactive == $kategorie->title) ? ('checked') :''; ?>>
-                                                    <label class="mb-0" for="check-<?php echo $kategorie->title; ?>"><?php echo $kategorie->title; ?></label>
-                                                </li>
-                                        <?php endforeach ?>
-                                    </ul>
+                                    <?php
+                                    // Filtro Tipologia accessibile (collegamenti, non radio): vedi _condiviso/filtro_tipologia.php
+                                    $filtroTipologiaVoci = $this->children[$this->category->id];
+                                    require __DIR__ . '/_condiviso/filtro_tipologia.php';
+                                ?>
                                 </aside>
                             </div>
                             <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
@@ -180,14 +185,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                     require __DIR__ . '/_condiviso/query_tipologia.php';
                                 ?>
 
-                                <ul class="">
-                                    <?php foreach ($rows as $row) : ?>
-                                        <li class="catsamelevel form-check my-0">
-                                                <input type="RADIO" value="<?php echo Route::_(RouteHelper::getCategoryRoute($row->id, $row->language)); ?>" onchange="window.open(this.value, '_self')" name="<?php echo $row->title; ?>" id="check-<?php echo $row->title; ?>" <?php echo ($catactive == $row->title) ? ('checked') :''; ?>>
-                                                <label class="mb-0" for="check-<?php echo $row->title; ?>"><?php echo $row->title; ?></label>
-                                            </li>
-                                    <?php endforeach ?>
-                                </ul>
+                                <?php
+                                    // Filtro Tipologia accessibile (collegamenti, non radio): vedi _condiviso/filtro_tipologia.php
+                                    $filtroTipologiaVoci = $rows;
+                                    require __DIR__ . '/_condiviso/filtro_tipologia.php';
+                                ?>
                             </aside>
                         </div>
                         <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">

@@ -42,6 +42,9 @@ $htag    = $this->params->get('show_page_heading') ? 'h2' : 'h1';
                 //echo $this->category->parent_id;
 $catactive =  $this->category->title;
 
+// Titolo del browser univoco anche sulle sottocategorie (WCAG 2.4.2)
+require __DIR__ . '/titolo_pagina.php';
+
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
@@ -58,9 +61,9 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                 <div class="col-md-5">
                     <div class="hero-title text-left">
                         <?php if ($this->params->get('show_category_title', 1)) : ?>
-                            <h1><?php echo $this->category->title; ?></h1>
-                        <?php endif; ?>
-                        <?php if ($this->params->get('show_page_heading')) : ?>
+                            <h1><?php echo $this->escape($this->category->title); ?></h1>
+                        <?php // 'elseif': con entrambe le opzioni attive uscivano DUE h1 nella stessa pagina (WCAG 1.3.1). ?>
+                        <?php elseif ($this->params->get('show_page_heading')) : ?>
                             <h1><?php echo $this->escape($this->params->get('page_heading')); ?> </h1>
                         <?php endif; ?>
                         <?php echo $afterDisplayTitle; ?>
@@ -156,14 +159,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                     require __DIR__ . '/query_tipologia.php';
                                 ?>
 
-                                <ul class="">
-                                    <?php foreach ($rows as $row) : ?>
-                                        <li class="catsamelevel form-check my-0">
-                                                <input type="RADIO" value="<?php echo Route::_(RouteHelper::getCategoryRoute($row->id, $row->language)); ?>" onchange="window.open(this.value, '_self')" name="<?php echo $row->title; ?>" id="check-<?php echo $row->title; ?>" <?php echo ($catactive == $row->title) ? ('checked') :''; ?>>
-                                                <label class="mb-0" for="check-<?php echo $row->title; ?>"><?php echo $row->title; ?></label>
-                                            </li>
-                                    <?php endforeach ?>
-                                </ul>
+                                <?php
+                                    // Filtro Tipologia accessibile (collegamenti, non radio): vedi _condiviso/filtro_tipologia.php
+                                    $filtroTipologiaVoci = $rows;
+                                    require __DIR__ . '/filtro_tipologia.php';
+                                ?>
                             </aside>
                         </div>
                         <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
