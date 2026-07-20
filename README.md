@@ -1,109 +1,280 @@
-# Joomla Italia Theme
+# Protocolli Creativi
 
-Template Joomla per scuole e Pubbliche Amministrazioni, basato su
-[Bootstrap Italia](https://italia.github.io/bootstrap-italia/) e sulle linee guida
-di design per i siti della PA.
+## Tema Joomla per la Scuola
+
+**Joomla Italia Theme** è il tema Joomla che permette di aderire al
+[modello di sito istituzionale delle scuole](https://designers.italia.it/modello/scuole/)
+di Designers Italia.
 
 Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
 
 | | |
 |---|---|
-| **Versione template** | 1.2.1 |
-| **Joomla** | 5.x e 6.x (verificato su 5.4.7 e 6.1.2) |
-| **PHP** | 8.1+ (verificato su 8.4) |
-| **Licenza** | GNU AGPL v3 o successiva — vedi [LICENSE](LICENSE) |
+| **Versione** | 1.2.1 |
+| **Joomla** | 5.x e 6.x — verificato su 5.4.7 e 6.1.2 |
+| **PHP** | 8.1 o superiore — verificato su 8.4 |
+| **Licenza** | [GNU AGPL v3](LICENSE) o successiva |
 
 ---
 
-## Cosa contiene questo repository
+## Indice
 
-```
-templates/joomla-italia-theme/          il template (override, layout, index.php)
-media/templates/site/joomla-italia-theme/   css, js, font, immagini
-plugins/system/singleedit/              plugin: una modifica alla volta dal frontend
-doc/                                   documentazione
-```
+- [Cos'è](#cosè)
+- [Cosa fa](#cosa-fa)
+- [Da dove iniziare](#da-dove-iniziare)
+- [Installazione](#installazione)
+- [Configurazione del template](#configurazione-del-template)
+- [Accessibilità](#accessibilità)
+- [La community di riferimento](#la-community-di-riferimento)
+- [F.A.Q.](#faq)
+- [Licenze software dei componenti di terze parti](#licenze-software-dei-componenti-di-terze-parti)
+- [Segnalazione bug](#segnalazione-bug)
+- [Documentazione](#documentazione)
 
-La struttura delle cartelle **rispecchia quella di Joomla**: per installare si copiano
-le tre cartelle sulla radice del sito, senza spostare nulla.
+---
 
-> **Nota sulla struttura.** I file stanno nella posizione che occupano *dentro* un sito
-> Joomla già installato. È comodo da leggere e da confrontare, ma **non è il formato che
-> si aspetta l'installatore di Joomla**: nel pacchetto la cartella `media` deve stare
-> dentro il template. Per questo c'è `build.sh`.
+## Cos'è
+
+Il modello di sito istituzionale delle scuole nasce nel progetto **Designers
+Italia** per dare agli istituti un sito coerente, accessibile e riconoscibile,
+senza che ogni scuola debba riprogettare tutto da capo.
+
+Il modello è stato pubblicato come tema WordPress. **Joomla Italia Theme porta lo
+stesso modello su Joomla**: stessa struttura di contenuti, stessa impostazione
+grafica, stessi componenti di [Bootstrap Italia](https://italia.github.io/bootstrap-italia/).
+
+### Bootstrap Italia
+
+È la libreria che implementa le linee guida di design per i servizi web della
+Pubblica Amministrazione italiana. Basata su [Bootstrap 5](https://getbootstrap.com/),
+fornisce componenti già conformi: colori, tipografia, moduli, schede, menu.
+
+---
+
+## Cosa fa
+
+Il tema **non aggiunge componenti a Joomla**: usa esclusivamente ciò che Joomla
+già offre — articoli, categorie, menu, moduli, campi personalizzati — e ne cambia
+la presentazione.
+
+Questo significa tre cose:
+
+- **niente da imparare oltre a Joomla**: chi sa usare il pannello sa usare il tema;
+- **nessun blocco tecnologico**: disinstallando il tema i contenuti restano al loro
+  posto, intatti;
+- **aggiornamenti di Joomla senza sorprese**: il tema non sostituisce parti del core.
+
+Il tema fornisce le pagine previste dal modello — schede servizio, luoghi,
+strutture organizzative, documenti, notizie, circolari, eventi, schede didattiche,
+progetti — insieme ai campi che le compongono, già configurati.
+
+---
+
+## Da dove iniziare
+
+Un sito dimostrativo è disponibile su
+[jit.protocollicreativi.it](https://jit.protocollicreativi.it): è il punto di
+partenza consigliato per capire come organizzare i contenuti prima di scriverli.
+
+Se stai partendo da zero, l'ordine di lavoro consigliato è in
+**[doc/doc.md](doc/doc.md)**.
+
+---
 
 ## Installazione
 
-Vedi **[doc/installazione.md](doc/installazione.md)** per la procedura completa.
-
-**Metodo consigliato — pacchetto installabile:**
+I file di questo repository stanno nella posizione che occupano **dentro un sito
+Joomla già installato**. L'installatore di Joomla si aspetta invece un pacchetto in
+cui la cartella `media` sta **dentro** il template: `build.sh` riorganizza i file e
+produce i due pacchetti pronti.
 
 ```bash
-bash build.sh          # crea dist/joomla-italia-theme-1.2.1.zip e dist/plg_system_singleedit-1.0.0.zip
+bash build.sh
+# dist/joomla-italia-theme-1.2.1.zip
+# dist/plg_system_singleedit-1.0.0.zip
 ```
 
-Poi nel pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
+Poi dal pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
 **Sistema ▸ Stili del sito** per impostare *Joomla Italia Theme* come predefinito.
 
-*Verificato:* i pacchetti prodotti da `build.sh` sono stati installati con l'installatore
-di Joomla su **Joomla 5.4.7** (partendo da template assente) e su **Joomla 6.1.2**, e in
-entrambi i casi i file finiscono nelle posizioni corrette e il sito funziona senza errori.
+La procedura completa, con i requisiti e le verifiche successive, è in
+**[doc/installazione.md](doc/installazione.md)**.
 
-> **Attenzione — errore frequente:** se il template risulta installato ma il sito appare
-> senza grafica, controllare che lo stile abbia `inheritable = 1`. Con `0` Joomla non
-> carica gli asset del template.
+> **Errore frequente:** se il template risulta installato ma il sito appare senza
+> grafica, controlla che lo stile abbia `inheritable = 1`. Con `0` Joomla non carica
+> gli asset del template, e non viene mostrato nessun messaggio d'errore.
+
+---
+
+## Configurazione del template
+
+**Sistema ▸ Stili del sito ▸ Joomla Italia Theme**
+
+I parametri sono divisi in sei gruppi:
+
+| Gruppo | Cosa configura |
+|---|---|
+| **Topbar** | la barra in cima, con messaggio e pulsanti (es. Area Riservata) |
+| **Logo** | logo dell'istituto e testi affiancati |
+| **Social** | collegamenti ai profili social |
+| **Banner** | il carosello della homepage |
+| **Logo footer** | logo nel piè di pagina e logo dell'Unione Europea |
+| **Copyright** | il testo di copyright |
+
+I campi si mostrano e si nascondono a seconda delle scelte fatte: non serve
+conoscere il codice per configurare il sito.
+
+Il tema mette a disposizione **27 posizioni modulo** e otto tipi di voce di menu
+dedicati alle sezioni del modello. Dettagli in [doc/moduli.md](doc/moduli.md) e
+[doc/menu.md](doc/menu.md).
+
+---
+
+## Accessibilità
+
+L'accessibilità è un requisito di legge per i siti scolastici, non un
+miglioramento facoltativo.
+
+Su **36 pagine misurate sull'HTML generato** non risulta alcun errore fra quelli
+verificabili staticamente: nessuna immagine priva di testo alternativo (su 165),
+nessuna pagina senza `<h1>` o con più di uno, nessun salto di livello nelle
+intestazioni, nessun identificativo HTML non valido o duplicato, nessun controllo
+che cambi pagina alla semplice selezione. Skip link, landmark ARIA, etichette dei
+moduli e viewport risultano corretti su tutte le pagine.
+
+**Restano da verificare con un browser** i criteri che un'analisi statica non può
+misurare: contrasto dei colori, focus visibile, navigazione da tastiera, zoom al
+200% e reflow a 320 px.
+
+Il quadro completo, con i criteri verificati e quelli ancora aperti, è in
+**[doc/accessibilita.md](doc/accessibilita.md)**. **Leggilo prima di pubblicare la
+dichiarazione di accessibilità**: la conformità è autodichiarata e la
+responsabilità resta di chi la firma.
+
+---
+
+## La community di riferimento
+
+- [Forum Italia](https://forum.italia.it/) — sezione dedicata ai servizi di design
+- [Canale Slack `#design-siti-scuole`](http://developersitalia.slack.com/messages/design-siti-scuole)
+- [Tema WordPress del modello scuole](https://github.com/italia/design-scuole-wordpress-theme)
+- [Pagine statiche del modello scuole](https://github.com/italia/design-scuole-pagine-statiche)
+- [Porte Aperte sul Web](https://www.porteapertesulweb.it/)
+- [Team per la Trasformazione Digitale](https://teamdigitale.governo.it/)
+
+---
+
+## F.A.Q.
+
+### Chi gestisce il sito?
+
+Il personale della scuola, dal pannello di Joomla. Il tema è pensato perché le
+operazioni quotidiane — pubblicare una circolare, aggiungere un evento, aggiornare
+una scheda — si facciano senza toccare codice.
+
+### Perché esiste un tema anche per Joomla?
+
+Il modello per le scuole è stato pubblicato come tema WordPress, ma molte scuole
+italiane usano Joomla. Questo tema permette di aderire allo stesso modello senza
+dover migrare la piattaforma, il che significa non rifare da zero contenuti e
+formazione del personale.
+
+### Quali sono i benefici dell'uso del tema?
+
+Un sito conforme al modello nazionale, con una struttura dei contenuti già
+progettata e verificata: la scuola non deve decidere come organizzare le
+informazioni, né progettare le pagine. In più, l'accessibilità è considerata fin
+dall'impostazione, non aggiunta dopo.
+
+### Posso fare dei cambiamenti al sito?
+
+Sì. Contenuti, menu, moduli, colori dei parametri e struttura delle categorie sono
+completamente nelle tue mani: sono funzioni standard di Joomla.
+
+### È consigliato fare cambiamenti al codice?
+
+**No, se puoi evitarlo.** Modificare i file sovrascritti (`html/`) o i fogli di
+stile rende più difficili gli aggiornamenti futuri: le modifiche verrebbero
+sovrascritte, o andrebbero riapplicate a mano ogni volta.
+
+Se una personalizzazione ti serve davvero, leggi prima
+[doc/manutenzione.md](doc/manutenzione.md): documenta le convenzioni del tema — in
+particolare le cartelle `_condiviso/`, dove **un solo file** governa il
+comportamento di più pagine, e le trappole già incontrate da chi ci ha lavorato.
+
+---
+
+## Licenze software dei componenti di terze parti
+
+Il tema usa esclusivamente il core di Joomla! e distribuisce le librerie seguenti,
+tutte con licenze open source:
+
+| Componente | Licenza |
+|---|---|
+| [Bootstrap Italia](https://italia.github.io/bootstrap-italia/) (bundle, include Bootstrap 5 e Popper.js) | BSD-3-Clause |
+| [jQuery](https://jquery.com/) 3.6.2 | MIT |
+| [Owl Carousel 2](https://owlcarousel2.github.io/OwlCarousel2/) | MIT |
+| [Leaflet](https://leafletjs.com/) 1.9.4 | BSD-2-Clause |
+| Font [Titillium Web](https://fonts.google.com/specimen/Titillium+Web) | SIL Open Font License 1.1 |
+| Font [Lora](https://fonts.google.com/specimen/Lora) | SIL Open Font License 1.1 |
+| Font [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) | Apache License 2.0 |
+
+I font sono distribuiti **localmente** insieme al tema, nei formati `woff2` e
+`woff`: nessuna richiesta viene inviata a servizi esterni per caricarli.
+
+---
+
+## Segnalazione bug
+
+Apri una *issue* su questo repository indicando:
+
+- versione di Joomla e di PHP (**Sistema ▸ Informazioni di sistema**)
+- versione del tema (**Sistema ▸ Gestione estensioni**)
+- l'indirizzo della pagina in cui si verifica il problema
+- cosa ti aspettavi e cosa è successo
+
+Se il problema riguarda l'aspetto allega uno screenshot; se riguarda un errore,
+allega il testo esatto del messaggio.
+
+---
 
 ## Documentazione
 
-| Documento | Contenuto |
+La documentazione completa è in **[doc/doc.md](doc/doc.md)**.
+
+**Per chi gestisce il sito dal pannello:**
+
+| Guida | Contenuto |
 |---|---|
-| [doc/installazione.md](doc/installazione.md) | installazione, requisiti, configurazione iniziale |
-| [doc/struttura.md](doc/struttura.md) | com'è organizzato il codice, dove mettere le mani |
-| [doc/manutenzione.md](doc/manutenzione.md) | convenzioni, trappole note, come non rompere niente |
-| [doc/accessibilita.md](doc/accessibilita.md) | stato WCAG 2.1 AA misurato, cosa manca |
-| [CHANGELOG.md](CHANGELOG.md) | cronologia delle modifiche |
+| [configurazione-joomla.md](doc/configurazione-joomla.md) | impostazioni di Joomla, multilingua, permessi |
+| [alberatura-categorie.md](doc/alberatura-categorie.md) | la struttura delle categorie e perché viene prima di tutto |
+| [inserimento-articoli.md](doc/inserimento-articoli.md) | scrivere e pubblicare un contenuto, passo passo |
+| [custom-field-articoli.md](doc/custom-field-articoli.md) | i campi aggiuntivi, categoria per categoria |
+| [custom-field-categoria.md](doc/custom-field-categoria.md) | i campi delle categorie: timeline, strutture |
+| [menu.md](doc/menu.md) | menu, voci di navigazione, tipi di pagina |
+| [moduli.md](doc/moduli.md) | i blocchi che compongono le pagine |
+| [topbar.md](doc/topbar.md) · [header.md](doc/header.md) · [footer.md](doc/footer.md) | le tre zone fisse del sito |
 
-## Stato dell'accessibilità
+**Per chi lavora sul codice:**
 
-Il template è costruito con l'accessibilità come requisito: skip link, landmark ARIA,
-etichette dei form, `alt` sulle immagini, viewport senza blocco dello zoom.
+| Guida | Contenuto |
+|---|---|
+| [installazione.md](doc/installazione.md) | installazione, requisiti, pacchetti |
+| [struttura.md](doc/struttura.md) | come è organizzato il codice del tema |
+| [manutenzione.md](doc/manutenzione.md) | convenzioni e trappole note |
+| [accessibilita.md](doc/accessibilita.md) | stato WCAG 2.1 AA e verifiche mancanti |
 
-**Su 36 pagine misurate** non risulta nessun errore fra quelli verificabili
-sull'HTML generato: 0 immagini senza `alt` (su 165), 0 pagine senza `<h1>`, 0 pagine con
-più `<h1>`, 0 salti di livello nelle intestazioni, 0 `id` non validi o duplicati,
-0 controlli che cambiano pagina alla selezione. Skip link, landmark, etichette dei form
-e viewport corretti su tutte.
+La cronologia delle modifiche è in [CHANGELOG.md](CHANGELOG.md).
 
-Il criterio **2.2.2** (contenuti in movimento) **non si applica**: il carosello della
-homepage ha `autoplay: false` e non scorre da solo — verificato anche che nel tema non
-esistono altri contenuti ad avanzamento automatico.
-
-**Restano da verificare con un browser** i criteri che l'analisi statica non può
-misurare: contrasto dei colori, focus visibile, navigazione da tastiera, zoom al 200%
-e reflow a 320 px.
-Il quadro completo è in **[doc/accessibilita.md](doc/accessibilita.md)**: leggerlo
-prima di usare il template su un sito soggetto agli obblighi AgID.
-
-## Problemi noti
-
-- **Le mappe si caricano da `unpkg.com`**, un CDN esterno, benché le copie locali di
-  Leaflet siano presenti nel repository. Rilevante per la privacy su siti PA:
-  vedi doc/manutenzione.md
-- **Duplicazione residua**: il blocco di condivisione social è ripetuto in 10 override
-  di articolo e il blocco "indice della pagina" in 7. Non è un difetto funzionale,
-  ma ogni correzione va applicata più volte.
+---
 
 ## Licenza
 
 **GNU Affero General Public License v3.0 o successiva** — vedi [LICENSE](LICENSE).
 
-È la stessa licenza del progetto originale
-[pcrt/joomla-italia-theme](https://github.com/pcrt/joomla-italia-theme).
-La dichiarazione è allineata in `templateDetails.xml`, nel manifesto del plugin
-`singleedit` e nel file `LICENSE`.
-
-Il template usa esclusivamente il contenuto del core di Joomla! e integra librerie di
-terze parti distribuite con licenze open source (Bootstrap Italia, jQuery, Leaflet,
-Owl Carousel, i font Titillium Web, Lora e Roboto Mono).
-
 Attribuzioni in [AUTHORS](AUTHORS).
+
+Questo programma è software libero: puoi redistribuirlo e modificarlo secondo i
+termini della GNU AGPL pubblicata dalla Free Software Foundation. È distribuito
+nella speranza che sia utile, ma **SENZA ALCUNA GARANZIA**.
+Vedi <http://www.gnu.org/licenses/>.
