@@ -4,9 +4,9 @@
 	<creationDate>07/04/23</creationDate>
 	<author>Eddy Prosperi</author>
 	<authorEmail>info@protocollicreativi.it</authorEmail>
-	<authorUrl>info@protocollicreativi.it</authorUrl>
+	<authorUrl>https://www.protocollicreativi.it</authorUrl>
 	<copyright>Copyright (C) 2023 Protocolli Creativi.</copyright>
-	<license>Protocolli Creativi</license>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>1.2.1</version>
 	<description>Template Joomla basato su Design Italia</description>
 	<inheritable>1</inheritable>
