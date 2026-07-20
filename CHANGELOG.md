@@ -7,8 +7,9 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ### Da fare — accessibilità
 - **Verifiche da fare con browser** (non misurabili staticamente): contrasto colori,
-  focus visibile, navigazione da tastiera, zoom 200%, reflow a 320 px, e soprattutto
-  **2.2.2**: il carosello della homepage scorre da solo e serve un comando di pausa.
+  focus visibile, navigazione da tastiera, zoom 200%, reflow a 320 px.
+  Il criterio **2.2.2 non si applica**: il carosello ha `autoplay: false` e nel tema
+  non ci sono altri contenuti ad avanzamento automatico.
 
 ### Da fare — privacy e prestazioni
 - Puntare Leaflet alle copie locali invece che a `unpkg.com` (le copie sono già incluse)
@@ -24,6 +25,23 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 ---
 
 ## [1.2.1] — 2026-07-20
+
+### Licenza
+- Dichiarazione allineata a **GNU AGPL v3.0 o successiva**, la stessa del progetto
+  originale [pcrt/joomla-italia-theme](https://github.com/pcrt/joomla-italia-theme).
+  Il manifesto dichiarava `<license>Protocolli Creativi</license>`, che non è una
+  licenza valida. Corretto in `templateDetails.xml`, nel manifesto del plugin
+  `singleedit` e nel file `LICENSE`; aggiunto `AUTHORS`.
+- Corretto `<authorUrl>`, che conteneva un indirizzo email invece di un URL.
+
+### Documentazione
+- Aggiunta la cartella `doc/` con 15 guide in italiano, rivolte a chi gestisce il
+  sito dal pannello: configurazione di Joomla, alberatura delle categorie, topbar,
+  header, footer, menu, moduli, campi aggiuntivi di articoli e categorie,
+  inserimento articoli, più le guide tecniche su installazione, struttura del
+  codice, manutenzione e accessibilità.
+- Aggiunto `build.sh`, che produce i pacchetti installabili riorganizzando i file
+  nel formato atteso dall'installatore di Joomla.
 
 ### Corretto — accessibilità (WCAG 2.1 AA)
 - **Filtro "Tipologia": era impossibile da usare con la tastiera.** I `<input
@@ -73,7 +91,7 @@ Verifica su 36 pagine dopo le correzioni: 0 immagini senza `alt`, 0 pagine senza
   `_condiviso/` richiamati da stub. Estratta anche la query delle categorie "sorelle"
   del filtro Tipologia, che era copiata in 5 punti — è la query che conteneva il difetto
   `parent_id = root`. Da 2426 a 972 righe negli override interessati.
-  Vedi [docs/STRUTTURA.md](docs/STRUTTURA.md).
+  Vedi [doc/struttura.md](doc/struttura.md).
 
 ### Verifica
 Confronto A/B fra template originale e template modificato su **36 pagine**, registrando

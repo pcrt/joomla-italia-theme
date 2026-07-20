@@ -133,11 +133,16 @@ Non vanno considerati conformi:
 - **1.4.4** zoom al 200% e **1.4.10** reflow a 320 px
 - **1.4.12** spaziatura del testo, **1.4.13** contenuti su hover/focus (menu a tendina)
 - **2.4.3** ordine del focus, **1.3.2** ordine di lettura significativo
-- **2.2.2** pausa/stop per il carosello della homepage
 - **4.1.3** messaggi di stato (ricerca, form di login)
 
-> Il carosello della homepage va scorre automaticamente: **2.2.2** richiede un comando
-> per metterlo in pausa. È il controllo manuale da fare per primo.
+### 2.2.2 — non si applica
+
+Il carosello della homepage è inizializzato con `autoplay: false` (`index.php`): si
+muove **solo** quando l'utente usa le frecce. Verificato inoltre che nel tema non
+esistono altri contenuti ad avanzamento automatico — nessun `data-bs-ride`, nessun
+`setInterval`, nessuna altra occorrenza di `autoplay`.
+
+Non serve quindi alcun comando di pausa.
 
 ---
 

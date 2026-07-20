@@ -11,7 +11,7 @@ Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
 | **Versione template** | 1.2.1 |
 | **Joomla** | 5.x e 6.x (verificato su 5.4.7 e 6.1.2) |
 | **PHP** | 8.1+ (verificato su 8.4) |
-| **Licenza** | GNU GPL v2 o successiva — vedi [LICENSE](LICENSE) |
+| **Licenza** | GNU AGPL v3 o successiva — vedi [LICENSE](LICENSE) |
 
 ---
 
@@ -21,7 +21,7 @@ Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
 templates/joomla-italia-theme/          il template (override, layout, index.php)
 media/templates/site/joomla-italia-theme/   css, js, font, immagini
 plugins/system/singleedit/              plugin: una modifica alla volta dal frontend
-docs/                                   documentazione
+doc/                                   documentazione
 ```
 
 La struttura delle cartelle **rispecchia quella di Joomla**: per installare si copiano
@@ -34,7 +34,7 @@ le tre cartelle sulla radice del sito, senza spostare nulla.
 
 ## Installazione
 
-Vedi **[docs/INSTALLAZIONE.md](docs/INSTALLAZIONE.md)** per la procedura completa.
+Vedi **[doc/installazione.md](doc/installazione.md)** per la procedura completa.
 
 **Metodo consigliato — pacchetto installabile:**
 
@@ -57,10 +57,10 @@ entrambi i casi i file finiscono nelle posizioni corrette e il sito funziona sen
 
 | Documento | Contenuto |
 |---|---|
-| [docs/INSTALLAZIONE.md](docs/INSTALLAZIONE.md) | installazione, requisiti, configurazione iniziale |
-| [docs/STRUTTURA.md](docs/STRUTTURA.md) | com'è organizzato il codice, dove mettere le mani |
-| [docs/MANUTENZIONE.md](docs/MANUTENZIONE.md) | convenzioni, trappole note, come non rompere niente |
-| [docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md) | stato WCAG 2.1 AA misurato, cosa manca |
+| [doc/installazione.md](doc/installazione.md) | installazione, requisiti, configurazione iniziale |
+| [doc/struttura.md](doc/struttura.md) | com'è organizzato il codice, dove mettere le mani |
+| [doc/manutenzione.md](doc/manutenzione.md) | convenzioni, trappole note, come non rompere niente |
+| [doc/accessibilita.md](doc/accessibilita.md) | stato WCAG 2.1 AA misurato, cosa manca |
 | [CHANGELOG.md](CHANGELOG.md) | cronologia delle modifiche |
 
 ## Stato dell'accessibilità
@@ -74,30 +74,36 @@ più `<h1>`, 0 salti di livello nelle intestazioni, 0 `id` non validi o duplicat
 0 controlli che cambiano pagina alla selezione. Skip link, landmark, etichette dei form
 e viewport corretti su tutte.
 
+Il criterio **2.2.2** (contenuti in movimento) **non si applica**: il carosello della
+homepage ha `autoplay: false` e non scorre da solo — verificato anche che nel tema non
+esistono altri contenuti ad avanzamento automatico.
+
 **Restano da verificare con un browser** i criteri che l'analisi statica non può
-misurare — contrasto, focus visibile, zoom, reflow e in particolare **2.2.2** (il
-carosello della homepage scorre da solo e serve un comando di pausa).
-Il quadro completo è in **[docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md)**: leggerlo
+misurare: contrasto dei colori, focus visibile, navigazione da tastiera, zoom al 200%
+e reflow a 320 px.
+Il quadro completo è in **[doc/accessibilita.md](doc/accessibilita.md)**: leggerlo
 prima di usare il template su un sito soggetto agli obblighi AgID.
 
 ## Problemi noti
 
 - **Le mappe si caricano da `unpkg.com`**, un CDN esterno, benché le copie locali di
   Leaflet siano presenti nel repository. Rilevante per la privacy su siti PA:
-  vedi docs/MANUTENZIONE.md
+  vedi doc/manutenzione.md
 - **Duplicazione residua**: il blocco di condivisione social è ripetuto in 10 override
   di articolo e il blocco "indice della pagina" in 7. Non è un difetto funzionale,
   ma ogni correzione va applicata più volte.
 
 ## Licenza
 
-GNU General Public License v2 o successiva.
+**GNU Affero General Public License v3.0 o successiva** — vedi [LICENSE](LICENSE).
 
-Il template include override derivati dal codice sorgente di Joomla!, che è
-distribuito sotto GPL: la licenza GPL è quindi obbligatoria per la ridistribuzione.
+È la stessa licenza del progetto originale
+[pcrt/joomla-italia-theme](https://github.com/pcrt/joomla-italia-theme).
+La dichiarazione è allineata in `templateDetails.xml`, nel manifesto del plugin
+`singleedit` e nel file `LICENSE`.
 
-> **Da confermare dal titolare del copyright:** il file `templateDetails.xml` dichiara
-> attualmente `<license>Protocolli Creativi</license>`, che non è una licenza valida e
-> contraddice le intestazioni GPL presenti nei file. Va allineato a
-> `GNU General Public License version 2 or later` (il plugin `singleedit` lo dichiara
-> già correttamente).
+Il template usa esclusivamente il contenuto del core di Joomla! e integra librerie di
+terze parti distribuite con licenze open source (Bootstrap Italia, jQuery, Leaflet,
+Owl Carousel, i font Titillium Web, Lora e Roboto Mono).
+
+Attribuzioni in [AUTHORS](AUTHORS).

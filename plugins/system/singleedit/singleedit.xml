@@ -4,7 +4,7 @@
     <author>Protocolli Creativi</author>
     <creationDate>2026-07-16</creationDate>
     <copyright>(C) Protocolli Creativi</copyright>
-    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <license>GNU Affero General Public License v3.0 or later; see LICENSE</license>
     <version>1.0.0</version>
     <description>Consente di aprire una sola scheda di modifica alla volta dal frontend (articoli e moduli). Se ne e gia aperta una, blocca l'apertura di una seconda con un avviso.</description>
     <namespace path="src">Joomla\Plugin\System\Singleedit</namespace>
