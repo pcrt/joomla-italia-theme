@@ -1,0 +1,89 @@
+# Joomla Italia Theme
+
+Template Joomla per scuole e Pubbliche Amministrazioni, basato su
+[Bootstrap Italia](https://italia.github.io/bootstrap-italia/) e sulle linee guida
+di design per i siti della PA.
+
+Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
+
+| | |
+|---|---|
+| **Versione template** | 1.2.1 |
+| **Joomla** | 5.x e 6.x (verificato su 5.4.7 e 6.1.2) |
+| **PHP** | 8.1+ (verificato su 8.4) |
+| **Licenza** | GNU GPL v2 o successiva — vedi [LICENSE](LICENSE) |
+
+---
+
+## Cosa contiene questo repository
+
+```
+templates/joomla-italia-theme/          il template (override, layout, index.php)
+media/templates/site/joomla-italia-theme/   css, js, font, immagini
+plugins/system/singleedit/              plugin: una modifica alla volta dal frontend
+docs/                                   documentazione
+```
+
+La struttura delle cartelle **rispecchia quella di Joomla**: per installare si copiano
+le tre cartelle sulla radice del sito, senza spostare nulla.
+
+## Installazione
+
+Vedi **[docs/INSTALLAZIONE.md](docs/INSTALLAZIONE.md)** per la procedura completa.
+
+In breve:
+
+1. Copiare `templates/`, `media/` e `plugins/` sulla radice del sito Joomla.
+2. Pannello ▸ **Sistema ▸ Estensioni ▸ Individua** → installare template e plugin.
+3. Pannello ▸ **Sistema ▸ Stili del sito** → impostare *Joomla Italia Theme* come predefinito.
+
+> **Attenzione — errore frequente:** se il template risulta installato ma il sito appare
+> senza grafica, controllare che lo stile abbia `inheritable = 1`. Con `0` Joomla non
+> carica gli asset del template.
+
+## Documentazione
+
+| Documento | Contenuto |
+|---|---|
+| [docs/INSTALLAZIONE.md](docs/INSTALLAZIONE.md) | installazione, requisiti, configurazione iniziale |
+| [docs/STRUTTURA.md](docs/STRUTTURA.md) | com'è organizzato il codice, dove mettere le mani |
+| [docs/MANUTENZIONE.md](docs/MANUTENZIONE.md) | convenzioni, trappole note, come non rompere niente |
+| [docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md) | stato WCAG 2.1 AA misurato, cosa manca |
+| [CHANGELOG.md](CHANGELOG.md) | cronologia delle modifiche |
+
+## Stato dell'accessibilità
+
+Il template è costruito con l'accessibilità come requisito: skip link, landmark ARIA,
+etichette dei form, `alt` sulle immagini, viewport senza blocco dello zoom.
+
+**Su 35 pagine misurate**, questi criteri risultano conformi al 100%:
+1.1.1 (immagini), 2.4.1 (skip link), 4.1.2 (form e pulsanti), 1.4.4 (zoom),
+2.4.6 (landmark), unicità degli `id`, `lang` sull'elemento `html`.
+
+**Non è però conforme WCAG 2.1 AA**: c'è un difetto bloccante nel filtro "Tipologia"
+delle pagine di categoria. I dettagli e le correzioni necessarie sono in
+**[docs/ACCESSIBILITA.md](docs/ACCESSIBILITA.md)**. Leggerlo prima di usare il template
+su un sito soggetto agli obblighi AgID.
+
+## Problemi noti
+
+- **Filtro "Tipologia" non usabile da tastiera** (WCAG 3.2.2) — vedi docs/ACCESSIBILITA.md
+- **Le mappe si caricano da `unpkg.com`**, un CDN esterno, benché le copie locali di
+  Leaflet siano presenti nel repository. Rilevante per la privacy su siti PA:
+  vedi docs/MANUTENZIONE.md
+- **Duplicazione residua**: il blocco di condivisione social è ripetuto in 10 override
+  di articolo e il blocco "indice della pagina" in 7. Non è un difetto funzionale,
+  ma ogni correzione va applicata più volte.
+
+## Licenza
+
+GNU General Public License v2 o successiva.
+
+Il template include override derivati dal codice sorgente di Joomla!, che è
+distribuito sotto GPL: la licenza GPL è quindi obbligatoria per la ridistribuzione.
+
+> **Da confermare dal titolare del copyright:** il file `templateDetails.xml` dichiara
+> attualmente `<license>Protocolli Creativi</license>`, che non è una licenza valida e
+> contraddice le intestazioni GPL presenti nei file. Va allineato a
+> `GNU General Public License version 2 or later` (il plugin `singleedit` lo dichiara
+> già correttamente).

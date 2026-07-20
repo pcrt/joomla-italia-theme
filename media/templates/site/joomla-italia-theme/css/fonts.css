@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-300.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-300.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-300italic - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-300italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-300italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-regular - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-italic - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-700 - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-700italic - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-700italic.woff') format('woff'), /* Modern Browsers */
+}
+/* titillium-web-600 - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-600.woff') format('woff'), /* Modern Browsers */
+}
+
+/* titillium-web-600italic - latin-ext_latin */
+@font-face {
+    font-family: 'Titillium Web';
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-600italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Titillium_Web/titillium-web-v10-latin-ext_latin-600italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* Lora:400,700 */
+
+/* lora-regular - latin-ext_latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Lora/lora-v20-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Lora/lora-v20-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+
+/* lora-700 - latin-ext_latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Lora/lora-v20-latin-ext_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Lora/lora-v20-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
+}
+
+/* lora-italic - latin-ext_latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Lora/lora-v20-latin-ext_latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Lora/lora-v20-latin-ext_latin-italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* lora-700italic - latin-ext_latin */
+@font-face {
+    font-family: 'Lora';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Lora/lora-v20-latin-ext_latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Lora/lora-v20-latin-ext_latin-700italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* Roboto+Mono:400,700 */
+
+/* roboto-mono-regular - latin-ext_latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-regular.woff') format('woff'), /* Modern Browsers */
+}
+
+/* roboto-mono-700 - latin-ext_latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-700.woff') format('woff'), /* Modern Browsers */
+}
+
+/* roboto-mono-italic - latin-ext_latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-italic.woff') format('woff'), /* Modern Browsers */
+}
+
+/* roboto-mono-700italic - latin-ext_latin */
+@font-face {
+    font-family: 'Roboto Mono';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local(''),
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-700italic.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../fonts/Roboto_Mono/roboto-mono-v13-latin-ext_latin-700italic.woff') format('woff'), /* Modern Browsers */
+}

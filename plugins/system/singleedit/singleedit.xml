@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>Sistema - Modifica singola dal sito</name>
+    <author>Protocolli Creativi</author>
+    <creationDate>2026-07-16</creationDate>
+    <copyright>(C) Protocolli Creativi</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.0</version>
+    <description>Consente di aprire una sola scheda di modifica alla volta dal frontend (articoli e moduli). Se ne e gia aperta una, blocca l'apertura di una seconda con un avviso.</description>
+    <namespace path="src">Joomla\Plugin\System\Singleedit</namespace>
+    <files>
+        <folder plugin="singleedit">services</folder>
+        <folder>src</folder>
+    </files>
+</extension>
