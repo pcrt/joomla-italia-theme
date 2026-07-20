@@ -6,7 +6,8 @@
 [modello di sito istituzionale delle scuole](https://designers.italia.it/modello/scuole/)
 di Designers Italia.
 
-Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
+Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it),
+con l'ausilio di strumenti di intelligenza artificiale.
 
 | | |
 |---|---|
