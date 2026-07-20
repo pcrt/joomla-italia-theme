@@ -12,6 +12,10 @@ configuration.php
 backup_*
 *_backup_*
 
+# --- Pacchetti costruiti da build.sh (si rigenerano, non vanno versionati) ---
+dist/
+.build/
+
 # --- Archivi ---
 *.zip
 *.tar

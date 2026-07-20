@@ -27,15 +27,27 @@ docs/                                   documentazione
 La struttura delle cartelle **rispecchia quella di Joomla**: per installare si copiano
 le tre cartelle sulla radice del sito, senza spostare nulla.
 
+> **Nota sulla struttura.** I file stanno nella posizione che occupano *dentro* un sito
+> Joomla già installato. È comodo da leggere e da confrontare, ma **non è il formato che
+> si aspetta l'installatore di Joomla**: nel pacchetto la cartella `media` deve stare
+> dentro il template. Per questo c'è `build.sh`.
+
 ## Installazione
 
 Vedi **[docs/INSTALLAZIONE.md](docs/INSTALLAZIONE.md)** per la procedura completa.
 
-In breve:
+**Metodo consigliato — pacchetto installabile:**
 
-1. Copiare `templates/`, `media/` e `plugins/` sulla radice del sito Joomla.
-2. Pannello ▸ **Sistema ▸ Estensioni ▸ Individua** → installare template e plugin.
-3. Pannello ▸ **Sistema ▸ Stili del sito** → impostare *Joomla Italia Theme* come predefinito.
+```bash
+bash build.sh          # crea dist/joomla-italia-theme-1.2.1.zip e dist/plg_system_singleedit-1.0.0.zip
+```
+
+Poi nel pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
+**Sistema ▸ Stili del sito** per impostare *Joomla Italia Theme* come predefinito.
+
+*Verificato:* i pacchetti prodotti da `build.sh` sono stati installati con l'installatore
+di Joomla su **Joomla 5.4.7** (partendo da template assente) e su **Joomla 6.1.2**, e in
+entrambi i casi i file finiscono nelle posizioni corrette e il sito funziona senza errori.
 
 > **Attenzione — errore frequente:** se il template risulta installato ma il sito appare
 > senza grafica, controllare che lo stile abbia `inheritable = 1`. Con `0` Joomla non

@@ -13,23 +13,44 @@ propria copia di jQuery 3.6.2, dichiarata negli asset del template.
 
 ## Installazione
 
-### Metodo consigliato — copia dei file
+### Metodo consigliato — pacchetto installabile
 
-La struttura delle cartelle di questo repository **rispecchia quella di Joomla**.
+I file di questo repository stanno nella posizione che occupano **dentro un sito Joomla
+già installato**. L'installatore di Joomla si aspetta invece un pacchetto in cui la
+cartella `media` sta **dentro** il template, come dichiarato in `templateDetails.xml`:
 
-1. Copiare sulla radice del sito Joomla:
-   ```
-   templates/joomla-italia-theme/
-   media/templates/site/joomla-italia-theme/
-   plugins/system/singleedit/
-   ```
-2. Pannello ▸ **Sistema ▸ Pannello Estensioni ▸ Individua**
-3. Premere **Individua**, selezionare *Joomla Italia Theme* e *System - Single Edit*,
-   poi **Installa**
-4. Pannello ▸ **Sistema ▸ Stili del sito** ▸ aprire *Joomla Italia Theme* ▸
+```xml
+<media destination="templates/site/joomla-italia-theme" folder="media">
+```
+
+`build.sh` riorganizza i file nel modo giusto e produce i due pacchetti:
+
+```bash
+bash build.sh
+# dist/joomla-italia-theme-1.2.1.zip
+# dist/plg_system_singleedit-1.0.0.zip
+```
+
+1. Pannello ▸ **Sistema ▸ Installa ▸ Carica file di pacchetto** ▸ caricare i due zip
+2. Pannello ▸ **Sistema ▸ Stili del sito** ▸ aprire *Joomla Italia Theme* ▸
    **Predefinito** (la stella)
-5. Pannello ▸ **Sistema ▸ Plugin** ▸ cercare *Single Edit* ▸ **Abilita**
+3. Pannello ▸ **Sistema ▸ Plugin** ▸ cercare *Single Edit* ▸ **Abilita**
    (solo se serve il blocco della modifica simultanea)
+
+> **Verificato end-to-end:** i pacchetti prodotti da `build.sh` sono stati installati
+> con l'installatore di Joomla su **Joomla 5.4.7** (partendo da template completamente
+> assente dal disco) e su **Joomla 6.1.2**. In entrambi i casi i 265 file del template e
+> i 71 di `media` — font compresi — finiscono nelle posizioni corrette, e il crawl di
+> tutte le pagine non produce errori.
+
+### Metodo alternativo — copia dei file
+
+Utile per aggiornare un sito esistente senza reinstallare:
+
+1. Copiare sulla radice del sito Joomla `templates/joomla-italia-theme/`,
+   `media/templates/site/joomla-italia-theme/` e `plugins/system/singleedit/`
+2. Pannello ▸ **Sistema ▸ Pannello Estensioni ▸ Individua** ▸ **Individua** ▸
+   selezionare le estensioni ▸ **Installa**
 
 ### Verifica dopo l'installazione
 
