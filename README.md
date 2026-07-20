@@ -10,10 +10,24 @@ Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it).
 
 | | |
 |---|---|
-| **Versione** | 1.2.1 |
+| **Versione** | 2.0.0 |
 | **Joomla** | 5.x e 6.x — verificato su 5.4.7 e 6.1.2 |
 | **PHP** | 8.1 o superiore — verificato su 8.4 |
 | **Licenza** | [GNU AGPL v3](LICENSE) o successiva |
+
+---
+
+> ## ⚠️ Quale versione ti serve
+>
+> **Questa versione (2.0.0) richiede Joomla 5 o Joomla 6.** Non è compatibile con
+> Joomla 4: non installarla su un sito Joomla 4, non funzionerebbe.
+>
+> **Se il tuo sito è ancora su Joomla 4**, usa la versione **1.2.1**, disponibile
+> nella pagina [Releases](https://github.com/pcrt/joomla-italia-theme/releases)
+> di questo repository insieme a tutte le versioni precedenti. Restano scaricabili
+> e continueranno a funzionare.
+>
+> Per capire quale Joomla hai: pannello ▸ **Sistema ▸ Informazioni di sistema**.
 
 ---
 
@@ -90,9 +104,14 @@ produce i due pacchetti pronti.
 
 ```bash
 bash build.sh
-# dist/joomla-italia-theme-1.2.1.zip
+# dist/joomla-italia-theme-2.0.0.zip
 # dist/plg_system_singleedit-1.0.0.zip
 ```
+
+Il secondo pacchetto è **facoltativo**: il template funziona da solo. Il plugin
+`singleedit` impedisce a due persone di modificare lo stesso contenuto nello stesso
+momento — utile dove più redattori lavorano insieme, inutile se il sito lo aggiorna
+una persona sola.
 
 Poi dal pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
 **Sistema ▸ Stili del sito** per impostare *Joomla Italia Theme* come predefinito.

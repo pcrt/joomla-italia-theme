@@ -24,7 +24,14 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ---
 
-## [1.2.1] — 2026-07-20
+## [2.0.0] — 2026-07-20
+
+> **Versione non compatibile all'indietro.** Richiede **Joomla 5 o 6** e PHP 8.1+.
+> Chi usa **Joomla 4** deve restare alla **1.2.1**, che resta scaricabile dalla
+> pagina Releases insieme a tutte le versioni precedenti.
+>
+> Il salto da 1.2.1 a 2.0.0 segnala proprio questo: non è un aggiornamento minore,
+> è un cambio di piattaforma di riferimento.
 
 ### Licenza
 - Dichiarazione allineata a **GNU AGPL v3.0 o successiva**, la stessa del progetto

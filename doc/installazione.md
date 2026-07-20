@@ -4,12 +4,19 @@
 
 | | |
 |---|---|
-| Joomla | 5.x o 6.x (verificato su 5.4.7 e 6.1.2) |
+| Joomla | 5.x o 6.x (verificato su 5.4.7 e 6.1.2) — **non compatibile con Joomla 4** |
 | PHP | 8.1 o superiore (verificato su 8.4) |
 | Estensioni PHP | quelle richieste da Joomla; per le mappe nessuna aggiuntiva |
 
 Il template non richiede jQuery del core Joomla (rimosso da Joomla 5): include una
 propria copia di jQuery 3.6.2, dichiarata negli asset del template.
+
+> **Se il tuo sito è su Joomla 4**, questa versione non fa per te: usa la **1.2.1**,
+> che trovi nella pagina
+> [Releases](https://github.com/pcrt/joomla-italia-theme/releases) insieme a tutte
+> le versioni precedenti.
+>
+> Per sapere quale Joomla hai: pannello ▸ **Sistema ▸ Informazioni di sistema**.
 
 ## Installazione
 
@@ -27,7 +34,7 @@ cartella `media` sta **dentro** il template, come dichiarato in `templateDetails
 
 ```bash
 bash build.sh
-# dist/joomla-italia-theme-1.2.1.zip
+# dist/joomla-italia-theme-2.0.0.zip
 # dist/plg_system_singleedit-1.0.0.zip
 ```
 
