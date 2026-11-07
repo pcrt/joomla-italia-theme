@@ -20,10 +20,8 @@ $baseImagePath= Uri::root(false) . "media/templates/site/" . $this->template . "
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1');
 $this->setMetaData('theme-color', '#ffffff');
 
-// Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
+// Favicon: quella impostata nei parametri del template (issue #60) o quella predefinita di Joomla
+require __DIR__ . '/includes/favicon.php';
 
 // Issue #79: con una sola slide, loop:true la clonava e mostrava le frecce del carosello.
 $bannerSlides = count((array) $this->params->get('showBannerfields'));

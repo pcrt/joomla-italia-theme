@@ -18,10 +18,8 @@ $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1, minimum-scale=1');
 $this->setMetaData('theme-color', '#ffffff');
 
-// Browsers support SVG favicons
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1), 'icon', 'rel', ['type' => 'image/svg+xml']);
-$this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
-$this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
+// Favicon: quella impostata nei parametri del template (issue #60) o quella predefinita di Joomla
+require __DIR__ . '/includes/favicon.php';
 
 $wa->registerAndUseStyle('template.css.editor', 'media/templates/site/joomla-italia-theme/css/editor.css');
 

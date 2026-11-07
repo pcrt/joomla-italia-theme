@@ -13,6 +13,7 @@
 	<files>
 		<folder>html</folder>
 		<folder>language</folder>
+		<folder>includes</folder>
 		<filename>index.php</filename>
 		<filename>component.php</filename>
 		<filename>joomla.asset.json</filename>
@@ -380,6 +381,17 @@
 					label="Dati Copyright"
 					filter="safehtml"
 					showon="showCopyright:1"
+				/>
+			</fieldset>
+			<fieldset name="avanzate" label="TPL_PCRT_AVANZATE" description="TPL_PCRT_AVANZATE_DESC">
+				<field
+					name="favicon"
+					type="media"
+					label="TPL_PCRT_FAVICON_LABEL"
+					description="TPL_PCRT_FAVICON_DESC"
+					directory="images"
+					types="images"
+					default=""
 				/>
 			</fieldset>
 		</fields>
