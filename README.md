@@ -108,14 +108,21 @@ produce i due pacchetti pronti.
 
 ```bash
 bash build.sh
-# dist/joomla-italia-theme-2.0.0.zip
-# dist/plg_system_singleedit-1.0.0.zip
+# dist/joomla-italia-theme-2.0.1.zip
+# dist/plg_system_singleedit-1.0.1.zip
 ```
 
 Il secondo pacchetto è **facoltativo**: il template funziona da solo. Il plugin
 `singleedit` impedisce a due persone di modificare lo stesso contenuto nello stesso
 momento — utile dove più redattori lavorano insieme, inutile se il sito lo aggiorna
 una persona sola.
+
+> **Dopo l'aggiornamento del plugin** (1.0.0 → 1.0.1 cambia il namespace PHP):
+> se la prima pagina mostra per un attimo l'errore `Class "Pcrt\Plugin\System\Singleedit\Extension\SingleEdit" not found`,
+> ricarica: è la cache OPcache di PHP, che si aggiorna da sola entro pochi secondi.
+> Su hosting con OPcache senza riconvalida dei file (`opcache.validate_timestamps=0`)
+> svuota la cache PHP dal pannello dell'hosting. Non serve cancellare `administrator/cache/autoload_psr4.php`:
+> l'installatore lo rigenera.
 
 Poi dal pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
 **Sistema ▸ Stili del sito** per impostare *Italia Theme for Joomla* (`joomla-italia-theme`) come predefinito.
