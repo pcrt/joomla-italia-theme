@@ -16,6 +16,8 @@ use Joomla\CMS\Uri\Uri;
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
+// Inizializzata come in component.php: senza, PHP segnalava "Undefined variable $item_active" (issue #78).
+$item_active = '';
 $attributes = [];
 
 if ($item->anchor_title && $item->anchor_title !== $item->title) {
