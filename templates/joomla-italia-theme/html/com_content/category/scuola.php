@@ -59,19 +59,24 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
         <div class="row align-items-center">
             <div class="col-md-5 text-center">
                 <div class="hero-title">
+                    <?php // Issue #15: prima l'h1 era la descrizione, stampata con strip_tags (grassetti e paragrafi
+                          // persi). Ora l'h1 e' il titolo, come negli altri layout di categoria, e la descrizione
+                          // e' stampata come HTML qui sotto. 'elseif': mai due h1 nella stessa pagina (WCAG 1.3.1). ?>
                     <?php if ($this->params->get('show_category_title', 1)) : ?>
-                        <small><?php echo $this->category->title; ?></small>
-                    <?php endif; ?>
-                    <?php if ($this->params->get('show_page_heading')) : ?>
-                        <small><?php echo $this->escape($this->params->get('page_heading')); ?> </small>
+                        <h1><?php echo $this->escape($this->category->title); ?></h1>
+                    <?php elseif ($this->params->get('show_page_heading')) : ?>
+                        <h1><?php echo $this->escape($this->params->get('page_heading')); ?></h1>
+                    <?php else : ?>
+                        <?php // Titolo nascosto: la pagina deve avere comunque un h1 per la navigazione da assistivi. ?>
+                        <h1 class="visually-hidden"><?php echo $this->escape($this->category->title); ?></h1>
                     <?php endif; ?>
 
                     <?php if ($this->params->get('show_description', 1) || $this->params->def('show_description_image', 1)) : ?>
-                        <h1>
+                        <div class="category-desc clearfix h4 font-weight-normal">
                             <?php if ($this->params->get('show_description') && $this->category->description) : ?>
-                                <?php echo strip_tags($this->category->description); ?>
+                                <?php echo HTMLHelper::_('content.prepare', $this->category->description, '', 'com_content.category'); ?>
                             <?php endif; ?>
-                        </h1>
+                        </div>
                     <?php endif; ?>
                 </div>
             </div>
