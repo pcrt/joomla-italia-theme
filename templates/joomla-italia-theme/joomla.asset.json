@@ -116,7 +116,8 @@
         "defer": true
       },
       "dependencies": [
-        "core"
+        "core",
+        "template.js.jquery362"
       ]
     },
     {
@@ -127,7 +128,8 @@
         "defer": true
       },
       "dependencies": [
-        "core"
+        "core",
+        "template.js.carousel"
       ]
     },
     {

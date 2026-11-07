@@ -1,4 +1,6 @@
-$(document).ready(function() {
+/* Issue #88: jQuery richiamato in modo esplicito. Se un'estensione carica
+   jquery-noconflict del core, $ non e' piu' definito a livello globale. */
+jQuery(function($) {
     $("#filtri-tipologia").click(function(){
         $(".tipologia-menu").addClass("attivomenu");
     });

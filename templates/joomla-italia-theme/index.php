@@ -58,6 +58,10 @@ $wa->usePreset('template.joomla-italia-theme')
 		 });
 
 		 window.addEventListener('load', function(event) {
+	     /* Issue #88: jQuery va richiamato come jQuery, non come $: se un'estensione
+	        carica jquery-noconflict del core, $ non e' piu' definito. */
+	     if (typeof window.jQuery !== 'function') { return; }
+	     var $ = window.jQuery;
 			 $('#slideheader').owlCarousel({
 	         loop:" . ($bannerSlides > 1 ? 'true' : 'false') . ",
 	         margin:0,
@@ -113,21 +117,41 @@ $wa->usePreset('template.joomla-italia-theme')
    });",
          [],
          [],
-         ["template.js.jquery362"]
+         ["template.js.carousel"]
      );
 
-// Fix: evita il DOPPIO Bootstrap "collapse" sulla stessa pagina. Il tema (bundle
-// bootstrap-italia) fornisce gia il componente Bootstrap "collapse"; alcune pagine di
-// componente (es. modifica di un modulo dal sito) fanno caricare a Joomla anche il proprio
-// /media/vendor/bootstrap/js/collapse.min.js. Con due gestori sullo stesso data-bs-toggle
-// gli accordion si aprono ma non si richiudono (sezione "Opzioni"). Teniamo solo quello del tema.
-try {
-    if ($wa->isAssetActive('script', 'bootstrap.collapse')) {
-        $wa->disableAsset('script', 'bootstrap.collapse');
+// Evita il DOPPIO Bootstrap sulla stessa pagina. Il bundle di Bootstrap Italia contiene
+// gia' Bootstrap 5 (collapse, dropdown...); alcune pagine di componente (es. modifica di un
+// modulo dal sito) e le estensioni di terze parti (issue #88, es. iCagenda) fanno caricare a
+// Joomla anche i propri /media/vendor/bootstrap/js/*.min.js. Con due gestori sullo stesso
+// data-bs-toggle le fisarmoniche si aprono ma non si richiudono e i menu a tendina si
+// aprono e si richiudono subito: il menu principale sembra non funzionare.
+// I moduli vengono resi DOPO questo file, quindi il controllo va fatto quando Joomla
+// compone l'head (onBeforeCompileHead), non qui: cosi' vale anche per i moduli.
+$app->getDispatcher()->addListener('onBeforeCompileHead', static function () use ($wa) {
+    foreach (['bootstrap.collapse', 'bootstrap.dropdown'] as $asset) {
+        try {
+            if ($wa->isAssetActive('script', $asset)) {
+                $wa->disableAsset('script', $asset);
+            }
+        } catch (\Exception $e) {
+            // se per qualche motivo non e' disattivabile, si lascia lo stato invariato
+        }
     }
-} catch (\Exception $e) {
-    // se per qualche motivo non e disattivabile, si lascia lo stato invariato
-}
+
+    // jQuery: se un'estensione ha gia' caricato quello del core (media/vendor/jquery), la copia
+    // del tema non serve e farebbe danno: due jQuery sulla stessa pagina si sovrascrivono a
+    // vicenda e i plugin registrati sul primo spariscono dal secondo (issue #88). L'asset del
+    // tema viene ridefinito come segnaposto vuoto che dipende da quello del core: non viene
+    // stampato, ma il carosello e jti.js, che dipendono da lui, restano in coda a jQuery.
+    try {
+        if ($wa->isAssetActive('script', 'jquery')) {
+            $wa->registerScript('template.js.jquery362', '', [], [], ['jquery']);
+        }
+    } catch (\Exception $e) {
+        // idem
+    }
+});
 
 ?>
 
