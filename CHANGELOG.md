@@ -24,6 +24,34 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ---
 
+## [2.0.3] — Non rilasciato
+
+Correzioni fatte direttamente sul sito demo (jit.protocollicreativi.it) e mai
+riportate nel repository, recuperate confrontando il template del demo con la 2.0.2.
+Le altre differenze del demo sono correzioni già entrate nella 2.0.1 e nella 2.0.2
+o file residui di versioni precedenti, e non sono state riportate.
+
+### Corretto
+- **#75** Ricerca impossibile con l'intestazione fissa (da 1200px in su) — scorrendo
+  la pagina l'intestazione diventa una barra `position: fixed` e la finestra modale
+  della ricerca, che sta dentro l'intestazione, ne restava intrappolata: cliccando la
+  lente si apriva con dimensione zero, invisibile, mentre il blocco dello scorrimento
+  scattava lo stesso, lasciando la pagina bloccata. Ora `index.php` sposta le finestre
+  modali dell'intestazione (`header .modal`) come figlie dirette del `body` al
+  caricamento della pagina; funziona a ogni larghezza.
+- **#56** Collegamenti rapidi della ricerca tagliati su mobile — in
+  `mod_menu/cerca.php` i pulsanti della finestra di ricerca restavano su una riga sola
+  e l'ultimo usciva dallo schermo (a 390px arrivava a 416px con il contenitore che
+  finiva a 330px). Aggiunto `flex-wrap`: vanno a capo.
+- **Schede articolo con foto verticale più alte delle altre** — in `pcrt-jit.css` il
+  riquadro immagine delle card (`.card-article-img`) aveva `min-height: 240px`: una
+  foto verticale faceva crescere la scheda (428px contro 240px nella pagina Studenti
+  del demo). La regola che limitava l'altezza era scritta per un `<figure>` che in
+  queste schede non esiste. Ora l'altezza è fissa a 240px e la foto è ritagliata con
+  `object-fit: cover`, come le altre.
+
+---
+
 ## [2.0.2] — 2026-11-07
 
 Rilascio di manutenzione: correzioni dei bug confermati nel codice dal riesame
