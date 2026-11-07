@@ -25,6 +25,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
 use Joomla\Component\Content\Site\Helper\RouteHelper;
@@ -81,7 +82,7 @@ foreach ($catIds as $cid) {
     // primo. Ne prendo fino a $total: se le altre colonne sono vuote, questa da
     // sola puo doverli mostrare tutti.
     $query = $db->getQuery(true)
-        ->select($db->quoteName(['a.id', 'a.title', 'a.alias', 'a.introtext', 'a.catid', 'a.language']))
+        ->select($db->quoteName(['a.id', 'a.title', 'a.alias', 'a.introtext', 'a.catid', 'a.language', 'a.publish_up']))
         ->from($db->quoteName('#__content', 'a'))
         ->where($db->quoteName('a.catid') . ' = :cid')
         ->where($db->quoteName('a.state') . ' = 1')
@@ -113,6 +114,13 @@ foreach ($catIds as $cid) {
         }
 
         $it->displayIntrotext = $text;
+
+        // Issue #81: data di pubblicazione come nell'helper del modulo ("Mostra data" e formato del modulo)
+        $it->displayDate = '';
+
+        if ($params->get('show_date', 0) && !empty($row->publish_up)) {
+            $it->displayDate = HTMLHelper::_('date', $row->publish_up, $params->get('show_date_format', 'Y-m-d'));
+        }
 
         $items[] = $it;
     }

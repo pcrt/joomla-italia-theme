@@ -29,6 +29,10 @@ use Joomla\Component\Content\Site\Helper\RouteHelper;
         <?php if ($params->get('show_introtext')) : ?>
             <p><?php echo $item->displayIntrotext; ?></p>
         <?php endif; ?>
+        <?php if (!empty($item->displayDate)) : ?>
+            <?php // Issue #81: data di pubblicazione, solo se nel modulo "Mostra data" e' attivo ?>
+            <p class="mod-articles-category-date small mb-0"><strong><?php echo Text::_('TPL_PCRT_MOD_PUBLISHED'); ?></strong> <?php echo $item->displayDate; ?></p>
+        <?php endif; ?>
         </div>
     </div>
 <?php endforeach; ?>

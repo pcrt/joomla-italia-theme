@@ -54,6 +54,10 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                         <?php if ($params->get('show_introtext')) : ?>
                         <small><?php echo $item->displayIntrotext; ?></small>
                         <?php endif; ?>
+                        <?php if (!empty($item->displayDate)) : ?>
+                            <?php // Issue #81: data di pubblicazione, solo se nel modulo "Mostra data" e' attivo ?>
+                            <p class="mod-articles-category-date small mb-0 mt-2"><strong><?php echo Text::_('TPL_PCRT_MOD_PUBLISHED'); ?></strong> <?php echo $item->displayDate; ?></p>
+                        <?php endif; ?>
                     </a>
                 </div>
             </div>
