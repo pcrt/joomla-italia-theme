@@ -384,6 +384,14 @@
 					filter="safehtml"
 					showon="showCopyright:1"
 				/>
+				<field
+					name="licenzaDocumenti"
+					type="editor"
+					default=""
+					label="TPL_PCRT_LICENZA_DOCUMENTI_LABEL"
+					description="TPL_PCRT_LICENZA_DOCUMENTI_DESC"
+					filter="safehtml"
+				/>
 			</fieldset>
 			<fieldset name="avanzate" label="TPL_PCRT_AVANZATE" description="TPL_PCRT_AVANZATE_DESC">
 				<field
