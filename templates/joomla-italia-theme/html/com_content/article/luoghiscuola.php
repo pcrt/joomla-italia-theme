@@ -38,12 +38,6 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
 
 $fullimg = json_decode($this->item->images);
 
-$pubblicazione = $this->item->publish_up;
-$pubblicazione = Factory::getDate()->format('d.m.Y');
-
-$revisione = $this->item->modified;
-$revisione = Factory::getDate()->format('d.m.Y');;
-
 $urlcompleto = Uri::getInstance();
 
 $config = \Joomla\CMS\Factory::getApplication();
