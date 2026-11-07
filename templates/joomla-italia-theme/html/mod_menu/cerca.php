@@ -24,8 +24,13 @@ if ($tagId = $params->get('tag_id', '')) {
 }
 
 // The menu class is deprecated. Use mod-menu instead
+
+// Issue #56: "flex-wrap". Senza, i collegamenti rapidi della finestra di ricerca
+// restano su una riga sola e su schermi stretti l'ultimo esce dal riquadro, tagliato
+// dal bordo dello schermo (a 390px il pulsante arrivava a 416px con il contenitore
+// che finiva a 330px). Con flex-wrap vanno a capo.
 ?>
-<ul <?php echo $id; ?> class="menucerca <?php echo $class_sfx; ?> d-inline-flex" data-element="all-topics">
+<ul <?php echo $id; ?> class="menucerca <?php echo $class_sfx; ?> d-inline-flex flex-wrap" data-element="all-topics">
 <?php foreach ($list as $i => &$item) {
     $itemParams = $item->getParams();
     $class      = ' item-' . $item->id;
