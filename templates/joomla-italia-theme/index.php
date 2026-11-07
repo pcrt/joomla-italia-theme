@@ -25,6 +25,9 @@ $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon.svg', '', [], true, 1)
 $this->addHeadLink(HTMLHelper::_('image', 'favicon.ico', '', [], true, 1), 'alternate icon', 'rel', ['type' => 'image/vnd.microsoft.icon']);
 $this->addHeadLink(HTMLHelper::_('image', 'joomla-favicon-pinned.svg', '', [], true, 1), 'mask-icon', 'rel', ['color' => '#000']);
 
+// Issue #79: con una sola slide, loop:true la clonava e mostrava le frecce del carosello.
+$bannerSlides = count((array) $this->params->get('showBannerfields'));
+
 $wa->usePreset('template.joomla-italia-theme')
      ->useStyle('css.fontawesome')
      ->useStyle('css.fonts')
@@ -41,7 +44,7 @@ $wa->usePreset('template.joomla-italia-theme')
          "
 		 window.addEventListener('load', function(event) {
 			 $('#slideheader').owlCarousel({
-	         loop:true,
+	         loop:" . ($bannerSlides > 1 ? 'true' : 'false') . ",
 	         margin:0,
 	         nav:true,
 	         items:1,
