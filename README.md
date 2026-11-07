@@ -13,7 +13,7 @@ con l'ausilio di strumenti di intelligenza artificiale.
 
 | | |
 |---|---|
-| **Versione** | 2.0.3 |
+| **Versione** | 2.1.0 |
 | **Joomla** | 5.x e 6.x — verificato su 5.4.7 e 6.1.2 |
 | **PHP** | 8.1 o superiore — verificato su 8.4 |
 | **Licenza** | [GNU AGPL v3](LICENSE) o successiva |
@@ -123,7 +123,7 @@ produce i due pacchetti pronti.
 
 ```bash
 bash build.sh
-# dist/joomla-italia-theme-2.0.3.zip
+# dist/joomla-italia-theme-2.1.0.zip
 # dist/plg_system_singleedit-1.0.1.zip
 ```
 

@@ -99,7 +99,7 @@ il modulo quel campo tornava al valore predefinito e la home perdeva l'ordine.
 
 ---
 
-## Layout alternativi dei moduli (dalla 2.0.4)
+## Layout alternativi dei moduli (dalla 2.1.0)
 
 Si scelgono in **Avanzate ▸ Layout** del modulo. Quelli esistenti non cambiano.
 

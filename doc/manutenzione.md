@@ -152,7 +152,7 @@ considerare chiuso il lavoro.**
 
 ## 8. Personalizzare senza toccare i file: `user.css` e `user.js`
 
-Dalla 2.0.4 `index.php`, `component.php`, `error.php` e `offline.php` caricano,
+Dalla 2.1.0 `index.php`, `component.php`, `error.php` e `offline.php` caricano,
 **se esistono**, `media/templates/site/joomla-italia-theme/css/user.css` e
 `js/user.js` dopo tutti gli asset del tema (`includes/user_assets.php`). I due
 file non sono nel pacchetto, quindi un aggiornamento del tema non li sovrascrive.

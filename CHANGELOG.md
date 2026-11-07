@@ -24,9 +24,9 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ---
 
-## [2.0.4] — non rilasciata
+## [2.1.0] — 2026-11-07
 
-Rilascio di manutenzione: riesame delle 24 issue aperte su GitHub al 7 novembre
+Rilascio con le correzioni e le novità del riesame delle 24 issue aperte su GitHub al 7 novembre
 2026. Ogni correzione e ogni novità è stata riprodotta e verificata su **Joomla
 6.2.0 (PHP 8.4, MariaDB 11.8)** in Docker, con un sito costruito da zero: categorie, articoli,
 campi aggiuntivi, menu e moduli del modello. Nessuna libreria nuova, nessun CDN.
@@ -102,7 +102,7 @@ alternativi da scegliere nel modulo o nella voce di menu).
   *Filtro* del campo (Contenuti ▸ Campi ▸ Opzioni): con *Testo* Joomla toglie i tag
   al salvataggio; va impostato *HTML sicuro*. Il tema stampa il valore così com'è.
 
-### Rimandato alla 2.1
+### Rimandato alla 2.2
 - **#63** timeline della pagina Scuola come nel modello WordPress, **#20** strutture
   con più sedi (una mappa per sede), **#18** responsabili delle strutture, **#12**
   accesso in finestra modale e pulsanti Accedi/Esci nella topbar.
