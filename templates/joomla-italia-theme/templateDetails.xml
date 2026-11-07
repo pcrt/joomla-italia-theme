@@ -16,6 +16,7 @@
 		<folder>includes</folder>
 		<filename>index.php</filename>
 		<filename>component.php</filename>
+		<filename>error.php</filename>
 		<filename>joomla.asset.json</filename>
 		<filename>templateDetails.xml</filename>
 	</files>
