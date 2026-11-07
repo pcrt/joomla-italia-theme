@@ -13,6 +13,7 @@
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Router\Route;
@@ -20,9 +21,14 @@ use Joomla\CMS\Uri\Uri;
 use Joomla\Component\Tags\Site\Helper\RouteHelper;
 
 /** @var \Joomla\Component\Tags\Site\View\Tags\HtmlView $this */
+$app = Factory::getApplication();
+
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
-$wa = $this->getDocument()->getWebAssetManager();
+$wa = $app->getDocument()->getWebAssetManager();
 $wa->useScript('com_tags.tags-default');
+
+// Livelli di accesso dell'utente corrente (senza passare da proprietà deprecate della vista)
+$livelliAccesso = $app->getIdentity()->getAuthorisedViewLevels();
 
 $baseImagePath = Uri::root(false) . 'media/templates/site/joomla-italia-theme/images/';
 $n             = count($this->items);
@@ -79,7 +85,7 @@ $n             = count($this->items);
                         <use xlink:href="<?php echo $baseImagePath; ?>sprites.svg#it-folder"></use>
                     </svg>
                     <div class="flex-grow-1">
-                        <?php if ((!empty($item->access)) && in_array($item->access, $this->user->getAuthorisedViewLevels())) : ?>
+                        <?php if ((!empty($item->access)) && in_array($item->access, $livelliAccesso)) : ?>
                             <h2 class="h5 mb-2">
                                 <a href="<?php echo Route::_(RouteHelper::getComponentTagRoute($item->id . ':' . $item->alias, $item->language)); ?>">
                                     <?php echo $this->escape($item->title); ?>
