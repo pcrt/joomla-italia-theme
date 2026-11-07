@@ -11,6 +11,9 @@ chi scrive codice: dove serve mettere le mani nel codice è indicato esplicitame
 
 ## Da dove iniziare
 
+Per vedere il tema al lavoro con contenuti di esempio puoi installare il
+sito dimostrativo completo: vedi [quickstart.md](quickstart.md).
+
 Se stai partendo da zero, l'ordine consigliato è questo:
 
 | # | Passo | Documento |

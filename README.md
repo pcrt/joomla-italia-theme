@@ -39,6 +39,7 @@ con l'ausilio di strumenti di intelligenza artificiale.
 - [Cos'è](#cosè)
 - [Cosa fa](#cosa-fa)
 - [Da dove iniziare](#da-dove-iniziare)
+- [Quickstart](#quickstart)
 - [Installazione](#installazione)
 - [Configurazione del template](#configurazione-del-template)
 - [Conformità al modello scuole](#conformità-al-modello-scuole)
@@ -96,6 +97,20 @@ partenza consigliato per capire come organizzare i contenuti prima di scriverli.
 
 Se stai partendo da zero, l'ordine di lavoro consigliato è in
 **[doc/doc.md](doc/doc.md)**.
+
+---
+
+## Quickstart
+
+Per avere sul tuo spazio web una copia completa del sito dimostrativo — Joomla 6,
+tema, contenuti di esempio e Albo Pretorio Online — scarica
+`quickstart-italia-theme-for-joomla-2.0.2.zip` dalla
+[release 2.0.2](https://github.com/pcrt/italia-theme-for-joomla/releases/tag/v2.0.2)
+e installalo con Akeeba Kickstart: imposti il tuo database e il tuo super utente
+durante il ripristino. Serve **PHP 8.3 o superiore** (requisito di Joomla 6).
+
+Procedura, utente di prova e cosa cambiare dopo sono in
+**[doc/quickstart.md](doc/quickstart.md)**.
 
 ---
 
@@ -308,6 +323,7 @@ La documentazione completa è in **[doc/doc.md](doc/doc.md)**.
 | Guida | Contenuto |
 |---|---|
 | [installazione.md](doc/installazione.md) | installazione, requisiti, pacchetti |
+| [quickstart.md](doc/quickstart.md) | il sito dimostrativo completo da installare con Kickstart |
 | [struttura.md](doc/struttura.md) | come è organizzato il codice del tema |
 | [manutenzione.md](doc/manutenzione.md) | convenzioni e trappole note |
 | [accessibilita.md](doc/accessibilita.md) | stato WCAG 2.1 AA e verifiche mancanti |
