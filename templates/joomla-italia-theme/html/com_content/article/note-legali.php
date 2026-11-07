@@ -39,13 +39,92 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
     $valid_titolo_note_legali = 'data-element="legal-notes-section"';
 }*/
 
-
+// Servono al blocco "Stampa / Condividi" (issue #44), come in default.php.
+$urlcompleto   = Uri::getInstance();
+$nomesito      = Factory::getApplication()->get('sitename');
+$baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
 ?>
 <div class="border-row">
     <div class="container">
         <div class="row">
-            <div class="col-12 mt-5">
+            <div class="col-12 col-lg-3 p-0 pt-lg-2 mb-3">
+                <aside class="aside-main aside-sticky mt-5 ms-4 ms-lg-0">
+                    <?php // Blocco "Stampa / Condividi" identico a quello di article/default.php (issue #44). ?>
+                    <div class="actions-wrapper actions-main">
+                        <a class="toggle-actions" href="#" title="Vedi azioni" data-bs-toggle="modal" data-bs-target="#modalaction">
+                            <svg class="icon icon-xs">
+                                <use xlink:href="<?= $baseImagePath ?>sprites.svg#it-more-items"></use>
+                            </svg>
+                            <span>Stampa / Condividi</span>
+                        </a>
+                        <div class="modal modal-actions fade no-print" tabindex="-1" role="dialog" id="modalaction" aria-labelledby="modalCenterTitle">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h2 class="modal-title h5 visually-hidden" id="modalCenterTitle">Stampa e condividi</h2>
+
+                                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Chiudi finestra modale">
+                                        <svg class="icon">
+                                            <use href="<?= $baseImagePath ?>sprites.svg#it-close"></use>
+                                        </svg>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="link-list-wrapper">
+                                            <ul class="link-list ps-0 ms-0">
+                                                <li>
+                                                    <a href="javascript:window.print();" class="list-item left-icon" title="Stampa il contenuto" data-focus-mouse="false">
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-print"></use></svg>
+                                                        <span>Stampa</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="mailto:?subject=<?php echo $this->escape($this->item->title); ?>&amp;body=<?php echo $urlcompleto ?>" class="list-item left-icon" title="Invia il contenuto">
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-mail"></use></svg>
+                                                        <span>Invia</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a class="list-item collapsed link-toggle" href="#social-share" data-bs-toggle="collapse" aria-expanded="false" aria-controls="social-share" role="button" id="share-control">
+                                                        <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-share"></use></svg>
+                                                        <span>Condividi</span>
+                                                        <svg class="icon icon-right"><use href="<?= $baseImagePath ?>sprites.svg#it-expand"></use></svg>
+                                                    </a>
+                                                    <ul class="ps-0 link-sublist collapse" id="social-share" role="region" aria-labelledby="share-control">
+                                                        <li>
+                                                            <a class="list-item" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $urlcompleto ?>" title="Condividi su: Facebook" target="_blank">
+                                                                <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-facebook"></use></svg>
+                                                                <span>Facebook</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="list-item" href="http://twitter.com/share?text=<?php echo $this->escape($this->item->title); ?>&amp;url=<?php echo $urlcompleto ?>" title="Condividi su: Twitter" target="_blank">
+                                                                <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-twitter"></use></svg>
+                                                                <span>Twitter</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a class="list-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $urlcompleto ?>&amp;title=<?php echo $this->escape($this->item->title); ?>&amp;source=<?php echo $nomesito?>" title="Condividi su: Linkedin" target="_blank">
+                                                            <svg class="icon"><use href="<?= $baseImagePath ?>sprites.svg#it-linkedin"></use></svg>
+                                                                <span>Linkedin</span>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="py-1 px-3 btn btn-primary btn-sm" data-bs-dismiss="modal" type="button">Ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="col-12 col-lg-9 border-aside ps-lg-5 pt-0 py-lg-5">
                 <div class="com-content-article item-page<?php echo $this->pageclass_sfx; ?>" itemscope itemtype="https://schema.org/Article">
                     
                     <?php 
