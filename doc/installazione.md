@@ -13,7 +13,7 @@ propria copia di jQuery 3.6.2, dichiarata negli asset del template.
 
 > **Se il tuo sito è su Joomla 4**, questa versione non fa per te: usa la **1.2.1**,
 > che trovi nella pagina
-> [Releases](https://github.com/pcrt/joomla-italia-theme/releases) insieme a tutte
+> [Releases](https://github.com/pcrt/italia-theme-for-joomla/releases) insieme a tutte
 > le versioni precedenti.
 >
 > Per sapere quale Joomla hai: pannello ▸ **Sistema ▸ Informazioni di sistema**.
@@ -39,7 +39,7 @@ bash build.sh
 ```
 
 1. Pannello ▸ **Sistema ▸ Installa ▸ Carica file di pacchetto** ▸ caricare i due zip
-2. Pannello ▸ **Sistema ▸ Stili del sito** ▸ aprire *Joomla Italia Theme* ▸
+2. Pannello ▸ **Sistema ▸ Stili del sito** ▸ aprire *Italia Theme for Joomla* (`joomla-italia-theme`) ▸
    **Predefinito** (la stella)
 3. Pannello ▸ **Sistema ▸ Plugin** ▸ cercare *Single Edit* ▸ **Abilita**
    (solo se serve il blocco della modifica simultanea)
@@ -70,7 +70,7 @@ Aprire il sito e controllare che la grafica sia applicata.
 
 ## Configurazione del template
 
-Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Joomla Italia Theme*.
+Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Italia Theme for Joomla* (`joomla-italia-theme`).
 
 I parametri sono divisi in 6 gruppi:
 

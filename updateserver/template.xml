@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Update server di Italia Theme for Joomla.
+  Pubblicato via GitHub (raw) e referenziato da templateDetails.xml.
+  Dichiara la compatibilità con Joomla 5.x e 6.x e il PHP minimo.
+  Ogni nuova release aggiunge un blocco <update> con la versione e il download.
+  Chi è ancora su Joomla 4 non riceve la 2.x: il targetplatform lo esclude.
+-->
+<updates>
+    <update>
+        <name>Italia Theme for Joomla</name>
+        <description>Tema per i siti delle scuole - modello Designers Italia (Joomla 5 e 6)</description>
+        <element>joomla-italia-theme</element>
+        <type>template</type>
+        <client>site</client>
+        <version>2.0.1</version>
+        <infourl title="Italia Theme for Joomla">https://github.com/pcrt/italia-theme-for-joomla/releases/tag/v2.0.1</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/pcrt/italia-theme-for-joomla/releases/download/v2.0.1/joomla-italia-theme-2.0.1.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Protocolli Creativi (pcrt)</maintainer>
+        <maintainerurl>https://www.protocollicreativi.it</maintainerurl>
+        <targetplatform name="joomla" version="(5\.[0-9]+|6\.[0-9]+)"/>
+        <php_minimum>8.1</php_minimum>
+    </update>
+</updates>

@@ -1,0 +1,133 @@
+# Scheda per il catalogo del software open source di Developers Italia
+# (https://developers.italia.it/it/software) — standard publiccode.yml.
+# Validare con: https://publiccode-editor.developers.italia.it/
+# Va aggiornata a ogni release: softwareVersion e releaseDate.
+
+publiccodeYmlVersion: "0"
+
+name: Italia Theme for Joomla
+url: "https://github.com/pcrt/italia-theme-for-joomla"
+landingURL: "https://www.protocollicreativi.it/joomla-italia-theme-template-open-source-joomla-5-6"
+softwareVersion: "2.0.1"
+releaseDate: "2026-11-07"
+
+platforms:
+  - web
+
+categories:
+  - website-builder
+  - content-management
+
+developmentStatus: stable
+
+softwareType: "addon"
+
+intendedAudience:
+  scope:
+    - education
+  countries:
+    - IT
+
+description:
+  it:
+    localisedName: Italia Theme for Joomla
+    shortDescription: >-
+      Template Joomla 5 e 6 per i siti delle scuole, conforme al modello di sito
+      scolastico di Designers Italia e basato su Bootstrap Italia.
+    longDescription: |
+      Il **modello di sito per le scuole** di Designers Italia definisce struttura dei
+      contenuti, impostazione grafica e accessibilità dei siti degli istituti scolastici.
+      Il modello è stato pubblicato come tema WordPress; **Italia Theme for Joomla** (fino
+      alla versione 2.0.0 Joomla Italia Theme) porta lo stesso modello su Joomla, così le scuole che usano Joomla possono aderirvi senza
+      cambiare piattaforma, senza rifare i contenuti e senza formare di nuovo il personale.
+
+      Il tema usa solo ciò che Joomla offre già (articoli, categorie, menu, moduli, campi
+      personalizzati) e ne cambia la presentazione:
+
+      - chi sa usare il pannello di Joomla sa gestire il sito;
+      - disinstallando il tema i contenuti restano intatti;
+      - gli aggiornamenti di Joomla non hanno sorprese, perché il tema non sostituisce
+        parti del core.
+
+      Fornisce le pagine previste dal modello (schede servizio, luoghi, strutture
+      organizzative, documenti, notizie, circolari, eventi, schede didattiche, progetti)
+      con i relativi campi già configurati, 27 posizioni modulo e otto tipi di voce di menu
+      dedicati. Usa i componenti di Bootstrap Italia e serve i font in locale, senza
+      richieste a servizi esterni.
+
+      La versione 2.0 è compatibile con Joomla 5 e 6, corregge diversi problemi di
+      accessibilità (WCAG 2.1 AA) emersi dalle verifiche su 36 pagine del sito
+      dimostrativo, elimina 44 file ridondanti e include 15 guide in italiano per chi
+      gestisce il sito e per chi lavora sul codice. Per i siti ancora su Joomla 4 resta
+      disponibile la versione 1.2.1.
+
+      È stato verificato insieme ad Albo Pretorio Online, il componente open source per
+      l'albo online degli enti pubblici: i due progetti sono indipendenti e possono essere
+      usati anche separatamente.
+    documentation: "https://github.com/pcrt/italia-theme-for-joomla/blob/main/doc/doc.md"
+    features:
+      - Modello di sito delle scuole di Designers Italia su Joomla 5 e 6
+      - Componenti Bootstrap Italia e font serviti in locale
+      - Solo funzioni del core di Joomla, nessun componente aggiuntivo
+      - Pagine e campi del modello già configurati
+      - 27 posizioni modulo e 8 tipi di voce di menu dedicati
+      - Correzioni di accessibilità secondo le WCAG 2.1 AA
+      - 15 guide in italiano per redattori e sviluppatori
+    screenshots:
+      - "https://www.protocollicreativi.it/images/joomla-italia-theme-1024.jpg"
+  en:
+    localisedName: Italia Theme for Joomla
+    shortDescription: >-
+      Joomla 5 and 6 template for Italian school websites, following the Designers
+      Italia school model and built on Bootstrap Italia.
+    longDescription: |
+      The **Designers Italia school model** defines the content structure, design and
+      accessibility of Italian school websites. It was published as a WordPress theme;
+      **Italia Theme for Joomla** (named Joomla Italia Theme up to version 2.0.0) brings
+      the same model to Joomla, so schools running Joomla
+      can adopt it without changing CMS, rebuilding content or retraining staff.
+
+      The template only uses Joomla core features (articles, categories, menus, modules,
+      custom fields) and changes how they are presented. It provides all the page types of
+      the model with their fields already configured, 27 module positions and eight
+      dedicated menu item types, Bootstrap Italia components and locally served fonts.
+
+      Version 2.0 supports Joomla 5 and 6, fixes several WCAG 2.1 AA accessibility issues,
+      removes 44 redundant files and ships 15 guides in Italian. Version 1.2.1 remains
+      available for sites still on Joomla 4.
+    documentation: "https://github.com/pcrt/italia-theme-for-joomla/blob/main/doc/doc.md"
+    features:
+      - Designers Italia school model on Joomla 5 and 6
+      - Bootstrap Italia components and locally served fonts
+      - Joomla core features only, no extra components
+      - Model pages and fields already configured
+      - Accessibility fixes following WCAG 2.1 AA
+      - 15 guides in Italian for editors and developers
+
+legal:
+  license: AGPL-3.0-or-later
+  mainCopyrightOwner: Eddy Prosperi - Protocolli Creativi srl
+
+maintenance:
+  type: "internal"
+  contacts:
+    - name: Eddy Prosperi
+      email: "info@protocollicreativi.it"
+      affiliation: Protocolli Creativi
+
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - it
+    - en
+
+dependsOn:
+  open:
+    - name: Joomla
+      versionMin: "5.0"
+    - name: PHP
+      versionMin: "8.1"
+
+organisation:
+  uri: "https://www.protocollicreativi.it"
+  name: Protocolli Creativi S.r.l.

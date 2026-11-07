@@ -7,8 +7,8 @@
 	<authorUrl>https://www.protocollicreativi.it</authorUrl>
 	<copyright>Copyright (C) 2023 Protocolli Creativi.</copyright>
 	<license>GNU Affero General Public License v3.0 or later; see LICENSE</license>
-	<version>2.0.0</version>
-	<description>Template Joomla basato su Design Italia</description>
+	<version>2.0.1</version>
+	<description>Italia Theme for Joomla: template per i siti delle scuole basato sul modello Designers Italia.</description>
 	<inheritable>1</inheritable>
 	<files>
 		<folder>html</folder>
@@ -384,4 +384,7 @@
 			</fieldset>
 		</fields>
 	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="Italia Theme for Joomla">https://raw.githubusercontent.com/pcrt/italia-theme-for-joomla/main/updateserver/template.xml</server>
+	</updateservers>
 </extension>

@@ -13,8 +13,11 @@ defined('_JEXEC') or die;
 use Joomla\Component\Fields\Administrator\Helper\FieldsHelper;
 
 $document = \Joomla\CMS\Factory::getApplication()->getDocument();
-$document->addScript( 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js');
-$document->addStyleSheet( 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+// Leaflet 1.9.4 servito dal tema (registrato in joomla.asset.json): nessuna richiesta a CDN esterne.
+// Senza defer: lo script inline della mappa, più sotto, usa L subito.
+$document->getWebAssetManager()
+    ->useStyle('template.css.leaflet')
+    ->useScript('template.js.leaflet');
 
 
 if (!$context || empty($field->subform_rows)) {

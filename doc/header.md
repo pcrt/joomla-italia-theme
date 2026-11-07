@@ -9,7 +9,7 @@ Una parte si configura nei **parametri del tema**, un'altra tramite i **moduli**
 
 ## Il logo e i testi
 
-**Dove:** Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Joomla Italia Theme* ▸
+**Dove:** Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Italia Theme for Joomla* (`joomla-italia-theme`) ▸
 scheda **Logo**.
 
 | Campo | Cosa fa |

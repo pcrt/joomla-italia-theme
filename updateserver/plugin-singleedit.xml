@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Update server del plugin facoltativo "Sistema - Modifica singola dal sito",
+  distribuito insieme a Italia Theme for Joomla. Referenziato da singleedit.xml.
+-->
+<updates>
+    <update>
+        <name>Sistema - Modifica singola dal sito</name>
+        <description>Impedisce a due redattori di modificare lo stesso contenuto nello stesso momento</description>
+        <element>singleedit</element>
+        <type>plugin</type>
+        <folder>system</folder>
+        <client>site</client>
+        <version>1.0.1</version>
+        <infourl title="Italia Theme for Joomla">https://github.com/pcrt/italia-theme-for-joomla/releases/tag/v2.0.1</infourl>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/pcrt/italia-theme-for-joomla/releases/download/v2.0.1/plg_system_singleedit-1.0.1.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Protocolli Creativi (pcrt)</maintainer>
+        <maintainerurl>https://www.protocollicreativi.it</maintainerurl>
+        <targetplatform name="joomla" version="(5\.[0-9]+|6\.[0-9]+)"/>
+        <php_minimum>8.1</php_minimum>
+    </update>
+</updates>

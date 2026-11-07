@@ -52,6 +52,8 @@ $baseImagePath= Uri::root(false) . "media/templates/site/joomla-italia-theme/ima
                 ?>
             </div>
             <div class="card-article-content">
+                <?php // Il layout blog è quello delle categorie servizi: l'App di valutazione cerca qui i link alle schede.
+                $this->item->jitDataElement = 'service-link'; ?>
                 <?php echo LayoutHelper::render('joomla.content.blog_style_j4a_item_title_servizio', $this->item); ?>
 
                 <?php if ($canEdit) : ?>

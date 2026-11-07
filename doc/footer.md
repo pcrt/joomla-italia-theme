@@ -7,7 +7,7 @@ Europa, copyright) e i **moduli** posizionati nelle quattro colonne.
 
 ## Logo e testi
 
-**Dove:** Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Joomla Italia Theme* ▸
+**Dove:** Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Italia Theme for Joomla* (`joomla-italia-theme`) ▸
 scheda **Logo footer**.
 
 | Campo | Cosa fa |

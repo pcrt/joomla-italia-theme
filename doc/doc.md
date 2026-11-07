@@ -1,4 +1,4 @@
-# Documentazione — Joomla Italia Theme
+# Documentazione — Italia Theme for Joomla
 
 Guida all'uso e alla configurazione del tema per i siti scolastici, basato sul
 **modello di sito istituzionale delle scuole** di Designers Italia e su

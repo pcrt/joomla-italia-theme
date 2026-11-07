@@ -112,7 +112,7 @@ $isExpired         = !is_null($this->item->publish_down) && $this->item->publish
                     <div itemprop="articleBody" class="com-content-article__body">
 
                     <?php 
-                        if ($this->item->title = 'Licenza dei contenuti'){
+                        if ($this->item->title === 'Licenza dei contenuti'){
                             $descrizione = $this->item->text;
                             $dom = new DOMDocument('1.0','UTF-8');
                             $dom->loadHTML(mb_convert_encoding($descrizione, 'HTML-ENTITIES', "UTF-8"));

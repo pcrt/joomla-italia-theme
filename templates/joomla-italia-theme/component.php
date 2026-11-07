@@ -12,7 +12,7 @@ $input = $app->getInput();
 $wa    = $this->getWebAssetManager();
 $menu  = $app->getMenu()->getActive();
 $isHomePage = ($menu->home);
-$credits = '<a href="https://www.protocollicreativi.it" target="_blank" rel="nofollow" title="Protocolli Creativi is a Joomla Provider">Made with love Joomla Italia Theme by Protocolli Creativi</a>';
+$credits = '<a href="https://www.protocollicreativi.it" target="_blank" rel="nofollow" title="Protocolli Creativi is a Joomla Provider">Made with love Italia Theme for Joomla by Protocolli Creativi</a>';
 $pageclass = $menu !== null ? $menu->getParams()->get('pageclass_sfx', '') : '';
 
 $this->setMetaData('viewport', 'width=device-width, initial-scale=1, minimum-scale=1');

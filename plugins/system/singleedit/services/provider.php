@@ -16,7 +16,7 @@ use Joomla\CMS\Plugin\PluginHelper;
 use Joomla\DI\Container;
 use Joomla\DI\ServiceProviderInterface;
 use Joomla\Event\DispatcherInterface;
-use Joomla\Plugin\System\Singleedit\Extension\SingleEdit;
+use Pcrt\Plugin\System\Singleedit\Extension\SingleEdit;
 
 return new class () implements ServiceProviderInterface {
     /**

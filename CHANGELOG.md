@@ -12,7 +12,6 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
   non ci sono altri contenuti ad avanzamento automatico.
 
 ### Da fare — privacy e prestazioni
-- Puntare Leaflet alle copie locali invece che a `unpkg.com` (le copie sono già incluse)
 - Caricare jQuery e il carosello solo in homepage (~130 KB per pagina interna)
 - Proteggere `$menu` null in `index.php` riga 14
 
@@ -21,6 +20,62 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 - Estrarre il blocco "indice della pagina" (ripetuto in 7 override)
 - Portare in `Text::_()` le ~143 stringhe italiane scritte a mano nei PHP
 - Spostare in CSS i 51 colori scritti a mano nei PHP
+
+---
+
+## [2.0.1] — 2026-11-07
+
+Correzioni emerse dall'App di valutazione dei modelli (pa-website-validator-ng
+1.1.40, modello scuole) eseguita sul sito demo, più preparazione alla
+distribuzione: nome, update server, catalogo Developers Italia.
+
+### Corretto — App di valutazione dei modelli
+- **Le schede servizio non venivano trovate dal validatore.** L'App apre le
+  pagine delle tipologie di servizio (`data-element="service-type"`) e lì cerca i
+  link alle schede (`data-element="service-link"`). Le card delle categorie
+  servizi avevano solo `itemprop="url"`: il validatore non trovava nessun servizio
+  e segnava come falliti font (C.SC.1.1), Bootstrap Italia (C.SC.1.2) e cookie
+  (C.SC.2.3), anche se tutte le pagine analizzate li rispettavano. Ora `blog_item.php`
+  passa `service-link` al layout del titolo, che lo stampa solo quando il chiamante
+  lo richiede (lo stesso layout è usato anche da notizie, eventi, luoghi, documenti).
+- **Note legali: `=` al posto di `===`.** In `article/note-legali.php` la
+  condizione sul titolo "Licenza dei contenuti" era un'assegnazione: risultava
+  sempre vera e sovrascriveva il titolo dell'articolo.
+
+### Nome
+- **Il tema si chiama ora "Italia Theme for Joomla"** (prima "Joomla Italia Theme").
+  La policy del marchio Joomla non ammette nomi di prodotto che iniziano con
+  "Joomla"; la forma indicata è "… for Joomla". Cambia solo il nome visibile
+  (README, documentazione, crediti nel footer, update server, `publiccode.yml`).
+  Il nome tecnico resta `joomla-italia-theme` — cartella, elemento, percorso dei
+  media — così l'aggiornamento dalla 2.0.0 conserva stili e impostazioni.
+  Aggiunta nel README la nota sui marchi.
+
+### Privacy
+- **Leaflet non viene più caricato da `unpkg.com`.** La mappa delle sedi usava
+  la CDN esterna: ogni visita a una scheda luogo inviava l'indirizzo IP del
+  visitatore a un servizio terzo. Ora usa le copie di Leaflet 1.9.4 già incluse
+  nel tema, registrate in `joomla.asset.json` (`template.css.leaflet`,
+  `template.js.leaflet`). Aggiunte in `css/images/` le icone del segnaposto e
+  dei livelli, che il CSS locale cerca lì e che prima mancavano.
+  Le tessere della mappa restano servite da OpenStreetMap.
+
+### Aggiornamenti
+- **Update server** per il template e per il plugin `singleedit`
+  (`updateserver/template.xml`, `updateserver/plugin-singleedit.xml`, pubblicati
+  via GitHub raw). Da questa versione Joomla segnala da solo le nuove release in
+  *Sistema ▸ Aggiornamenti*. Il `targetplatform` limita gli aggiornamenti a
+  Joomla 5 e 6.
+
+### Catalogo Developers Italia
+- Aggiunto `publiccode.yml` in radice, validato con `publiccode-parser-go` 5.4.3,
+  per l'inserimento nel catalogo del software open source per la PA. Da
+  aggiornare a ogni release (`softwareVersion`, `releaseDate`).
+
+### Plugin `singleedit` 1.0.1
+- **Namespace da `Joomla\Plugin\System\Singleedit` a `Pcrt\Plugin\System\Singleedit`.**
+  Il prefisso `Joomla\` è riservato al core: un'estensione di terze parti non
+  deve usarlo. Nessun effetto sul funzionamento.
 
 ---
 
@@ -35,7 +90,7 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ### Licenza
 - Dichiarazione allineata a **GNU AGPL v3.0 o successiva**, la stessa del progetto
-  originale [pcrt/joomla-italia-theme](https://github.com/pcrt/joomla-italia-theme).
+  originale [pcrt/italia-theme-for-joomla](https://github.com/pcrt/italia-theme-for-joomla).
   Il manifesto dichiarava `<license>Protocolli Creativi</license>`, che non è una
   licenza valida. Corretto in `templateDetails.xml`, nel manifesto del plugin
   `singleedit` e nel file `LICENSE`; aggiunto `AUTHORS`.

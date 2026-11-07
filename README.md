@@ -1,18 +1,19 @@
-# Protocolli Creativi
+# Italia Theme for Joomla
 
 ## Tema Joomla per la Scuola
 
-**Joomla Italia Theme** è il tema Joomla che permette di aderire al
+**Italia Theme for Joomla** è il tema Joomla che permette di aderire al
 [modello di sito istituzionale delle scuole](https://designers.italia.it/modello/scuole/)
-di Designers Italia.
-Esempio demo:https://jit.protocollicreativi.it/
+di Designers Italia. Fino alla versione 2.0.0 si chiamava *Joomla Italia Theme*.
+
+Demo: https://jit.protocollicreativi.it/
 
 Sviluppato da [Protocolli Creativi](https://www.protocollicreativi.it),
 con l'ausilio di strumenti di intelligenza artificiale.
 
 | | |
 |---|---|
-| **Versione** | 2.0.0 |
+| **Versione** | 2.0.1 |
 | **Joomla** | 5.x e 6.x — verificato su 5.4.7 e 6.1.2 |
 | **PHP** | 8.1 o superiore — verificato su 8.4 |
 | **Licenza** | [GNU AGPL v3](LICENSE) o successiva |
@@ -21,11 +22,11 @@ con l'ausilio di strumenti di intelligenza artificiale.
 
 > ## ⚠️ Quale versione ti serve
 >
-> **Questa versione (2.0.0) richiede Joomla 5 o Joomla 6.** Non è compatibile con
+> **Le versioni 2.x richiedono Joomla 5 o Joomla 6.** Non è compatibile con
 > Joomla 4: non installarla su un sito Joomla 4, non funzionerebbe.
 >
 > **Se il tuo sito è ancora su Joomla 4**, usa la versione **1.2.1**, disponibile
-> nella pagina [Releases](https://github.com/pcrt/joomla-italia-theme/releases)
+> nella pagina [Releases](https://github.com/pcrt/italia-theme-for-joomla/releases)
 > di questo repository insieme a tutte le versioni precedenti. Restano scaricabili
 > e continueranno a funzionare.
 >
@@ -40,6 +41,7 @@ con l'ausilio di strumenti di intelligenza artificiale.
 - [Da dove iniziare](#da-dove-iniziare)
 - [Installazione](#installazione)
 - [Configurazione del template](#configurazione-del-template)
+- [Conformità al modello scuole](#conformità-al-modello-scuole)
 - [Accessibilità](#accessibilità)
 - [La community di riferimento](#la-community-di-riferimento)
 - [F.A.Q.](#faq)
@@ -55,7 +57,7 @@ Il modello di sito istituzionale delle scuole nasce nel progetto **Designers
 Italia** per dare agli istituti un sito coerente, accessibile e riconoscibile,
 senza che ogni scuola debba riprogettare tutto da capo.
 
-Il modello è stato pubblicato come tema WordPress. **Joomla Italia Theme porta lo
+Il modello è stato pubblicato come tema WordPress. **Italia Theme for Joomla porta lo
 stesso modello su Joomla**: stessa struttura di contenuti, stessa impostazione
 grafica, stessi componenti di [Bootstrap Italia](https://italia.github.io/bootstrap-italia/).
 
@@ -116,7 +118,7 @@ momento — utile dove più redattori lavorano insieme, inutile se il sito lo ag
 una persona sola.
 
 Poi dal pannello: **Sistema ▸ Installa ▸ Carica file di pacchetto**, e infine
-**Sistema ▸ Stili del sito** per impostare *Joomla Italia Theme* come predefinito.
+**Sistema ▸ Stili del sito** per impostare *Italia Theme for Joomla* (`joomla-italia-theme`) come predefinito.
 
 La procedura completa, con i requisiti e le verifiche successive, è in
 **[doc/installazione.md](doc/installazione.md)**.
@@ -129,7 +131,7 @@ La procedura completa, con i requisiti e le verifiche successive, è in
 
 ## Configurazione del template
 
-**Sistema ▸ Stili del sito ▸ Joomla Italia Theme**
+**Sistema ▸ Stili del sito ▸ Italia Theme for Joomla** (`joomla-italia-theme`)
 
 I parametri sono divisi in sei gruppi:
 
@@ -148,6 +150,24 @@ conoscere il codice per configurare il sito.
 Il tema mette a disposizione **27 posizioni modulo** e otto tipi di voce di menu
 dedicati alle sezioni del modello. Dettagli in [doc/moduli.md](doc/moduli.md) e
 [doc/menu.md](doc/menu.md).
+
+---
+
+## Conformità al modello scuole
+
+Il sito demo, con la versione 2.0.1, è stato verificato il 15 ottobre 2026 con
+l'[App di valutazione dei modelli](https://github.com/italia/pa-website-validator-ng)
+del Dipartimento per la Trasformazione Digitale (versione 1.1.40, modello scuole):
+
+- **8 criteri di conformità obbligatori su 9 superati**: font, Bootstrap Italia,
+  tema CMS, menu di primo e secondo livello, informativa privacy, cookie, HTTPS;
+- l'unico non superato è la **dichiarazione di accessibilità**, che ogni scuola
+  deve pubblicare sul sito di AgID e collegare dal footer: non dipende dal tema;
+- tra le raccomandazioni risultano superate schede servizio, vocabolari
+  controllati e licenza dei contenuti (CC-BY 4.0 nelle note legali).
+
+Il risultato dipende anche da come vengono inseriti i contenuti: la guida
+[doc/doc.md](doc/doc.md) indica l'alberatura e i layout da usare.
 
 ---
 
@@ -299,3 +319,10 @@ Questo programma è software libero: puoi redistribuirlo e modificarlo secondo i
 termini della GNU AGPL pubblicata dalla Free Software Foundation. È distribuito
 nella speranza che sia utile, ma **SENZA ALCUNA GARANZIA**.
 Vedi <http://www.gnu.org/licenses/>.
+
+## Marchi
+
+Joomla!® è un marchio registrato di Open Source Matters, Inc. negli Stati Uniti
+e in altri Paesi. Italia Theme for Joomla è un progetto indipendente di
+Protocolli Creativi: non è affiliato né approvato da Open Source Matters o dal
+Joomla! Project.

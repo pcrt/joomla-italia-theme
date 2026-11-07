@@ -21,13 +21,17 @@ $canEdit = $displayData->params->get('access-edit');
 
 $currentDate = Factory::getDate()->format('Y-m-d H:i:s');
 $link = RouteHelper::getArticleRoute($displayData->slug, $displayData->catid, $displayData->language);
+
+// data-element per l'App di valutazione dei modelli: lo imposta il layout chiamante
+// (es. 'service-link' dalle categorie servizi), perché questo titolo è condiviso da più tipi di pagina.
+$dataElement = !empty($displayData->jitDataElement) ? ' data-element="' . $this->escape($displayData->jitDataElement) . '"' : '';
 ?>
 <?php if ($displayData->state == 0 || $params->get('show_title') || ($params->get('show_author') && !empty($displayData->author))) : ?>
 
         <?php if ($params->get('show_title')) : ?>
             <h2 class="h3">
                 <?php if ($params->get('link_titles') && ($params->get('access-view') || $params->get('show_noauth', '0') == '1')) : ?>
-                    <a href="<?php echo Route::_($link); ?>" itemprop="url">
+                    <a href="<?php echo Route::_($link); ?>" itemprop="url"<?php echo $dataElement; ?>>
                         <?php echo $this->escape($displayData->title); ?>
                     </a>
                 <?php else : ?>

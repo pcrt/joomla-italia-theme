@@ -5,11 +5,14 @@
     <creationDate>2026-07-16</creationDate>
     <copyright>(C) Protocolli Creativi</copyright>
     <license>GNU Affero General Public License v3.0 or later; see LICENSE</license>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Consente di aprire una sola scheda di modifica alla volta dal frontend (articoli e moduli). Se ne e gia aperta una, blocca l'apertura di una seconda con un avviso.</description>
-    <namespace path="src">Joomla\Plugin\System\Singleedit</namespace>
+    <namespace path="src">Pcrt\Plugin\System\Singleedit</namespace>
     <files>
         <folder plugin="singleedit">services</folder>
         <folder>src</folder>
     </files>
+    <updateservers>
+        <server type="extension" priority="1" name="Italia Theme for Joomla - Modifica singola">https://raw.githubusercontent.com/pcrt/italia-theme-for-joomla/main/updateserver/plugin-singleedit.xml</server>
+    </updateservers>
 </extension>
