@@ -809,10 +809,6 @@ article{
 }
 
 
-.mod-news .scheda-item p{
-    text-transform:lowercase;
-}
-
 .mod-news .scheda-item p::first-letter{
     text-transform:uppercase;
 }
