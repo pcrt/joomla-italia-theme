@@ -100,6 +100,28 @@ a:hover{
     background:#fff!important;
 }
 
+/* Issue #57: su mobile Bootstrap Italia fissa l'altezza dell'intestazione a 80px, ma il tema
+   mostra tre righe di testo accanto al logo (sopra il titolo, titolo, sottotitolo): le righe
+   uscivano dal riquadro e finivano sotto la barra blu e sopra il menu. L'intestazione si adatta
+   al contenuto e il testo e' piu' piccolo, come nel modello delle scuole. */
+@media(max-width:991.98px){
+    .it-header-center-wrapper{
+        height: auto;
+        min-height: 80px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .it-brand-title{
+        font-size: 1.1em;
+    }
+
+    .it-header-center-wrapper .it-header-center-content-wrapper .it-brand-wrapper a .it-brand-tagline{
+        font-size: .778em;
+        line-height: 1.2;
+    }
+}
+
 @media(min-width:992px){
     .it-header-navbar-wrapper {
         background:#fff!important;
