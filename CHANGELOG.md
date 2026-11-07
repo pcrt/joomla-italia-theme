@@ -24,7 +24,7 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ---
 
-## [2.0.3] — Non rilasciato
+## [2.0.3] — 2026-11-07
 
 Correzioni fatte direttamente sul sito demo (jit.protocollicreativi.it) e mai
 riportate nel repository, recuperate confrontando il template del demo con la 2.0.2.
