@@ -6,6 +6,16 @@
  *
  * @copyright   (C) 2009 Open Source Matters, Inc. <https://www.joomla.org>
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ *
+ * Menu principale del tema (Bootstrap Italia): tendine a più livelli e, per le voci di
+ * primo livello con classe CSS "megamenu", una tendina a colonne.
+ *
+ * Issue #89: la vecchia versione gestiva il megamenu con contatori separati dal resto del
+ * ciclo e non prevedeva voci di terzo livello dentro il megamenu: quelle voci sparivano, la
+ * colonna veniva chiusa prima del tempo e tutte le voci successive del menu finivano dentro
+ * la tendina rotta (nel sito si vedeva solo la prima voce). Ora il ciclo segue le proprietà
+ * deeper/shallower/level_diff che Joomla calcola per ogni voce, come nel layout del core,
+ * e il megamenu aggiunge soltanto le colonne al secondo livello.
  */
 
 defined('_JEXEC') or die;
@@ -18,42 +28,38 @@ $wa->registerAndUseScript('mod_menu', 'mod_menu/menu.min.js', [], ['type' => 'mo
 $wa->registerAndUseScript('mod_menu', 'mod_menu/menu-es5.min.js', [], ['nomodule' => true, 'defer' => true]);
 
 $id = '';
-$count_childitem = 0;
-$contofigli = 0;
-$countereee = 0;
-$countduecol=0;
-$oldparent_id=0;
-
-
 
 if ($tagId = $params->get('tag_id', '')) {
     $id = ' id="' . $tagId . '"';
 }
 
-$arrayfigli =[];
-$arraypadri =[];
+// Numero di figli diretti di ogni voce: serve al megamenu per dividere le voci in colonne.
+$figli = [];
 
+foreach ($list as $item) {
+    $figli[$item->parent_id] = ($figli[$item->parent_id] ?? 0) + 1;
+}
 
+// Stato del megamenu che stiamo percorrendo: id della voce di primo livello (0 = nessuno),
+// numero di figli diretti, quanti ne abbiamo già stampati e quante voci stanno in una colonna.
+$megaId         = 0;
+$megaTotale     = 0;
+$megaStampati   = 0;
+$megaPerColonna = 0;
+
+// data-element della tendina di primo livello, per l'App di valutazione dei modelli.
+$dataElementTendina = [
+    'Scuola'    => 'school-submenu',
+    'Servizi'   => 'services-submenu',
+    'Didattica' => 'teaching-submenu',
+    'Novità'    => 'news-submenu',
+];
 
 ?>
-
-<ul <?php echo $id; ?> class="navbar-nav <?php echo $class_sfx; ?>" data-element="menu">
-
-<?php foreach ($list as $i => $item) {
-    if (array_key_exists($item->parent_id, $arrayfigli)== false){
-        $arrayfigli[$item->parent_id] = 0;
-    }
-    $arrayfigli[$item->parent_id] += 1;
-} 
-
-
-$parent_id = null;
-$megamenu = false;
-
-foreach ($list as $i => &$item) {
+<ul<?php echo $id; ?> class="navbar-nav <?php echo $class_sfx; ?>" data-element="menu">
+<?php foreach ($list as $i => $item) :
     $itemParams = $item->getParams();
     $class      = 'nav-item item-' . $item->id;
-
 
     if ($item->id == $default_id) {
         $class .= ' default';
@@ -87,9 +93,34 @@ foreach ($list as $i => &$item) {
         $class .= ' parent';
     }
 
-if( ($item->level == 1 && $item->anchor_css !== 'megamenu') || $item->level > 1 && $megamenu == false) {
-    $parent_id = $item->id;
-    $megamenu = false;
+    if ($item->level == 1) {
+        // Voce di primo livello: è un megamenu se ha la classe CSS "megamenu" e dei figli.
+        $isMega = $item->deeper && in_array('megamenu', preg_split('/\s+/', trim((string) $item->anchor_css)), true);
+        $megaId = $isMega ? (int) $item->id : 0;
+
+        if ($isMega) {
+            $megaTotale     = $figli[$item->id] ?? 0;
+            $megaStampati   = 0;
+            $megaPerColonna = $megaTotale <= 8 ? 4 : (int) ceil($megaTotale / 3);
+            $class         .= ' level1 megamenu';
+        }
+    } elseif ($megaId) {
+        $class .= ' level' . $item->level . ($item->anchor_css !== '' ? ' ' . $item->anchor_css : '');
+
+        if ($item->level == 2) {
+            // Secondo livello del megamenu: apre una nuova colonna ogni $megaPerColonna voci.
+            if ($megaStampati > 0 && $megaStampati % $megaPerColonna === 0) {
+                echo '</ul></div></div>';
+            }
+
+            if ($megaStampati % $megaPerColonna === 0) {
+                $classeColonna = ($megaStampati === 0 && $megaTotale <= 8) ? ' pe-lg-5' : '';
+                echo '<div class="col-12 col-lg-4' . $classeColonna . '"><div class="link-list-wrapper"><ul class="link-list">';
+            }
+
+            $megaStampati++;
+        }
+    }
 
     echo '<li class="' . $class . '">';
 
@@ -106,150 +137,36 @@ if( ($item->level == 1 && $item->anchor_css !== 'megamenu') || $item->level > 1 
             break;
     endswitch;
 
-    // The next item is deeper.
-    if ($item->deeper && $item->level == 1) {
-        
-
-    //Validazione app scuole aggiungo data element alla lista in base alla voce di menu di appartenenza
-        
-        switch ($item->title) :
-            case 'Scuola':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="school-submenu">';
-            break;
-            case 'Servizi':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="services-submenu">';
-            break;
-            case 'Didattica':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="teaching-submenu">';
-            break;
-            case 'Novità':
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="news-submenu">';
-            break;
-        default: 
-                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="custom-submenu">';
-        endswitch;
-        
-        
-        
-    
-    } elseif ($item->deeper && $item->level >= 2) {
-        echo '<div><div class="link-list-wrapper"><ul class="link-list">';
+    if ($item->deeper) {
+        // La voce successiva è più profonda: si apre un elenco figlio.
+        if ($item->level == 1) {
+            if ($megaId) {
+                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $item->id . '"><div class="row">';
+            } else {
+                $dataElement = $dataElementTendina[$item->title] ?? 'custom-submenu';
+                echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $item->id . '"><div class="link-list-wrapper"><ul class="link-list" data-element="' . $dataElement . '">';
+            }
+        } else {
+            echo '<div><div class="link-list-wrapper"><ul class="link-list">';
+        }
     } elseif ($item->shallower) {
-        // The next item is shallower.
+        // La voce successiva è meno profonda: si chiude un elenco per ogni livello risalito.
         echo '</li>';
-        echo str_repeat('</ul></div></div></li>', $item->level_diff);
+
+        for ($d = 0; $d < $item->level_diff; $d++) {
+            $livelloChiuso = $item->level - $d;
+
+            if ($megaId && $livelloChiuso == 2) {
+                // Fine del megamenu: colonna, riga, tendina e voce di primo livello.
+                echo '</ul></div></div></div></div></li>';
+                $megaId = 0;
+            } else {
+                echo '</ul></div></div></li>';
+            }
+        }
     } else {
-        // The next item is on the same level.
+        // La voce successiva è allo stesso livello.
         echo '</li>';
     }
-
-}
-    
-    
-if ($item->level == 1 && $item->anchor_css == 'megamenu') {
-        
-        $parent_id = $item->id;
-        $megamenu = true;
-
-        echo '<li class="nav-item ' . $class . ' level' . $item->level . ' ' . $item->anchor_css . '">';
-
-        switch ($item->type) :
-        case 'separator':
-        case 'component':
-        case 'heading':
-        case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-            break;
-
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_url');
-            break;
-        endswitch;
-        
-        echo '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown' . $parent_id . '"><div class="row">';
-    
-}
-
-if ($oldparent_id != $parent_id)
-    {
-        $countduecol=0;
-        $countereee=0;
-    }
-
-
-if ($item->level == 2 && $megamenu == true){
-
-    
-    $allchild = $arrayfigli[$parent_id];
-    $figliqui = $arrayfigli[$parent_id] / 3;
-    $intero =  intval($figliqui);
-    $restoitem = $arrayfigli[$parent_id] % 3;
-   
-  
-   
-    if ($allchild <=8){
-        
-
-        if($countduecol == 0) { 
-            echo '<div class="col-12 col-lg-4 '.$countduecol.' pe-lg-5"><div class="link-list-wrapper"><ul class="link-list">';
-        } elseif ($countduecol == 4){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        }
-        
-        ++$countduecol;
-
-    } else {
-        if( $countereee == 0 ) { 
-            echo '<div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        } else if(($restoitem == 0 && $countereee == $intero) || ($restoitem == 1 && $countereee == $intero + 1) || ($restoitem == 2 && $countereee == $intero + 1)){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-                
-        }  else if (($restoitem == 0 && $countereee == $intero * 2) || ($restoitem == 1 && $countereee == ($intero * 2+ 1) + $restoitem) || ($restoitem == 2 && $countereee == $intero * 2 + $restoitem)){
-            echo '</ul></div></div><div class="col-12 col-lg-4"><div class="link-list-wrapper"><ul class="link-list">';
-        } 
-    }
-            
-    echo '<li class="nav-item ' . $class . ' level' . $item->level . ' ' . $item->anchor_css . '">';
-
-    switch ($item->type) :
-        case 'separator':
-        case 'component':
-        case 'heading':
-        case 'url':
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_' . $item->type);
-            break;
-
-        default:
-            require ModuleHelper::getLayoutPath('mod_menu', 'default_url');
-            break;
-    endswitch;
-
-    echo '</li>';
-
-    if ($allchild <=8){
-
-        if ($countduecol == $allchild){
-        echo '</ul></div></div>'; 
-        }
-
-    } elseif( $countereee +1 == $arrayfigli[$parent_id] ) {
-        echo '</ul></div></div>'; 
-    }
-
-    ++$countereee;
-
-}
-
-if ($item->parent_id !== $parent_id && $megamenu == true && $item->id !== $parent_id) {
-    echo '</div></div>'; 
-}
-
-if ($item->parent_id !== $parent_id && $item->id !== $parent_id){
-    $parent_id = $item->id;
-    $megamenu = false;
-}
-
-$oldparent_id = $parent_id;
-
-}
-?></ul>
+endforeach; ?>
+</ul>
