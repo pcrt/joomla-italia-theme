@@ -14,10 +14,26 @@ use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Router\Route;
 use Joomla\CMS\Uri\Uri;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
 
 if (!$list) {
     return;
+}
+
+// Issue #98: il layout "offerta-formativa-tutti" imposta $mostraTuttiPercorsi e richiama questo
+// file: in fondo compare il pulsante verso la categoria che contiene i percorsi di studio
+// (la categoria madre di quelle raggruppate nel modulo). Con il layout normale non cambia nulla.
+$linkTuttiPercorsi = '';
+
+if (!empty($mostraTuttiPercorsi)) {
+    $primoGruppo = reset($list);
+    $primoItem   = is_array($primoGruppo) ? reset($primoGruppo) : $primoGruppo;
+
+    if (is_object($primoItem) && !empty($primoItem->parent_id)) {
+        $linkTuttiPercorsi = Route::_(RouteHelper::getCategoryRoute($primoItem->parent_id, $primoItem->parent_language ?? ''));
+    }
 }
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
@@ -120,5 +136,10 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                 </div>
             </div>
         </div>
+        <?php if ($linkTuttiPercorsi !== '') : ?>
+            <div class="text-center pb-5 tutti-percorsi">
+                <a href="<?php echo $linkTuttiPercorsi; ?>" class="btn btn-outline-white"><?php echo Text::_('TPL_PCRT_TUTTI_PERCORSI'); ?></a>
+            </div>
+        <?php endif; ?>
     </div>
 </section>
