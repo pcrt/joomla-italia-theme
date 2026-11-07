@@ -31,6 +31,9 @@ $wa->usePreset('template.joomla-italia-theme')
 	 ->useStyle('template.css.pcrt-jit')
 	 ->useStyle('css.table')
 	 ->useScript('template.js.jquery362');
+
+// user.css e user.js del sito, se esistono (issue #47)
+require __DIR__ . '/includes/user_assets.php';
 ?>
 
 <!DOCTYPE html>

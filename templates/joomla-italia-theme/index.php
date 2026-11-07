@@ -118,6 +118,9 @@ $wa->usePreset('template.joomla-italia-theme')
          ["template.js.carousel"]
      );
 
+// user.css e user.js del sito, se esistono (issue #47)
+require __DIR__ . '/includes/user_assets.php';
+
 // Evita il DOPPIO Bootstrap sulla stessa pagina. Il bundle di Bootstrap Italia contiene
 // gia' Bootstrap 5 (collapse, dropdown...); alcune pagine di componente (es. modifica di un
 // modulo dal sito) e le estensioni di terze parti (issue #88, es. iCagenda) fanno caricare a

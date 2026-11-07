@@ -393,6 +393,12 @@
 					types="images"
 					default=""
 				/>
+				<field
+					name="notaUserAssets"
+					type="note"
+					label="TPL_PCRT_USER_ASSETS_LABEL"
+					description="TPL_PCRT_USER_ASSETS_DESC"
+				/>
 			</fieldset>
 		</fields>
 	</config>
