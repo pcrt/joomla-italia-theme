@@ -639,8 +639,11 @@ a.bg-bluelectric:focus,a.bg-bluelectric:hover,button.bg-bluelectric:focus,button
     color: #fff;
 }
 
+/* Issue #45: la finestra modale "Stampa / Condividi" aveva lo sfondo nero pieno al posto
+   dell'oscuramento trasparente di Bootstrap Italia (il backdrop e' disattivato in pcrt-jit.css
+   e la finestra stessa fa da sfondo). */
 .modal.fade.show{
-    background-color: #000;
+    background-color: rgba(0, 0, 0, .6);
 }
 
 .modal.modal-actions .modal-dialog {
