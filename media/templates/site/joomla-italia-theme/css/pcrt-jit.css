@@ -322,7 +322,13 @@ article{
     flex-shrink: 0;
     position: relative;
     z-index: 0;
-    min-height: 240px;
+    /* Altezza fissa, non minima: con min-height una foto verticale faceva
+       crescere la scheda (misurato: 428px contro i 240px delle altre nella
+       pagina Studenti). La regola che limita l'altezza (.card.card-article figure)
+       e' scritta per un elemento <figure> che in queste schede non esiste, quindi
+       non si applicava mai. Con height fissa e object-fit: cover sull'immagine,
+       qualunque foto viene ritagliata nello stesso riquadro. */
+    height: 240px;
     overflow: hidden;
     background-color: #e7eaed;
 }
