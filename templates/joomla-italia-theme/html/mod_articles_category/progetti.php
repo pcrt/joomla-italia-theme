@@ -22,6 +22,10 @@ if (!$list) {
 }
 $countcat =0;
 
+// Issue #61: il layout "progetti-noveditutti" imposta $nascondiVediTutti e richiama questo file:
+// i collegamenti "Vedi tutti" non vengono stampati (utile quando il modulo mette insieme
+// categorie di sezioni diverse e il collegamento porterebbe alla categoria sbagliata).
+
 ?>
 
 <?php if ((bool) $module->showtitle) : ?>
@@ -46,7 +50,7 @@ $countcat =0;
                         //print_r($list);
                         $m=0;
                         foreach ($list[$groupName] as $link_group):
-                            if($m == 0): ?>
+                            if($m == 0 && empty($nascondiVediTutti)): ?>
                             <a href="<?php echo $link_group->category_route; ?>" title="Vai alla pagina <?php echo Text::_($groupName); ?>" class="view-all d-block py-3"><strong>Vedi tutti</strong></a>
                         <?php 
                             endif;

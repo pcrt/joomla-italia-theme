@@ -64,6 +64,8 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
         </div>
     </div>
 <?php endforeach; ?>
+<?php if (empty($nascondiVediTutti)) : // Issue #61: nascosto dalle varianti "-noveditutti" ?>
 <div class="col-12 text-center">
     <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($items[0]->parent_id, $items[0]->parent_language)); ?>" class="view-all"><strong>Vedi tutti</strong></a>
 </div>
+<?php endif; ?>
