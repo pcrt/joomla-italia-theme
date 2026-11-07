@@ -16,10 +16,61 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 - Proteggere `$menu` null in `index.php` riga 14
 
 ### Da fare — manutenibilità
-- Estrarre il blocco di condivisione social (ripetuto in 10 override di articolo)
+- Estrarre il blocco di condivisione social (ripetuto in 11 override di articolo,
+  `note-legali` compreso dalla 2.0.2)
 - Estrarre il blocco "indice della pagina" (ripetuto in 7 override)
 - Portare in `Text::_()` le ~143 stringhe italiane scritte a mano nei PHP
 - Spostare in CSS i 51 colori scritti a mano nei PHP
+
+---
+
+## [2.0.2] — 2026-11-07
+
+Rilascio di manutenzione: correzioni dei bug confermati nel codice dal riesame
+delle issue di GitHub del 7 novembre 2026. Nessuna novità funzionale; il plugin
+`singleedit` resta alla 1.0.1.
+
+### Corretto
+- **#64** Date di pubblicazione e revisione — i layout articolo (novità, circolari,
+  eventi, servizio, documenti della scuola, strutture, progetti, schede didattiche)
+  sovrascrivevano `publish_up` e `modified` con la data del giorno: ogni articolo
+  risultava pubblicato e revisionato "oggi". Ora "Pubblicato" mostra la data di
+  pubblicazione reale (`publish_up`, in mancanza `created`) nel fuso orario del sito
+  e "Revisione" compare solo quando la data di modifica è successiva; il calcolo è
+  in `article/_condiviso/date_articolo.php`. Formato `d.m.Y` e markup invariati.
+- **#78** `Undefined variable $item_active` — `mod_menu/_condiviso/url.php` usava la
+  variabile senza inizializzarla (warning PHP con la segnalazione errori attiva);
+  ora è inizializzata come in `component.php`, senza cambiare il markup.
+- **#74** Intro delle card del modulo news in minuscolo — la regola
+  `.mod-news .scheda-item p { text-transform: lowercase }` trasformava in minuscolo
+  sigle e nomi propri; rimossa (resta la maiuscola sulla prima lettera).
+- **#15** Descrizione della categoria "La scuola" senza formattazione —
+  `category/scuola.php` la stampava con `strip_tags` dentro l'`h1`: grassetti e
+  paragrafi sparivano. Ora l'`h1` è il titolo della categoria (o l'intestazione della
+  voce di menu) e la descrizione è stampata sotto come HTML, con lo stesso markup
+  degli altri layout di categoria.
+- **#44** Note legali senza "Stampa / Condividi" — `article/note-legali.php` non aveva
+  il blocco presente negli altri layout articolo; aggiunto nella stessa posizione
+  (colonna laterale), con la pagina divisa nelle due colonne di `default.php`.
+- **#82** Timeline: "Anno Evento" non stampato — `layouts/com_fields/field/timeline.php`
+  stampava solo i primi tre sottocampi dell'elenco "Storia della Scuola". Ora stampa i
+  quattro sottocampi documentati (Anno, Mese Anno, Titolo, Descrizione), riconosciuti
+  dal nome del campo e non più dalla posizione; se i nomi non corrispondono vale
+  l'ordine di inserimento come prima.
+- **#3** "Dati Copyright" senza formattazione — il campo è di tipo editor, ma il
+  manifesto lo filtrava come testo semplice (`filter="string"`, che toglie ogni tag al
+  salvataggio) e `index.php` lo stampava con `htmlspecialchars`. Ora il filtro è
+  `safehtml` (script ed eventi rimossi) e il footer lo stampa come HTML. Per vedere
+  la formattazione va salvato di nuovo lo stile del template.
+- **#79** Carosello in homepage con una sola slide — `loop: true` clonava l'unica slide
+  e mostrava le frecce; ora il loop è attivo solo con più di una slide.
+
+### Verificato senza modifiche
+- **#80** Colore della sezione Novità — il layout "Blog per le categorie della sezione
+  Novità" (`category/novita.php` → `_condiviso/layout_eventi_novita.php`) usa già il
+  verde `bg-greendark`, lo stesso delle schede notizia; il viola `bg-purplelight` resta
+  solo nel "Blog di categoria" standard (`category/blog.php`), pensato per i Servizi.
+  Se la voce di menu Novità appare viola, usa il layout sbagliato: vedi `doc/menu.md`.
 
 ---
 
