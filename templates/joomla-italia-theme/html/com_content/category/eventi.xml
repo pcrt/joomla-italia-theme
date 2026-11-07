@@ -192,6 +192,16 @@
 			/>
 
 			<field
+				name="num_per_sottocategoria"
+				type="number"
+				label="Articoli per ogni sottocategoria"
+				description="Nelle pagine con sottocategorie: numero massimo di articoli mostrati in ogni sezione, i più recenti per primi, letti categoria per categoria. Vuoto o 0: come prima, cioè gli articoli della pagina (Numero articoli introduttivi) divisi per sottocategoria."
+				filter="integer"
+				default=""
+				parentclass="stack span-1"
+			/>
+
+			<field
 				name="num_intro_articles"
 				type="number"
 				label="JGLOBAL_NUM_INTRO_ARTICLES_LABEL"

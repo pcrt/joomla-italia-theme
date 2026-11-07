@@ -47,6 +47,10 @@ require __DIR__ . '/_condiviso/titolo_pagina.php';
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
+// Issue #76: "Articoli per ogni sottocategoria" (voce di menu); 0 = articoli della pagina come prima
+require __DIR__ . '/_condiviso/voci_sottocategoria.php';
+$perSottocategoria = (int) $this->params->get('num_per_sottocategoria', 0);
+
 ?>
 
 <div class="blogj4a blog-category" itemscope itemtype="https://schema.org/Blog">
@@ -109,20 +113,15 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <h2 class="h4"><?php echo $kategorie->title; ?></h2>
                             </div>
                             <div class="row">
-                                <?php $kategoriereset = 0; ?>
-                                <?php if (!empty($this->intro_items)) : ?>
-                                    <?php foreach ($this->intro_items as $key => &$item) : ?>
-                                        <?php if ($item->catid !== $kategorie->id) {
-                                                continue;
-                                        } ?>
-                                        <div class="col-md-4 col-12 mb-4">
-                                                <?php
-                                                $this->item = & $item;
-                                                echo $this->loadTemplate('itemsottocategorie');
-                                                ?>
-                                        </div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
+                                <?php $vociSezione = jit_voci_sottocategoria($kategorie, $perSottocategoria, (array) $this->intro_items, $this->params); ?>
+                                <?php foreach ($vociSezione as $key => $item) : ?>
+                                    <div class="col-md-4 col-12 mb-4">
+                                            <?php
+                                            $this->item = $item;
+                                            echo $this->loadTemplate('itemsottocategorie');
+                                            ?>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
                             <div class="text-center pt-3">
                                 <a href="<?php echo Route::_(RouteHelper::getCategoryRoute($kategorie->id, $kategorie->language)); ?>" class="text-underline small">Vedi tutti</a>

@@ -47,6 +47,10 @@ require __DIR__ . '/_condiviso/titolo_pagina.php';
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
+// Issue #76: "Articoli per ogni sottocategoria" (voce di menu); 0 = articoli della pagina come prima
+require __DIR__ . '/_condiviso/voci_sottocategoria.php';
+$perSottocategoria = (int) $this->params->get('num_per_sottocategoria', 0);
+
 ?>
 
 <div class="blog-didattica" itemscope itemtype="https://schema.org/Blog">
@@ -140,15 +144,11 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                             </div>
                             <div class="col-lg-8 col-xl-7 offset-lg-1 pt84">
                                 <?php foreach ($this->children[$this->category->id] as $kategorie) : ?>
-                                    <?php if (!empty($this->intro_items)) : ?>
-                                        <?php foreach ($this->intro_items as $key => &$item) :
-                                                if ($item->catid !== $kategorie->id) {
-                                                    continue;
-                                                }
-                                                $this->item = & $item;
-                                                echo $this->loadTemplate('item');
-                                            endforeach; ?>
-                                    <?php endif; ?>
+                                    <?php $vociSezione = jit_voci_sottocategoria($kategorie, $perSottocategoria, (array) $this->intro_items, $this->params); ?>
+                                    <?php foreach ($vociSezione as $key => $item) :
+                                            $this->item = $item;
+                                            echo $this->loadTemplate('item');
+                                        endforeach; ?>
                                 <?php endforeach ?>
                             </div>
                         </div>

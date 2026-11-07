@@ -47,6 +47,10 @@ require __DIR__ . '/titolo_pagina.php';
 
 $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/images/";
 
+// Issue #76: "Articoli per ogni sottocategoria" (voce di menu); 0 = articoli della pagina come prima
+require __DIR__ . '/voci_sottocategoria.php';
+$perSottocategoria = (int) $this->params->get('num_per_sottocategoria', 0);
+
 ?>
 
 <div class="blogj4a blog-category" itemscope itemtype="https://schema.org/Blog">
@@ -106,16 +110,13 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                 <h2 class="h4"><?php echo $kategorie->title; ?></h2>
                             </div>
                             <div class="row">
-                                <?php $kategoriereset = 0; ?>
-                                <?php if (!empty($this->intro_items)) : ?>
+                                <?php $vociSezione = jit_voci_sottocategoria($kategorie, $perSottocategoria, (array) $this->intro_items, $this->params); ?>
+                                <?php if (!empty($vociSezione)) : ?>
                                     <?php if ($kategorie->title == "Notizie") {?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellonotizie">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        }
-                                                        $this->item = & $item;
+                                                <?php foreach ($vociSezione as $key => $item) :
+                                                        $this->item = $item;
                                                         echo $this->loadTemplate('itemsottocategorie');
                                                     endforeach; ?>
                                             </div>
@@ -123,32 +124,18 @@ $baseImagePath = Uri::root(false) . "media/templates/site/joomla-italia-theme/im
                                     <?php } elseif ($kategorie->title == "Circolari") { ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="carosellocircolari">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        } ?>
-
-                                                            <?php
-                                                            $this->item = & $item;
-                                                            echo $this->loadTemplate('itemsottocategorienoimg'); ?>
-
-                                                    <?php
+                                                <?php foreach ($vociSezione as $key => $item) :
+                                                            $this->item = $item;
+                                                            echo $this->loadTemplate('itemsottocategorienoimg');
                                                     endforeach; ?>
                                             </div>
                                         </div>
                                     <?php } elseif ($kategorie->title == "Eventi") { ?>
                                         <div class="col-12">
                                             <div class="owl-carousel owl-theme carousel-theme" id="caroselloeventi">
-                                                <?php foreach ($this->intro_items as $key => &$item) :
-                                                        if ($item->catid !== $kategorie->id) {
-                                                            continue;
-                                                        } ?>
-
-                                                            <?php
-                                                            $this->item = & $item;
-                                                            echo $this->loadTemplate('itemsottocategorienoimg'); ?>
-
-                                                    <?php
+                                                <?php foreach ($vociSezione as $key => $item) :
+                                                            $this->item = $item;
+                                                            echo $this->loadTemplate('itemsottocategorienoimg');
                                                     endforeach; ?>
                                             </div>
                                         </div>
