@@ -378,7 +378,7 @@
 					type="editor"
 					default=""
 					label="Dati Copyright"
-					filter="string"
+					filter="safehtml"
 					showon="showCopyright:1"
 				/>
 			</fieldset>

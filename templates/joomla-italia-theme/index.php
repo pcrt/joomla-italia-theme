@@ -337,7 +337,17 @@ try {
   <div class="copyright mt-3 py-4 mt-lg-5">
     <div class="container text-center">
     <?php if ($this->params->get('showCopyright')) : ?>
-        <p><?= htmlspecialchars($this->params->get('descCopyright')); ?></p>
+        <?php // Issue #3: "Dati Copyright" e' un campo editor. Prima il manifesto lo filtrava come testo
+              // semplice (filter="string", che toglie ogni tag al salvataggio) e qui veniva stampato con
+              // htmlspecialchars: la formattazione andava persa. Ora il filtro e' "safehtml" e il valore,
+              // gia' ripulito, e' stampato come HTML. I valori salvati prima della 2.0.2 sono testo
+              // semplice: li racchiudiamo in <p> come prima. ?>
+        <?php $descCopyright = (string) $this->params->get('descCopyright'); ?>
+        <?php if (stripos($descCopyright, '<p') === false) : ?>
+        <p><?= $descCopyright; ?></p>
+        <?php else : ?>
+        <?= $descCopyright; ?>
+        <?php endif; ?>
     <?php endif ?>
     </div>
   </div>
