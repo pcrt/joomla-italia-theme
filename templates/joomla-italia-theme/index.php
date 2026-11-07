@@ -42,6 +42,21 @@ $wa->usePreset('template.joomla-italia-theme')
      ->useScript('template.js.jti')
      ->addInlineScript(
          "
+		 /* Issue #75: finestre modali dentro l'intestazione, vanno spostate nel body.
+		    Scorrendo la pagina l'intestazione diventa una barra fissa
+		    (position: fixed) e si rimpicciolisce. Una finestra modale che si
+		    trova dentro di essa resta intrappolata in quel contesto: cliccando
+		    la lente di ricerca la finestra si apriva con dimensione zero,
+		    quindi invisibile, mentre il blocco dello scorrimento scattava lo
+		    stesso. Risultato: pagina bloccata e nessuna ricerca.
+		    Rotto da 1200px in su, funzionante sotto. Spostando la finestra
+		    come figlia diretta del body funziona a ogni larghezza. */
+		 document.addEventListener('DOMContentLoaded', function () {
+			 document.querySelectorAll('header .modal').forEach(function (m) {
+				 document.body.appendChild(m);
+			 });
+		 });
+
 		 window.addEventListener('load', function(event) {
 			 $('#slideheader').owlCarousel({
 	         loop:" . ($bannerSlides > 1 ? 'true' : 'false') . ",
