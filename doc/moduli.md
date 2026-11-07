@@ -99,6 +99,20 @@ il modulo quel campo tornava al valore predefinito e la home perdeva l'ordine.
 
 ---
 
+## Layout alternativi dei moduli (dalla 2.0.4)
+
+Si scelgono in **Avanzate ▸ Layout** del modulo. Quelli esistenti non cambiano.
+
+| Modulo | Layout | Cosa fa |
+|---|---|---|
+| Articoli - Categoria | `news-noveditutti`, `progetti-noveditutti` | come `news` e `progetti`, ma senza i collegamenti **Vedi tutti**: utili quando il modulo mette insieme categorie di sezioni diverse e il collegamento porterebbe alla categoria del primo articolo |
+| Articoli - Categoria | `offerta-formativa-tutti` | come `offerta-formativa`, con in fondo il pulsante **Tutti i percorsi di studio** verso la categoria madre di quelle raggruppate nel modulo |
+| Accesso (mod_login) | `italia` | il modulo di accesso di Joomla con la grafica del modello, in una scheda centrata; pensato per le posizioni `below` e `user` |
+
+**Data di pubblicazione.** Nei layout `news`, `progetti`, `above` e `newshome` la
+data compare sotto ogni articolo se nel modulo è attivo **Mostra data** (scheda
+Opzioni), con il campo e il formato scelti lì. Spenta per impostazione predefinita.
+
 ## Aggiungere un modulo
 
 1. Pannello ▸ **Contenuti ▸ Moduli sito ▸ Nuovo**

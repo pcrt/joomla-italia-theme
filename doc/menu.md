@@ -70,6 +70,24 @@ layout delle notizie funziona, ma non mostrerà le date.
 
 Esistono anche i tipi standard di Joomla (*Blog di categoria*, *Elenco categoria*):
 funzionano, ma hanno l'aspetto generico, non quello del modello per le scuole.
+Dalla 2.0.4 l'*Elenco categoria* mostra le sottocategorie come schede (icona,
+numero di articoli, descrizione) e la voce *Lista di tutti i tag* ha un elenco a
+schede con la grafica del modello: le opzioni della voce di menu valgono come prima.
+
+### Articoli per ogni sottocategoria
+
+Le pagine di sezione con sottocategorie (Novità con Notizie, Circolari ed Eventi;
+le carte della scuola; i luoghi; l'organizzazione; la didattica) riempiono ogni
+sezione con gli articoli della pagina, cioè quelli entro **Numero articoli
+introduttivi** scelti su tutta la categoria, i più recenti per primi. Con molte
+notizie le sezioni Circolari ed Eventi restano vuote, e cambiano da una pagina
+all'altra della paginazione.
+
+Dalla 2.0.4 la voce di menu ha, nella scheda **Opzioni layout blog**, il campo
+**Articoli per ogni sottocategoria**: con un numero maggiore di zero ogni sezione
+legge i propri articoli categoria per categoria, i più recenti per primi, e la
+paginazione non serve più (puoi nasconderla e mettere a 0 *Numero di link*, per non
+avere in fondo l'elenco dei titoli avanzati). Vuoto o 0: tutto come prima.
 
 ---
 

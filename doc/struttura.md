@@ -6,8 +6,11 @@
 templates/joomla-italia-theme/
 ├── index.php               pagina completa (header, menu, hero, footer)
 ├── component.php           pagina "nuda" (stampa, finestre modali, iframe)
+├── error.php               pagina di errore (404, 403...) con la grafica del tema
+├── offline.php             pagina "sito offline" con modulo di accesso
+├── includes/               pezzi condivisi dalle quattro pagine (favicon, user.css/js)
 ├── templateDetails.xml     manifesto: versione, posizioni modulo, parametri
-├── joomla.asset.json       dichiarazione di css e js (14 asset)
+├── joomla.asset.json       dichiarazione di css e js (16 asset)
 ├── language/
 │   ├── it-IT/tpl_joomla-italia-theme.ini
 │   └── en-GB/tpl_joomla-italia-theme.ini
@@ -32,8 +35,8 @@ modulo di Joomla:
 | `com_content/article/` | pagine di articolo (10 varianti: notizie, eventi, servizi, documenti…) |
 | `com_content/category/` | pagine di categoria (blog, novità, eventi, didattica, luoghi, documenti, organizzazione) |
 | `com_content/categories/` | elenchi di categorie |
-| `com_tags/`, `com_finder/`, `com_contact/`, `com_users/` | tag, ricerca, contatti, area utente |
-| `mod_menu/`, `mod_articles_category/`, `mod_articles_latest/`, … | moduli |
+| `com_tags/`, `com_finder/`, `com_contact/`, `com_users/` | tag (singolo tag e lista di tutti i tag), ricerca, contatti, area utente |
+| `mod_menu/`, `mod_articles_category/`, `mod_articles_latest/`, `mod_login/`, … | moduli (`mod_login/italia.php` è un layout alternativo) |
 | `layouts/` | layout condivisi di Joomla, sovrascritti dove serve |
 | `plg_fields_*/` | resa dei campi personalizzati (mappe, subform, sql) |
 

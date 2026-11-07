@@ -150,7 +150,31 @@ considerare chiuso il lavoro.**
 
 ---
 
-## 8. Testi scritti a mano invece che tradotti
+## 8. Personalizzare senza toccare i file: `user.css` e `user.js`
+
+Dalla 2.0.4 `index.php`, `component.php`, `error.php` e `offline.php` caricano,
+**se esistono**, `media/templates/site/joomla-italia-theme/css/user.css` e
+`js/user.js` dopo tutti gli asset del tema (`includes/user_assets.php`). I due
+file non sono nel pacchetto, quindi un aggiornamento del tema non li sovrascrive.
+Prima di modificare `pcrt-*.css` chiediti se una regola in `user.css` non basta.
+
+## 9. Bootstrap e jQuery del core vengono disattivati di proposito
+
+Il bundle di Bootstrap Italia contiene già Bootstrap 5. Quando un'estensione (o una
+pagina di componente, come la modifica di un modulo dal sito) fa caricare a Joomla
+anche `media/vendor/bootstrap/js/collapse.min.js` o `dropdown.min.js`, due gestori
+sullo stesso `data-bs-toggle` fanno aprire e richiudere subito fisarmoniche e menu a
+tendina (issue #88). `index.php` registra un ascoltatore di `onBeforeCompileHead` —
+cioè dopo il rendering dei moduli, quando tutti gli asset sono noti — che disattiva
+quei due asset del core.
+
+Lo stesso ascoltatore, se un'estensione ha caricato jQuery del core (`jquery`),
+ridefinisce l'asset `template.js.jquery362` come segnaposto vuoto che dipende da
+quello: sulla pagina resta una sola jQuery e il carosello e `jti.js`, che dipendono
+dal segnaposto, finiscono dopo di lei. Per questo `jti.js` e lo script inline usano
+`jQuery` e non `$`: con `jquery-noconflict` del core `$` non esiste più.
+
+## 10. Testi scritti a mano invece che tradotti
 
 Il template usa correttamente `Text::_()` in 145 file, ma restano circa 143 punti con
 testo italiano scritto direttamente nel PHP ("Filtra per tipologia", "Stampa il

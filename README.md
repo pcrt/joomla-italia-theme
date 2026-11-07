@@ -155,7 +155,7 @@ La procedura completa, con i requisiti e le verifiche successive, è in
 
 **Sistema ▸ Stili del sito ▸ Italia Theme for Joomla** (`joomla-italia-theme`)
 
-I parametri sono divisi in sei gruppi:
+I parametri sono divisi in sette gruppi:
 
 | Gruppo | Cosa configura |
 |---|---|
@@ -164,7 +164,8 @@ I parametri sono divisi in sei gruppi:
 | **Social** | collegamenti ai profili social |
 | **Banner** | il carosello della homepage |
 | **Logo footer** | logo nel piè di pagina e logo dell'Unione Europea |
-| **Copyright** | il testo di copyright |
+| **Copyright** | il testo di copyright e la licenza dei documenti |
+| **Avanzate** | favicon e indicazioni per CSS e JavaScript personalizzati |
 
 I campi si mostrano e si nascondono a seconda delle scelte fatte: non serve
 conoscere il codice per configurare il sito.
@@ -259,6 +260,10 @@ completamente nelle tue mani: sono funzioni standard di Joomla.
 **No, se puoi evitarlo.** Modificare i file sovrascritti (`html/`) o i fogli di
 stile rende più difficili gli aggiornamenti futuri: le modifiche verrebbero
 sovrascritte, o andrebbero riapplicate a mano ogni volta.
+
+Per piccoli ritocchi di stile o di script non serve toccare il tema: se esistono,
+i file `media/templates/site/joomla-italia-theme/css/user.css` e `js/user.js`
+vengono caricati dopo gli asset del tema e gli aggiornamenti non li toccano.
 
 Se una personalizzazione ti serve davvero, leggi prima
 [doc/manutenzione.md](doc/manutenzione.md): documenta le convenzioni del tema — in

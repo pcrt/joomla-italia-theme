@@ -24,6 +24,95 @@ Formato ispirato a [Keep a Changelog](https://keepachangelog.com/it/1.1.0/).
 
 ---
 
+## [2.0.4] — non rilasciata
+
+Rilascio di manutenzione: riesame delle 24 issue aperte su GitHub al 7 novembre
+2026. Ogni correzione e ogni novità è stata riprodotta e verificata su **Joomla
+6.2.0 (PHP 8.4, MariaDB 11.8)** in Docker, con un sito costruito da zero: categorie, articoli,
+campi aggiuntivi, menu e moduli del modello. Nessuna libreria nuova, nessun CDN.
+I siti esistenti non cambiano comportamento se non per le correzioni: le novità
+sono tutte **opzionali** (parametri con il valore predefinito di prima, layout
+alternativi da scegliere nel modulo o nella voce di menu).
+
+### Corretto
+- **#89** Megamenu — con voci di terzo livello dentro una voce con classe
+  `megamenu`, `mod_menu/default.php` perdeva quelle voci, chiudeva la colonna prima
+  del tempo e trascinava tutte le voci successive dentro la tendina rotta: nel sito
+  restava visibile solo la prima voce. Il ciclo segue ora `deeper`/`shallower`/
+  `level_diff` di Joomla come il layout del core; il megamenu aggiunge solo le
+  colonne al secondo livello. Il markup delle tendine normali è invariato.
+- **#88** Conflitti con jQuery e Bootstrap caricati da estensioni di terze parti
+  (es. iCagenda) — i componenti Bootstrap del core (dropdown, collapse) si
+  sommavano a quelli del bundle di Bootstrap Italia: i menu a tendina si aprivano e
+  richiudevano subito. `index.php` li disattiva ora in `onBeforeCompileHead`, cioè
+  dopo il rendering dei moduli, e non solo per i componenti come faceva per
+  collapse. Se un'estensione carica jQuery del core, la copia 3.6.2 del tema diventa
+  un segnaposto che dipende da quella: una sola jQuery per pagina, con carosello e
+  `jti.js` in coda. `jti.js` e lo script inline usano `jQuery` e non `$`, così
+  funzionano anche con `jquery-noconflict`.
+- **#57** Titolo e sottotitolo dell'intestazione fuori dal riquadro su mobile —
+  sotto i 992px Bootstrap Italia fissa l'altezza dell'intestazione a 80px, ma il
+  tema vi mostra tre righe: uscivano dal riquadro. Ora l'intestazione si adatta al
+  contenuto e il testo è più piccolo.
+- **#45** Finestra "Stampa / Condividi" con lo sfondo nero pieno — la regola
+  `.modal.fade.show { background-color: #000 }` copriva la pagina di nero; ora è un
+  nero trasparente, come l'oscuramento di Bootstrap Italia.
+- Nei blog di sezione il confronto fra la categoria dell'articolo e la
+  sottocategoria è ora fra interi (prima era un `!==` fra valori letti dal
+  database, che possono essere stringhe o numeri a seconda del driver).
+
+### Aggiunto
+- **#60** Favicon personalizzata: scheda **Avanzate** dello stile ▸ *Favicon*
+  (ICO, PNG o SVG). Vuoto: l'icona predefinita di Joomla, come prima.
+- **#47** `user.css` e `user.js`: se esistono in
+  `media/templates/site/joomla-italia-theme/css/` e `js/` vengono caricati dopo
+  gli asset del tema; non fanno parte del pacchetto, gli aggiornamenti non li toccano.
+- **#53** `error.php`: pagina di errore con intestazione, menu, messaggio in base al
+  codice (404, 403, generico), pulsante per la homepage e piè di pagina; i moduli in
+  posizione `error-<codice>` sostituiscono il testo, come nel template di sistema.
+- **#54** `offline.php`: pagina "sito offline" con logo, messaggio di manutenzione
+  della Configurazione globale e modulo di accesso.
+- **#49** Layout `italia` per il modulo di accesso nativo (`mod_login`): scheda
+  centrata con la grafica del modello, per le posizioni `below` e `user`.
+- **#38** Icona degli allegati in base al tipo di file (layout `documento` dei
+  campi): PDF, Word/testi, fogli di calcolo, presentazioni, archivi, audio, video…
+- **#86** Parametro *Licenza dei documenti* (scheda Copyright): se compilato, le
+  schede delle Carte della scuola lo mostrano sotto le date di pubblicazione.
+- **#81** Data di pubblicazione nei layout `news`, `progetti`, `above` e `newshome`
+  del modulo elenco articoli, quando nel modulo è attivo *Mostra data*.
+- **#61** Layout `news-noveditutti` e `progetti-noveditutti`: come `news` e
+  `progetti` ma senza i collegamenti "Vedi tutti".
+- **#98** Layout `offerta-formativa-tutti`: come `offerta-formativa` con il
+  pulsante "Tutti i percorsi di studio" verso la categoria madre.
+- **#93** Sottocategorie dell'*Elenco categoria* come schede (icona cartella, numero
+  di articoli, descrizione, sottocategorie annidate).
+- **#95** Override per la voce di menu *Lista di tutti i tag*: elenco a schede con
+  filtro, numero per pagina e paginazione.
+- **#76** Parametro *Articoli per ogni sottocategoria* nelle voci di menu dei layout
+  novita, eventi, didattica, documenti, luoghi e organizzazione: ogni sezione legge
+  i propri articoli categoria per categoria, i più recenti per primi
+  (`_condiviso/voci_sottocategoria.php`). Vuoto o 0: come prima.
+
+### Verificato senza modifiche
+- **#41** Formattazione dell'editor principale non mantenuta — è il comportamento
+  del modello: il testo dell'editor principale è la descrizione breve mostrata
+  nell'intestazione, senza formattazione; il testo esteso va nel campo aggiuntivo
+  di tipo editor della categoria. Documentato in `doc/custom-field-articoli.md`.
+- **#37** Campi aggiuntivi di tipo editor che perdono la formattazione — dipende dal
+  *Filtro* del campo (Contenuti ▸ Campi ▸ Opzioni): con *Testo* Joomla toglie i tag
+  al salvataggio; va impostato *HTML sicuro*. Il tema stampa il valore così com'è.
+
+### Rimandato alla 2.1
+- **#63** timeline della pagina Scuola come nel modello WordPress, **#20** strutture
+  con più sedi (una mappa per sede), **#18** responsabili delle strutture, **#12**
+  accesso in finestra modale e pulsanti Accedi/Esci nella topbar.
+- **#25** aggiornamento di Bootstrap Italia (oggi 2.3.5, CSS e JS allineati): le
+  versioni 2.1x cambiano markup e classi di intestazione, menu, moduli e finestre
+  modali su cui poggiano gli override e i fogli di stile del tema; è un lavoro da
+  release dedicata con verifica di tutte le pagine, non da manutenzione.
+
+---
+
 ## [2.0.3] — 2026-11-07
 
 Correzioni fatte direttamente sul sito demo (jit.protocollicreativi.it) e mai

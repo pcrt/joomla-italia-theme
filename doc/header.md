@@ -29,6 +29,11 @@ Il logo e i testi insieme formano **un unico collegamento alla homepage**.
 > dell'istituto è già scritto accanto, dentro lo stesso collegamento: ripeterlo
 > farebbe sentire la stessa informazione due volte a chi usa uno screen reader.
 
+## La favicon
+
+Scheda **Avanzate** ▸ **Favicon** dello stile del template: ICO, PNG o SVG, quadrata,
+almeno 32×32 pixel. Vuoto: l'icona predefinita di Joomla.
+
 ## Il menu principale
 
 Non è un parametro del tema: è il **modulo** `Main Menu`, in posizione

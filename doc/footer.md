@@ -40,6 +40,7 @@ Scheda **Copyright**:
 |---|---|
 | **Inserisci copyright** | interruttore |
 | **Dati copyright** | editor di testo libero |
+| **Licenza dei documenti** | testo mostrato in fondo a ogni scheda delle Carte della scuola, sotto le date (es. la licenza Creative Commons Attribution 4.0 richiesta dal modello). Vuoto: nessun testo |
 
 Essendo un editor puoi inserire collegamenti — utile per privacy, note legali e
 dichiarazione di accessibilità.

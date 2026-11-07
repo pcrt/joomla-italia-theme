@@ -98,12 +98,30 @@ La scheda più ricca, dal modello dei servizi pubblici.
 | Tipo | Come funziona |
 |---|---|
 | **Testo / Area di testo** | testo semplice |
-| **Editor** | testo formattato, con grassetto e collegamenti |
+| **Editor** | testo formattato, con grassetto e collegamenti. In Contenuti ▸ Campi ▸ il campo ▸ **Opzioni ▸ Filtro** deve essere *HTML sicuro* (o *Nessun filtro*): con *Testo* Joomla toglie ogni tag al salvataggio e la formattazione sparisce |
 | **URL** | un indirizzo web completo, con `https://` |
 | **Calendario** | selettore di data |
 | **Media** | scelta di un'immagine dal Media manager |
 | **Subform** | **elenco ripetibile**: il pulsante *+* aggiunge una riga |
 | **SQL** | menu a tendina che elenca contenuti già presenti nel sito |
+
+### Il testo dell'editor principale è la descrizione breve
+
+Nelle schede del modello (notizie, circolari, eventi, servizi, documenti, luoghi,
+strutture, progetti, schede didattiche) il testo scritto nell'editor principale
+dell'articolo è usato come **descrizione breve** nell'intestazione della pagina,
+senza formattazione: una o due frasi che riassumono il contenuto. Il testo esteso,
+con paragrafi, elenchi e collegamenti, va nel campo aggiuntivo previsto per quella
+categoria (*Descrizione Notizie*, *Cos'è*, *Descrizione*…), che è di tipo Editor.
+Non è un difetto: è così che il modello distingue la descrizione dal contenuto.
+
+### Gli allegati
+
+Nei campi *Documenti* e *Allegati* (elenco ripetibile con una riga di tipo Editor e
+layout `documento`) ogni riga diventa una scheda con l'icona del tipo di file,
+riconosciuta dall'estensione del collegamento: PDF, Word e testi, fogli di calcolo,
+presentazioni, archivi compressi, audio, video. Senza un collegamento riconoscibile
+resta l'icona del PDF.
 
 ### I campi "SQL": i collegamenti fra contenuti
 

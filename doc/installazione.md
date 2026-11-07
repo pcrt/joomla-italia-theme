@@ -72,7 +72,7 @@ Aprire il sito e controllare che la grafica sia applicata.
 
 Pannello ▸ **Sistema ▸ Stili del sito** ▸ *Italia Theme for Joomla* (`joomla-italia-theme`).
 
-I parametri sono divisi in 6 gruppi:
+I parametri sono divisi in 7 gruppi:
 
 | Gruppo | Cosa configura |
 |---|---|
@@ -81,7 +81,36 @@ I parametri sono divisi in 6 gruppi:
 | `social` | collegamenti ai profili social |
 | `banner` | carosello della homepage |
 | `logofooter` | logo nel piè di pagina |
-| `copyright` | testo di copyright |
+| `copyright` | testo di copyright e licenza dei documenti (vedi [footer.md](footer.md)) |
+| `avanzate` | favicon personalizzata; indicazioni su `user.css` e `user.js` |
+
+### Favicon
+
+Scheda **Avanzate** ▸ **Favicon**: l'icona mostrata nella scheda del browser. Vanno
+bene ICO, PNG o SVG, quadrati, almeno 32×32 pixel; caricala con il Media manager
+come il logo. Se il campo è vuoto resta l'icona predefinita di Joomla.
+
+### CSS e JavaScript personalizzati
+
+Se esistono, il tema carica dopo i propri asset i file
+
+```
+media/templates/site/joomla-italia-theme/css/user.css
+media/templates/site/joomla-italia-theme/js/user.js
+```
+
+Non fanno parte del pacchetto: gli aggiornamenti del tema non li toccano. È il
+posto giusto per i ritocchi di stile, invece di modificare i fogli di stile del
+tema (vedi [manutenzione.md](manutenzione.md)).
+
+### Pagina di errore e sito offline
+
+Il tema fornisce `error.php` (errori 404, 403 e gli altri: intestazione con logo e
+menu, messaggio, pulsante per tornare alla homepage, piè di pagina) e `offline.php`
+(sito offline: logo, messaggio di manutenzione della Configurazione globale e
+modulo di accesso). Non c'è nulla da configurare: Joomla li usa da solo al posto
+delle pagine di sistema. Se esistono moduli nella posizione `error-404` (o
+`error-<codice>`), la pagina di errore mostra quelli al posto del testo.
 
 I campi si mostrano e nascondono a seconda delle scelte fatte, quindi non serve
 conoscere il codice per configurare il sito.
